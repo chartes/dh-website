@@ -59,3 +59,22 @@ a {
     text-decoration: none;
   }
 }
+
+.navbar-brand img {
+  height: 100px;
+  width: auto;
+  max-height: 100px;
+}
+
+// Taille et style du texte des liens du menu principal
+.navbar-nav .nav-item .nav-link {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
