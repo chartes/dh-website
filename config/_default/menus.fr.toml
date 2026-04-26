@@ -6,39 +6,34 @@ url = "about/"
 weight = 1
 
 [[main]]
-name = "L'équipe"
-url = "teacher/"
-weight = 2
-
-[[main]]
-name = "La formation"
+name = "Formation"
 url = "course/"
-weight = 3
+weight = 2
 
 [[main]]
 name = "Recherche"
 url = "research/"
-weight = 4
+weight = 3
 
 [[main]]
 name = "Projets"
 url = "projects/"
-weight = 5
+weight = 4
 
 [[main]]
 name = "Candidature"
 url = "candidature/"
-weight = 6
+weight = 5
 
 [[main]]
-name = "Alternance et stage"
+name = "Professionnel"
 url = "alternance/"
-weight = 7
+weight = 6
 
 [[main]]
 name = "Blog"
 url = "blog/"
-weight = 8
+weight = 7
 
 
 # footer menu
@@ -46,10 +41,6 @@ weight = 8
 [[footer]]
 name = "À propos"
 url = "about/"
-
-[[footer]]
-name = "L'équipe"
-url = "teacher/"
 
 [[footer]]
 name = "La formation"
