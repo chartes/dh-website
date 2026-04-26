@@ -1,4 +1,6 @@
 baseURL = "https://chartes.github.io/dh-website/"
+canonifyURLs = true
+relativeURLs = true
 languageCode = "fr-fr"
 title = "Master DH Chartes"
 theme = "educenter-hugo"
