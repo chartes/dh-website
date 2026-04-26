@@ -1,40 +1,20 @@
-################################# Slider #####################################
-slider:
+################################# Hero (élément fixe) #####################################
+hero:
   enable : true
   bg_image : "images/banner/banner-1.jpg"
-  slider_item:
-    # slider item loop
-    - title : "Votre brillant avenir est notre mission"
-      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam, quis nostrud exer"
-      animation_in : "left"
-      animation_out : "right"
-      # available animation : left, right, up, down
-      button:
-        enable : true
-        label : "Postuler maintenant"
-        link : "contact/"
+  title : "Master Humanités numériques"
+  subtitle : "École nationale des chartes – PSL"
+  content : "Une formation de pointe à la croisée des sciences humaines, de l'informatique et des humanités numériques."
+  button:
+    enable : true
+    label : "Candidater"
+    link : "candidature/"
 
-    # slider item loop
-    - title : "Votre brillant avenir est notre mission"
-      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam, quis nostrud exer"
-      animation_in : "left"
-      animation_out : "right"
-      # available animation : left, right, up, down
-      button:
-        enable : true
-        label : "Postuler"
-        link : "contact/"
-
-    # slider item loop
-    - title : "Votre brillant avenir est notre mission"
-      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam, quis nostrud exer"
-      animation_in : "left"
-      animation_out : "right"
-      # available animation : left, right, up, down
-      button:
-        enable : true
-        label : "Postuler"
-        link : "contact/"
+# Slider désactivé (remplacé par le bloc hero fixe ci-dessus)
+slider:
+  enable : false
+  bg_image : "images/banner/banner-1.jpg"
+  slider_item: []
 
 
 ############################### Banner feature ###############################

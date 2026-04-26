@@ -11,7 +11,7 @@ disableLanguages = ["en"]
 
 #################### default parameters ################################
 [params]
-logo = "images/Logo-chartes+PSL-coul_0.png"
+logo = "images/logo-enc-psl.png"
 # Meta data
 description = "Le site web du master DH de l'École nationale des chartes"
 author = "École nationale des chartes-PSL" #
