@@ -4,7 +4,7 @@ relativeURLs = true
 languageCode = "fr-fr"
 defaultContentLanguage = "fr"
 defaultContentLanguageInSubdir = false
-title = "Master Humanités numériques – École nationale des chartes"
+title = "Digital humanities @ Chartes"
 theme = "educenter-hugo"
 disableLanguages = ["en"]
 
