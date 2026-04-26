@@ -123,5 +123,7 @@ a {
 }
 
 .overlay {
+  &::before {
     opacity: 1;
   }
+}
