@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        {{ with .Params.image }}
+        {{ partial "image.html" (dict "Src" . "Alt" "projets" "Class" "img-fluid w-100 mb-4" ) }}
+        {{ end }}
+        {{ .Content }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

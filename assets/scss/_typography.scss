@@ -1,0 +1,61 @@
+/*  typography — charte École nationale des chartes – PSL
+    Titres : CartaNova (locale) / fallback serif
+    Paragraphes : Noto Sans
+*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@font-face {
+  font-family: 'CartaNova';
+  src: local('CartaNova'), local('CartaNova-Regular');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CartaNova';
+  src: local('CartaNova Italic'), local('CartaNova-Italic');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+body {
+  line-height: 1.5;
+  font-family: $primary-font;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  color: $text-color;
+}
+
+p, .paragraph {
+  font-weight: 400;
+  color: $text-color;
+  font-size: 16px;
+  line-height: 1.7;
+  font-family: $primary-font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $primary-color; // titres en rouge ENC, conformément à la charte web
+  font-family: $secondary-font;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1, .h1 { font-size: 56px; @include mobile { font-size: 40px; } }
+h2, .h2 { font-size: 38px; @include mobile { font-size: 28px; } }
+h3, .h3 { font-size: 26px; @include mobile { font-size: 22px; } }
+h4, .h4 { font-size: 22px; @include mobile { font-size: 18px; } }
+h5, .h5 { font-size: 18px; @include mobile { font-size: 16px; } }
+h6, .h6 { font-size: 16px; @include mobile { font-size: 14px; } }
+
+// Liens : rouge ENC, soulignement discret au survol
+a {
+  color: $primary-color;
+  &:hover, &:focus {
+    color: $secondary-color;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,85 @@
+<!-- footer -->
+<footer>
+  <!-- footer content -->
+  <div class="footer bg-footer section border-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-sm-12 mb-5 mb-lg-0">
+          <!-- logo -->
+          <a class="logo-footer" href="{{ site.BaseURL | relLangURL }}">
+            {{ partial "image.html" (dict "Src" site.Params.logo "Alt" site.Title "Class" "img-fluid mb-4") }}
+          </a>
+          <p class="text-color">
+            Master Humanités numériques<br>
+            École nationale des chartes – PSL<br>
+            65 rue de Richelieu, 75002 Paris
+          </p>
+        </div>
+        <!-- navigation -->
+        <div class="col-lg-3 col-sm-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-4 text-uppercase">Navigation</h4>
+          <ul class="list-unstyled">
+            {{ range first 4 site.Menus.footer }}
+            <li class="mb-3"><a class="text-color" href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+        <!-- navigation suite -->
+        <div class="col-lg-3 col-sm-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-4 text-uppercase">&nbsp;</h4>
+          <ul class="list-unstyled">
+            {{ range after 4 site.Menus.footer }}
+            <li class="mb-3"><a class="text-color" href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- copyright -->
+  <div class="copyright py-4 bg-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 text-md-left text-center">
+          <p class="mb-3 mb-md-0">{{ site.Params.copyright | markdownify }}</p>
+        </div>
+        <div class="col-md-5 text-md-right text-center">
+          <ul class="list-inline">
+            {{ range site.Params.social }}
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="{{ .link | safeURL }}"><i class="{{ .icon }} text-primary"></i></a></li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range site.Params.plugins.js}}
+<script src="{{ .link | absURL }}"></script>
+{{ end }}
+
+{{ "<!-- Main Script -->" | safeHTML }}
+{{ $script := resources.Get "js/script.js" | minify}}
+<script src="{{ $script.Permalink }}"></script>
+
+{{ "<!-- google analitycs -->" | safeHTML }}
+{{ with site.Params.google_analitycs_id}}
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '{{ . }}', 'auto');
+  ga('send', 'pageview');
+</script>
+{{ end }}

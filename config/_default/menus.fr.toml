@@ -1,4 +1,4 @@
-################### French navigation ####################
+################### Navigation principale ####################
 
 [[main]]
 name = "À propos"
@@ -6,69 +6,71 @@ url = "about/"
 weight = 1
 
 [[main]]
-name = "Cours"
-url = "course/"
+name = "L'équipe"
+url = "teacher/"
 weight = 2
 
 [[main]]
+name = "La formation"
+url = "course/"
 weight = 3
-name = "Pages"
-hasChildren = true
 
-  [[main]]
-  parent = "Pages"
-  name = "teacher"
-  url = "teacher/"
-
-  [[main]]
-  parent = "Pages"
-  name = "notice"
-  url = "notice/"
-
-  [[main]]
-  parent = "Pages"
-  name = "Évènement"
-  url = "event/"
-
-  [[main]]
-  parent = "Pages"
-  name = "Cursus"
-  url = "scholarship/"
-
-  [[main]]
-  parent = "Pages"
-  name = "research"
-  url = "research/"
-  
 [[main]]
-name = "blog"
-url = "blog/"
+name = "Recherche"
+url = "research/"
 weight = 4
-  
+
 [[main]]
-name = "Contact"
-url = "contact/"
+name = "Projets"
+url = "projects/"
 weight = 5
+
+[[main]]
+name = "Candidature"
+url = "candidature/"
+weight = 6
+
+[[main]]
+name = "Alternance et stage"
+url = "alternance/"
+weight = 7
+
+[[main]]
+name = "Blog"
+url = "blog/"
+weight = 8
 
 
 # footer menu
 
 [[footer]]
-name = "teacher"
+name = "À propos"
+url = "about/"
+
+[[footer]]
+name = "L'équipe"
 url = "teacher/"
 
 [[footer]]
-name = "notice"
-url = "notice/"
+name = "La formation"
+url = "course/"
 
 [[footer]]
-name = "event"
-url = "event/"
-
-[[footer]]
-name = "scholarship"
-url = "scholarship/"
-
-[[footer]]
-name = "research"
+name = "Recherche"
 url = "research/"
+
+[[footer]]
+name = "Projets"
+url = "projects/"
+
+[[footer]]
+name = "Candidature"
+url = "candidature/"
+
+[[footer]]
+name = "Alternance et stage"
+url = "alternance/"
+
+[[footer]]
+name = "Blog"
+url = "blog/"
