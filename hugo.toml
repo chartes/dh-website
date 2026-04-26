@@ -1,3 +1,8 @@
+baseURL = "https://chartes.github.io/dh-website/"
+languageCode = "fr-fr"
+title = "Master DH Chartes"
+theme = "educenter-hugo"
+
 
 #################### default parameters ################################
 [params]
