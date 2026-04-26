@@ -60,10 +60,15 @@ a {
   }
 }
 
-.navbar-brand img {
-  height: 100px;
-  width: auto;
-  max-height: 100px;
+// Logo : hauteur fixe, largeur strictement proportionnelle (pas d'étirement)
+.navbar-brand {
+  img {
+    height: 100px !important;
+    width: auto !important;
+    max-width: none !important; // neutralise .img-fluid (max-width:100%)
+    max-height: 100px;
+    object-fit: contain;
+  }
 }
 
 // Taille et style du texte des liens du menu principal
@@ -72,9 +77,44 @@ a {
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  white-space: nowrap; // évite que "À propos" passe sur deux lignes
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   FOOTER — couleur ENC bleu paon, hauteur réduite, texte blanc
+   ─────────────────────────────────────────────────────────────── */
+.bg-footer {
+  background-color: $secondary-color !important; // #00445e (bleu paon)
+}
+
+.footer {
+  padding-top: 60px !important;    // était 275px → bcp plus compact
+  padding-bottom: 40px !important;
+  color: $white;
+
+  p, li, address {
+    color: $white;
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.85);
+    &:hover {
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+
+  h4 {
+    color: $white !important;
+  }
+}
+
+.copyright p,
+.copyright {
+  color: rgba(255, 255, 255, 0.85);
 }
