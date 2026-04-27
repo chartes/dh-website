@@ -1,7 +1,7 @@
 ################################# Hero (élément fixe) #####################################
 hero:
   enable : true
-  bg_image : "images/banner/banner-1.jpg"
+  bg_image : "images/banniere.jpg"
   title : "Master Humanités numériques"
   subtitle : "École nationale des chartes – PSL"
   content : "Une formation de pointe à la croisée des sciences humaines, de l'informatique et des humanités numériques."
