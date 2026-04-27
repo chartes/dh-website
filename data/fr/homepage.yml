@@ -4,10 +4,10 @@ hero:
   bg_image : "images/banniere.jpg"
   title : "Humanités numériques"
   subtitle : "École nationale des chartes – PSL"
-  content : "Une équipe de recherche et de formation à la croisée des sciences humaines, de l'informatique et des sciences des données."
+  content : "Une équipe de recherche et de formation à la croisée des sciences humaines, de l'intelligence artificielle et de la datascience."
   button:
     enable : true
-    label : "Découvrir le master"
+    label : "Découvrir nos projets"
     link : "master/"
 
 
@@ -19,15 +19,15 @@ banner_feature:
   feature_item:
     - name : "Recherche"
       icon : "ti-book"
-      content : "Une équipe pluridisciplinaire qui développe des projets à la croisée des sciences humaines et des sciences des données."
+      content : "L'équipe est engagée dans plusieurs projets entre transmission de manuscrits, identification de faux, transcription automatiques, computer vision pour les données patrimoniales et LLM pour l'analyse des langues anciennes."
 
     - name : "Formation"
       icon : "ti-blackboard"
-      content : "Le master Humanités numériques de l'École nationale des chartes – PSL forme aux méthodes computationnelles."
+      content : "Master en sciences des données pour les humanités, le master Humanités numériques forme à l'intelligence artificielle appliqué aux sciences humaines."
 
     - name : "Projets"
       icon : "ti-agenda"
-      content : "Édition numérique, traitement automatique des langues anciennes, vision par ordinateur appliquée au patrimoine."
+      content : "Édition numérique, traitement automatique des langues anciennes, vision par ordinateur appliquée au patrimoine, transmission des textes."
 
     - name : "Diffusion"
       icon : "ti-write"
