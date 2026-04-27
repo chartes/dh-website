@@ -62,7 +62,6 @@ a {
 
 // Logo : hauteur fixe, largeur strictement proportionnelle (pas d'étirement)
 .navbar-brand {
-  margin-left: -40px; // ← décalage du logo vers la gauche (augmenter pour aller plus loin)
   @media (max-width: 991px) { margin-left: 0; } // pas de décalage en mobile
 
   img {
