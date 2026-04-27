@@ -87,6 +87,14 @@ a {
   padding-bottom: 30px;
 }
 
+// Étend le rouge du menu jusqu'au bord droit de la fenêtre (sinon bande blanche à droite
+// du .container Bootstrap). Box-shadow : couvre la marge sans modifier la mise en page.
+@media (min-width: 992px) {
+  .navbar-nav {
+    box-shadow: 100vw 0 0 0 #{$primary-color};
+  }
+}
+
 /* ───────────────────────────────────────────────────────────────
    FOOTER — couleur ENC bleu paon, hauteur réduite, texte blanc
    ─────────────────────────────────────────────────────────────── */
