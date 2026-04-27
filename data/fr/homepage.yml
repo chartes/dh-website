@@ -11,6 +11,29 @@ hero:
     link : "master/"
 
 
+############################### Banner feature ###############################
+# Section qui chevauche légèrement le hero (margin-top: -100px sur .feature-blocks)
+banner_feature:
+  enable : true
+  image : "images/banner/banner-feature.png"
+  feature_item:
+    - name : "Recherche"
+      icon : "ti-book"
+      content : "Une équipe pluridisciplinaire qui développe des projets à la croisée des sciences humaines et des sciences des données."
+
+    - name : "Formation"
+      icon : "ti-blackboard"
+      content : "Le master Humanités numériques de l'École nationale des chartes – PSL forme aux méthodes computationnelles."
+
+    - name : "Projets"
+      icon : "ti-agenda"
+      content : "Édition numérique, traitement automatique des langues anciennes, vision par ordinateur appliquée au patrimoine."
+
+    - name : "Diffusion"
+      icon : "ti-write"
+      content : "Conférences, séminaires et publications pour faire dialoguer humanités, informatique et patrimoine."
+
+
 ############################## About ##################################
 about:
   enable : true
