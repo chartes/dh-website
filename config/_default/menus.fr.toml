@@ -1,48 +1,66 @@
 ################### Navigation principale ####################
 
 [[main]]
-name = "Accueil"
-url = "/"
+name = "À propos"
+url = "about/"
 weight = 1
 
 [[main]]
-name = "L'équipe"
-url = "teacher/"
+name = "Formation"
+url = "course/"
 weight = 2
 
 [[main]]
-name = "Master HN"
-url = "course/"
+name = "Recherche"
+url = "research/"
 weight = 3
 
 [[main]]
-name = "Actualités scientifiques"
-url = "research/"
+name = "Projets"
+url = "projects/"
 weight = 4
+
+[[main]]
+name = "Candidature"
+url = "candidature/"
+weight = 5
+
+[[main]]
+name = "Professionnel"
+url = "alternance/"
+weight = 6
 
 [[main]]
 name = "Blog"
 url = "blog/"
-weight = 5
+weight = 7
 
 
 # footer menu
 
 [[footer]]
-name = "Accueil"
-url = "/"
+name = "À propos"
+url = "about/"
 
 [[footer]]
-name = "L'équipe"
-url = "teacher/"
-
-[[footer]]
-name = "Master HN"
+name = "La formation"
 url = "course/"
 
 [[footer]]
-name = "Actualités scientifiques"
+name = "Recherche"
 url = "research/"
+
+[[footer]]
+name = "Projets"
+url = "projects/"
+
+[[footer]]
+name = "Candidature"
+url = "candidature/"
+
+[[footer]]
+name = "Alternance et stage"
+url = "alternance/"
 
 [[footer]]
 name = "Blog"

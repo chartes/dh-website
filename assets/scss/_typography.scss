@@ -62,26 +62,17 @@ a {
 
 // Logo : hauteur fixe, largeur strictement proportionnelle (pas d'étirement)
 .navbar-brand {
-  margin-left: -40px;       // décalage du logo vers la gauche
-  margin-right: 2.5rem;     // espace entre logo et menu pour aérer
-  @media (max-width: 991px) { margin-left: 0; margin-right: 0; }
+  margin-left: -40px; // ← décalage du logo vers la gauche (augmenter pour aller plus loin)
+  @media (max-width: 991px) { margin-left: 0; } // pas de décalage en mobile
 
   img {
     height: 60px !important;
     width: auto !important;
-    max-width: none !important;
+    max-width: none !important; // neutralise .img-fluid (max-width:100%)
     max-height: 60px;
     object-fit: contain;
   }
 }
-
-// Empêche tout débordement horizontal de la navbar (causé par le margin-left négatif)
-.header,
-.navigation,
-.navbar {
-  overflow-x: clip;
-}
-body { overflow-x: clip; }
 
 // Taille et style du texte des liens du menu principal
 .navbar-nav .nav-item .nav-link {

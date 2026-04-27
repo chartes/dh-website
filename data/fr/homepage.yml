@@ -1,41 +1,20 @@
-################################# Hero (désactivé, slider rétabli) #####################################
+################################# Hero (élément fixe) #####################################
 hero:
-  enable : false
-  bg_image : "images/banniere.jpg"
-  title : ""
-  subtitle : ""
-  content : ""
-  button:
-    enable : false
-    label : ""
-    link : ""
-
-############################ Slider (hero) ##############################
-slider:
   enable : true
   bg_image : "images/banniere.jpg"
-  slider_item:
-    # slide 1
-    - title : "Humanités Numériques"
-      subtitle : ""
-      content : "L'intelligence artificielle et les sciences des données pour les sciences humaines et sociales."
-      animation_in : "left"
-      animation_out : "right"
-      button:
-        enable : true
-        label : "Découvrir"
-        link : "about/"
+  title : "Master Humanités numériques"
+  subtitle : "École nationale des chartes – PSL"
+  content : "Une formation de pointe à la croisée des sciences humaines, de l'informatique et des humanités numériques."
+  button:
+    enable : true
+    label : "Candidater"
+    link : "candidature/"
 
-    # slide 2
-    - title : "Master Humanités numériques"
-      subtitle : "Sciences de la donnée pour les humanités"
-      content : "Une formation de pointe à la croisée des sciences humaines, des méthodes quantitatives et de l'intelligence artificielle."
-      animation_in : "left"
-      animation_out : "right"
-      button:
-        enable : true
-        label : "Candidater"
-        link : "candidature/"
+# Slider désactivé (remplacé par le bloc hero fixe ci-dessus)
+slider:
+  enable : false
+  bg_image : "images/banner/banner-1.jpg"
+  slider_item: []
 
 
 ############################### Banner feature ###############################

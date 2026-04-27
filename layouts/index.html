@@ -2,33 +2,27 @@
 
 {{ $data := index site.Data site.Language.Lang }}
 
-<!-- hero slider -->
-{{ if $data.homepage.slider.enable }}
-{{ with $data.homepage.slider }}
+<!-- hero fixe -->
+{{ if $data.homepage.hero.enable }}
+{{ with $data.homepage.hero }}
 <section class="hero-section overlay position-relative">
   {{ partial "image.html" (dict "Src" .bg_image "Alt" "bannière" "Class" "hero-bg-img") }}
   <div class="container position-relative" style="z-index: 2;">
-    <div class="hero-slider">
-      {{ range .slider_item }}
-      <div class="hero-slider-item">
-        <div class="row">
-          <div class="col-md-9 col-lg-8">
-            {{ with .subtitle }}<h6 class="text-white font-secondary mb-3 text-uppercase" data-animation-out="fadeOut{{$.animation_out | default "right" | title }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{$.animation_in | default "left" | title }}" data-delay-in=".05">{{ . | markdownify }}</h6>{{ end }}
-            <h1 class="text-white mb-4" data-animation-out="fadeOut{{.animation_out | default "right" | title }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{.animation_in | default "left" | title }}" data-delay-in=".1">{{ .title | markdownify }}</h1>
-            <p class="text-lighten mb-4" data-animation-out="fadeOut{{.animation_out | default "right" | title }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{.animation_in | default "left" | title }}" data-delay-in=".4">{{ .content | markdownify }}</p>
-            {{ if .button.enable }}
-            <a href="{{ .button.link | absLangURL }}" class="btn btn-primary" data-animation-out="fadeOut{{.animation_out | default "right" | title }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{.animation_in | default "left" | title }}" data-delay-in=".7">{{ .button.label }}</a>
-            {{ end }}
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-md-9 col-lg-8">
+        {{ with .subtitle }}<h6 class="text-white font-secondary mb-3 text-uppercase">{{ . | markdownify }}</h6>{{ end }}
+        <h1 class="text-white mb-4">{{ .title | markdownify }}</h1>
+        <p class="text-lighten mb-4">{{ .content | markdownify }}</p>
+        {{ if .button.enable }}
+        <a href="{{ .button.link | absLangURL }}" class="btn btn-primary">{{ .button.label }}</a>
+        {{ end }}
       </div>
-      {{ end }}
     </div>
   </div>
 </section>
 {{ end }}
 {{ end }}
-<!-- /hero slider -->
+<!-- /hero fixe -->
 
 <!-- banner-feature -->
 {{ if $data.homepage.banner_feature.enable }}
