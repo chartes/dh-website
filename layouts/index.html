@@ -10,14 +10,17 @@
   <div class="container position-relative" style="z-index: 2;">
     <div class="hero-slider">
       {{ range .slider_item }}
+      {{ $animOut := .animation_out | default "right" | title }}
+      {{ $animIn := .animation_in | default "left" | title }}
+      {{ $sub := .subtitle }}
       <div class="hero-slider-item">
         <div class="row">
           <div class="col-md-9 col-lg-8">
-            {{ with .subtitle }}<h6 class="text-white font-secondary mb-3 text-uppercase" data-animation-out="fadeOut{{$.animation_out | default "right" | title }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{$.animation_in | default "left" | title }}" data-delay-in=".05">{{ . | markdownify }}</h6>{{ end }}
-            <h1 class="text-white mb-4" data-animation-out="fadeOut{{.animation_out | default "right" | title }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{.animation_in | default "left" | title }}" data-delay-in=".1">{{ .title | markdownify }}</h1>
-            <p class="text-lighten mb-4" data-animation-out="fadeOut{{.animation_out | default "right" | title }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{.animation_in | default "left" | title }}" data-delay-in=".4">{{ .content | markdownify }}</p>
+            {{ with $sub }}<h6 class="text-white font-secondary mb-3 text-uppercase" data-animation-out="fadeOut{{ $animOut }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{ $animIn }}" data-delay-in=".05">{{ . | markdownify }}</h6>{{ end }}
+            <h1 class="text-white mb-4" data-animation-out="fadeOut{{ $animOut }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{ $animIn }}" data-delay-in=".1">{{ .title | markdownify }}</h1>
+            <p class="text-lighten mb-4" data-animation-out="fadeOut{{ $animOut }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{ $animIn }}" data-delay-in=".4">{{ .content | markdownify }}</p>
             {{ if .button.enable }}
-            <a href="{{ .button.link | absLangURL }}" class="btn btn-primary" data-animation-out="fadeOut{{.animation_out | default "right" | title }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{.animation_in | default "left" | title }}" data-delay-in=".7">{{ .button.label }}</a>
+            <a href="{{ .button.link | absLangURL }}" class="btn btn-primary" data-animation-out="fadeOut{{ $animOut }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{ $animIn }}" data-delay-in=".7">{{ .button.label }}</a>
             {{ end }}
           </div>
         </div>
