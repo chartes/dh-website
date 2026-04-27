@@ -1,8 +1,10 @@
-{{/* Hero compact pour les sous-pages — titre + description, sans fil d'ariane.
-     Image via <img> (technique partial) pour contourner canonifyURLs comme le hero d'accueil. */}}
-{{ $bg := .Params.Bg_image | default "images/backgrounds/page-title.jpg" }}
+{{/* Hero compact pour les sous-pages (titre + description, sans fil d'ariane).
+     Le master a son propre grand hero (layouts/master/list.html) — on le skip ici. */}}
+{{ if ne .Section "master" }}
 <section class="page-title-section overlay position-relative">
-  {{ partial "image.html" (dict "Src" $bg "Alt" .Title "Class" "hero-bg-img") }}
+  {{/* Bannière unique pour tout le site (cf. homepage). On ignore .Params.Bg_image
+       qui resterait sur d'anciennes images de placeholder dans certains _index.md. */}}
+  {{ partial "image.html" (dict "Src" "images/banniere.jpg" "Alt" .Title "Class" "hero-bg-img") }}
   <div class="container position-relative" style="z-index: 2;">
     <div class="row">
       <div class="col-md-9 col-lg-8">
@@ -12,3 +14,4 @@
     </div>
   </div>
 </section>
+{{ end }}
