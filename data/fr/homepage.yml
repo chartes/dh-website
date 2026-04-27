@@ -15,8 +15,9 @@ slider:
   enable : true
   bg_image : "images/banniere.jpg"
   slider_item:
+    # slide 1
     - title : "Humanités Numériques"
-      subtitle : "École nationale des chartes – PSL"
+      subtitle : ""
       content : "L'intelligence artificielle et les sciences des données pour les sciences humaines et sociales."
       animation_in : "left"
       animation_out : "right"
@@ -24,6 +25,17 @@ slider:
         enable : true
         label : "Découvrir"
         link : "about/"
+
+    # slide 2
+    - title : "Master Humanités numériques"
+      subtitle : "Sciences de la donnée pour les humanités"
+      content : "Une formation de pointe à la croisée des sciences humaines, des méthodes quantitatives et de l'intelligence artificielle."
+      animation_in : "left"
+      animation_out : "right"
+      button:
+        enable : true
+        label : "Candidater"
+        link : "candidature/"
 
 
 ############################### Banner feature ###############################
