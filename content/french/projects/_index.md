@@ -1,8 +1,9 @@
 ---
 title: "Projets"
+url: "/projets/"
 draft: false
 bg_image: "images/backgrounds/page-title.jpg"
-description: "Projets pédagogiques et de recherche conduits dans le cadre du Master Humanités numériques de l'École nationale des chartes – PSL."
+description: "Projets de recherche et projets pédagogiques de l'équipe Humanités numériques de l'École nationale des chartes – PSL."
 ---
 
 ## Projets du Master

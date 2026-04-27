@@ -8,6 +8,14 @@ title = "Digital humanities @ Chartes"
 theme = "educenter-hugo"
 disableLanguages = ["en"]
 
+############################# Permalinks ##############################
+# Les types de contenu du thème (teacher, event, projects) sont exposés
+# sous des URLs francisées (équipe / conférences / projets).
+[permalinks]
+teacher = "/equipe/:slug/"
+event = "/conferences/:slug/"
+projects = "/projets/:slug/"
+
 
 #################### default parameters ################################
 [params]

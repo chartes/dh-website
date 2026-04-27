@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<!-- hero -->
+<section class="hero-section overlay position-relative">
+  {{ partial "image.html" (dict "Src" .Params.hero_image "Alt" .Title "Class" "hero-bg-img") }}
+  <div class="container position-relative" style="z-index: 2;">
+    <div class="row">
+      <div class="col-md-9 col-lg-8">
+        {{ with .Params.subtitle }}<h6 class="text-white font-secondary mb-3 text-uppercase">{{ . | markdownify }}</h6>{{ end }}
+        <h1 class="text-white mb-4">{{ .Title }}</h1>
+        {{ with .Params.hero_intro }}<p class="text-lighten mb-4">{{ . | markdownify }}</p>{{ end }}
+        {{ if .Params.hero_button.enable }}
+        <a href="{{ .Params.hero_button.link | absLangURL }}" class="btn btn-primary">{{ .Params.hero_button.label }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /hero -->
+
+<!-- content -->
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        {{ .Content }}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /content -->
+
+{{ end }}
