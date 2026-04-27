@@ -1,1 +1,14 @@
-{{/* Fil d'ariane désactivé : chaque page sous-jacente définit son propre en-tête. */}}
+{{/* Hero compact pour les sous-pages — titre + description, sans fil d'ariane.
+     Image via <img> (technique partial) pour contourner canonifyURLs comme le hero d'accueil. */}}
+{{ $bg := .Params.Bg_image | default "images/backgrounds/page-title.jpg" }}
+<section class="page-title-section overlay position-relative">
+  {{ partial "image.html" (dict "Src" $bg "Alt" .Title "Class" "hero-bg-img") }}
+  <div class="container position-relative" style="z-index: 2;">
+    <div class="row">
+      <div class="col-md-9 col-lg-8">
+        <h1 class="text-white mb-3">{{ .Title }}</h1>
+        {{ with .Params.Description }}<p class="text-lighten mb-0">{{ . | markdownify }}</p>{{ end }}
+      </div>
+    </div>
+  </div>
+</section>

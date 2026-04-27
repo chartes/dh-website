@@ -130,6 +130,7 @@ a {
 }
 
 .hero-section.overlay::before,
+.page-title-section.overlay::before,
 .overlay::before {
   background: $secondary-color !important;
   opacity: 0.8 !important;
@@ -146,8 +147,11 @@ a {
   }
 }
 
-// Image de fond du hero (technique <img> comme le logo, contourne canonifyURLs)
-.hero-section {
+// Image de fond du hero (technique <img> comme le logo, contourne canonifyURLs).
+// Le sélecteur couvre aussi .page-title-section : même technique, padding plus
+// compact défini par le thème (.page-title-section { padding: 200px 0 80px; }).
+.hero-section,
+.page-title-section {
   position: relative !important;
   overflow: hidden;
   isolation: isolate; // crée un nouveau contexte d'empilement, l'overlay reste contenu
