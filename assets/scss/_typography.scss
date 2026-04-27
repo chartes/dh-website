@@ -95,6 +95,15 @@ body { overflow-x: hidden; }
   padding-bottom: 30px;
 }
 
+// Neutralise le linear-gradient du thème qui crée une bande rouge à droite (50%-100%)
+.navigation {
+  background: $secondary-color !important;
+}
+.navbar-nav,
+.navbar-collapse {
+  background: $secondary-color !important;
+}
+
 /* ───────────────────────────────────────────────────────────────
    FOOTER — couleur ENC bleu paon, hauteur réduite, texte blanc
    ─────────────────────────────────────────────────────────────── */
