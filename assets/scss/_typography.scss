@@ -130,7 +130,9 @@ a {
 
 // Image de fond du hero (technique <img> comme le logo, contourne canonifyURLs)
 .hero-section {
+  position: relative !important;
   overflow: hidden;
+  isolation: isolate; // crée un nouveau contexte d'empilement, l'overlay reste contenu
   .hero-bg-img {
     position: absolute;
     top: 0;
