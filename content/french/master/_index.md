@@ -382,7 +382,7 @@ documents:
     url: "#"
 ---
 
-Le master « Humanités numériques » est un master Recherche délivré par l'Université PSL. Il forme à l'exploitation et à l'analyse des données des sciences humaines, sociales et des disciplines des humanités. La formation s'adresse à des étudiants titulaires d'une licence qui souhaitent développer une double compétence thématique en humanités, dans la discipline de leur choix (histoire, philologie, lettres, sociologie, etc.), et en datascience (IA, ML, méthodes quantitatives et statistiques).
+Le master « Humanités numériques » est un master Recherche délivré par l'Université PSL. Il forme à l'exploitation et à l'analyse des données des sciences humaines, sociales et des disciplines des humanités. La formation s'adresse à des étudiants titulaires d'une licence ou d'un master qui souhaitent développer une double compétence thématique en humanités, dans la discipline de leur choix (histoire, philologie, lettres, sociologie, etc.), et en datascience (IA, ML, méthodes quantitatives et statistiques).
 
 Le master est le fruit de la collaboration de l'**École nationale des chartes – PSL**, de l'**École normale supérieure – PSL**, et de l'**École Pratique des Hautes Études – PSL**. Il est affilié au programme gradué **Translitteræ**.
 
