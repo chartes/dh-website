@@ -597,3 +597,96 @@ table.programme-table {
   }
   &__meta { font-size: 0.78rem; color: $text-color-light; margin: 0; }
 }
+
+// Apprentissage
+.apprentissage-calendrier {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: lighten($secondary-color, 60%);
+  border-left: 3px solid $secondary-color;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: $secondary-color;
+
+  i { flex-shrink: 0; margin-top: 2px; }
+  span { font-weight: 500; }
+}
+
+.apprentissage-tarifs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+
+  @include mobile { grid-template-columns: 1fr; }
+}
+
+.apprentissage-tarif {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 1rem;
+  border-top: 3px solid $primary-color;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  &__secteur {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $text-color-light;
+    font-weight: 600;
+  }
+  &__prix {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $primary-color;
+    font-family: $secondary-font;
+    line-height: 1;
+  }
+  &__note {
+    font-size: 0.75rem;
+    color: $text-color-light;
+  }
+}
+
+.competences-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.competence-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  transition: background 0.15s;
+
+  &:hover { background: #eef0f2; }
+
+  &__icon {
+    font-size: 1.1rem;
+    color: $primary-color;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  &__label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: $text-color;
+    margin: 0 0 0.15rem;
+  }
+  &__detail {
+    font-size: 0.82rem;
+    color: $text-color-light;
+    margin: 0;
+    line-height: 1.4;
+  }
+}

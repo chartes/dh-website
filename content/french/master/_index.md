@@ -2,7 +2,7 @@
 title: "Master Humanités numériques"
 subtitle: "Sciences de la donnée pour les humanités"
 hero_image: "images/banniere.jpg"
-hero_intro: "Un master Recherche PSL à la croisée des sciences humaines, de l'informatique et des sciences des données. Délivré par l'ENC, l'ENS, l'EPHE et l'EHESS."
+hero_intro: "Un master Recherche PSL à la croisée des sciences humaines, de l'informatique, de l'intelligence artificielle et des sciences des données. Délivré par l'ENC, l'ENS, l'EPHE et l'EHESS."
 hero_button:
   enable: true
   label: "Candidater"
@@ -16,19 +16,19 @@ banner_feature:
   feature_item:
     - name: "Double compétence"
       icon: "ti-stats-up"
-      content: "SHS computationnelles et spécialisation disciplinaire : histoire, philologie, littérature, sociologie, géographie…"
+      content: "DataScience et spécialisation disciplinaire : histoire, philologie, littérature, sociologie, géographie, linguistique, ..."
 
-    - name: "Formation PSL"
+    - name: "Une formation PSL"
       icon: "ti-university"
       content: "ENC · ENS · EPHE · EHESS — quatre établissements, un diplôme PSL. Affilié au programme gradué Translitteræ."
 
-    - name: "Pratique projet"
+    - name: "Pédagogie orientée projet"
       icon: "ti-agenda"
       content: "Mini-mémoire en M1, stage en laboratoire, mémoire de recherche en M2, hackathon, journée d'études."
 
     - name: "Débouchés"
       icon: "ti-write"
-      content: "Doctorat, ingénierie de la donnée patrimoniale, édition numérique, conservation, recherche et enseignement supérieur."
+      content: "Doctorat en humanités numériques, ingénierie de la donnée patrimoniale, édition numérique, recherche, enseignement supérieur, ingénieur ML, datascientist."
 
 info:
   type: "Master Recherche"
@@ -58,9 +58,12 @@ parcours:
   - name: "Philologie, langue et littérature médiévale"
     referent: "Jean-Baptiste Camps"
     content: "Corpus textuels médiévaux et romans. Édition numérique, comparaison automatique et modélisation des traditions textuelles."
-  - name: "Image, antiquité et paléographie"
+  - name: "Image, archéologie et paléographie"
     referent: "Chahan Vidal-Gorène"
-    content: "Corpus d'images patrimoniales et manuscrites. Vision artificielle, reconnaissance des écritures, analyse des formes visuelles."
+    content: "Corpus d'images patrimoniales et manuscrites. Vision par ordinateur, reconnaissance des écritures, analyse des formes visuelles."
+  - name: "Spatialisation, SIG et 3D"
+    referent: "Carmen Brando"
+    content: "Exploitation IA de modèles 3D (photogrammétrie), spatialisation et analyse de réseaux à partir de corpus variés"
   - name: "Parcours sur-mesure"
     referent: "À voir avec le responsable pédagogique"
     content: "Un parcours personnalisé peut être conçu selon le profil de l'étudiant et son projet de recherche."
@@ -72,13 +75,13 @@ debouches:
     content: "Formation orientée vers la poursuite en doctorat dans les disciplines des SHS computationnelles."
   - icon: "ti-desktop"
     title: "Ingénieur de recherche"
-    content: "Ingénierie de la donnée patrimoniale, traitement de corpus, développement d'outils pour la recherche en SHS."
+    content: "Ingénierie de la donnée patrimoniale, traitement de corpus, développement d'outils pour la recherche en SHS, mise en place de chaînes de traitement."
   - icon: "ti-stats-up"
-    title: "Data scientist & ingénieur ML pour les SHS"
-    content: "Analyse de données textuelles et visuelles, modélisation, machine learning appliqué aux sources historiques et patrimoniales."
+    title: "Data scientist & ingénieur ML"
+    content: "Analyse de données textuelles et visuelles, modélisation, machine learning appliqué à des sources diverses."
   - icon: "ti-book"
-    title: "Édition & patrimoine"
-    content: "Édition numérique, conservation, métiers des archives, des bibliothèques et de la documentation numérique."
+    title: "Institutions patrimoniales"
+    content: "Édition numérique, mise en place de chaînes de valorisation IA"
 
 programme_m1:
   - semestre: "Semestre 1 — Tronc commun"
@@ -333,6 +336,37 @@ admission:
     - etape: "Résultats d'admission"
       date: "3 juin 2026"
 
+apprentissage:
+  intro: "Le M2 est ouvert à la formation en apprentissage, à raison de trois jours par semaine en entreprise ou institution, et deux jours à l'École (jeudi et vendredi) pour suivre les cours du tronc commun en data science pour les SHS."
+  calendrier: "Le rythme d'alternance est de 3 jours en entreprise / 2 jours à l'École (jeudi et vendredi), sur toute la durée du M2."
+  contact: "Pour tout renseignement sur les tarifs et l'organisation, contacter le service de la formation continue de l'École des chartes – PSL."
+  tarifs:
+    - secteur: "Secteur public"
+      prix: "5 847 €"
+      note: "TVA non applicable"
+    - secteur: "Secteur privé"
+      prix: "8 271 €"
+      note: "TVA non applicable"
+  competences:
+    - icon: "ti-text"
+      label: "Traitement de corpus textuels"
+      detail: "Fouille de texte, TAL, OCR/HTR, structuration et annotation de grandes collections documentaires."
+    - icon: "ti-eye"
+      label: "Vision par ordinateur"
+      detail: "Analyse d'images patrimoniales, détection d'objets, reconnaissance d'écritures manuscrites."
+    - icon: "ti-bar-chart"
+      label: "Data science & machine learning"
+      detail: "Modélisation statistique, apprentissage automatique, réseaux de neurones appliqués à des corpus SHS."
+    - icon: "ti-map"
+      label: "Données spatiales & réseaux"
+      detail: "SIG, analyse de réseaux, spatialisation de corpus historiques et sociaux."
+    - icon: "ti-pencil-alt"
+      label: "Édition et structuration XML/TEI"
+      detail: "Encodage de sources primaires, édition numérique critique, modélisation de données patrimoniales."
+    - icon: "ti-settings"
+      label: "Ingénierie des données"
+      detail: "Pipelines de traitement, bases de données, valorisation et exposition de données de recherche."
+
 documents:
   - name: "Plaquette du master"
     size: "PDF – 489 Ko"
@@ -348,6 +382,8 @@ documents:
     url: "#"
 ---
 
-Le master « Humanités numériques » est un master Recherche délivré par l'Université PSL. Il forme à l'exploitation et à l'analyse des données des sciences humaines, sociales et des disciplines des humanités. La formation s'adresse à des étudiants titulaires d'une licence qui souhaitent développer une double compétence thématique en humanités, dans la discipline de leur choix (histoire, philologie, lettres, sociologie, etc.), et en datascience.
+Le master « Humanités numériques » est un master Recherche délivré par l'Université PSL. Il forme à l'exploitation et à l'analyse des données des sciences humaines, sociales et des disciplines des humanités. La formation s'adresse à des étudiants titulaires d'une licence qui souhaitent développer une double compétence thématique en humanités, dans la discipline de leur choix (histoire, philologie, lettres, sociologie, etc.), et en datascience (IA, ML, méthodes quantitatives et statistiques).
 
-Le master est le fruit de la collaboration de l'**École nationale des chartes – PSL**, de l'**École normale supérieure – PSL**, et de l'**École Pratique des Hautes Études – PSL**. Il est affilié au programme gradué **Translitteræ**. Si aucun pré-requis en mathématiques ou en programmation n'est demandé, la formation, très exigeante, s'adresse aux étudiants pouvant justifier d'un vrai attrait pour ces disciplines.
+Le master est le fruit de la collaboration de l'**École nationale des chartes – PSL**, de l'**École normale supérieure – PSL**, et de l'**École Pratique des Hautes Études – PSL**. Il est affilié au programme gradué **Translitteræ**.
+
+Si aucun pré-requis en mathématiques ou en programmation n'est demandé, la formation, très exigeante, s'adresse aux étudiants pouvant justifier d'un vrai attrait pour ces disciplines.
