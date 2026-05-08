@@ -598,6 +598,27 @@ table.programme-table {
   &__meta { font-size: 0.78rem; color: $text-color-light; margin: 0; }
 }
 
+// Logo image dans banner-feature (remplace l'icône themify)
+.feature-icon-img {
+  display: block;
+  height: 60px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 576px) { margin-left: 0; margin-right: 0; }
+}
+
+// Fix bouton "Voir toutes les actualités" cropé dans les section-title flex
+.d-flex.section-title a.btn,
+.d-flex.align-items-center.section-title a.btn {
+  flex-shrink: 0;
+  overflow: visible;
+  white-space: nowrap;
+}
+
 // Apprentissage
 .apprentissage-calendrier {
   display: flex;

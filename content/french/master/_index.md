@@ -19,7 +19,8 @@ banner_feature:
       content: "DataScience et spécialisation disciplinaire : histoire, philologie, littérature, sociologie, géographie, linguistique, ..."
 
     - name: "Une formation PSL"
-      icon: "ti-university"
+      icon: "images/logo-enc-psl.png"
+      icon_type: "img"
       content: "ENC · ENS · EPHE · EHESS — quatre établissements, un diplôme PSL. Affilié au programme gradué Translitteræ."
 
     - name: "Pédagogie orientée projet"

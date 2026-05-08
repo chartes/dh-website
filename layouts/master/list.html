@@ -30,7 +30,11 @@
         <div class="row feature-blocks bg-gray justify-content-between">
           {{ range .feature_item }}
           <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
+            {{ if eq .icon_type "img" }}
+            {{ partial "image.html" (dict "Src" .icon "Alt" .name "Class" "feature-icon-img mb-xl-4 mb-lg-3 mb-4") }}
+            {{ else }}
             <i class="{{ .icon }} mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            {{ end }}
             <h3 class="mb-xl-4 mb-lg-3 mb-4">{{ .name | markdownify }}</h3>
             <p>{{ .content | markdownify }}</p>
           </div>
