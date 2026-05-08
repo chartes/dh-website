@@ -54,6 +54,13 @@
       <div class="col-lg-7 mb-5 mb-lg-0">
         <h2 class="section-title">Présentation</h2>
         {{ .Content }}
+        <div class="partenaires-logos">
+          <span class="partenaires-logos__label">En partenariat avec</span>
+          {{ partial "image.html" (dict "Src" "images/Logo-chartes+PSL-coul_0.png" "Alt" "École nationale des chartes – PSL" "Class" "partenaires-logos__img") }}
+          {{ partial "image.html" (dict "Src" "images/logo_ens_psl_en_png.png" "Alt" "École normale supérieure – PSL" "Class" "partenaires-logos__img") }}
+          {{ partial "image.html" (dict "Src" "images/logo-ephe-psl.png" "Alt" "École pratique des hautes études – PSL" "Class" "partenaires-logos__img") }}
+          {{ partial "image.html" (dict "Src" "images/Logo_EHESS_2021.svg.png" "Alt" "EHESS" "Class" "partenaires-logos__img") }}
+        </div>
       </div>
       <div class="col-lg-4 offset-lg-1">
         {{ with .Params.info }}
@@ -258,6 +265,35 @@
         <div class="apprentissage-calendrier">
           <i class="ti-calendar"></i>
           <span>{{ .calendrier }}</span>
+        </div>
+        <div class="rythme-semaine" aria-label="Rythme hebdomadaire en alternance">
+          <p class="rythme-semaine__title">Rythme hebdomadaire</p>
+          <div class="rythme-semaine__days">
+            <div class="rythme-semaine__day rythme-semaine__day--entreprise">
+              <span class="rythme-semaine__day-name">Lun</span>
+              <span class="rythme-semaine__day-label">Entreprise</span>
+            </div>
+            <div class="rythme-semaine__day rythme-semaine__day--entreprise">
+              <span class="rythme-semaine__day-name">Mar</span>
+              <span class="rythme-semaine__day-label">Entreprise</span>
+            </div>
+            <div class="rythme-semaine__day rythme-semaine__day--entreprise">
+              <span class="rythme-semaine__day-name">Mer</span>
+              <span class="rythme-semaine__day-label">Entreprise</span>
+            </div>
+            <div class="rythme-semaine__day rythme-semaine__day--ecole">
+              <span class="rythme-semaine__day-name">Jeu</span>
+              <span class="rythme-semaine__day-label">École</span>
+            </div>
+            <div class="rythme-semaine__day rythme-semaine__day--ecole">
+              <span class="rythme-semaine__day-name">Ven</span>
+              <span class="rythme-semaine__day-label">École</span>
+            </div>
+          </div>
+          <div class="rythme-semaine__legend">
+            <span class="rythme-semaine__legend-item rythme-semaine__legend-item--entreprise">Entreprise / institution</span>
+            <span class="rythme-semaine__legend-item rythme-semaine__legend-item--ecole">École des chartes</span>
+          </div>
         </div>
         <h4 class="admission-subtitle mt-4">Tarifs</h4>
         <div class="apprentissage-tarifs">
