@@ -30,11 +30,7 @@
         <div class="row feature-blocks bg-gray justify-content-between">
           {{ range .feature_item }}
           <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
-            {{ if eq .icon_type "img" }}
-            {{ partial "image.html" (dict "Src" .icon "Alt" .name "Class" "feature-icon-img mb-xl-4 mb-lg-3 mb-4") }}
-            {{ else }}
             <i class="{{ .icon }} mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
-            {{ end }}
             <h3 class="mb-xl-4 mb-lg-3 mb-4">{{ .name | markdownify }}</h3>
             <p>{{ .content | markdownify }}</p>
           </div>
@@ -237,87 +233,59 @@
 <section class="section bg-gray">
   <div class="container">
     <h2 class="section-title mb-2">Déroulement du master</h2>
-    <p class="text-muted mb-5" style="font-size:0.9rem;">Vue d'ensemble des deux années — jalons communs en bleu, jalons spécifiques en rouge.</p>
+    <p class="text-muted mb-4" style="font-size:0.9rem;">Vue d'ensemble des deux années — jalons communs <span style="color:#00445e;font-weight:700;">en bleu</span>, phases par année <span style="color:#bc052d;font-weight:700;">en rouge</span>.</p>
     <div class="master-timeline">
 
-      <div class="master-timeline__header">
-        <div class="master-timeline__year-spacer"></div>
-        <div class="master-timeline__months">
-          <span>Sep</span><span>Oct</span><span>Nov</span><span>Déc</span>
-          <span>Jan</span><span>Fév</span><span>Mar</span><span>Avr</span>
-          <span>Mai</span><span>Juin</span>
+      <!-- en-tête mois -->
+      <div class="tl-row tl-row--header">
+        <div class="tl-label"></div>
+        <div class="tl-grid">
+          <div class="tl-month" style="grid-column:1">Sep</div>
+          <div class="tl-month" style="grid-column:2">Oct</div>
+          <div class="tl-month" style="grid-column:3">Nov</div>
+          <div class="tl-month" style="grid-column:4">Déc</div>
+          <div class="tl-month tl-month--event" style="grid-column:5">Jan</div>
+          <div class="tl-month" style="grid-column:6">Fév</div>
+          <div class="tl-month" style="grid-column:7">Mar</div>
+          <div class="tl-month" style="grid-column:8">Avr</div>
+          <div class="tl-month tl-month--event" style="grid-column:9">Mai</div>
+          <div class="tl-month" style="grid-column:10">Juin</div>
         </div>
       </div>
 
       <!-- M1 -->
-      <div class="master-timeline__row">
-        <div class="master-timeline__year-label">M<span>1</span></div>
-        <div class="master-timeline__track">
-          <div class="master-timeline__line"></div>
-          <div class="mtl-event mtl-event--above mtl-event--specific" style="--col:1">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Semaine intensive<br>pré-rentrée</div>
-          </div>
-          <div class="mtl-event mtl-event--below mtl-event--specific" style="--col:2">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Remise à niveau maths</div>
-          </div>
-          <div class="mtl-event mtl-event--above mtl-event--specific" style="--col:4">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Projets Python</div>
-          </div>
-          <div class="mtl-event mtl-event--below mtl-event--shared" style="--col:5">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Hackathon données</div>
-          </div>
-          <div class="mtl-event mtl-event--above mtl-event--specific" style="--col:8">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Mini-mémoire — rendu</div>
-          </div>
-          <div class="mtl-event mtl-event--below mtl-event--shared" style="--col:9">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Journée d'études</div>
-          </div>
-          <div class="mtl-event mtl-event--above mtl-event--specific" style="--col:10">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Soutenance mini-mémoire</div>
-          </div>
+      <div class="tl-row">
+        <div class="tl-label tl-label--m1">M1</div>
+        <div class="tl-grid">
+          <div class="tl-block tl-block--prep" style="grid-column:1/2">Remise à niveau prog. &amp; maths</div>
+          <div class="tl-block tl-block--s1" style="grid-column:2/5">Initiation ML · Formation thématique · Maturation du mémoire</div>
+          <div class="tl-block tl-block--s2" style="grid-column:6/10">Python avancé · IA &amp; LLM · Mini-mémoire</div>
+          <div class="tl-block tl-block--rendu" style="grid-column:10/11">Mini-mémoire</div>
+        </div>
+      </div>
+
+      <!-- événements communs -->
+      <div class="tl-row tl-row--shared">
+        <div class="tl-label"></div>
+        <div class="tl-grid">
+          <div class="tl-shared-event" style="grid-column:2/3"><span><i class="ti-flag-alt"></i> Pré-rentrée</span></div>
+          <div class="tl-shared-event tl-shared-event--center" style="grid-column:5/6"><span><i class="ti-cup"></i> Hackathon données</span></div>
+          <div class="tl-shared-event" style="grid-column:9/10"><span><i class="ti-microphone"></i> Conférence du master</span></div>
         </div>
       </div>
 
       <!-- M2 -->
-      <div class="master-timeline__row">
-        <div class="master-timeline__year-label">M<span>2</span></div>
-        <div class="master-timeline__track">
-          <div class="master-timeline__line"></div>
-          <div class="mtl-event mtl-event--above mtl-event--specific" style="--col:1">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Présentation sujets mémoire</div>
-          </div>
-          <div class="mtl-event mtl-event--below mtl-event--specific" style="--col:3">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Stage labo (4–8 sem.)</div>
-          </div>
-          <div class="mtl-event mtl-event--above mtl-event--shared" style="--col:5">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Hackathon données</div>
-          </div>
-          <div class="mtl-event mtl-event--below mtl-event--specific" style="--col:7">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Rédaction mémoire</div>
-          </div>
-          <div class="mtl-event mtl-event--above mtl-event--shared" style="--col:9">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Conférence du master</div>
-          </div>
-          <div class="mtl-event mtl-event--below mtl-event--specific" style="--col:10">
-            <div class="mtl-event__dot"></div>
-            <div class="mtl-event__label">Soutenance mémoire</div>
-          </div>
+      <div class="tl-row">
+        <div class="tl-label tl-label--m2">M2</div>
+        <div class="tl-grid">
+          <div class="tl-block tl-block--s3" style="grid-column:2/5">Humanités computationnelles · Spécialisation · Stage labo</div>
+          <div class="tl-block tl-block--s4" style="grid-column:6/10">Humanités computationnelles · Spécialisation · Mémoire</div>
+          <div class="tl-block tl-block--rendu" style="grid-column:10/11">Rendu mémoire</div>
         </div>
       </div>
 
     </div>
+    <p class="text-muted mt-3 d-none d-md-block" style="font-size:0.72rem;">Schéma non visible sur mobile — consulter le détail dans le programme ci-dessus.</p>
   </div>
 </section>
 
