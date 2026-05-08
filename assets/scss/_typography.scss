@@ -598,139 +598,135 @@ table.programme-table {
   &__meta { font-size: 0.78rem; color: $text-color-light; margin: 0; }
 }
 
-// Timeline M1 → M2 — swimlane Gantt
-.master-timeline {
-  @include mobile { display: none; }
+// Phases M1 / M2 — cartes + séparateurs événements
+.phase-timeline {
+  max-width: 780px;
+  margin: 0 auto;
 }
 
-.tl-row {
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  align-items: stretch;
-  margin-bottom: 3px;
-
-  &--header { margin-bottom: 6px; align-items: end; }
-  &--shared { margin-bottom: 0; }
-}
-
-.tl-label {
-  display: flex;
+.phase-solo {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-family: $secondary-font;
-  font-weight: 700;
-  font-size: 1.25rem;
+  gap: 0.6rem;
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 0.5rem 0.9rem;
+  margin-bottom: 0.5rem;
 
-  &--m1 { color: $primary-color; }
-  &--m2 { color: $secondary-color; }
-}
-
-.tl-grid {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 3px;
-}
-
-.tl-month {
-  text-align: center;
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: $text-color-light;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-
-  &--event {
-    color: $secondary-color;
-    font-weight: 800;
-  }
-}
-
-.tl-block {
-  border-radius: 5px;
-  padding: 0.45rem 0.55rem;
-  font-size: 0.69rem;
-  font-weight: 600;
-  line-height: 1.3;
-  min-height: 56px;
-  display: flex;
-  align-items: center;
-
-  // Septembre M1 — remise à niveau
-  &--prep {
-    background: #efefef;
-    color: #666;
-    border-top: 2px solid #bbb;
-    font-size: 0.65rem;
-    text-align: center;
-    justify-content: center;
-  }
-
-  // S1 M1 — teinte bleu secondaire, pleine
-  &--s1 {
-    background: lighten($secondary-color, 55%);
-    color: darken($secondary-color, 10%);
-    border-top: 3px solid $secondary-color;
-  }
-
-  // S2 M1 — teinte rouge primaire, pleine
-  &--s2 {
-    background: lighten($primary-color, 40%);
-    color: darken($primary-color, 8%);
-    border-top: 3px solid $primary-color;
-  }
-
-  // S3 M2 — teinte bleu, tiretée (distinction M2)
-  &--s3 {
-    background: lighten($secondary-color, 60%);
-    color: darken($secondary-color, 5%);
-    border-top: 3px dashed $secondary-color;
-  }
-
-  // S4 M2 — teinte rouge, tiretée
-  &--s4 {
-    background: lighten($primary-color, 45%);
-    color: darken($primary-color, 5%);
-    border-top: 3px dashed $primary-color;
-  }
-
-  // Rendu (Juin)
-  &--rendu {
-    background: #fff;
-    border: 2px solid $primary-color;
-    color: $primary-color;
+  &__year {
+    font-size: 0.62rem;
     font-weight: 700;
-    font-size: 0.65rem;
-    text-align: center;
-    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $primary-color;
+    background: rgba($primary-color, 0.1);
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+  }
+
+  &__period {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: $text-color-light;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__label {
+    font-size: 0.85rem;
+    color: #666;
   }
 }
 
-.tl-shared-event {
+.phase-divider {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 5px 0;
+  gap: 1rem;
+  margin: 1rem 0;
 
-  span {
+  &::before, &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+  }
+
+  &__badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
-    background: $secondary-color;
-    color: #fff;
-    font-size: 0.61rem;
-    font-weight: 700;
-    padding: 0.25rem 0.5rem;
+    gap: 0.45rem;
+    color: $secondary-color;
+    background: lighten($secondary-color, 63%);
+    border: 1px solid lighten($secondary-color, 45%);
+    padding: 0.35rem 0.9rem;
     border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
     white-space: nowrap;
-    i { font-size: 0.62rem; }
+    i { font-size: 0.75rem; }
+  }
+}
+
+.phase-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+
+  @include mobile { grid-template-columns: 1fr; }
+}
+
+.phase-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+
+  &--m1 { border-top: 2px solid rgba($primary-color, 0.4); }
+  &--m2 { border-top: 2px solid rgba($secondary-color, 0.4); }
+
+  &--rendu {
+    background: #fafafa;
+    .phase-card__title { color: $text-color-light; font-size: 0.9rem; }
   }
 
-  // hackathon — colonne vide dans M1 et M2 : badge plus visible
-  &--center span {
-    background: darken($secondary-color, 5%);
-    padding: 0.3rem 0.7rem;
-    font-size: 0.65rem;
-    box-shadow: 0 2px 8px rgba($secondary-color, 0.3);
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $text-color-light;
+  }
+
+  &__year {
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 0.12rem 0.4rem;
+    border-radius: 3px;
+
+    .phase-card--m1 & { background: rgba($primary-color, 0.1); color: $primary-color; }
+    .phase-card--m2 & { background: rgba($secondary-color, 0.1); color: $secondary-color; }
+  }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $text-color;
+    margin: 0 0 0.45rem;
+    line-height: 1.3;
+  }
+
+  &__desc {
+    font-size: 0.83rem;
+    color: $text-color-light;
+    margin: 0;
+    line-height: 1.5;
   }
 }
 

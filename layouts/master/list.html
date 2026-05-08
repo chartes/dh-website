@@ -229,63 +229,75 @@
   </div>
 </section>
 
-<!-- timeline M1 → M2 -->
+<!-- phases M1 / M2 -->
 <section class="section bg-gray">
   <div class="container">
-    <h2 class="section-title mb-2">Déroulement du master</h2>
-    <p class="text-muted mb-4" style="font-size:0.9rem;">Vue d'ensemble des deux années — jalons communs <span style="color:#00445e;font-weight:700;">en bleu</span>, phases par année <span style="color:#bc052d;font-weight:700;">en rouge</span>.</p>
-    <div class="master-timeline">
+    <h2 class="section-title mb-4">Déroulement du master</h2>
+    <div class="phase-timeline">
 
-      <!-- en-tête mois -->
-      <div class="tl-row tl-row--header">
-        <div class="tl-label"></div>
-        <div class="tl-grid">
-          <div class="tl-month" style="grid-column:1">Sep</div>
-          <div class="tl-month" style="grid-column:2">Oct</div>
-          <div class="tl-month" style="grid-column:3">Nov</div>
-          <div class="tl-month" style="grid-column:4">Déc</div>
-          <div class="tl-month tl-month--event" style="grid-column:5">Jan</div>
-          <div class="tl-month" style="grid-column:6">Fév</div>
-          <div class="tl-month" style="grid-column:7">Mar</div>
-          <div class="tl-month" style="grid-column:8">Avr</div>
-          <div class="tl-month tl-month--event" style="grid-column:9">Mai</div>
-          <div class="tl-month" style="grid-column:10">Juin</div>
+      <!-- Septembre M1 uniquement -->
+      <div class="phase-solo">
+        <span class="phase-solo__year">M1</span>
+        <span class="phase-solo__period">Septembre</span>
+        <span class="phase-solo__label">Remise à niveau programmation &amp; mathématiques</span>
+      </div>
+
+      <!-- Pré-rentrée commune -->
+      <div class="phase-divider">
+        <div class="phase-divider__badge"><i class="ti-flag-alt"></i> Semaine de pré-rentrée — M1 &amp; M2</div>
+      </div>
+
+      <!-- S1 / S3 -->
+      <div class="phase-row">
+        <div class="phase-card phase-card--m1">
+          <p class="phase-card__meta"><span class="phase-card__year">M1</span> Oct — Déc</p>
+          <h5 class="phase-card__title">Initiation &amp; fondamentaux</h5>
+          <p class="phase-card__desc">Prise en main des méthodes computationnelles, machine learning appliqué aux SHS, et maturation du projet de recherche.</p>
+        </div>
+        <div class="phase-card phase-card--m2">
+          <p class="phase-card__meta"><span class="phase-card__year">M2</span> Oct — Déc</p>
+          <h5 class="phase-card__title">Spécialisation &amp; définition du corpus</h5>
+          <p class="phase-card__desc">Approfondissement de la spécialisation disciplinaire, stage en laboratoire et construction du corpus du mémoire.</p>
         </div>
       </div>
 
-      <!-- M1 -->
-      <div class="tl-row">
-        <div class="tl-label tl-label--m1">M1</div>
-        <div class="tl-grid">
-          <div class="tl-block tl-block--prep" style="grid-column:1/2">Remise à niveau prog. &amp; maths</div>
-          <div class="tl-block tl-block--s1" style="grid-column:2/5">Initiation ML · Formation thématique · Maturation du mémoire</div>
-          <div class="tl-block tl-block--s2" style="grid-column:6/10">Python avancé · IA &amp; LLM · Mini-mémoire</div>
-          <div class="tl-block tl-block--rendu" style="grid-column:10/11">Mini-mémoire</div>
+      <!-- Hackathon commun -->
+      <div class="phase-divider">
+        <div class="phase-divider__badge"><i class="ti-cup"></i> Semaine hackathon données — M1 &amp; M2</div>
+      </div>
+
+      <!-- S2 / S4 -->
+      <div class="phase-row">
+        <div class="phase-card phase-card--m1">
+          <p class="phase-card__meta"><span class="phase-card__year">M1</span> Fév — Mai</p>
+          <h5 class="phase-card__title">Approfondissement &amp; mini-mémoire</h5>
+          <p class="phase-card__desc">Programmation avancée, IA et grands modèles de langue. Rédaction et soutenance du mini-mémoire de recherche.</p>
+        </div>
+        <div class="phase-card phase-card--m2">
+          <p class="phase-card__meta"><span class="phase-card__year">M2</span> Fév — Mai</p>
+          <h5 class="phase-card__title">Rédaction du mémoire</h5>
+          <p class="phase-card__desc">Rédaction du mémoire de recherche mobilisant méthodes computationnelles et expertise disciplinaire.</p>
         </div>
       </div>
 
-      <!-- événements communs -->
-      <div class="tl-row tl-row--shared">
-        <div class="tl-label"></div>
-        <div class="tl-grid">
-          <div class="tl-shared-event" style="grid-column:2/3"><span><i class="ti-flag-alt"></i> Pré-rentrée</span></div>
-          <div class="tl-shared-event tl-shared-event--center" style="grid-column:5/6"><span><i class="ti-cup"></i> Hackathon données</span></div>
-          <div class="tl-shared-event" style="grid-column:9/10"><span><i class="ti-microphone"></i> Conférence du master</span></div>
-        </div>
+      <!-- Conférence commune -->
+      <div class="phase-divider">
+        <div class="phase-divider__badge"><i class="ti-microphone"></i> Conférence du master — M1 &amp; M2</div>
       </div>
 
-      <!-- M2 -->
-      <div class="tl-row">
-        <div class="tl-label tl-label--m2">M2</div>
-        <div class="tl-grid">
-          <div class="tl-block tl-block--s3" style="grid-column:2/5">Humanités computationnelles · Spécialisation · Stage labo</div>
-          <div class="tl-block tl-block--s4" style="grid-column:6/10">Humanités computationnelles · Spécialisation · Mémoire</div>
-          <div class="tl-block tl-block--rendu" style="grid-column:10/11">Rendu mémoire</div>
+      <!-- Rendus -->
+      <div class="phase-row">
+        <div class="phase-card phase-card--m1 phase-card--rendu">
+          <p class="phase-card__meta"><span class="phase-card__year">M1</span> Juin</p>
+          <h5 class="phase-card__title">Rendu du mini-mémoire</h5>
+        </div>
+        <div class="phase-card phase-card--m2 phase-card--rendu">
+          <p class="phase-card__meta"><span class="phase-card__year">M2</span> Juin</p>
+          <h5 class="phase-card__title">Rendu &amp; soutenance du mémoire</h5>
         </div>
       </div>
 
     </div>
-    <p class="text-muted mt-3 d-none d-md-block" style="font-size:0.72rem;">Schéma non visible sur mobile — consulter le détail dans le programme ci-dessus.</p>
   </div>
 </section>
 
