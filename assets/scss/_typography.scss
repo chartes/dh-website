@@ -166,3 +166,121 @@ a {
   }
   &.overlay::before { z-index: 1; }
 }
+
+/* ───────────────────────────────────────────────────────────────
+   PAGE MASTER — encadré info, grille parcours, tables programme
+   ─────────────────────────────────────────────────────────────── */
+
+.master-info-box {
+  background: lighten($secondary-color, 65%);
+  border-left: 4px solid $secondary-color;
+  border-radius: 4px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0 2rem;
+
+  h3 {
+    color: $secondary-color;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  table {
+    width: 100%;
+    margin: 0;
+    td {
+      padding: 0.3rem 0.5rem;
+      vertical-align: top;
+      border: none;
+      font-size: 0.9rem;
+      &:first-child { font-weight: 600; white-space: nowrap; width: 40%; }
+    }
+  }
+}
+
+.parcours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+
+  @media (max-width: 991px) { grid-template-columns: repeat(2, 1fr); }
+  @include mobile { grid-template-columns: 1fr; }
+}
+
+.parcours-item {
+  background: #f8f9fa;
+  border-top: 3px solid $primary-color;
+  border-radius: 4px;
+  padding: 1.25rem 1.25rem 1rem;
+
+  h3 {
+    font-size: 0.95rem;
+    color: $primary-color;
+    margin-bottom: 0.6rem;
+  }
+
+  p, & { font-size: 0.88rem; color: #555; }
+
+  strong { color: #333; }
+
+  &.parcours-custom {
+    border-top-color: $secondary-color;
+    h3 { color: $secondary-color; }
+    grid-column: span 1;
+  }
+}
+
+.programme-table {
+  margin: 1.5rem 0 2rem;
+
+  h4 {
+    font-size: 1rem;
+    color: $secondary-color;
+    background: lighten($secondary-color, 60%);
+    padding: 0.5rem 0.75rem;
+    border-radius: 3px;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  table {
+    width: 100%;
+    font-size: 0.88rem;
+    border-collapse: collapse;
+    margin-bottom: 0.5rem;
+
+    thead th {
+      background: $primary-color;
+      color: #fff;
+      padding: 0.4rem 0.6rem;
+      font-weight: 600;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tbody tr:nth-child(even) { background: #f8f8f8; }
+
+    td {
+      padding: 0.35rem 0.6rem;
+      border-bottom: 1px solid #e9ecef;
+      vertical-align: top;
+
+      em { color: #777; font-size: 0.85rem; }
+    }
+
+    td:first-child strong { color: $text-color; }
+  }
+
+  @include mobile {
+    overflow-x: auto;
+    display: block;
+  }
+}
+
+.master-student-work {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e9ecef;
+}
