@@ -337,8 +337,7 @@ admission:
       date: "3 juin 2026"
 
 apprentissage:
-  intro: "Le M2 est ouvert à la formation en apprentissage, à raison de trois jours par semaine en entreprise ou institution, et deux jours à l'École (jeudi et vendredi) pour suivre les cours du tronc commun en data science pour les SHS."
-  calendrier: "Le rythme d'alternance est de 3 jours en entreprise / 2 jours à l'École (jeudi et vendredi), sur toute la durée du M2."
+  intro: "Le M2 est ouvert à la formation en apprentissage, à raison d'un rythme 2 jours / 3 jours selon les semestres. L'intégralité du tronc commun en data science pour les SHS est à suivre par l'apprenti (y compris toutes les options de spécialisation HN)."
   contact: "Pour tout renseignement sur les tarifs et l'organisation, contacter le service de la formation continue de l'École des chartes – PSL."
   tarifs:
     - secteur: "Secteur public"
