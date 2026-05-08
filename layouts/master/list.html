@@ -233,6 +233,94 @@
   </div>
 </section>
 
+<!-- timeline M1 → M2 -->
+<section class="section bg-gray">
+  <div class="container">
+    <h2 class="section-title mb-2">Déroulement du master</h2>
+    <p class="text-muted mb-5" style="font-size:0.9rem;">Vue d'ensemble des deux années — jalons communs en bleu, jalons spécifiques en rouge.</p>
+    <div class="master-timeline">
+
+      <div class="master-timeline__header">
+        <div class="master-timeline__year-spacer"></div>
+        <div class="master-timeline__months">
+          <span>Sep</span><span>Oct</span><span>Nov</span><span>Déc</span>
+          <span>Jan</span><span>Fév</span><span>Mar</span><span>Avr</span>
+          <span>Mai</span><span>Juin</span>
+        </div>
+      </div>
+
+      <!-- M1 -->
+      <div class="master-timeline__row">
+        <div class="master-timeline__year-label">M<span>1</span></div>
+        <div class="master-timeline__track">
+          <div class="master-timeline__line"></div>
+          <div class="mtl-event mtl-event--above mtl-event--specific" style="--col:1">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Semaine intensive<br>pré-rentrée</div>
+          </div>
+          <div class="mtl-event mtl-event--below mtl-event--specific" style="--col:2">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Remise à niveau maths</div>
+          </div>
+          <div class="mtl-event mtl-event--above mtl-event--specific" style="--col:4">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Projets Python</div>
+          </div>
+          <div class="mtl-event mtl-event--below mtl-event--shared" style="--col:5">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Hackathon données</div>
+          </div>
+          <div class="mtl-event mtl-event--above mtl-event--specific" style="--col:8">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Mini-mémoire — rendu</div>
+          </div>
+          <div class="mtl-event mtl-event--below mtl-event--shared" style="--col:9">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Journée d'études</div>
+          </div>
+          <div class="mtl-event mtl-event--above mtl-event--specific" style="--col:10">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Soutenance mini-mémoire</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- M2 -->
+      <div class="master-timeline__row">
+        <div class="master-timeline__year-label">M<span>2</span></div>
+        <div class="master-timeline__track">
+          <div class="master-timeline__line"></div>
+          <div class="mtl-event mtl-event--above mtl-event--specific" style="--col:1">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Présentation sujets mémoire</div>
+          </div>
+          <div class="mtl-event mtl-event--below mtl-event--specific" style="--col:3">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Stage labo (4–8 sem.)</div>
+          </div>
+          <div class="mtl-event mtl-event--above mtl-event--shared" style="--col:5">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Hackathon données</div>
+          </div>
+          <div class="mtl-event mtl-event--below mtl-event--specific" style="--col:7">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Rédaction mémoire</div>
+          </div>
+          <div class="mtl-event mtl-event--above mtl-event--shared" style="--col:9">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Conférence du master</div>
+          </div>
+          <div class="mtl-event mtl-event--below mtl-event--specific" style="--col:10">
+            <div class="mtl-event__dot"></div>
+            <div class="mtl-event__label">Soutenance mémoire</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- débouchés -->
 {{ with .Params.debouches }}
 <section class="section bg-gray">
