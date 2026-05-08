@@ -10,22 +10,21 @@
         <h1 class="text-white mb-4">{{ .Title }}</h1>
         {{ with .Params.hero_intro }}<p class="text-lighten mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .Params.hero_button.enable }}
-        <a href="{{ .Params.hero_button.link | absLangURL }}" class="btn btn-primary">{{ .Params.hero_button.label }}</a>
+        <a href="{{ .Params.hero_button.link }}" class="btn btn-primary">{{ .Params.hero_button.label }}</a>
         {{ end }}
       </div>
     </div>
   </div>
 </section>
-<!-- /hero -->
 
-<!-- banner-feature (4 blocs clefs, chevauche le hero) -->
+<!-- banner-feature -->
 {{ if .Params.banner_feature.enable }}
 {{ with .Params.banner_feature }}
 <section class="bg-gray overflow-md-hidden">
   <div class="container-fluid p-0">
     <div class="row no-gutters">
       <div class="col-xl-4 col-lg-5 align-self-end">
-        {{ partial "image.html" (dict "Src" .image "Alt" "banner-feature" "Class" "img-fluid w-100" ) }}
+        {{ partial "image.html" (dict "Src" .image "Alt" "banner-feature" "Class" "img-fluid w-100") }}
       </div>
       <div class="col-xl-8 col-lg-7">
         <div class="row feature-blocks bg-gray justify-content-between">
@@ -43,18 +42,382 @@
 </section>
 {{ end }}
 {{ end }}
-<!-- /banner-feature -->
 
-<!-- content -->
+<!-- présentation + encadré info -->
 <section class="section">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-9">
+    <div class="row">
+      <div class="col-lg-7 mb-5 mb-lg-0">
+        <h2 class="section-title">Présentation</h2>
         {{ .Content }}
+      </div>
+      <div class="col-lg-4 offset-lg-1">
+        {{ with .Params.info }}
+        <div class="master-info-card">
+          <div class="master-info-card__header">
+            <i class="ti-info-alt"></i> Informations
+          </div>
+          <ul class="master-info-card__list">
+            <li><span class="label">Type</span><span class="value">{{ .type }}</span></li>
+            <li><span class="label">Durée</span><span class="value">{{ .duree }}</span></li>
+            <li><span class="label">Langue</span><span class="value">{{ .langue }}</span></li>
+            <li><span class="label">Établissements</span><span class="value">{{ .etablissements }}</span></li>
+            <li><span class="label">Programme gradué</span><span class="value">{{ .programme_gradue }}</span></li>
+            <li><span class="label">Apprentissage</span><span class="value">{{ .apprentissage }}</span></li>
+            <li><span class="label">Responsable</span><span class="value">{{ .responsable }}</span></li>
+            <li><span class="label">Contact</span><span class="value"><a href="mailto:{{ .contact }}">{{ .contact }}</a></span></li>
+            <li><span class="label">Capacité</span><span class="value">{{ .capacite }}</span></li>
+            <li><span class="label">Frais (init.)</span><span class="value">{{ .frais_init }}</span></li>
+          </ul>
+        </div>
+        {{ end }}
+        {{ with .Params.documents }}
+        <div class="master-docs mt-4">
+          <h5 class="master-docs__title">Documents utiles</h5>
+          {{ range . }}
+          <a href="{{ .url }}" class="master-docs__item">
+            <i class="ti-file"></i>
+            <span class="name">{{ .name }}</span>
+            <span class="size">{{ .size }}</span>
+          </a>
+          {{ end }}
+        </div>
+        {{ end }}
       </div>
     </div>
   </div>
 </section>
-<!-- /content -->
+
+<!-- parcours de spécialisation -->
+{{ with .Params.parcours }}
+<section class="section bg-gray">
+  <div class="container">
+    <h2 class="section-title mb-5">Parcours de spécialisation</h2>
+    <div class="parcours-grid">
+      {{ range . }}
+      <div class="parcours-card{{ if .custom }} parcours-card--custom{{ end }}">
+        <h4 class="parcours-card__name">{{ .name }}</h4>
+        <p class="parcours-card__content">{{ .content }}</p>
+        <p class="parcours-card__referent"><i class="ti-user"></i> {{ .referent }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- programme (accordéon M1 / M2) -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title mb-2">Programme</h2>
+
+    {{ if .Params.programme_m1 }}
+    <div class="programme-tabs">
+      <ul class="nav nav-pills programme-tabs__nav mb-4" id="programmeTabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="m1-tab" data-toggle="tab" href="#m1" role="tab">Master 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="m2-tab" data-toggle="tab" href="#m2" role="tab">Master 2</a>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="programmeTabContent">
+
+        <!-- M1 -->
+        <div class="tab-pane fade show active" id="m1" role="tabpanel">
+          <p class="mb-4 text-muted">La première année combine un tronc commun (40 ECTS) centré sur la programmation, les méthodes quantitatives et le machine learning, et un programme individualisé (20 ECTS) adapté à la discipline de chaque étudiant. Une semaine intensive d'accueil est organisée en septembre.</p>
+          <div class="accordion" id="accordionM1">
+            {{ range $i, $sem := .Params.programme_m1 }}
+            <div class="programme-accordion__item">
+              <div class="programme-accordion__header" id="m1heading{{ $i }}">
+                <button class="programme-accordion__btn{{ if gt $i 0 }} collapsed{{ end }}" type="button"
+                  data-toggle="collapse" data-target="#m1collapse{{ $i }}"
+                  aria-expanded="{{ if eq $i 0 }}true{{ else }}false{{ end }}"
+                  aria-controls="m1collapse{{ $i }}">
+                  <span class="sem-title">{{ $sem.semestre }}</span>
+                  <span class="sem-meta">{{ $sem.heures }}{{ if and $sem.heures $sem.ects }} · {{ end }}{{ $sem.ects }}</span>
+                  <i class="ti-angle-down"></i>
+                </button>
+              </div>
+              <div id="m1collapse{{ $i }}" class="collapse{{ if eq $i 0 }} show{{ end }}"
+                aria-labelledby="m1heading{{ $i }}" data-parent="#accordionM1">
+                <div class="programme-accordion__body">
+                  <table class="programme-table">
+                    <thead>
+                      <tr><th>Enseignement</th><th>Langue</th><th>Heures</th><th>ECTS</th></tr>
+                    </thead>
+                    <tbody>
+                      {{ range $sem.cours }}
+                      <tr class="cours-row">
+                        <td class="cours-name">{{ .name }}</td>
+                        <td class="cours-lang">{{ .langue }}</td>
+                        <td class="cours-h">{{ .heures }}</td>
+                        <td class="cours-ects">{{ if .ects }}<strong>{{ .ects }}</strong>{{ end }}</td>
+                      </tr>
+                      {{ range .items }}
+                      <tr class="sous-cours-row">
+                        <td colspan="4"><em>{{ . }}</em></td>
+                      </tr>
+                      {{ end }}
+                      {{ end }}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- M2 -->
+        <div class="tab-pane fade" id="m2" role="tabpanel">
+          <p class="mb-4 text-muted">La deuxième année prolonge le tronc commun de M1 et est validée pour un tiers par un mémoire de recherche co-dirigé. Le M2 est ouvert à l'apprentissage (jeudis et vendredis à l'École).</p>
+          <div class="accordion" id="accordionM2">
+            {{ range $i, $sem := .Params.programme_m2 }}
+            <div class="programme-accordion__item">
+              <div class="programme-accordion__header" id="m2heading{{ $i }}">
+                <button class="programme-accordion__btn{{ if gt $i 0 }} collapsed{{ end }}" type="button"
+                  data-toggle="collapse" data-target="#m2collapse{{ $i }}"
+                  aria-expanded="{{ if eq $i 0 }}true{{ else }}false{{ end }}"
+                  aria-controls="m2collapse{{ $i }}">
+                  <span class="sem-title">{{ $sem.semestre }}</span>
+                  <span class="sem-meta">{{ $sem.heures }}{{ if and $sem.heures $sem.ects }} · {{ end }}{{ $sem.ects }}</span>
+                  <i class="ti-angle-down"></i>
+                </button>
+              </div>
+              <div id="m2collapse{{ $i }}" class="collapse{{ if eq $i 0 }} show{{ end }}"
+                aria-labelledby="m2heading{{ $i }}" data-parent="#accordionM2">
+                <div class="programme-accordion__body">
+                  <table class="programme-table">
+                    <thead>
+                      <tr><th>Enseignement</th><th>Langue</th><th>Heures</th><th>ECTS</th></tr>
+                    </thead>
+                    <tbody>
+                      {{ range $sem.cours }}
+                      <tr class="cours-row">
+                        <td class="cours-name">{{ .name }}</td>
+                        <td class="cours-lang">{{ .langue }}</td>
+                        <td class="cours-h">{{ .heures }}</td>
+                        <td class="cours-ects">{{ if .ects }}<strong>{{ .ects }}</strong>{{ end }}</td>
+                      </tr>
+                      {{ range .items }}
+                      <tr class="sous-cours-row">
+                        <td colspan="4"><em>{{ . }}</em></td>
+                      </tr>
+                      {{ end }}
+                      {{ end }}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- débouchés -->
+{{ with .Params.debouches }}
+<section class="section bg-gray">
+  <div class="container">
+    <h2 class="section-title mb-5">Débouchés</h2>
+    <p class="mb-5 text-muted">Résolument tourné vers la recherche, ce master vise avant tout les étudiants souhaitant poursuivre en doctorat, mais ouvre aussi vers l'industrie de la donnée.</p>
+    <div class="row">
+      {{ range . }}
+      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+        <div class="debouche-card">
+          <i class="{{ .icon }} debouche-card__icon"></i>
+          <h5 class="debouche-card__title">{{ .title }}</h5>
+          <p class="debouche-card__content">{{ .content }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- admissions -->
+{{ with .Params.admission }}
+<section class="section">
+  <div class="container">
+    <h2 class="section-title mb-5">Admissions</h2>
+    <div class="row">
+      <!-- calendrier -->
+      <div class="col-lg-5 mb-5 mb-lg-0">
+        <h4 class="admission-subtitle">Calendrier 2026</h4>
+        <div class="timeline-admission">
+          {{ range .calendrier }}
+          <div class="timeline-admission__step">
+            <div class="timeline-admission__dot"></div>
+            <div class="timeline-admission__content">
+              <span class="timeline-admission__date">{{ .date }}</span>
+              <span class="timeline-admission__label">{{ .etape }}</span>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+        <div class="admission-cta mt-4">
+          <a href="{{ .m1_url }}" class="btn btn-primary btn-sm mr-2" target="_blank" rel="noopener">Candidater en M1</a>
+          <a href="{{ .m2_url }}" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener">Candidater en M2</a>
+        </div>
+      </div>
+      <!-- conditions + frais -->
+      <div class="col-lg-6 offset-lg-1">
+        <h4 class="admission-subtitle">Conditions d'accès</h4>
+        <p>Le master s'adresse aux titulaires d'une licence en Humanités, Histoire, Philologie, Sciences du langage, MIASHS, Philosophie, Anthropologie ou Ethnologie. La langue d'enseignement est le <strong>français (C1)</strong>. Une entrée directe en M2 est possible pour les titulaires d'un M1 avec des bases en humanités numériques.</p>
+        <h4 class="admission-subtitle mt-4">Pièces justificatives</h4>
+        <ul class="admission-list">
+          <li>CV en français, diplômes, relevés de notes (S1–S6), lettre de motivation</li>
+          <li><strong>En M1 :</strong> questionnaire sur la recherche (disponible sur MonMaster)</li>
+          <li><strong>En M2 :</strong> projet de recherche détaillé</li>
+        </ul>
+        <h4 class="admission-subtitle mt-4">Frais d'inscription</h4>
+        <div class="frais-grid">
+          <div class="frais-item"><span class="frais-label">Formation initiale</span><span class="frais-value">254 € + CVEC 105 €</span></div>
+          <div class="frais-item"><span class="frais-label">Année de césure</span><span class="frais-value">166 €</span></div>
+          <div class="frais-item"><span class="frais-label">Formation continue M1</span><span class="frais-value">3 000 €</span></div>
+          <div class="frais-item"><span class="frais-label">Formation continue M2</span><span class="frais-value">5 000 €</span></div>
+          <div class="frais-item frais-item--intl"><span class="frais-label">Étudiants internationaux hors EEE</span><span class="frais-value">3 941 €/an</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- équipe enseignante -->
+{{ with .Params.enseignants }}
+<section class="section bg-gray team-section">
+  <div class="container">
+    <h2 class="section-title mb-5">Équipe enseignante</h2>
+    <div class="row">
+      {{ range . }}
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+        <div class="person-card">
+          <div class="person-card__photo">
+            {{ if .image }}
+            {{ partial "image.html" (dict "Src" .image "Alt" .name "Class" "person-card__img") }}
+            {{ else }}
+            <div class="person-card__placeholder"><i class="ti-user"></i></div>
+            {{ end }}
+          </div>
+          <div class="person-card__info">
+            <p class="person-card__name">{{ .name }}</p>
+            {{ if .role }}<p class="person-card__role">{{ .role }}</p>{{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- partenariats -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title mb-5">Partenariats</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <div class="partenaire-card">
+          <h5>Double diplôme — Université de Pise</h5>
+          <p>Issu de la convention entre l'ENC–PSL et l'Université de Pise, dont le master <em>Informatica Umanistica</em> recourt aux mêmes approches sur quatre parcours comparables.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4 mb-md-0">
+        <div class="partenaire-card">
+          <h5>PSL Sustainability Science</h5>
+          <p>Le master est partenaire de cette formation PSL. Informations et inscriptions spécifiques sur le site de PSL.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="partenaire-card">
+          <h5>Erasmus-Socrates</h5>
+          <p>La formation est ouverte à la mobilité internationale. Contacter le service des relations internationales de l'ENC–PSL.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- mémoires (template vide) -->
+<section class="section bg-gray">
+  <div class="container">
+    <div class="d-flex align-items-center section-title justify-content-between mb-5">
+      <h2 class="mb-0 text-nowrap mr-3">Mémoires de master</h2>
+      <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+      <a href="#" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir plus</a>
+    </div>
+    <div class="row">
+      {{ range seq 3 }}
+      <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="placeholder-card">
+          <div class="placeholder-card__img placeholder-card__img--memoire"></div>
+          <div class="placeholder-card__body">
+            <div class="placeholder-card__tag">Mémoire</div>
+            <p class="placeholder-card__title">Titre du mémoire</p>
+            <p class="placeholder-card__meta">Auteur · Année</p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- projets étudiants (template vide) -->
+<section class="section">
+  <div class="container">
+    <div class="d-flex align-items-center section-title justify-content-between mb-5">
+      <h2 class="mb-0 text-nowrap mr-3">Projets des étudiants</h2>
+      <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+      <a href="#" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir plus</a>
+    </div>
+    <div class="row">
+      {{ range seq 6 }}
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+        <div class="placeholder-card placeholder-card--project">
+          <div class="placeholder-card__img placeholder-card__img--project"></div>
+          <div class="placeholder-card__body">
+            <p class="placeholder-card__title">Titre du projet</p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- actualités du master (template vide) -->
+<section class="section bg-gray">
+  <div class="container">
+    <div class="d-flex align-items-center section-title justify-content-between mb-5">
+      <h2 class="mb-0 text-nowrap mr-3">Actualités du master</h2>
+      <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+      <a href="{{ `blog/` | relLangURL }}" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir toutes les actualités</a>
+    </div>
+    <div class="row">
+      {{ range seq 3 }}
+      <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="placeholder-card">
+          <div class="placeholder-card__img placeholder-card__img--news"></div>
+          <div class="placeholder-card__body">
+            <div class="placeholder-card__tag">Actualité</div>
+            <p class="placeholder-card__title">Titre de l'actualité</p>
+            <p class="placeholder-card__meta">Date</p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
 
 {{ end }}

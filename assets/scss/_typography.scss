@@ -168,119 +168,432 @@ a {
 }
 
 /* ───────────────────────────────────────────────────────────────
-   PAGE MASTER — encadré info, grille parcours, tables programme
+   PAGE MASTER
    ─────────────────────────────────────────────────────────────── */
 
-.master-info-box {
-  background: lighten($secondary-color, 65%);
-  border-left: 4px solid $secondary-color;
-  border-radius: 4px;
-  padding: 1.5rem 2rem;
-  margin: 1.5rem 0 2rem;
+// Carte info latérale
+.master-info-card {
+  background: $secondary-color;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
 
-  h3 {
-    color: $secondary-color;
-    font-size: 1rem;
+  &__header {
+    background: darken($secondary-color, 8%);
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
+    letter-spacing: 0.06em;
+    i { margin-right: 0.4rem; }
   }
 
-  table {
-    width: 100%;
+  &__list {
+    list-style: none;
     margin: 0;
-    td {
-      padding: 0.3rem 0.5rem;
-      vertical-align: top;
-      border: none;
-      font-size: 0.9rem;
-      &:first-child { font-weight: 600; white-space: nowrap; width: 40%; }
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.55rem 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.83rem;
+
+      &:last-child { border-bottom: none; }
+
+      .label {
+        color: rgba(255,255,255,0.65);
+        min-width: 110px;
+        flex-shrink: 0;
+      }
+      .value {
+        color: #fff;
+        font-weight: 500;
+        a { color: rgba(255,255,255,0.85); text-decoration: underline; &:hover { color: #fff; } }
+      }
     }
   }
 }
 
+// Documents utiles
+.master-docs {
+  &__title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $text-color-light;
+    margin-bottom: 0.75rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.4rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+    font-size: 0.82rem;
+    color: $text-color;
+    transition: background 0.15s;
+
+    &:hover { background: #eef0f2; color: $primary-color; text-decoration: none; }
+
+    i { color: $primary-color; flex-shrink: 0; }
+    .name { flex: 1; font-weight: 500; }
+    .size { color: $text-color-light; font-size: 0.75rem; }
+  }
+}
+
+// Grille parcours
 .parcours-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
-  margin: 1.5rem 0 2rem;
 
   @media (max-width: 991px) { grid-template-columns: repeat(2, 1fr); }
   @include mobile { grid-template-columns: 1fr; }
 }
 
-.parcours-item {
-  background: #f8f9fa;
+.parcours-card {
+  background: #fff;
   border-top: 3px solid $primary-color;
   border-radius: 4px;
-  padding: 1.25rem 1.25rem 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 
-  h3 {
+  &__name {
     font-size: 0.95rem;
     color: $primary-color;
     margin-bottom: 0.6rem;
   }
-
-  p, & { font-size: 0.88rem; color: #555; }
-
-  strong { color: #333; }
-
-  &.parcours-custom {
-    border-top-color: $secondary-color;
-    h3 { color: $secondary-color; }
-    grid-column: span 1;
-  }
-}
-
-.programme-table {
-  margin: 1.5rem 0 2rem;
-
-  h4 {
-    font-size: 1rem;
+  &__content { font-size: 0.87rem; color: #555; margin-bottom: 0.75rem; }
+  &__referent {
+    font-size: 0.82rem;
     color: $secondary-color;
-    background: lighten($secondary-color, 60%);
-    padding: 0.5rem 0.75rem;
-    border-radius: 3px;
-    margin: 1.5rem 0 0.75rem;
+    font-weight: 600;
+    margin: 0;
+    i { margin-right: 0.3rem; opacity: 0.7; }
   }
 
-  table {
-    width: 100%;
-    font-size: 0.88rem;
-    border-collapse: collapse;
-    margin-bottom: 0.5rem;
-
-    thead th {
-      background: $primary-color;
-      color: #fff;
-      padding: 0.4rem 0.6rem;
-      font-weight: 600;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    tbody tr:nth-child(even) { background: #f8f8f8; }
-
-    td {
-      padding: 0.35rem 0.6rem;
-      border-bottom: 1px solid #e9ecef;
-      vertical-align: top;
-
-      em { color: #777; font-size: 0.85rem; }
-    }
-
-    td:first-child strong { color: $text-color; }
-  }
-
-  @include mobile {
-    overflow-x: auto;
-    display: block;
+  &--custom {
+    border-top-color: $secondary-color;
+    .parcours-card__name { color: $secondary-color; }
   }
 }
 
-.master-student-work {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid #e9ecef;
+// Onglets programme
+.programme-tabs {
+  &__nav {
+    .nav-link {
+      color: $secondary-color;
+      font-weight: 600;
+      border-radius: 30px;
+      padding: 0.4rem 1.5rem;
+      border: 2px solid $secondary-color;
+      margin-right: 0.5rem;
+
+      &.active {
+        background: $secondary-color;
+        color: #fff;
+        border-color: $secondary-color;
+      }
+      &:hover:not(.active) { background: lighten($secondary-color, 60%); }
+    }
+  }
+}
+
+// Accordéon programme
+.programme-accordion {
+  &__item {
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+  }
+
+  &__header { background: #fff; }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0.85rem 1.25rem;
+    text-align: left;
+    cursor: pointer;
+    gap: 0.75rem;
+
+    &:focus { outline: none; }
+
+    .sem-title {
+      flex: 1;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: $secondary-color;
+      font-family: $secondary-font;
+    }
+    .sem-meta {
+      font-size: 0.78rem;
+      color: $text-color-light;
+      white-space: nowrap;
+    }
+    i {
+      color: $secondary-color;
+      font-size: 0.7rem;
+      transition: transform 0.2s;
+    }
+    &:not(.collapsed) i { transform: rotate(180deg); }
+    &:not(.collapsed) { background: lighten($secondary-color, 60%); }
+  }
+
+  &__body {
+    padding: 0 1rem 1rem;
+    overflow-x: auto;
+  }
+}
+
+// Table programme (dans accordéon)
+table.programme-table {
+  width: 100%;
+  font-size: 0.85rem;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+
+  thead th {
+    background: $primary-color;
+    color: #fff;
+    padding: 0.4rem 0.6rem;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .cours-row {
+    td { padding: 0.35rem 0.6rem; border-bottom: 1px solid #e9ecef; vertical-align: top; }
+    .cours-name { font-weight: 500; }
+    .cours-lang, .cours-h, .cours-ects { white-space: nowrap; color: $text-color-light; text-align: right; }
+    .cours-ects strong { color: $primary-color; }
+  }
+
+  .sous-cours-row td {
+    padding: 0.2rem 0.6rem 0.2rem 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.82rem;
+    color: #777;
+    em { font-style: normal; }
+  }
+}
+
+// Débouchés
+.debouche-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: #fff;
+  border-radius: 6px;
+  height: 100%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  &:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); transform: translateY(-3px); }
+
+  &__icon {
+    display: block;
+    font-size: 2rem;
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+  &__title {
+    font-size: 0.95rem;
+    color: $secondary-color;
+    margin-bottom: 0.75rem;
+  }
+  &__content { font-size: 0.87rem; color: #555; margin: 0; }
+}
+
+// Admissions
+.admission-subtitle {
+  font-size: 1rem;
+  color: $secondary-color;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid lighten($secondary-color, 55%);
+}
+
+.timeline-admission {
+  position: relative;
+  padding-left: 1.5rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: lighten($secondary-color, 50%);
+  }
+
+  &__step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  &__dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: $secondary-color;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px $secondary-color;
+    flex-shrink: 0;
+    margin-left: -1.5rem;
+    margin-top: 3px;
+  }
+
+  &__content { display: flex; flex-direction: column; }
+
+  &__date {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  &__label { font-size: 0.9rem; color: $text-color; }
+}
+
+.admission-list {
+  padding-left: 1.2rem;
+  li { font-size: 0.9rem; margin-bottom: 0.4rem; }
+}
+
+.frais-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+
+  @include mobile { grid-template-columns: 1fr; }
+}
+
+.frais-item {
+  background: #f8f9fa;
+  border-radius: 4px;
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.83rem;
+
+  &--intl { grid-column: span 2; background: lighten($secondary-color, 62%); @include mobile { grid-column: span 1; } }
+
+  .frais-label { color: $text-color-light; font-size: 0.78rem; margin-bottom: 0.15rem; }
+  .frais-value { font-weight: 700; color: $secondary-color; font-size: 0.9rem; }
+}
+
+// Cartes personnes (enseignants)
+.person-card {
+  text-align: center;
+
+  &__photo {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    background: $gray;
+    margin-bottom: 0.75rem;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: lighten($secondary-color, 55%);
+    i { font-size: 2rem; color: $secondary-color; opacity: 0.5; }
+  }
+
+  &__info { padding: 0 0.25rem; }
+
+  &__name {
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: $text-color;
+    margin: 0 0 0.2rem;
+    line-height: 1.3;
+  }
+  &__role {
+    font-size: 0.75rem;
+    color: $text-color-light;
+    margin: 0;
+    line-height: 1.3;
+  }
+}
+
+// Partenaires
+.partenaire-card {
+  background: #fff;
+  border-left: 3px solid $primary-color;
+  border-radius: 4px;
+  padding: 1.25rem;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+
+  h5 { color: $secondary-color; font-size: 0.95rem; margin-bottom: 0.6rem; }
+  p { font-size: 0.87rem; color: #555; margin: 0; }
+}
+
+// Cartes placeholder (mémoires, projets, actualités)
+.placeholder-card {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  height: 100%;
+
+  &__img {
+    width: 100%;
+    background: lighten($secondary-color, 55%);
+
+    &--memoire, &--news { height: 140px; }
+    &--project { height: 100px; }
+  }
+
+  &__body { padding: 0.75rem; }
+  &__tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $primary-color;
+    margin-bottom: 0.3rem;
+  }
+  &__title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: $text-color;
+    margin: 0 0 0.25rem;
+    line-height: 1.3;
+  }
+  &__meta { font-size: 0.78rem; color: $text-color-light; margin: 0; }
 }
