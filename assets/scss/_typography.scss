@@ -613,6 +613,14 @@ table.programme-table {
   padding: 0.5rem 0.9rem;
   margin-bottom: 0.5rem;
 
+  &--full {
+    display: flex;
+    width: 100%;
+    background: lighten($secondary-color, 60%);
+    border-left: 3px solid $secondary-color;
+    .phase-solo__period { color: $secondary-color; }
+  }
+
   &__year {
     font-size: 0.62rem;
     font-weight: 700;
@@ -856,6 +864,40 @@ table.programme-table {
   flex-shrink: 0;
   overflow: visible;
   white-space: nowrap;
+}
+
+// Mini frise jours (dans les cartes apprentissage)
+.rythme-mini {
+  display: flex;
+  gap: 3px;
+  margin-top: 0.75rem;
+
+  &__day {
+    flex: 1;
+    text-align: center;
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 0.25rem 0;
+    border-radius: 3px;
+
+    &--e { background: lighten($secondary-color, 57%); color: $secondary-color; }
+    &--m { background: rgba($primary-color, 0.12); color: $primary-color; }
+  }
+}
+
+// Note flexibilité apprentissage
+.apprentissage-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.83rem;
+  color: $text-color-light;
+
+  i { flex-shrink: 0; color: $secondary-color; margin-top: 2px; }
+  p { margin: 0; line-height: 1.5; }
 }
 
 // Apprentissage
