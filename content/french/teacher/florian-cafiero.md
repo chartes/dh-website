@@ -1,7 +1,9 @@
 ---
 title: "Florian Cafiero"
-image: "images/teachers/florian-cafiero.jpg"
-course: "IA pour les SHS"
+image: "images/team-pic/florian-cafiero.jpg"
+course: "Associate professor (EPITA)"
+category: "Enseignants-chercheurs"
+master_teacher: true
 type: "teacher"
-weight: 2
+weight: 105
 ---

@@ -1,7 +1,9 @@
 ---
 title: "Marie Puren"
-image: "images/teachers/marie-puren.jpg"
-course: "Histoire et humanités numériques"
+image: "images/team-pic/marie-puren.png"
+course: "Associate professor (EPITA)"
+category: "Enseignants-chercheurs"
+master_teacher: true
 type: "teacher"
-weight: 3
+weight: 106
 ---

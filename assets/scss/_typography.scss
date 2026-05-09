@@ -1066,3 +1066,20 @@ table.programme-table {
     &:hover { text-decoration: underline; }
   }
 }
+
+// — Page équipe ——————————————————————————————————————————
+
+.equipe-category-title {
+  font-family: $secondary-font;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: $secondary-color;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid $primary-color;
+  display: inline-block;
+}
+
+.equipe-master-section {
+  border-top: 3px solid $primary-color;
+}

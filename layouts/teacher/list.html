@@ -1,0 +1,81 @@
+{{ define "main" }}
+
+{{ partial "page-header.html" . }}
+
+{{ $all := sort .Pages "Params.weight" }}
+
+{{/* ── helper : rendu d'une section de person-cards ── */}}
+{{ $renderGroup := "person-card" }}
+
+{{ $groups := slice
+  (dict "label" "Enseignants-chercheurs"    "filter" "category" "value" "Enseignants-chercheurs")
+  (dict "label" "Post-docs"                 "filter" "category" "value" "Post-docs")
+  (dict "label" "Doctorants"                "filter" "category" "value" "Doctorants")
+  (dict "label" "Ingénieurs"                "filter" "category" "value" "Ingénieurs")
+  (dict "label" "Chercheurs"                "filter" "category" "value" "Chercheurs")
+}}
+
+{{ range $groups }}
+{{ $pages := sort (where $all (printf ".Params.%s" .filter) .value) "Params.weight" }}
+{{ if $pages }}
+<section class="section{{ if eq .label "Post-docs" }} bg-gray{{ end }}{{ if eq .label "Ingénieurs" }} bg-gray{{ end }}">
+  <div class="container">
+    <h2 class="equipe-category-title">{{ .label }}</h2>
+    <div class="row">
+      {{ range $pages }}
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+        <div class="person-card">
+          <div class="person-card__photo">
+            {{ if .Params.image }}
+            {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "person-card__img") }}
+            {{ else }}
+            <div class="person-card__placeholder"><i class="ti-user"></i></div>
+            {{ end }}
+          </div>
+          <div class="person-card__info">
+            <p class="person-card__name">{{ .Title }}</p>
+            {{ if .Params.course }}<p class="person-card__role">{{ .Params.course }}</p>{{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
+{{/* ── Section transversale : Enseignants du master HN ── */}}
+{{ $masterTeachers := sort (where $all "Params.master_teacher" true) "Params.weight" }}
+{{ if $masterTeachers }}
+<section class="section equipe-master-section">
+  <div class="container">
+    <div class="d-flex align-items-center section-title justify-content-between mb-5">
+      <h2 class="mb-0 text-nowrap mr-3">Enseignants du master HN</h2>
+      <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+      <a href="{{ `master/` | relLangURL }}" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Le master</a>
+    </div>
+    <div class="row">
+      {{ range $masterTeachers }}
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+        <div class="person-card">
+          <div class="person-card__photo">
+            {{ if .Params.image }}
+            {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "person-card__img") }}
+            {{ else }}
+            <div class="person-card__placeholder"><i class="ti-user"></i></div>
+            {{ end }}
+          </div>
+          <div class="person-card__info">
+            <p class="person-card__name">{{ .Title }}</p>
+            {{ if .Params.course }}<p class="person-card__role">{{ .Params.course }}</p>{{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

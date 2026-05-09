@@ -2,6 +2,8 @@
 title: "Jean Barré"
 image: ""
 course: ""
+category: "Enseignants du master HN"
+master_teacher: true
 type: "teacher"
-weight: 10
+weight: 204
 ---

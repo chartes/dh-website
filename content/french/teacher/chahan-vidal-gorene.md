@@ -1,7 +1,9 @@
 ---
 title: "Chahan Vidal-Gorène"
-image: "images/teachers/chahan-vidal-gorene.jpg"
-course: "Responsable pédagogique du master"
+image: "images/team-pic/chahan-vidal-gorene.JPG"
+course: "Responsable du master « Humanités numériques »"
+category: "Enseignants-chercheurs"
+master_teacher: true
 type: "teacher"
-weight: 1
+weight: 101
 ---

@@ -1,7 +1,9 @@
 ---
 title: "Alexandre Lionnet"
-image: ""
-course: "Doctorant"
+image: "images/team-pic/alexandre-lionnet.png"
+course: "Doctorant contractuel (CultureLab)"
+category: "Doctorants"
+master_teacher: true
 type: "teacher"
-weight: 12
+weight: 402
 ---

@@ -1,7 +1,9 @@
 ---
 title: "Jean-Baptiste Camps"
-image: "images/teachers/jean-baptiste-camps.jpg"
-course: "Maître de conférences, ERC LostMa"
+image: "images/team-pic/jean-baptiste-camps.jpg"
+course: "Maître de conférences, responsable scientifique de l'ERC LostMa"
+category: "Enseignants-chercheurs"
+master_teacher: true
 type: "teacher"
-weight: 4
+weight: 103
 ---

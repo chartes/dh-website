@@ -469,7 +469,7 @@
 {{ end }}
 
 <!-- équipe enseignante -->
-{{ $teachers := sort (where site.RegularPages "Type" "teacher") "Params.weight" }}
+{{ $teachers := sort (where (where site.RegularPages "Type" "teacher") "Params.master_teacher" true) "Params.weight" }}
 {{ if $teachers }}
 <section class="section bg-gray team-section">
   <div class="container">

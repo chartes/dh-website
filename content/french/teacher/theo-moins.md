@@ -1,7 +1,9 @@
 ---
 title: "Théo Moins"
-image: ""
-course: ""
+image: "images/team-pic/theo-moins.png"
+course: "Ingénieur (ERC LostMa)"
+category: "Ingénieurs"
+master_teacher: true
 type: "teacher"
-weight: 8
+weight: 513
 ---
