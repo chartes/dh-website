@@ -469,24 +469,25 @@
 {{ end }}
 
 <!-- équipe enseignante -->
-{{ with .Params.enseignants }}
+{{ $teachers := sort (where site.RegularPages "Type" "teacher") "Params.weight" }}
+{{ if $teachers }}
 <section class="section bg-gray team-section">
   <div class="container">
     <h2 class="section-title mb-5">Équipe enseignante</h2>
     <div class="row">
-      {{ range . }}
+      {{ range $teachers }}
       <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
         <div class="person-card">
           <div class="person-card__photo">
-            {{ if .image }}
-            {{ partial "image.html" (dict "Src" .image "Alt" .name "Class" "person-card__img") }}
+            {{ if .Params.image }}
+            {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "person-card__img") }}
             {{ else }}
             <div class="person-card__placeholder"><i class="ti-user"></i></div>
             {{ end }}
           </div>
           <div class="person-card__info">
-            <p class="person-card__name">{{ .name }}</p>
-            {{ if .role }}<p class="person-card__role">{{ .role }}</p>{{ end }}
+            <p class="person-card__name">{{ .Title }}</p>
+            {{ if .Params.course }}<p class="person-card__role">{{ .Params.course }}</p>{{ end }}
           </div>
         </div>
       </div>
@@ -571,28 +572,48 @@
   </div>
 </section>
 
-<!-- actualités du master (template vide) -->
+<!-- actualités du master -->
 <section class="section bg-gray">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Actualités du master</h2>
       <div class="border-top w-100 border-primary d-none d-sm-block"></div>
-      <a href="{{ `blog/` | relLangURL }}" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir toutes les actualités</a>
+      <a href="{{ `blog/` | relLangURL }}" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir le blog</a>
     </div>
-    <div class="row">
-      {{ range seq 3 }}
+
+    {{ with .Params.actualites }}
+    <h5 class="actu-subsection-title">À la une</h5>
+    <div class="row mb-5">
+      {{ range . }}
       <div class="col-lg-4 col-sm-6 mb-4">
-        <div class="placeholder-card">
-          <div class="placeholder-card__img placeholder-card__img--news"></div>
-          <div class="placeholder-card__body">
-            <div class="placeholder-card__tag">Actualité</div>
-            <p class="placeholder-card__title">Titre de l'actualité</p>
-            <p class="placeholder-card__meta">Date</p>
+        <div class="actu-card">
+          {{ if .image }}
+          <div class="actu-card__img" style="background-image: url('{{ .image | relURL }}')"></div>
+          {{ end }}
+          <div class="actu-card__body">
+            {{ if .tag }}<span class="actu-card__tag">{{ .tag }}</span>{{ end }}
+            <p class="actu-card__title">{{ .title }}</p>
+            {{ if .date }}<p class="actu-card__meta">{{ .date }}</p>{{ end }}
+            {{ if .url }}<a href="{{ .url }}" class="actu-card__link">Lire →</a>{{ end }}
           </div>
         </div>
       </div>
       {{ end }}
     </div>
+    {{ end }}
+
+    {{ $masterPosts := where (where site.RegularPages "Type" "post") ".Params.tags" "intersect" (slice "master") }}
+    {{ if $masterPosts }}
+    <h5 class="actu-subsection-title">Du blog</h5>
+    <div class="row">
+      {{ range first 3 $masterPosts }}
+      <div class="col-lg-4 col-sm-6 mb-4">
+        {{ .Render "post" }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
   </div>
 </section>
 

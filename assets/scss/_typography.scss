@@ -992,3 +992,77 @@ table.programme-table {
     line-height: 1.4;
   }
 }
+// — Actualités du master ——————————————————————————————
+
+.actu-subsection-title {
+  font-family: $secondary-font;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: $secondary-color;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.25rem;
+  border-left: 3px solid $primary-color;
+  padding-left: 0.75rem;
+}
+
+.actu-card {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__img {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    background-color: $gray;
+  }
+
+  &__body {
+    padding: 1.1rem 1.25rem 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: $primary-color;
+    background: rgba($primary-color, 0.08);
+    border-radius: 3px;
+    padding: 0.15em 0.5em;
+    margin-bottom: 0.6rem;
+  }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-color-dark;
+    margin: 0 0 0.4rem;
+    line-height: 1.4;
+  }
+
+  &__meta {
+    font-size: 0.8rem;
+    color: $text-color-light;
+    margin: 0 0 0.75rem;
+  }
+
+  &__link {
+    margin-top: auto;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $primary-color;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}

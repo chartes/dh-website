@@ -366,6 +366,20 @@ apprentissage:
       label: "Ingénierie des données"
       detail: "Pipelines de traitement, bases de données, valorisation et exposition de données de recherche."
 
+actualites:
+  - title: "Journée d'études des étudiants — édition 2025"
+    tag: "Événement"
+    date: "Mai 2025"
+    url: "#"
+  - title: "Résultats d'admission session 2025 disponibles"
+    tag: "Admissions"
+    date: "Juin 2025"
+    url: "#"
+  - title: "Hackathon 2025 — retour sur une semaine intense"
+    tag: "Formation"
+    date: "Avril 2025"
+    url: "#"
+
 documents:
   - name: "Plaquette du master"
     size: "PDF – 489 Ko"
