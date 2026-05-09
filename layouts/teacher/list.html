@@ -1,7 +1,5 @@
 {{ define "main" }}
 
-{{ partial "page-header.html" . }}
-
 {{ $all := sort .Pages "Params.weight" }}
 
 {{/* ── helper : rendu d'une section de person-cards ── */}}
