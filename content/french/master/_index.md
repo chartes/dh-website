@@ -12,7 +12,7 @@ layout: "list"
 
 banner_feature:
   enable: true
-  image: "images/banner/banner-feature.png"
+  image: "images/banner/banner-feature-students.png"
   feature_item:
     - name: "Double compétence"
       icon: "ti-stats-up"
