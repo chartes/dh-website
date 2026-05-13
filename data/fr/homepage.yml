@@ -15,7 +15,7 @@ hero:
 # Section qui chevauche légèrement le hero (margin-top: -100px sur .feature-blocks)
 banner_feature:
   enable : true
-  image : "images/banner/banner-feature.png"
+  image : "images/banner/banner-feature-home.png"
   feature_item:
     - name : "Recherche"
       icon : "ti-book"
