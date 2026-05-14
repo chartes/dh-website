@@ -10,57 +10,78 @@
 {{ $q := printf "authFullName_t:(%s)" $authorQuery }}
 
 {{ $fields := "title_s,authFullName_s,producedDate_s,producedDateY_i,uri_s,docType_s,journalTitle_s,domain_s,keyword_s" }}
-{{ $params := querify "q" $q "fl" $fields "sort" "producedDate_s desc" "rows" "200" "wt" "json" }}
+{{ $params := querify "q" $q "fl" $fields "sort" "producedDate_s desc" "rows" "2000" "wt" "json" }}
 {{ $url := printf "https://api.archives-ouvertes.fr/search/?%s" $params }}
 
-{{/* ── Étiquettes FR pour les codes de discipline HAL ── */}}
+{{/* ── Étiquettes FR pour les codes de discipline HAL ──
+     HAL préfixe les codes par leur profondeur (1.info.info-cv, 2.phys.cond.cm-gen) ;
+     on strippe le préfixe avant lookup. */}}
 {{ $domainLabels := dict
   "shs" "Sciences humaines et sociales"
-  "shs.hist" "Histoire"
-  "shs.hist-philoso" "Histoire et philosophie des sciences"
-  "shs.litt" "Littératures"
-  "shs.langue" "Linguistique"
-  "shs.archi" "Architecture"
   "shs.archeo" "Archéologie"
+  "shs.archi" "Architecture"
   "shs.art" "Art et histoire de l'art"
-  "shs.musiq" "Musicologie"
-  "shs.relig" "Religions"
-  "shs.philo" "Philosophie"
-  "shs.socio" "Sociologie"
-  "shs.geo" "Géographie"
-  "shs.eco" "Économie"
-  "shs.psy" "Psychologie"
-  "shs.anthro-bio" "Anthropologie biologique"
-  "shs.anthro-se" "Anthropologie sociale"
-  "shs.demo" "Démographie"
-  "shs.droit" "Droit"
-  "shs.edu" "Sciences de l'éducation"
-  "shs.info" "Sciences de l'information"
-  "shs.museo" "Sciences du patrimoine"
-  "shs.scipo" "Science politique"
-  "shs.stat" "Méthodes et statistiques (SHS)"
   "shs.class" "Études classiques"
+  "shs.droit" "Droit"
+  "shs.eco" "Économie"
+  "shs.geo" "Géographie"
   "shs.gestion" "Gestion et management"
+  "shs.hisphilso" "Histoire et philosophie des sciences"
+  "shs.hist" "Histoire"
+  "shs.info" "Sciences de l'information"
+  "shs.langue" "Linguistique"
+  "shs.litt" "Littératures"
+  "shs.museo" "Sciences du patrimoine"
+  "shs.musiq" "Musicologie"
+  "shs.phil" "Philosophie"
+  "shs.psy" "Psychologie"
+  "shs.relig" "Religions"
+  "shs.scipo" "Science politique"
+  "shs.socio" "Sociologie"
+  "shs.stat" "Méthodes et statistiques (SHS)"
   "info" "Informatique"
-  "info.info-ai" "Intelligence artificielle"
-  "info.info-cl" "Calcul et langage (TAL)"
   "info.info-cv" "Vision par ordinateur"
-  "info.info-tt" "Traitement du texte"
-  "info.info-lg" "Apprentissage automatique"
+  "info.info-cy" "Cryptographie et sécurité"
   "info.info-db" "Bases de données"
+  "info.info-dl" "Apprentissage profond"
+  "info.info-gl" "Génie logiciel"
+  "info.info-gt" "Théorie des jeux"
+  "info.info-hc" "Interaction homme-machine"
   "info.info-ir" "Recherche d'information"
-  "info.info-ni" "Réseaux"
-  "info.info-gr" "Graphisme"
-  "info.info-hc" "Interfaces homme-machine"
+  "info.info-it" "Théorie de l'information"
+  "info.info-lg" "Apprentissage automatique"
+  "info.info-mo" "Modélisation et simulation"
+  "info.info-se" "Génie logiciel"
+  "info.info-si" "Systèmes d'information"
+  "info.info-tt" "Traitement du texte et du document"
+  "info.info-wb" "Web"
   "math" "Mathématiques"
+  "math.math-pr" "Probabilités"
   "math.math-st" "Statistiques (math.)"
   "stat" "Statistiques"
-  "stat.ML" "Machine Learning"
-  "stat.AP" "Statistiques appliquées"
+  "stat.ap" "Statistiques appliquées"
+  "stat.me" "Méthodologie statistique"
+  "stat.ml" "Machine Learning"
+  "stat.ot" "Autres statistiques"
   "phys" "Physique"
-  "sdv" "Sciences du vivant"
+  "phys.cond" "Matière condensée"
+  "phys.cond.cm-ds-nn" "Désordre & systèmes neuronaux"
+  "phys.cond.cm-gen" "Matière condensée — généralités"
+  "phys.phys" "Physique générale"
   "scco" "Sciences cognitives"
-  "sde" "Sciences de l'environnement"
+  "scco.comp" "Cognition computationnelle"
+  "scco.ling" "Linguistique cognitive"
+  "scco.psyc" "Psychologie cognitive"
+  "sdu" "Sciences de l'Univers"
+  "sdu.stu" "Sciences de la Terre"
+  "sdv" "Sciences du vivant"
+  "sdv.bc" "Biochimie"
+  "sdv.bio" "Biologie"
+  "sdv.can" "Cancer"
+  "sdv.mhep" "Médecine et pathologie humaines"
+  "sdv.neu" "Neurosciences"
+  "sdv.sa" "Sciences agricoles"
+  "sdv.spee" "Santé publique et épidémiologie"
 }}
 
 <section class="section">
@@ -79,10 +100,15 @@
             <strong>{{ .numFound }}</strong> publications référencées dans HAL
           </p>
 
-          {{/* ── Domaines uniques présents dans les résultats ── */}}
+          {{/* ── Domaines uniques présents dans les résultats ──
+               on strippe le préfixe de profondeur HAL (ex. "1.shs.hist" -> "shs.hist"). */}}
           {{ $allDomains := slice }}
           {{ range .docs }}
-            {{ with .domain_s }}{{ $allDomains = $allDomains | append . }}{{ end }}
+            {{ with .domain_s }}
+              {{ range . }}
+                {{ $allDomains = $allDomains | append (replaceRE "^\\d+\\." "" .) }}
+              {{ end }}
+            {{ end }}
           {{ end }}
           {{ $uniqDomains := $allDomains | uniq | sort }}
 
@@ -140,7 +166,11 @@
               {{ with .journalTitle_s }}{{ $journal = . }}{{ end }}
               {{ $searchBlob := printf "%s %s %s %s %s" $title $authors $keywords $journal $year | lower }}
               {{ $domains := "" }}
-              {{ with .domain_s }}{{ $domains = delimit . " " }}{{ end }}
+              {{ with .domain_s }}
+                {{ $clean := slice }}
+                {{ range . }}{{ $clean = $clean | append (replaceRE "^\\d+\\." "" .) }}{{ end }}
+                {{ $domains = delimit $clean " " }}
+              {{ end }}
               <li class="publication-item"
                   data-domains="{{ $domains }}"
                   data-search="{{ $searchBlob }}">
