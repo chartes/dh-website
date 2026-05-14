@@ -1083,3 +1083,80 @@ table.programme-table {
 .equipe-master-section {
   border-top: 3px solid $primary-color;
 }
+
+// — Page publications ———————————————————————————————————
+
+.publications-count {
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $border-color;
+}
+
+.publications-year {
+  margin-bottom: 2.5rem;
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $primary-color;
+    border-left: 4px solid $primary-color;
+    padding-left: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.publications-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.publication-item {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid $border-color;
+
+  &:last-child { border-bottom: none; }
+
+  &__title {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: $text-color-dark;
+    margin: 0 0 0.35rem;
+    line-height: 1.4;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover { color: $primary-color; text-decoration: underline; }
+    }
+  }
+
+  &__authors {
+    font-size: 0.9rem;
+    color: $text-color-light;
+    margin: 0 0 0.3rem;
+  }
+
+  &__meta {
+    font-size: 0.85rem;
+    color: $text-color-light;
+    margin: 0;
+    em { color: $secondary-color; }
+  }
+
+  &__type {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $primary-color;
+    background: rgba($primary-color, 0.08);
+    border-radius: 3px;
+    padding: 0.12em 0.5em;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+}

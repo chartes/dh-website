@@ -1,0 +1,103 @@
+{{ define "main" }}
+
+{{/* ── Construction de la requête HAL à partir des noms de l'équipe ── */}}
+{{ $teachers := where site.RegularPages "Type" "teacher" }}
+{{ $names := slice }}
+{{ range $teachers }}
+  {{ $names = $names | append (printf "\"%s\"" .Title) }}
+{{ end }}
+{{ $authorQuery := delimit $names " OR " }}
+{{ $q := printf "authFullName_t:(%s)" $authorQuery }}
+
+{{ $fields := "title_s,authFullName_s,producedDate_s,producedDateY_i,uri_s,docType_s,journalTitle_s,citationFull_s,abstract_s" }}
+{{ $params := querify "q" $q "fl" $fields "sort" "producedDate_s desc" "rows" "200" "wt" "json" }}
+{{ $url := printf "https://api.archives-ouvertes.fr/search/?%s" $params }}
+
+<section class="section">
+  <div class="container">
+
+    {{ with resources.GetRemote $url }}
+      {{ with .Err }}
+        <div class="alert alert-warning">
+          Impossible d'interroger HAL en ce moment : {{ . }}
+        </div>
+      {{ else }}
+        {{ $data := . | transform.Unmarshal }}
+        {{ with $data.response }}
+
+          <p class="publications-count">
+            <strong>{{ .numFound }}</strong> publications référencées dans HAL
+            <span class="text-muted">— mises à jour à chaque build du site</span>
+          </p>
+
+          {{/* Regroupement par année */}}
+          {{ $byYear := dict }}
+          {{ range .docs }}
+            {{ $year := "Sans date" }}
+            {{ with .producedDateY_i }}{{ $year = printf "%d" (int .) }}
+            {{ else }}
+              {{ with .producedDate_s }}
+                {{ $year = substr . 0 4 }}
+              {{ end }}
+            {{ end }}
+            {{ $current := index $byYear $year | default slice }}
+            {{ $byYear = merge $byYear (dict $year (append . $current)) }}
+          {{ end }}
+
+          {{ $years := slice }}
+          {{ range $k, $_ := $byYear }}{{ $years = $years | append $k }}{{ end }}
+          {{ $years = sort $years "value" "desc" }}
+
+          {{ range $years }}
+          {{ $year := . }}
+          <div class="publications-year">
+            <h3 class="publications-year__title">{{ $year }}</h3>
+            <ul class="publications-list">
+              {{ range index $byYear $year }}
+              <li class="publication-item">
+                {{ $title := "" }}
+                {{ with .title_s }}
+                  {{ if reflect.IsSlice . }}{{ $title = index . 0 }}{{ else }}{{ $title = . }}{{ end }}
+                {{ end }}
+                <p class="publication-item__title">
+                  {{ with .uri_s }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $title }}</a>
+                  {{ else }}{{ $title }}{{ end }}
+                </p>
+                {{ with .authFullName_s }}
+                <p class="publication-item__authors">{{ delimit . ", " ", et " }}</p>
+                {{ end }}
+                <p class="publication-item__meta">
+                  {{ with .journalTitle_s }}<em>{{ . }}</em>{{ end }}
+                  {{ with .docType_s }}
+                    {{ $label := . }}
+                    {{ if eq . "ART" }}{{ $label = "Article" }}
+                    {{ else if eq . "COMM" }}{{ $label = "Communication" }}
+                    {{ else if eq . "OUV" }}{{ $label = "Ouvrage" }}
+                    {{ else if eq . "COUV" }}{{ $label = "Chapitre" }}
+                    {{ else if eq . "THESE" }}{{ $label = "Thèse" }}
+                    {{ else if eq . "HDR" }}{{ $label = "HDR" }}
+                    {{ else if eq . "REPORT" }}{{ $label = "Rapport" }}
+                    {{ else if eq . "POSTER" }}{{ $label = "Poster" }}
+                    {{ else if eq . "UNDEFINED" }}{{ $label = "Pré-publication" }}
+                    {{ end }}
+                    <span class="publication-item__type">{{ $label }}</span>
+                  {{ end }}
+                </p>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
+
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      <div class="alert alert-warning">
+        Le service HAL n'a renvoyé aucune donnée.
+      </div>
+    {{ end }}
+
+  </div>
+</section>
+
+{{ end }}
