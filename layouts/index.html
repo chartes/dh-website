@@ -110,6 +110,43 @@
 {{ end }}
 <!-- /team -->
 
+<!-- open science -->
+{{ if or site.Params.github_url site.Params.huggingface_url }}
+<section class="section-sm openscience-section">
+  <div class="container">
+    <div class="row align-items-center mb-4">
+      <div class="col-12">
+        <h2 class="openscience-heading">Open Science</h2>
+        <p class="openscience-intro">Nos modèles, jeux de données et outils sont librement accessibles.</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      {{ with site.Params.github_url }}
+      <div class="col-md-5 mb-4 mb-md-0">
+        <a href="{{ . }}" target="_blank" rel="noopener" class="openscience-card">
+          <img src="{{ `images/logos/github.svg` | relURL }}" alt="GitHub" class="openscience-card__logo openscience-card__logo--light">
+          <h3 class="openscience-card__name">GitHub</h3>
+          <p class="openscience-card__desc">Code source, outils de traitement et pipelines d'analyse</p>
+          <span class="openscience-card__cta">Voir les dépôts →</span>
+        </a>
+      </div>
+      {{ end }}
+      {{ with site.Params.huggingface_url }}
+      <div class="col-md-5">
+        <a href="{{ . }}" target="_blank" rel="noopener" class="openscience-card">
+          <img src="{{ `images/logos/huggingface.svg` | relURL }}" alt="HuggingFace" class="openscience-card__logo">
+          <h3 class="openscience-card__name">HuggingFace Hub</h3>
+          <p class="openscience-card__desc">Modèles entraînés, jeux de données et espaces interactifs</p>
+          <span class="openscience-card__cta">Voir les modèles →</span>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+<!-- /open science -->
+
 <!-- projects -->
 {{ if $data.homepage.projects.enable }}
 <section class="section-sm">

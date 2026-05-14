@@ -1231,3 +1231,176 @@ table.programme-table {
   color: $text-color-light;
   padding: 2rem 0;
 }
+
+// — Open Science (homepage + publications + footer) ———————
+
+// Section homepage ────────────────────────────────────────
+.openscience-section {
+  background: $secondary-color;
+  padding: 3rem 0;
+}
+
+.openscience-heading {
+  font-family: $secondary-font;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: $white;
+  margin-bottom: 0.35rem;
+}
+
+.openscience-intro {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.openscience-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 10px;
+  padding: 2.25rem 2rem 1.75rem;
+  height: 100%;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    background: rgba(255,255,255,0.13);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+    text-decoration: none;
+  }
+
+  &__logo {
+    height: 62px;
+    width: auto;
+    margin-bottom: 1.4rem;
+
+    &--light { filter: brightness(0) invert(1); }
+  }
+
+  &__name {
+    font-family: $secondary-font;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $white;
+    margin-bottom: 0.65rem;
+  }
+
+  &__desc {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+  &__cta {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.35);
+    padding-bottom: 1px;
+    margin-top: auto;
+  }
+}
+
+// Bannière publications ────────────────────────────────────
+.openscience-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid $border-color;
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    color: $text-color;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.45rem 1.1rem;
+    border-radius: 6px;
+    border: 1px solid $border-color;
+    transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+
+    &:hover {
+      border-color: $secondary-color;
+      color: $secondary-color;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+  }
+
+  &__logo {
+    height: 20px;
+    width: auto;
+    &--dark { filter: brightness(0); }
+  }
+}
+
+// Footer plateformes ──────────────────────────────────────
+.footer-platforms {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.footer-platform-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 1; text-decoration: none; }
+
+  p { margin: 0; line-height: 1.3; }
+}
+
+.footer-platform-logo {
+  height: 36px;
+  width: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+
+  &--light { filter: brightness(0) invert(1); }
+}
+
+.footer-platform-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $white !important;
+}
+
+.footer-platform-desc {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55) !important;
+}
+
+// Footer copyright logos ──────────────────────────────────
+.footer-copyright-logos {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-copyright-logo-link {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  &:hover { opacity: 1; }
+}
+
+.footer-copyright-logo {
+  height: 24px;
+  width: auto;
+  display: block;
+
+  &--light { filter: brightness(0) invert(1); }
+}

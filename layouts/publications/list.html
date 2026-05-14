@@ -110,6 +110,24 @@
         {{ $data := . | transform.Unmarshal }}
         {{ with $data.response }}
 
+          <!-- bannière plateformes -->
+          {{ if or site.Params.github_url site.Params.huggingface_url }}
+          <div class="openscience-strip">
+            {{ with site.Params.github_url }}
+            <a href="{{ . }}" target="_blank" rel="noopener" class="openscience-strip__link">
+              <img src="{{ `images/logos/github.svg` | relURL }}" alt="GitHub" class="openscience-strip__logo openscience-strip__logo--dark">
+              <span>GitHub</span>
+            </a>
+            {{ end }}
+            {{ with site.Params.huggingface_url }}
+            <a href="{{ . }}" target="_blank" rel="noopener" class="openscience-strip__link">
+              <img src="{{ `images/logos/huggingface.svg` | relURL }}" alt="HuggingFace" class="openscience-strip__logo">
+              <span>HuggingFace Hub</span>
+            </a>
+            {{ end }}
+          </div>
+          {{ end }}
+
           <p class="publications-count">
             <strong>{{ .numFound }}</strong> publications référencées dans HAL
           </p>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="HuggingFace">
+  <!-- ears -->
+  <ellipse cx="22" cy="22" rx="13" ry="15" fill="#FFD21E"/>
+  <ellipse cx="78" cy="22" rx="13" ry="15" fill="#FFD21E"/>
+  <!-- face -->
+  <circle cx="50" cy="55" r="42" fill="#FFD21E"/>
+  <!-- inner ear tints -->
+  <ellipse cx="22" cy="22" rx="7" ry="9" fill="#FF9D00" opacity="0.35"/>
+  <ellipse cx="78" cy="22" rx="7" ry="9" fill="#FF9D00" opacity="0.35"/>
+  <!-- eyes -->
+  <ellipse cx="35" cy="47" rx="7.5" ry="8.5" fill="#111"/>
+  <ellipse cx="65" cy="47" rx="7.5" ry="8.5" fill="#111"/>
+  <!-- eye highlights -->
+  <circle cx="38.5" cy="44" r="2.8" fill="white"/>
+  <circle cx="68.5" cy="44" r="2.8" fill="white"/>
+  <!-- smile open -->
+  <path d="M 28 66 Q 50 88 72 66" fill="#111"/>
+  <!-- teeth -->
+  <path d="M 32 69 Q 50 82 68 69 L 68 71 Q 50 84 32 71 Z" fill="white"/>
+  <!-- cheeks -->
+  <ellipse cx="18" cy="63" rx="9" ry="5.5" fill="#FF9770" opacity="0.6"/>
+  <ellipse cx="82" cy="63" rx="9" ry="5.5" fill="#FF9770" opacity="0.6"/>
+  <!-- hugging arms / hands -->
+  <path d="M 10 72 Q 4 60 10 50 Q 3 62 8 76 Q 12 85 20 82 Q 12 82 10 72Z" fill="#FFD21E"/>
+  <path d="M 90 72 Q 96 60 90 50 Q 97 62 92 76 Q 88 85 80 82 Q 88 82 90 72Z" fill="#FFD21E"/>
+</svg>
