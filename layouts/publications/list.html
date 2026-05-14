@@ -1,13 +1,27 @@
 {{ define "main" }}
 
-{{/* ── Construction de la requête HAL à partir des noms de l'équipe ── */}}
+{{/* ── Construction de la requête HAL ──
+     - Pour chaque membre de l'équipe avec un `idhal` renseigné : requête sur authIdHal_s (sans bruit).
+     - Pour les autres : fallback sur authFullName_t (avec risque d'homonymes).
+     Les deux clauses sont combinées en OR. */}}
 {{ $teachers := where site.RegularPages "Type" "teacher" }}
+{{ $ids := slice }}
 {{ $names := slice }}
 {{ range $teachers }}
-  {{ $names = $names | append (printf "\"%s\"" .Title) }}
+  {{ if .Params.idhal }}
+    {{ $ids = $ids | append (printf "\"%s\"" .Params.idhal) }}
+  {{ else }}
+    {{ $names = $names | append (printf "\"%s\"" .Title) }}
+  {{ end }}
 {{ end }}
-{{ $authorQuery := delimit $names " OR " }}
-{{ $q := printf "authFullName_t:(%s)" $authorQuery }}
+{{ $clauses := slice }}
+{{ if $ids }}
+  {{ $clauses = $clauses | append (printf "authIdHal_s:(%s)" (delimit $ids " OR ")) }}
+{{ end }}
+{{ if $names }}
+  {{ $clauses = $clauses | append (printf "authFullName_t:(%s)" (delimit $names " OR ")) }}
+{{ end }}
+{{ $q := delimit $clauses " OR " }}
 
 {{ $fields := "title_s,authFullName_s,producedDate_s,producedDateY_i,uri_s,docType_s,journalTitle_s,domain_s,keyword_s" }}
 {{ $params := querify "q" $q "fl" $fields "sort" "producedDate_s desc" "rows" "2000" "wt" "json" }}

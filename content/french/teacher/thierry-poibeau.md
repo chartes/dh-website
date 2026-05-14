@@ -1,5 +1,6 @@
 ---
 title: "Thierry Poibeau"
+idhal: "thierry-poibeau"
 image: "images/team-pic/thierry-poibeau.jpeg"
 course: "Directeur de Recherche CNRS (LATTICE, ENS)"
 category: "Enseignants du master HN"

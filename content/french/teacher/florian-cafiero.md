@@ -1,5 +1,6 @@
 ---
 title: "Florian Cafiero"
+idhal: "florian-cafiero"
 image: "images/team-pic/florian-cafiero.jpg"
 course: "Associate professor (EPITA)"
 category: "Enseignants-chercheurs"

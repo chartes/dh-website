@@ -1,5 +1,6 @@
 ---
 title: "Émilie Guidi"
+idhal: ""
 image: "images/team-pic/emilie-guidi.jpg"
 course: "Doctorante contractuelle (ERC LostMa)"
 category: "Doctorants"

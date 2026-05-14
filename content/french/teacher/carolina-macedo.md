@@ -1,5 +1,6 @@
 ---
 title: "Carolina Macedo"
+idhal: "carolina-macedo"
 image: "images/team-pic/carolina-macedo.jpg"
 course: "Ingénieure (Biblissima+)"
 category: "Ingénieurs"

@@ -1,5 +1,6 @@
 ---
 title: "Lucas Terriel"
+idhal: "lucas-terriel"
 image: "images/team-pic/lucas-terriel.jpg"
 course: "Ingénieur en développement logiciel, apprentissage machine et Web"
 category: "Ingénieurs"

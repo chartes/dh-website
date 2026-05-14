@@ -1,5 +1,6 @@
 ---
 title: "Katarzyna Kapitan"
+idhal: ""
 image: "images/team-pic/katarzyna-kapitan.png"
 course: "Chaire de professeur junior en analyse computationnelle des cultures écrites"
 category: "Enseignants-chercheurs"

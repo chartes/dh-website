@@ -1,5 +1,6 @@
 ---
 title: "Cécile Vermaas"
+idhal: ""
 image: "images/team-pic/cecile-vermaas.jpg"
 course: "Doctorante contractuelle (ERC LostMa)"
 category: "Doctorants"

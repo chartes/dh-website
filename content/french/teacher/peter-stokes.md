@@ -1,5 +1,6 @@
 ---
 title: "Peter Stokes"
+idhal: "peter-stokes"
 image: "images/team-pic/peter-stokes.jpg"
 course: "Directeur d'études (EPHE)"
 category: "Enseignants du master HN"
