@@ -9,9 +9,59 @@
 {{ $authorQuery := delimit $names " OR " }}
 {{ $q := printf "authFullName_t:(%s)" $authorQuery }}
 
-{{ $fields := "title_s,authFullName_s,producedDate_s,producedDateY_i,uri_s,docType_s,journalTitle_s,citationFull_s,abstract_s" }}
+{{ $fields := "title_s,authFullName_s,producedDate_s,producedDateY_i,uri_s,docType_s,journalTitle_s,domain_s,keyword_s" }}
 {{ $params := querify "q" $q "fl" $fields "sort" "producedDate_s desc" "rows" "200" "wt" "json" }}
 {{ $url := printf "https://api.archives-ouvertes.fr/search/?%s" $params }}
+
+{{/* ── Étiquettes FR pour les codes de discipline HAL ── */}}
+{{ $domainLabels := dict
+  "shs" "Sciences humaines et sociales"
+  "shs.hist" "Histoire"
+  "shs.hist-philoso" "Histoire et philosophie des sciences"
+  "shs.litt" "Littératures"
+  "shs.langue" "Linguistique"
+  "shs.archi" "Architecture"
+  "shs.archeo" "Archéologie"
+  "shs.art" "Art et histoire de l'art"
+  "shs.musiq" "Musicologie"
+  "shs.relig" "Religions"
+  "shs.philo" "Philosophie"
+  "shs.socio" "Sociologie"
+  "shs.geo" "Géographie"
+  "shs.eco" "Économie"
+  "shs.psy" "Psychologie"
+  "shs.anthro-bio" "Anthropologie biologique"
+  "shs.anthro-se" "Anthropologie sociale"
+  "shs.demo" "Démographie"
+  "shs.droit" "Droit"
+  "shs.edu" "Sciences de l'éducation"
+  "shs.info" "Sciences de l'information"
+  "shs.museo" "Sciences du patrimoine"
+  "shs.scipo" "Science politique"
+  "shs.stat" "Méthodes et statistiques (SHS)"
+  "shs.class" "Études classiques"
+  "shs.gestion" "Gestion et management"
+  "info" "Informatique"
+  "info.info-ai" "Intelligence artificielle"
+  "info.info-cl" "Calcul et langage (TAL)"
+  "info.info-cv" "Vision par ordinateur"
+  "info.info-tt" "Traitement du texte"
+  "info.info-lg" "Apprentissage automatique"
+  "info.info-db" "Bases de données"
+  "info.info-ir" "Recherche d'information"
+  "info.info-ni" "Réseaux"
+  "info.info-gr" "Graphisme"
+  "info.info-hc" "Interfaces homme-machine"
+  "math" "Mathématiques"
+  "math.math-st" "Statistiques (math.)"
+  "stat" "Statistiques"
+  "stat.ML" "Machine Learning"
+  "stat.AP" "Statistiques appliquées"
+  "phys" "Physique"
+  "sdv" "Sciences du vivant"
+  "scco" "Sciences cognitives"
+  "sde" "Sciences de l'environnement"
+}}
 
 <section class="section">
   <div class="container">
@@ -27,10 +77,33 @@
 
           <p class="publications-count">
             <strong>{{ .numFound }}</strong> publications référencées dans HAL
-            <span class="text-muted">— mises à jour à chaque build du site</span>
           </p>
 
-          {{/* Regroupement par année */}}
+          {{/* ── Domaines uniques présents dans les résultats ── */}}
+          {{ $allDomains := slice }}
+          {{ range .docs }}
+            {{ with .domain_s }}{{ $allDomains = $allDomains | append . }}{{ end }}
+          {{ end }}
+          {{ $uniqDomains := $allDomains | uniq | sort }}
+
+          {{/* ── Barre de filtres ── */}}
+          <div class="publications-filters">
+            <input type="search" class="publications-search"
+                   placeholder="Rechercher dans les titres, auteurs, mots-clés, revues…"
+                   aria-label="Recherche dans les publications">
+            {{ if $uniqDomains }}
+            <div class="publications-domains">
+              <button type="button" class="domain-pill active" data-domain="all">Toutes</button>
+              {{ range $uniqDomains }}
+              <button type="button" class="domain-pill" data-domain="{{ . }}">
+                {{ index $domainLabels . | default . }}
+              </button>
+              {{ end }}
+            </div>
+            {{ end }}
+          </div>
+
+          {{/* ── Regroupement par année ── */}}
           {{ $byYear := dict }}
           {{ range .docs }}
             {{ $year := "Sans date" }}
@@ -48,17 +121,29 @@
           {{ range $k, $_ := $byYear }}{{ $years = $years | append $k }}{{ end }}
           {{ $years = sort $years "value" "desc" }}
 
+          <div class="publications-results">
           {{ range $years }}
           {{ $year := . }}
-          <div class="publications-year">
+          <div class="publications-year" data-year="{{ $year }}">
             <h3 class="publications-year__title">{{ $year }}</h3>
             <ul class="publications-list">
               {{ range index $byYear $year }}
-              <li class="publication-item">
-                {{ $title := "" }}
-                {{ with .title_s }}
-                  {{ if reflect.IsSlice . }}{{ $title = index . 0 }}{{ else }}{{ $title = . }}{{ end }}
-                {{ end }}
+              {{ $title := "" }}
+              {{ with .title_s }}
+                {{ if reflect.IsSlice . }}{{ $title = index . 0 }}{{ else }}{{ $title = . }}{{ end }}
+              {{ end }}
+              {{ $authors := "" }}
+              {{ with .authFullName_s }}{{ $authors = delimit . " " }}{{ end }}
+              {{ $keywords := "" }}
+              {{ with .keyword_s }}{{ $keywords = delimit . " " }}{{ end }}
+              {{ $journal := "" }}
+              {{ with .journalTitle_s }}{{ $journal = . }}{{ end }}
+              {{ $searchBlob := printf "%s %s %s %s %s" $title $authors $keywords $journal $year | lower }}
+              {{ $domains := "" }}
+              {{ with .domain_s }}{{ $domains = delimit . " " }}{{ end }}
+              <li class="publication-item"
+                  data-domains="{{ $domains }}"
+                  data-search="{{ $searchBlob }}">
                 <p class="publication-item__title">
                   {{ with .uri_s }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $title }}</a>
                   {{ else }}{{ $title }}{{ end }}
@@ -88,6 +173,9 @@
             </ul>
           </div>
           {{ end }}
+          </div>
+
+          <p class="publications-empty" hidden>Aucune publication ne correspond à ces critères.</p>
 
         {{ end }}
       {{ end }}
@@ -95,5 +183,62 @@
 
   </div>
 </section>
+
+<script>
+(function () {
+  var search = document.querySelector('.publications-search');
+  var pills = document.querySelectorAll('.domain-pill');
+  var items = document.querySelectorAll('.publication-item');
+  var years = document.querySelectorAll('.publications-year');
+  var empty = document.querySelector('.publications-empty');
+  if (!items.length) return;
+
+  var activeDomain = 'all';
+  var activeQuery = '';
+
+  function normalize(s) {
+    return (s || '').toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '');
+  }
+
+  function update() {
+    var q = normalize(activeQuery).trim();
+    var anyVisible = false;
+    items.forEach(function (item) {
+      var domains = (item.dataset.domains || '').split(/\s+/);
+      var text = normalize(item.dataset.search);
+      var matchDomain = activeDomain === 'all'
+        || domains.some(function (d) {
+          return d === activeDomain || d.indexOf(activeDomain + '.') === 0;
+        });
+      var matchQuery = q === '' || text.indexOf(q) !== -1;
+      var visible = matchDomain && matchQuery;
+      item.hidden = !visible;
+      if (visible) anyVisible = true;
+    });
+    years.forEach(function (y) {
+      var anyHere = Array.prototype.some.call(
+        y.querySelectorAll('.publication-item'),
+        function (it) { return !it.hidden; }
+      );
+      y.hidden = !anyHere;
+    });
+    if (empty) empty.hidden = anyVisible;
+  }
+
+  search.addEventListener('input', function (e) {
+    activeQuery = e.target.value;
+    update();
+  });
+  pills.forEach(function (p) {
+    p.addEventListener('click', function () {
+      pills.forEach(function (x) { x.classList.remove('active'); });
+      p.classList.add('active');
+      activeDomain = p.dataset.domain;
+      update();
+    });
+  });
+})();
+</script>
 
 {{ end }}

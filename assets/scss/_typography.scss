@@ -1160,3 +1160,74 @@ table.programme-table {
     vertical-align: middle;
   }
 }
+
+// — Page publications : barre de filtres —————————————————
+
+.publications-filters {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid $border-color;
+}
+
+.publications-search {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  font-family: $primary-font;
+  color: $text-color;
+  background: $white;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  margin-bottom: 1rem;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.12);
+  }
+
+  &::placeholder {
+    color: $text-color-light;
+    font-style: italic;
+  }
+}
+
+.publications-domains {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+}
+
+.domain-pill {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: $primary-font;
+  color: $text-color;
+  background: $gray;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.32em 0.95em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+
+  &:hover {
+    background: darken($gray, 4%);
+    color: $primary-color;
+  }
+
+  &.active {
+    background: $primary-color;
+    color: $white;
+    border-color: $primary-color;
+  }
+}
+
+.publications-empty {
+  text-align: center;
+  font-style: italic;
+  color: $text-color-light;
+  padding: 2rem 0;
+}
