@@ -16,12 +16,12 @@
 <section class="section">
   <div class="container">
 
-    {{ with resources.GetRemote $url }}
+    {{ with try (resources.GetRemote $url) }}
       {{ with .Err }}
         <div class="alert alert-warning">
           Impossible d'interroger HAL en ce moment : {{ . }}
         </div>
-      {{ else }}
+      {{ else with .Value }}
         {{ $data := . | transform.Unmarshal }}
         {{ with $data.response }}
 
@@ -91,10 +91,6 @@
 
         {{ end }}
       {{ end }}
-    {{ else }}
-      <div class="alert alert-warning">
-        Le service HAL n'a renvoyé aucune donnée.
-      </div>
     {{ end }}
 
   </div>
