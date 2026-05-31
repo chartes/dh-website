@@ -1,5 +1,5 @@
 ---
-title: "LostMa"
+title: "LostMa - Les manuscrits perdus de l’Europe médiévale"
 type: "projects"
 draft: false
 image: "images/projects/lostma.png"
