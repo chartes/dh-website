@@ -1461,6 +1461,23 @@ table.programme-table {
     font-size: 2.5rem;
   }
 
+  &__funding {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.55rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+
+    &--anr { background: #003566; }
+    &--erc { background: #003399; }
+  }
+
   &__body {
     padding: 1.1rem 1.2rem 1.3rem;
     display: flex;

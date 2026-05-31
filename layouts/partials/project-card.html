@@ -14,6 +14,9 @@
     {{ else }}
       <div class="project-card__placeholder"><i class="ti-folder"></i></div>
     {{ end }}
+    {{ with .Params.funding }}
+    <span class="project-card__funding project-card__funding--{{ . | lower }}">{{ . }}</span>
+    {{ end }}
   </div>
   <div class="project-card__body">
     {{ if .Params.tags }}
@@ -26,7 +29,13 @@
     <h3 class="project-card__title">{{ .Title }}</h3>
     <ul class="project-card__meta">
       {{ with $dates }}<li><i class="ti-calendar"></i> {{ . }}</li>{{ end }}
-      {{ with .Params.porteur }}<li><i class="ti-user"></i> {{ . }}</li>{{ end }}
+      {{ with .Params.porteur }}
+        {{ if reflect.IsSlice . }}
+          <li><i class="ti-user"></i> {{ delimit . ", " " & " }}</li>
+        {{ else }}
+          <li><i class="ti-user"></i> {{ . }}</li>
+        {{ end }}
+      {{ end }}
     </ul>
     {{ with .Params.external_url }}
     <a href="{{ . }}" target="_blank" rel="noopener" class="project-card__cta">
