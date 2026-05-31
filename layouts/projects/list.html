@@ -1,14 +1,70 @@
 {{ define "main" }}
+
+{{/* ── Tri par date_start desc, séparation en cours / passés ──
+     Statut = .Params.status ("en-cours" ou "passe"). Si non renseigné, on déduit :
+     pas de date_end (ou date_end >= année courante) ⇒ en cours. */}}
+{{ $all := where site.RegularPages "Type" "projects" }}
+{{ $currentYear := now.Year }}
+{{ $enCours := slice }}
+{{ $passes := slice }}
+{{ range $all }}
+  {{ $status := .Params.status }}
+  {{ if not $status }}
+    {{ if .Params.date_end }}
+      {{ if ge (int .Params.date_end) $currentYear }}
+        {{ $status = "en-cours" }}
+      {{ else }}
+        {{ $status = "passe" }}
+      {{ end }}
+    {{ else }}
+      {{ $status = "en-cours" }}
+    {{ end }}
+  {{ end }}
+  {{ if eq $status "passe" }}
+    {{ $passes = $passes | append . }}
+  {{ else }}
+    {{ $enCours = $enCours | append . }}
+  {{ end }}
+{{ end }}
+{{ $enCours = sort $enCours "Params.date_start" "desc" }}
+{{ $passes = sort $passes "Params.date_start" "desc" }}
+
 <section class="section">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-10 mx-auto">
-        {{ with .Params.image }}
-        {{ partial "image.html" (dict "Src" . "Alt" "projets" "Class" "img-fluid w-100 mb-4" ) }}
-        {{ end }}
-        {{ .Content }}
-      </div>
+
+    {{ with .Content }}
+    <div class="row mb-5">
+      <div class="col-lg-10 mx-auto projects-intro">{{ . }}</div>
     </div>
+    {{ end }}
+
+    {{ if $enCours }}
+    <h2 class="projects-section-title">Projets en cours</h2>
+    <div class="row">
+      {{ range $enCours }}
+      <div class="col-lg-4 col-md-6 mb-4">
+        {{ partial "project-card.html" . }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ if $passes }}
+    <h2 class="projects-section-title mt-5">Projets passés</h2>
+    <div class="row">
+      {{ range $passes }}
+      <div class="col-lg-4 col-md-6 mb-4">
+        {{ partial "project-card.html" . }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ if and (not $enCours) (not $passes) }}
+    <p class="text-center text-muted">Aucun projet pour le moment.</p>
+    {{ end }}
+
   </div>
 </section>
+
 {{ end }}

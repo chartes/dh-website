@@ -163,9 +163,10 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      {{ range first 3 (where site.RegularPages "Type" "projects") }}
+      {{ $latestProjects := first 3 (sort (where site.RegularPages "Type" "projects") "Params.date_start" "desc") }}
+      {{ range $latestProjects }}
       <div class="col-lg-4 col-sm-6 mb-5">
-        {{ partial "course-card.html" . }}
+        {{ partial "project-card.html" . }}
       </div>
       {{ end }}
     </div>

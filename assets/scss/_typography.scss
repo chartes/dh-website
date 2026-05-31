@@ -1404,3 +1404,133 @@ table.programme-table {
 
   &--light { filter: brightness(0) invert(1); }
 }
+
+/* ── Projets : tuiles ── */
+.projects-intro {
+  font-size: 1.05rem;
+  color: #444;
+}
+
+.projects-section-title {
+  font-family: $secondary-font;
+  font-size: 1.6rem;
+  color: $secondary-color;
+  border-left: 4px solid $primary-color;
+  padding-left: 14px;
+  margin-bottom: 1.5rem;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  &__media {
+    position: relative;
+    width: 100%;
+    padding-top: 56%; /* ratio ~16/9 */
+    background: #f3f3f3;
+    overflow: hidden;
+  }
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 2.5rem;
+  }
+
+  &__body {
+    padding: 1.1rem 1.2rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__tags {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.6rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  &__tag {
+    display: inline-block;
+    background: rgba($primary-color, 0.08);
+    color: $primary-color;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.55rem;
+    border-radius: 2px;
+  }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: $secondary-color;
+    margin: 0 0 0.7rem 0;
+  }
+
+  &__meta {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    font-size: 0.88rem;
+    color: #555;
+
+    li {
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    i { color: $primary-color; }
+  }
+
+  &__cta {
+    margin-top: auto;
+    align-self: flex-start;
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+
+    &:hover {
+      color: $primary-color;
+      border-bottom-color: $primary-color;
+      text-decoration: none;
+    }
+
+    span { transition: transform 0.2s; display: inline-block; }
+    &:hover span { transform: translateX(3px); }
+  }
+}

@@ -1,0 +1,37 @@
+{{/* Tuile projet : image, titre, dates, porteur, 2 tags, lien externe. */}}
+{{ $dates := "" }}
+{{ with .Params.date_start }}{{ $dates = printf "%v" . }}{{ end }}
+{{ with .Params.date_end }}
+  {{ if $dates }}{{ $dates = printf "%s–%v" $dates . }}{{ else }}{{ $dates = printf "%v" . }}{{ end }}
+{{ else }}
+  {{ if $dates }}{{ $dates = printf "%s–en cours" $dates }}{{ end }}
+{{ end }}
+
+<article class="project-card">
+  <div class="project-card__media">
+    {{ if .Params.image }}
+      {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "project-card__img") }}
+    {{ else }}
+      <div class="project-card__placeholder"><i class="ti-folder"></i></div>
+    {{ end }}
+  </div>
+  <div class="project-card__body">
+    {{ if .Params.tags }}
+    <ul class="project-card__tags">
+      {{ range first 2 .Params.tags }}
+      <li class="project-card__tag">{{ . }}</li>
+      {{ end }}
+    </ul>
+    {{ end }}
+    <h3 class="project-card__title">{{ .Title }}</h3>
+    <ul class="project-card__meta">
+      {{ with $dates }}<li><i class="ti-calendar"></i> {{ . }}</li>{{ end }}
+      {{ with .Params.porteur }}<li><i class="ti-user"></i> {{ . }}</li>{{ end }}
+    </ul>
+    {{ with .Params.external_url }}
+    <a href="{{ . }}" target="_blank" rel="noopener" class="project-card__cta">
+      En savoir plus <span aria-hidden="true">→</span>
+    </a>
+    {{ end }}
+  </div>
+</article>
