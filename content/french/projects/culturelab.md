@@ -1,5 +1,5 @@
 ---
-title: "CultureLab"
+title: "CultureLab (Grand Programme PSL)"
 type: "projects"
 draft: false
 image: "images/projects/culturelab.png"
