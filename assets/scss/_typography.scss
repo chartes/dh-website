@@ -1282,6 +1282,18 @@ table.programme-table {
     &--light { filter: brightness(0) invert(1); }
   }
 
+  &__icon {
+    height: 62px;
+    width: 62px;
+    margin-bottom: 1.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    font-size: 2.6rem;
+    line-height: 1;
+  }
+
   &__name {
     font-family: $secondary-font;
     font-size: 1.2rem;

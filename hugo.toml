@@ -32,6 +32,7 @@ contact_form_action = "#" # contact form works with https://formspree.io
 # Plateformes open source
 github_url = "https://github.com/chartes"
 huggingface_url = "https://huggingface.co/ENC-PSL"
+apps_url = "https://dh.chartes.psl.eu"
 # Google Analitycs
 google_analitycs_id = ""
 # top header
