@@ -45,6 +45,16 @@ memoires:
     niveau: "M2"
     titre: "Automatic Detection Of Viral Disinformation Narratives"
     etudiant: "Francesco Savatteri"
-    codirecteur: 'F. Cafiero (ENC-PSL)'
+    codirecteur: 'F. Cafiero (Enc-PSL)'
     lien: "https://dumas.ccsd.cnrs.fr/dumas-05400622v1"
+  - annee: 2025
+    niveau: "M2"
+    titre: "Étudier le rôle de l'imprimé dans la diffusion des arts de l'Islam à l'ère industrielle avec la vision par ordinateur : le cas de la céramique française"
+    etudiant: "Albina Toumarkine"
+    codirecteur: 'L. Saint-Raymond (ENS)'
+  - annee: 2025
+    niveau: "M2"
+    titre: "Joke Maths : Proposition d’une méthode de modélisation et d’analyse de 91 stand-up comedy specials diffusés par Netflix. Temps, corps, rires et sujets dans le stand-up américain contemporain"
+    etudiant: "Yaelle Zribi"
+    codirecteur: 'F. Cafiero (Enc-PSL), V. Lépinay (SciencesPo)'
 ---

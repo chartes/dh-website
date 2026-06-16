@@ -577,28 +577,40 @@
   </div>
 </section>
 
-<!-- projets étudiants (template vide) -->
+<!-- projets étudiants (issus des hackathons 2026) -->
+{{ $devpage := site.GetPage "/developpements" }}
+{{ with $devpage.Params.hackathons_2026 }}
 <section class="section">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Projets des étudiants</h2>
       <div class="border-top w-100 border-primary d-none d-sm-block"></div>
-      <a href="#" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir plus</a>
+      <a href="{{ `developpements/` | relLangURL }}" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir plus</a>
     </div>
     <div class="row">
-      {{ range seq 6 }}
+      {{ range first 6 . }}
       <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-        <div class="placeholder-card placeholder-card--project">
-          <div class="placeholder-card__img placeholder-card__img--project"></div>
-          <div class="placeholder-card__body">
-            <p class="placeholder-card__title">Titre du projet</p>
+        <a href="{{ .url }}" target="_blank" rel="noopener" class="student-project-card">
+          <div class="student-project-card__media">
+            {{ if .image }}
+            <img src="{{ .image }}" alt="{{ .title }}" class="student-project-card__img" loading="lazy">
+            {{ else }}
+            <div class="student-project-card__placeholder"><i class="ti-github"></i></div>
+            {{ end }}
           </div>
-        </div>
+          <p class="student-project-card__title">{{ .title }}</p>
+        </a>
       </div>
       {{ end }}
     </div>
+    <div class="row d-sm-none">
+      <div class="col-12 text-center">
+        <a href="{{ `developpements/` | relLangURL }}" class="btn btn-sm btn-outline-primary">Voir plus</a>
+      </div>
+    </div>
   </div>
 </section>
+{{ end }}
 
 <!-- actualités du master -->
 <section class="section bg-gray">
