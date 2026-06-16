@@ -1,5 +1,6 @@
 ---
 title: "Donghan Bian"
+draft: true
 idhal: "donghan-bian"
 image: "images/team-pic/donghan-bian.jpg"
 course: "Doctorant contractuel (PSL Humanités numériques)"

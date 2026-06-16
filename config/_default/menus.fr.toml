@@ -1,23 +1,23 @@
 ################### Navigation principale ####################
 
 [[main]]
-name = "L'équipe"
+name = "Équipe enseignante"
 url = "equipe/"
 weight = 1
 
 [[main]]
-name = "Le master HN"
-url = "master/"
+name = "Écosystème de recherche"
+url = "projets/"
 weight = 2
 
 [[main]]
-name = "Conférences"
-url = "conferences/"
+name = "Développements"
+url = "developpements/"
 weight = 3
 
 [[main]]
-name = "Projets"
-url = "projets/"
+name = "Actualités"
+url = "actualites/"
 weight = 4
 
 [[main]]
@@ -25,40 +25,31 @@ name = "Publications"
 url = "publications/"
 weight = 5
 
-[[main]]
-name = "Blog"
-url = "blog/"
-weight = 6
-
 # Lien externe vers la junior-entreprise Cartadata (pas de page locale).
 [[main]]
 name = "JE"
 url = "https://www.chartes.psl.eu/vie-de-campus/vie-etudiante-et-associative/cartadata"
-weight = 7
+weight = 6
 
 
 # footer menu
 
 [[footer]]
-name = "L'équipe"
+name = "Équipe enseignante"
 url = "equipe/"
 
 [[footer]]
-name = "Le master HN"
-url = "master/"
-
-[[footer]]
-name = "Conférences"
-url = "conferences/"
-
-[[footer]]
-name = "Projets"
+name = "Écosystème de recherche"
 url = "projets/"
+
+[[footer]]
+name = "Développements"
+url = "developpements/"
+
+[[footer]]
+name = "Actualités"
+url = "actualites/"
 
 [[footer]]
 name = "Publications"
 url = "publications/"
-
-[[footer]]
-name = "Blog"
-url = "blog/"

@@ -1,5 +1,6 @@
 ---
 title: "Elisa Lonati"
+draft: true
 idhal: "elisa-lonati"
 image: "images/team-pic/elisa-lonati.png"
 course: "Post-doctorante (ANR ERC Access)"

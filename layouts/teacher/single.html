@@ -1,0 +1,70 @@
+{{ define "main" }}
+
+<section class="section teacher-profile">
+  <div class="container">
+    <div class="row">
+
+      <!-- colonne photo + identité -->
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <div class="teacher-profile__sidebar">
+          <div class="teacher-profile__photo">
+            {{ if .Params.image }}
+            {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "teacher-profile__img") }}
+            {{ else }}
+            <div class="teacher-profile__placeholder"><i class="ti-user"></i></div>
+            {{ end }}
+          </div>
+          <h1 class="teacher-profile__name">{{ .Title }}</h1>
+          {{ with .Params.institution }}
+          <p class="teacher-profile__institution">{{ . }}</p>
+          {{ end }}
+          {{ with .Params.disciplines }}
+          <ul class="teacher-profile__disciplines">
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+          </ul>
+          {{ end }}
+        </div>
+      </div>
+
+      <!-- colonne contenu -->
+      <div class="col-lg-8">
+
+        {{ with .Content }}
+        <div class="teacher-profile__bio">{{ . }}</div>
+        {{ end }}
+
+        {{ with .Params.cours }}
+        <section class="teacher-profile__section">
+          <h2 class="teacher-profile__heading">Cours assurés</h2>
+          <ul class="teacher-profile__courses">
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+          </ul>
+        </section>
+        {{ end }}
+
+        {{ with .Params.memoires }}
+        {{/* tri par année décroissante */}}
+        {{ $sorted := sort . "annee" "desc" }}
+        <section class="teacher-profile__section">
+          <h2 class="teacher-profile__heading">Mémoires dirigés</h2>
+          <ul class="teacher-profile__memoires">
+            {{ range $sorted }}
+            {{ $titre := .titre }}
+            <li class="memoire-item">
+              <span class="memoire-item__year">{{ .annee }}</span>
+              <span class="memoire-item__title">
+                {{ with .lien }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $titre }}</a>{{ else }}{{ $titre }}{{ end }}
+              </span>
+              {{ with .etudiant }}<span class="memoire-item__student">— {{ . }}</span>{{ end }}
+            </li>
+            {{ end }}
+          </ul>
+        </section>
+        {{ end }}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

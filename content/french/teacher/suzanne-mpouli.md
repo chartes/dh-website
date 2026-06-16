@@ -1,5 +1,6 @@
 ---
 title: "Suzanne Mpouli"
+draft: true
 idhal: ""
 image: "images/team-pic/Suzanne-mpouli.png"
 course: "Ingénieure (CultureLab)"

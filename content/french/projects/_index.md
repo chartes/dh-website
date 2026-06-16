@@ -1,5 +1,5 @@
 ---
-title: "Projets"
+title: "Écosystème de recherche"
 url: "/projets/"
 draft: false
 bg_image: "images/backgrounds/page-title.jpg"

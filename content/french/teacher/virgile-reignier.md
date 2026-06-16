@@ -1,5 +1,6 @@
 ---
 title: "Virgile Reignier"
+draft: true
 idhal: "virgile-reignier"
 image: "images/team-pic/virgile-reigner.png"
 course: "Ingénieur (ERC LostMa)"

@@ -1,9 +1,37 @@
 {{ define "main" }}
 
+{{/* ── Filtrage par porteur ∈ équipe enseignante ──
+     On garde un projet uniquement si au moins un de ses porteurs (string ou liste)
+     correspond au titre d'un teacher avec master_teacher: true (comparaison lower-case, trimmée). */}}
+{{ $teachers := where site.RegularPages "Type" "teacher" }}
+{{ $teachers = where $teachers "Params.master_teacher" true }}
+{{ $teacherNames := slice }}
+{{ range $teachers }}
+  {{ $teacherNames = $teacherNames | append (lower (trim .Title " ")) }}
+{{ end }}
+
+{{ $rawProjects := where site.RegularPages "Type" "projects" }}
+{{ $allFiltered := slice }}
+{{ range $rawProjects }}
+  {{ $names := slice }}
+  {{ with .Params.porteur }}
+    {{ if reflect.IsSlice . }}
+      {{ range . }}{{ $names = $names | append (lower (trim . " ")) }}{{ end }}
+    {{ else }}
+      {{ $names = $names | append (lower (trim . " ")) }}
+    {{ end }}
+  {{ end }}
+  {{ $keep := false }}
+  {{ range $names }}
+    {{ if in $teacherNames . }}{{ $keep = true }}{{ end }}
+  {{ end }}
+  {{ if $keep }}{{ $allFiltered = $allFiltered | append . }}{{ end }}
+{{ end }}
+
 {{/* ── Tri par date_start desc, séparation en cours / passés ──
      Statut = .Params.status ("en-cours" ou "passe"). Si non renseigné, on déduit :
      pas de date_end (ou date_end >= année courante) ⇒ en cours. */}}
-{{ $all := where site.RegularPages "Type" "projects" }}
+{{ $all := $allFiltered }}
 {{ $currentYear := now.Year }}
 {{ $enCours := slice }}
 {{ $passes := slice }}

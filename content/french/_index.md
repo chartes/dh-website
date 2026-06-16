@@ -7,8 +7,6 @@ hero_button:
   enable: true
   label: "Candidater"
   link: "https://www.monmaster.gouv.fr/"
-type: "master"
-layout: "list"
 
 banner_feature:
   enable: true

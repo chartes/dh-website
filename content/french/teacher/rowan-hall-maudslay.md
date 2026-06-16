@@ -1,5 +1,6 @@
 ---
 title: "Rowan Hall Maudslay"
+draft: true
 idhal: ""
 image: ""
 course: "Chercheur titulaire de la chaire CultureLab"

@@ -1563,3 +1563,301 @@ table.programme-table {
     &:hover span { transform: translateX(3px); }
   }
 }
+
+/* ────────────────────────────────────────────────────────────
+   Recentrage site master HN — ajouts
+   ──────────────────────────────────────────────────────────── */
+
+/* — Page équipe : carte cliquable — */
+.person-card--link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    text-decoration: none;
+    color: inherit;
+    .person-card__name { color: $primary-color; }
+  }
+}
+
+/* — Mini-page d'un enseignant — */
+.teacher-profile {
+
+  &__sidebar {
+    text-align: center;
+    position: sticky;
+    top: 90px;
+  }
+
+  &__photo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: $gray;
+    position: relative;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 3rem;
+  }
+
+  &__name {
+    font-family: $secondary-font;
+    font-size: 1.6rem;
+    color: $secondary-color;
+    margin: 0 0 0.4rem;
+    line-height: 1.2;
+  }
+
+  &__institution {
+    font-size: 0.95rem;
+    color: $text-color-light;
+    margin: 0 0 1rem;
+  }
+
+  &__disciplines {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+
+    li {
+      display: inline-block;
+      background: rgba($primary-color, 0.08);
+      color: $primary-color;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+  }
+
+  &__bio {
+    margin-bottom: 2rem;
+  }
+
+  &__section {
+    margin-bottom: 2.5rem;
+  }
+
+  &__heading {
+    font-family: $secondary-font;
+    font-size: 1.25rem;
+    color: $secondary-color;
+    border-left: 4px solid $primary-color;
+    padding-left: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  &__courses {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.95rem;
+      &:last-child { border-bottom: none; }
+    }
+  }
+
+  &__memoires {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.memoire-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 0 0.75rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #eee;
+  align-items: baseline;
+
+  &:last-child { border-bottom: none; }
+
+  &__year {
+    font-weight: 700;
+    color: $primary-color;
+    font-size: 0.95rem;
+  }
+
+  &__title {
+    font-size: 0.95rem;
+    line-height: 1.4;
+
+    a {
+      color: $text-color-dark;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      &:hover {
+        color: $primary-color;
+        border-bottom-color: $primary-color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__student {
+    display: block;
+    color: $text-color-light;
+    font-size: 0.88rem;
+    font-style: italic;
+    margin-top: 0.15rem;
+  }
+}
+
+/* — Actualités : carte unifiée billet/conférence — */
+.actu-card {
+  &__media {
+    display: block;
+    position: relative;
+    height: 180px;
+    background: $gray;
+    overflow: hidden;
+    text-decoration: none;
+
+    img.actu-card__img,
+    .actu-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 2.5rem;
+  }
+
+  &__kind {
+    position: absolute;
+    top: 0.65rem;
+    left: 0.65rem;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+
+    &--event { background: $secondary-color; }
+    &--post { background: $primary-color; }
+  }
+
+  &__date {
+    font-size: 0.78rem;
+    color: $text-color-light;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.5rem;
+  }
+
+  &__summary {
+    font-size: 0.9rem;
+    color: $text-color-light;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__title a {
+    color: $secondary-color;
+    text-decoration: none;
+    &:hover { color: $primary-color; text-decoration: none; }
+  }
+}
+
+/* — Développements : carte sur fond clair (override openscience-card) — */
+.openscience-card--light {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+
+  &:hover {
+    background: #fafafa;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  }
+
+  .openscience-card__name { color: $secondary-color; }
+  .openscience-card__desc { color: #555; }
+  .openscience-card__cta {
+    color: $primary-color;
+    border-bottom-color: rgba($primary-color, 0.4);
+  }
+  .openscience-card__logo--invert { filter: none; }
+  .openscience-card__icon--solid { color: $primary-color; }
+}
+
+/* — Footer : logos partenaires — */
+.footer-partners {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  &__row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    @media (min-width: 768px) { justify-content: flex-start; }
+  }
+
+  &__label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+  }
+
+  &__logos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  &__img {
+    height: 38px !important;
+    width: auto !important;
+    max-width: 130px !important;
+    object-fit: contain;
+    background: #fff;
+    padding: 4px 8px;
+    border-radius: 3px;
+    opacity: 0.95;
+    transition: opacity 0.15s;
+    &:hover { opacity: 1; }
+  }
+}

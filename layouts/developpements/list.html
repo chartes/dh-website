@@ -1,0 +1,34 @@
+{{ define "main" }}
+
+<section class="section developpements-section">
+  <div class="container">
+
+    {{ with .Content }}
+    <div class="row mb-5">
+      <div class="col-lg-10 mx-auto developpements-intro">{{ . }}</div>
+    </div>
+    {{ end }}
+
+    {{ with .Params.apps }}
+    <div class="row justify-content-center">
+      {{ range . }}
+      <div class="col-md-4 mb-4">
+        <a href="{{ .url }}" target="_blank" rel="noopener" class="openscience-card openscience-card--light">
+          {{ if .logo }}
+          <img src="{{ .logo | relURL }}" alt="{{ .name }}" class="openscience-card__logo{{ if .logo_light }} openscience-card__logo--invert{{ end }}">
+          {{ else if .icon }}
+          <span class="openscience-card__icon openscience-card__icon--solid" aria-hidden="true"><i class="{{ .icon }}"></i></span>
+          {{ end }}
+          <h3 class="openscience-card__name">{{ .name }}</h3>
+          <p class="openscience-card__desc">{{ .desc }}</p>
+          <span class="openscience-card__cta">{{ .cta | default "En savoir plus" }} →</span>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+
+{{ end }}

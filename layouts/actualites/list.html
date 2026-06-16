@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+{{/* Fil unique : billets (post) + conférences (event), triés par date desc. */}}
+{{ $posts := where site.RegularPages "Type" "post" }}
+{{ $events := where site.RegularPages "Type" "event" }}
+{{ $items := union $posts $events }}
+{{ $items = $items.ByDate.Reverse }}
+
+<section class="section">
+  <div class="container">
+
+    {{ with .Content }}
+    <div class="row mb-5">
+      <div class="col-lg-10 mx-auto actualites-intro">{{ . }}</div>
+    </div>
+    {{ end }}
+
+    {{ if $items }}
+    <div class="row">
+      {{ range $items }}
+      {{ $kind := "Billet" }}
+      {{ $kindClass := "post" }}
+      {{ if eq .Type "event" }}{{ $kind = "Conférence" }}{{ $kindClass = "event" }}{{ end }}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="actu-card">
+          <a href="{{ .Permalink }}" class="actu-card__media">
+            {{ if .Params.image }}
+              {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "actu-card__img") }}
+            {{ else }}
+              <div class="actu-card__placeholder"><i class="ti-{{ if eq $kindClass "event" }}calendar{{ else }}write{{ end }}"></i></div>
+            {{ end }}
+            <span class="actu-card__kind actu-card__kind--{{ $kindClass }}">{{ $kind }}</span>
+          </a>
+          <div class="actu-card__body">
+            <p class="actu-card__date">{{ .Date.Format "2 January 2006" }}</p>
+            <h3 class="actu-card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            {{ with .Summary }}<p class="actu-card__summary">{{ . | plainify | truncate 140 }}</p>{{ end }}
+          </div>
+        </article>
+      </div>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="text-center text-muted">Aucune actualité pour le moment.</p>
+    {{ end }}
+
+  </div>
+</section>
+
+{{ end }}
