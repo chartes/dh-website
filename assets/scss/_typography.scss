@@ -1742,6 +1742,10 @@ table.programme-table {
     font-size: 0.95rem;
   }
 
+  &__content {
+    display: block;
+  }
+
   &__title {
     font-size: 0.95rem;
     line-height: 1.4;
@@ -1758,12 +1762,40 @@ table.programme-table {
     }
   }
 
+  &__level {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.05rem 0.4rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    vertical-align: middle;
+
+    &--m1 { background: rgba($secondary-color, 0.12); color: $secondary-color; }
+    &--m2 { background: rgba($primary-color, 0.12); color: $primary-color; }
+  }
+
   &__student {
     display: block;
     color: $text-color-light;
     font-size: 0.88rem;
     font-style: italic;
     margin-top: 0.15rem;
+  }
+
+  &__codir {
+    display: block;
+    color: $text-color-light;
+    font-size: 0.8rem;
+    margin-top: 0.1rem;
+
+    &::before {
+      content: "↳";
+      margin-right: 0.3rem;
+      color: $primary-color;
+      font-style: normal;
+    }
   }
 }
 

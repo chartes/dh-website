@@ -76,12 +76,19 @@
           <ul class="teacher-profile__memoires">
             {{ range $sorted }}
             {{ $titre := .titre }}
+            {{ $niveau := .niveau }}
             <li class="memoire-item">
               <span class="memoire-item__year">{{ .annee }}</span>
-              <span class="memoire-item__title">
-                {{ with .lien }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $titre }}</a>{{ else }}{{ $titre }}{{ end }}
-              </span>
-              {{ with .etudiant }}<span class="memoire-item__student">— {{ . }}</span>{{ end }}
+              <div class="memoire-item__content">
+                <span class="memoire-item__title">
+                  {{ with .lien }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $titre }}</a>{{ else }}{{ $titre }}{{ end }}
+                </span>
+                {{ with $niveau }}
+                <span class="memoire-item__level memoire-item__level--{{ . | lower }}">{{ . }}</span>
+                {{ end }}
+                {{ with .etudiant }}<span class="memoire-item__student">— {{ . }}</span>{{ end }}
+                {{ with .codirecteur }}<span class="memoire-item__codir">co-direction&nbsp;: {{ . }}</span>{{ end }}
+              </div>
             </li>
             {{ end }}
           </ul>
