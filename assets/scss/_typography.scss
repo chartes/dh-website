@@ -1855,6 +1855,133 @@ table.programme-table {
   .openscience-card__icon--solid { color: $primary-color; }
 }
 
+/* — Hackathons 2026 (page développements) — */
+.hackathons-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.hackathons-section__title {
+  font-family: $secondary-font;
+  font-size: 1.8rem;
+  color: $secondary-color;
+  margin: 0 0 0.5rem;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid $primary-color;
+}
+
+.hackathons-section__intro {
+  color: $text-color-light;
+  font-size: 0.95rem;
+  max-width: 720px;
+  margin: 0.75rem auto 0;
+}
+
+.hackathon-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.09);
+    transform: translateY(-2px);
+  }
+
+  &__media {
+    display: block;
+    width: 100%;
+    padding-top: 56%; /* 16/9 */
+    background: $gray;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 2.5rem;
+  }
+
+  &__body {
+    padding: 1rem 1.1rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__partner {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $primary-color;
+    margin: 0 0 0.45rem;
+    line-height: 1.35;
+  }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: $secondary-color;
+    margin: 0 0 0.6rem;
+    font-weight: 600;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover { color: $primary-color; text-decoration: none; }
+    }
+  }
+
+  &__team {
+    font-size: 0.8rem;
+    color: $text-color-light;
+    line-height: 1.45;
+    margin: 0 0 0.85rem;
+    font-style: italic;
+  }
+
+  &__cta {
+    margin-top: auto;
+    align-self: flex-start;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $primary-color;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      color: $primary-color;
+      border-bottom-color: $primary-color;
+      text-decoration: none;
+    }
+
+    i { font-size: 0.95rem; }
+  }
+}
+
 /* — Mémoires de master (DUMAS) — */
 .memoire-card {
   display: flex;

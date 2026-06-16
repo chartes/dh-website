@@ -24,6 +24,97 @@ apps:
     url: "https://dh.chartes.psl.eu"
     icon: "ti-server"
     cta: "Voir les applications"
+
+hackathons_2026:
+  - title: "Plonger au cœur des réseaux à la cour de France (XVIIe–XVIIIe siècles)"
+    partner: "Centre de recherche du Château de Versailles"
+    team: "Julie Duhesme (M2), Juliette Grenier (M2), Côme Parrinello (M2), Martin Houllier (M2), Philippe Chaumet-Riffaud (M2)"
+    url: "https://github.com/Keep-Sake/Versailles-projet-Hackathon---donn-es-prosocours"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/capture-d-ecran-2025-12-17-101655.png"
+
+  - title: "Entités nommées dans la BiblioBase"
+    partner: "CNRS, ANR, CELLF"
+    team: "Gaëtan Drouet (M2), Radjaa Benabdallah (M2)"
+    url: "https://github.com/GaetanDrouet/Hackathon2026_BiblioBase"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/capture-d-ecran-2025-12-17-102906.png"
+
+  - title: "Abbreviations and algorithms — The Icelandic challenge"
+    partner: "École nationale des chartes – PSL, ANR"
+    team: "Pôle HTR collectif (dir. Chahan Vidal-Gorène, Alexandre Lionnet-Rollin)"
+    url: "https://github.com/CVidalG/HackathonHN-2026-HTR"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/capture-d-ecran-2025-12-17-103911.png"
+
+  - title: "Album de Vaucluse : quand les cartes postales révèlent le territoire"
+    partner: "Archives départementales du Vaucluse"
+    team: "Maxime Letoffe (M1), Mathieu Riviere (M1), Mathias Garnier (M1)"
+    url: "https://github.com/icimathieu/vaucluse"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/capture-d-ecran-2025-12-17-111346.png"
+
+  - title: "Explorer les voies de classement et de description des photographies du fonds Thierry"
+    partner: "Institut National de l'Histoire de l'Art"
+    team: "Denise Atzori (M2), Thaïs Raffray (M1), Chiara Tedesco (M1)"
+    url: "https://github.com/DeniseAtzori/ThierryNum-ENC"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/fonds-thierry.jpg"
+
+  - title: "Naturalis historia : cartographier l'imaginaire naturel médiéval dans Mandragore"
+    partner: "École nationale des chartes – PSL, BnF"
+    team: "Ye Liu (M2), Nana Maglakelidze (M2)"
+    url: "https://github.com/yeliu-dh/mandragore_VLG"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/capture-d-ecran-2025-12-17-110456.png"
+
+  - title: "L'avortement à la télévision française (1960–2024)"
+    partner: "Institut National de l'Audiovisuel"
+    team: "Chloé Jollivet-Courtois (M2), Irandokht Moinzadeh (M1), Charles Planque (M1)"
+    url: "https://github.com/Phineaax/Hackathon_INA"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/ina-avortement.jpg"
+
+  - title: "Trouver les arbres cachés…"
+    partner: "École nationale des chartes – PSL, ERC LostMa"
+    team: "Marie Bizais (M2), Ombeline Ferraris (M1), Églantine Gaglione (M2), Mathias Garnier (M1)"
+    url: "https://github.com/Bizais-Lillig/enc_hackathon_openstemmata"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/capture-d-ecran-2025-12-17-112902.png"
+
+  - title: "Des corpus en relief : identification, analyse et sérialisation de corpus épigraphiques"
+    partner: "École nationale des chartes – PSL, ANR Ecclesia, CJM, CPAF"
+    team: "Marie Bizais (M2), Chahan Vidal-Gorène"
+    url: "https://github.com/Bizais-Lillig/enc-hackathon-e-cclesia"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/capture-d-ecran-2025-12-17-111913.png"
+
+  - title: "O.D.I.L : indexer automatiquement les images du Moyen-Âge par l'IA"
+    partner: "École nationale des chartes – PSL, EHESS, Biblissima, EPFL"
+    team: "Quanwen Long (M2), Tianjie Yin (M2)"
+    url: "https://github.com/LONG-QW/odil-vlm-finetuning-timel"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/capture-d-ecran-2025-12-17-110914.png"
+
+  - title: "Réunion de microfaciès de silicites par la reconnaissance de formes"
+    partner: "GDR Silex"
+    team: "Gaëtan Drouet (M2), Mathias Garnier (M1)"
+    url: "https://github.com/GaetanDrouet/Hackathon2026_spicules"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/image_gdr_silex.jpg"
+
+  - title: "One prompt to rule them all ? Compétition d'HTR de manuscrits médiévaux français"
+    partner: "École nationale des chartes – PSL, ERC LostMa"
+    team: "Pôle HTR collectif (dir. Chahan Vidal-Gorène, Alexandre Lionnet-Rollin)"
+    url: "https://github.com/CVidalG/HackathonHN-2026-HTR"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/capture-d-ecran-2025-12-17-113705.png"
+
+  - title: "Quand Archelec rencontre l'IA"
+    partner: "Sciences Po"
+    team: "Maria Kirbasova (M2), Charles Planque (M1), Manon Remot (M1)"
+    url: "https://github.com/thecoolkided/Hackaton_Sciences_Po_Professions_de_foi"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/1-elections-legislatives-2022_caroline-maufroid-sciences-po.JPEG"
+
+  - title: "Text Acquisition Pipeline for Early-Modern Latin Manuscripts"
+    partner: "École nationale des chartes – PSL, ANR"
+    team: "Pôle HTR collectif (dir. Chahan Vidal-Gorène, Alexandre Lionnet-Rollin)"
+    url: "https://github.com/CVidalG/HackathonHN-2026-HTR"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/capture-d-ecran-2025-12-17-110209.png"
+
+  - title: "Analyser en direct les flux de chaînes d'information en continu"
+    partner: "InfoVox Tracker"
+    team: "Marisol Du Cauze De Nazelle (M1), Damien Conceicao (M2), Maria Kirbasova (M2), Garance Raynaud (M1), Manon Remot (M1)"
+    url: "https://github.com/PoidsPlume/CDingo"
+    image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/photo_2025-12-21_20-11-50.jpg"
 ---
 
 L'équipe développe, ouvre et maintient un écosystème logiciel : code, modèles et applications mis à disposition de la communauté scientifique.

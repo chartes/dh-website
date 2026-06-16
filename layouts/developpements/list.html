@@ -31,4 +31,41 @@
   </div>
 </section>
 
+{{/* ── Codes des hackathons 2026 ── */}}
+{{ with .Params.hackathons_2026 }}
+<section class="section bg-gray hackathons-section">
+  <div class="container">
+    <div class="hackathons-header">
+      <h2 class="hackathons-section__title">Codes des hackathons 2026</h2>
+      <p class="hackathons-section__intro">Quinze projets menés par les étudiants du master en partenariat avec des institutions de recherche et patrimoniales. Le code et les livrables sont publiés sur GitHub.</p>
+    </div>
+    <div class="row">
+      {{ range . }}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="hackathon-card">
+          <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__media">
+            {{ if .image }}
+            <img src="{{ .image }}" alt="{{ .title }}" class="hackathon-card__img" loading="lazy">
+            {{ else }}
+            <div class="hackathon-card__placeholder"><i class="ti-github"></i></div>
+            {{ end }}
+          </a>
+          <div class="hackathon-card__body">
+            {{ with .partner }}<p class="hackathon-card__partner">{{ . }}</p>{{ end }}
+            <h3 class="hackathon-card__title">
+              <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
+            </h3>
+            {{ with .team }}<p class="hackathon-card__team">{{ . }}</p>{{ end }}
+            <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__cta">
+              <i class="ti-github"></i> Voir le code
+            </a>
+          </div>
+        </article>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
 {{ end }}
