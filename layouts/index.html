@@ -524,28 +524,56 @@
   </div>
 </section>
 
-<!-- mémoires (template vide) -->
+<!-- mémoires (depuis DUMAS / MEM-ENC, degree 347) -->
+{{ $dumasURL := "https://api.archives-ouvertes.fr/search/MEM-ENC/?q=*&fq=dumas_degreeReference_s:347&fl=title_s,authFullName_s,producedDate_s,producedDateY_i,uri_s,halId_s,thumbId_i&sort=producedDate_s+desc&rows=3&wt=json" }}
 <section class="section bg-gray">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Mémoires de master</h2>
       <div class="border-top w-100 border-primary d-none d-sm-block"></div>
-      <a href="#" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir plus</a>
+      <a href="https://dumas.ccsd.cnrs.fr/MEM-ENC/search/index/?q=%2A&dumas_degreeReference_s=347" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir plus de mémoires</a>
     </div>
-    <div class="row">
-      {{ range seq 3 }}
-      <div class="col-lg-4 col-sm-6 mb-4">
-        <div class="placeholder-card">
-          <div class="placeholder-card__img placeholder-card__img--memoire"></div>
-          <div class="placeholder-card__body">
-            <div class="placeholder-card__tag">Mémoire</div>
-            <p class="placeholder-card__title">Titre du mémoire</p>
-            <p class="placeholder-card__meta">Auteur · Année</p>
+
+    {{ with try (resources.GetRemote $dumasURL) }}
+      {{ with .Err }}
+        <p class="text-muted">Impossible d'interroger DUMAS pour le moment.</p>
+      {{ else with .Value }}
+        {{ $data := . | transform.Unmarshal }}
+        {{ with $data.response }}
+        <div class="row">
+          {{ range .docs }}
+          {{ $title := "" }}
+          {{ with .title_s }}
+            {{ if reflect.IsSlice . }}{{ $title = index . 0 }}{{ else }}{{ $title = . }}{{ end }}
+          {{ end }}
+          {{ $authors := "" }}
+          {{ with .authFullName_s }}{{ $authors = delimit . ", " ", et " }}{{ end }}
+          {{ $year := "" }}
+          {{ with .producedDateY_i }}{{ $year = printf "%d" (int .) }}{{ end }}
+          {{ $thumb := "" }}
+          {{ with .thumbId_i }}{{ $thumb = printf "https://thumb.ccsd.cnrs.fr/%d/medium" (int .) }}{{ end }}
+          <div class="col-lg-4 col-sm-6 mb-4">
+            <a href="{{ .uri_s }}" target="_blank" rel="noopener" class="memoire-card">
+              <div class="memoire-card__media">
+                {{ if $thumb }}
+                <img src="{{ $thumb }}" alt="Couverture du mémoire" class="memoire-card__img" loading="lazy" onerror="this.classList.add('memoire-card__img--missing')">
+                {{ end }}
+                <div class="memoire-card__placeholder" aria-hidden="true">
+                  <i class="ti-book"></i>
+                </div>
+                <span class="memoire-card__kind">Mémoire</span>
+              </div>
+              <div class="memoire-card__body">
+                <p class="memoire-card__title">{{ $title }}</p>
+                <p class="memoire-card__meta">{{ $authors }}{{ with $year }} · {{ . }}{{ end }}</p>
+              </div>
+            </a>
           </div>
+          {{ end }}
         </div>
-      </div>
+        {{ end }}
       {{ end }}
-    </div>
+    {{ end }}
   </div>
 </section>
 

@@ -23,6 +23,24 @@
             {{ range . }}<li>{{ . }}</li>{{ end }}
           </ul>
           {{ end }}
+          {{ if or .Params.idhal .Params.scholar_id }}
+          <ul class="teacher-profile__links">
+            {{ with .Params.idhal }}
+            <li>
+              <a href="https://cv.hal.science/{{ . }}" target="_blank" rel="noopener" aria-label="Profil HAL">
+                <i class="ti-link"></i> HAL
+              </a>
+            </li>
+            {{ end }}
+            {{ with .Params.scholar_id }}
+            <li>
+              <a href="https://scholar.google.com/citations?user={{ . }}" target="_blank" rel="noopener" aria-label="Profil Google Scholar">
+                <i class="ti-bookmark-alt"></i> Google Scholar
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+          {{ end }}
         </div>
       </div>
 
