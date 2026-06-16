@@ -26,17 +26,25 @@ memoires:
     titre: "De la Chine à la Corée : retracer une personnalité divine par une analyse visuelle fondée sur les motifs du Yushu Baojing et de ses recompilations"
     etudiant: "Tianjie Yin"
     codirecteur: "M. Bui (EPHE)"
-    # lien: "https://dumas.ccsd.cnrs.fr/dumas-xxxxxxxx"
   - annee: 2026
+    niveau: "M2"
     titre: "Video Games as Literary Art : The Role of the Protagonist in Narrative Games, A narrative and stylistic study"
     etudiant: "Côme Parrinello"
     codirecteur: 'O. Caïra (IUT d’Évry-Courcouronnes)'
   - annee: 2026
+    niveau: "M2"
     titre: "La presse géorgienne en exil (1926–1939) : extraction automatique de texte (OCR) et analyse du discours"
     etudiant: "Nana Maglakelidze"
     codirecteur: 'T. Chopard (EHESS)'
   - annee: 2026
+    niveau: "M2"
     titre: "Étude sur l'identification et la comparaison automatiques des estampages différents d’un même objet, du XIIIe au IIIe siècles av. J.-C., basée sur l'apprentissage automatique"
     etudiant: "Quanwen Long"
     codirecteur: 'O. Venture (EPHE)'
+  - annee: 2025
+    niveau: "M2"
+    titre: "Automatic Detection Of Viral Disinformation Narratives"
+    etudiant: "Francesco Savatteri"
+    codirecteur: 'F. Cafiero (ENC-PSL)'
+    lien: "https://dumas.ccsd.cnrs.fr/dumas-05400622v1"
 ---
