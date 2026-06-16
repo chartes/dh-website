@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<section class="section actu-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 mx-auto">
+
+        <header class="actu-single__header">
+          {{ $category := .Params.category | default "publication" }}
+          {{ $catKey := $category | lower | replaceRE "é" "e" }}
+          <div class="actu-single__meta">
+            <span class="actu-card__kind actu-card__kind--{{ $catKey }}">{{ $category | humanize }}</span>
+            {{ with .Params.acronym }}<span class="actu-single__acronym">{{ . }}</span>{{ end }}
+            <time class="actu-single__date">{{ .Date.Format "2 January 2006" }}</time>
+          </div>
+          <h1 class="actu-single__title">{{ .Title }}</h1>
+          {{ with .Params.location }}<p class="actu-single__location"><i class="ti-location-pin"></i> {{ . }}</p>{{ end }}
+        </header>
+
+        <div class="actu-single__content content">
+          {{ .Content }}
+        </div>
+
+        {{ with .Params.url }}
+        <p class="actu-single__external">
+          <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-outline-primary">
+            <i class="ti-link"></i> Plus d'informations
+          </a>
+        </p>
+        {{ end }}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

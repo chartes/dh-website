@@ -34,15 +34,17 @@
         <article class="actu-card">
           <a href="{{ .Permalink }}" class="actu-card__media actu-card__media--{{ $catKey }}">
             <i class="actu-card__icon {{ $icon }}" aria-hidden="true"></i>
-            <span class="actu-card__kind actu-card__kind--{{ $catKey }}">{{ $category | humanize }}</span>
-            {{ with .Params.acronym }}
-            <span class="actu-card__acronym">{{ . }}</span>
-            {{ end }}
           </a>
           <div class="actu-card__body">
-            <p class="actu-card__date">{{ .Date.Format "2 January 2006" }}</p>
+            <p class="actu-card__lead">
+              {{ with .Params.acronym }}
+              <span class="actu-card__acronym-lead">{{ . }}</span>
+              {{ end }}
+              <span class="actu-card__kind-inline actu-card__kind-inline--{{ $catKey }}">{{ $category | humanize }}</span>
+            </p>
             <h3 class="actu-card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
             {{ with .Summary }}<p class="actu-card__summary">{{ . | plainify | truncate 140 }}</p>{{ end }}
+            <p class="actu-card__date">{{ .Date.Format "2 January 2006" }}</p>
           </div>
         </article>
       </div>

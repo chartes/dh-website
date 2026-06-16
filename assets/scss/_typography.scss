@@ -1867,25 +1867,68 @@ table.programme-table {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   }
 
-  &__date {
-    font-size: 0.78rem;
-    color: $text-color-light;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  &__lead {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     margin: 0 0 0.5rem;
   }
 
-  &__summary {
-    font-size: 0.9rem;
-    color: $text-color-light;
-    line-height: 1.5;
-    margin: 0;
+  &__acronym-lead {
+    font-family: $secondary-font;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: $secondary-color;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
   }
 
-  &__title a {
+  &__kind-inline {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    background: rgba($secondary-color, 0.08);
     color: $secondary-color;
-    text-decoration: none;
-    &:hover { color: $primary-color; text-decoration: none; }
+
+    &--hackathon { background: rgba(#b8651f, 0.13); color: #b8651f; }
+    &--conference { background: rgba($secondary-color, 0.1); color: $secondary-color; }
+    &--publication { background: rgba($primary-color, 0.1); color: $primary-color; }
+  }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: $text-color-dark;
+    line-height: 1.4;
+    margin: 0 0 0.6rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover { color: $primary-color; text-decoration: none; }
+    }
+  }
+
+  &__summary {
+    font-size: 0.85rem;
+    color: $text-color-light;
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+  }
+
+  &__date {
+    font-size: 0.75rem;
+    color: $text-color-light;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
   }
 }
 
@@ -2006,6 +2049,71 @@ table.programme-table {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+}
+
+/* — Page single d'une actu (conférence / billet / hackathon) — */
+.actu-single {
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__acronym {
+    display: inline-block;
+    background: rgba($secondary-color, 0.1);
+    color: $secondary-color;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.22rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  &__date {
+    color: $text-color-light;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-left: 0.25rem;
+  }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 2rem;
+    color: $secondary-color;
+    line-height: 1.25;
+    margin: 0 0 0.75rem;
+  }
+
+  &__location {
+    color: $text-color-light;
+    font-size: 0.95rem;
+    margin: 0;
+
+    i { color: $primary-color; margin-right: 0.3rem; }
+  }
+
+  &__content {
+    font-size: 1rem;
+    line-height: 1.7;
+
+    p { margin-bottom: 1rem; }
+  }
+
+  &__external {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; }
   }
 }
 

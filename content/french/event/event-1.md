@@ -2,29 +2,25 @@
 title: "Réduction des biais de numérisation pour la détection de faux manuscrits : exploration d'embeddings visuels auto-supervisés"
 date: 2026-06-16
 draft: false
-# page title background image
-bg_image: "images/backgrounds/page-title.jpg"
-# meta description
-description : "Damien Conceicao (M2) participe à la conférence biblissim-ia-26"
-# Event image
-image: "images/events/event-1.jpg"
-# location
-location: "Aubervilliers, France"
-# entry fee
-# fee: "À partir de 699$"
-# apply url
-apply_url : "https://biblissim-ia-26.sciencesconf.org/"
-# event speaker
-speaker:
-  # speaker loop
-  - name : "Damien Conceicao"
-    image : "images/event-speakers/speaker-1.jpg"
-    designation : "Étudiant M2"
+description: "Damien Conceicao (M2) présente ses travaux à la journée Biblissim-IA 2026."
 
-# type
+# acronyme et catégorie pour la carte « actualité »
+category: "conférence"
+acronym: "Biblissim-IA 2026"
+
+# lieu (affiché sur la single page)
+location: "Aubervilliers, France"
+
+# lien externe (bouton « Plus d'informations » en bas de single)
+url: "https://biblissim-ia-26.sciencesconf.org/"
+
 type: "event"
 ---
 
-### À propos de l’événement
+### À propos de l'événement
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Après les éditions Biblissim-IA 2023, 2024 et 2025, cette journée du cluster 3 de Biblissima+ pour l'année 2026 entend participer à la réflexion sur le futur des études et analyses des manuscrits médiévaux par intelligence artificielle, après la publication de modèles de reconnaissance de l'écriture manuscrite appliqués à très large échelle. Quelles voies sont désormais ouvertes pour le catalogage et l'expertise des manuscrits médiévaux, pour les études dans les domaines connexes — linguistique, histoire de la littérature, histoire de l'art ?
+
+### Intervenant
+
+**Damien Conceicao** (étudiant M2) présente ses travaux sur la réduction des biais de numérisation pour la détection de faux manuscrits, à partir d'embeddings visuels auto-supervisés.
