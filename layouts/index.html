@@ -419,6 +419,36 @@
 </section>
 {{ end }}
 
+<!-- junior entreprise -->
+{{ with .Params.junior_entreprise }}
+{{ if .enable }}
+<section class="section bg-gray junior-section">
+  <div class="container">
+    <h2 class="section-title mb-5">{{ .title }}</h2>
+    <div class="row align-items-center">
+      <div class="col-md-4 mb-4 mb-md-0 text-center">
+        {{ if .logo }}
+        <a href="{{ .url }}" target="_blank" rel="noopener" class="junior-logo-link">
+          {{ partial "image.html" (dict "Src" .logo "Alt" "Logo Junior Entreprise" "Class" "junior-logo") }}
+        </a>
+        {{ else }}
+        <div class="junior-logo-placeholder"><i class="ti-id-badge"></i></div>
+        {{ end }}
+      </div>
+      <div class="col-md-8">
+        <div class="junior-content">{{ .content | markdownify }}</div>
+        {{ with .url }}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-outline-primary mt-3">
+          {{ $.Params.junior_entreprise.cta | default "En savoir plus" }} →
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
 <!-- admissions -->
 {{ with .Params.admission }}
 <section class="section">

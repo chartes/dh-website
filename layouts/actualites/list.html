@@ -18,18 +18,23 @@
     {{ if $items }}
     <div class="row">
       {{ range $items }}
-      {{ $kind := "Billet" }}
-      {{ $kindClass := "post" }}
-      {{ if eq .Type "event" }}{{ $kind = "Conférence" }}{{ $kindClass = "event" }}{{ end }}
+      {{/* catégorie : champ frontmatter `category` (hackathon / conférence / publication / autre) ;
+           sinon défaut basé sur le type (post → Publication, event → Conférence). */}}
+      {{ $category := .Params.category }}
+      {{ if not $category }}
+        {{ if eq .Type "event" }}{{ $category = "conférence" }}{{ else }}{{ $category = "publication" }}{{ end }}
+      {{ end }}
+      {{ $catKey := $category | lower | replaceRE "é" "e" }}
+      {{ $icon := "ti-bookmark-alt" }}
+      {{ if eq $catKey "hackathon" }}{{ $icon = "ti-pulse" }}
+      {{ else if eq $catKey "conference" }}{{ $icon = "ti-microphone" }}
+      {{ else if eq $catKey "publication" }}{{ $icon = "ti-book" }}
+      {{ end }}
       <div class="col-lg-4 col-md-6 mb-4">
         <article class="actu-card">
-          <a href="{{ .Permalink }}" class="actu-card__media">
-            {{ if .Params.image }}
-              {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "actu-card__img") }}
-            {{ else }}
-              <div class="actu-card__placeholder"><i class="ti-{{ if eq $kindClass "event" }}calendar{{ else }}write{{ end }}"></i></div>
-            {{ end }}
-            <span class="actu-card__kind actu-card__kind--{{ $kindClass }}">{{ $kind }}</span>
+          <a href="{{ .Permalink }}" class="actu-card__media actu-card__media--{{ $catKey }}">
+            <i class="actu-card__icon {{ $icon }}" aria-hidden="true"></i>
+            <span class="actu-card__kind actu-card__kind--{{ $catKey }}">{{ $category | humanize }}</span>
           </a>
           <div class="actu-card__body">
             <p class="actu-card__date">{{ .Date.Format "2 January 2006" }}</p>

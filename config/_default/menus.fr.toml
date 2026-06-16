@@ -25,11 +25,16 @@ name = "Publications"
 url = "publications/"
 weight = 5
 
+[[main]]
+name = "Journée d'étude"
+url = "journee-etude/"
+weight = 6
+
 # Lien externe vers la junior-entreprise Cartadata (pas de page locale).
 [[main]]
 name = "JE"
 url = "https://www.chartes.psl.eu/vie-de-campus/vie-etudiante-et-associative/cartadata"
-weight = 6
+weight = 7
 
 
 # footer menu
@@ -53,3 +58,7 @@ url = "actualites/"
 [[footer]]
 name = "Publications"
 url = "publications/"
+
+[[footer]]
+name = "Journée d'étude"
+url = "journee-etude/"

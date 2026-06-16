@@ -321,6 +321,17 @@ enseignants:
     role: "Doctorant"
     image: ""
 
+junior_entreprise:
+  enable: true
+  title: "Une junior-entreprise adossée aux formations de l'école, se former par la pratique"
+  logo: "images/logos/cartadata.png"
+  url: "https://www.chartes.psl.eu/vie-de-campus/vie-etudiante-et-associative/cartadata"
+  cta: "En savoir plus"
+  content: |
+    **Cartadata** est la junior-entreprise de l'École nationale des chartes – PSL. Elle permet aux étudiants du master Humanités numériques de mettre en application leurs compétences sur des missions concrètes — édition numérique, traitement de corpus, valorisation patrimoniale, conseil et études — pour des partenaires publics et privés.
+
+    Encadrée par les enseignants et opérée par les étudiants, Cartadata est un complément de formation professionnalisant et un sas vers les métiers de la donnée patrimoniale et de l'ingénierie documentaire.
+
 admission:
   m1_url: "https://www.monmaster.gouv.fr/"
   m2_url: "https://www.psl.eu/"
