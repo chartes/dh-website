@@ -5,6 +5,7 @@
      - Pour les autres : fallback sur authFullName_t (avec risque d'homonymes).
      Les deux clauses sont combinées en OR. */}}
 {{ $teachers := where site.RegularPages "Type" "teacher" }}
+{{ $teachers = where $teachers "Params.master_teacher" true }}
 {{ $ids := slice }}
 {{ $names := slice }}
 {{ range $teachers }}
@@ -132,33 +133,11 @@
             <strong>{{ .numFound }}</strong> publications référencées dans HAL
           </p>
 
-          {{/* ── Domaines uniques présents dans les résultats ──
-               on strippe le préfixe de profondeur HAL (ex. "1.shs.hist" -> "shs.hist"). */}}
-          {{ $allDomains := slice }}
-          {{ range .docs }}
-            {{ with .domain_s }}
-              {{ range . }}
-                {{ $allDomains = $allDomains | append (replaceRE "^\\d+\\." "" .) }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-          {{ $uniqDomains := $allDomains | uniq | sort }}
-
-          {{/* ── Barre de filtres ── */}}
+          {{/* ── Barre de filtres : recherche seule (les pills de discipline ont été retirées) ── */}}
           <div class="publications-filters">
             <input type="search" class="publications-search"
                    placeholder="Rechercher dans les titres, auteurs, mots-clés, revues…"
                    aria-label="Recherche dans les publications">
-            {{ if $uniqDomains }}
-            <div class="publications-domains">
-              <button type="button" class="domain-pill active" data-domain="all">Toutes</button>
-              {{ range $uniqDomains }}
-              <button type="button" class="domain-pill" data-domain="{{ . }}">
-                {{ index $domainLabels . | default . }}
-              </button>
-              {{ end }}
-            </div>
-            {{ end }}
           </div>
 
           {{/* ── Regroupement par année ── */}}
@@ -197,15 +176,7 @@
               {{ $journal := "" }}
               {{ with .journalTitle_s }}{{ $journal = . }}{{ end }}
               {{ $searchBlob := printf "%s %s %s %s %s" $title $authors $keywords $journal $year | lower }}
-              {{ $domains := "" }}
-              {{ with .domain_s }}
-                {{ $clean := slice }}
-                {{ range . }}{{ $clean = $clean | append (replaceRE "^\\d+\\." "" .) }}{{ end }}
-                {{ $domains = delimit $clean " " }}
-              {{ end }}
-              <li class="publication-item"
-                  data-domains="{{ $domains }}"
-                  data-search="{{ $searchBlob }}">
+              <li class="publication-item" data-search="{{ $searchBlob }}">
                 <p class="publication-item__title">
                   {{ with .uri_s }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $title }}</a>
                   {{ else }}{{ $title }}{{ end }}
@@ -249,32 +220,22 @@
 <script>
 (function () {
   var search = document.querySelector('.publications-search');
-  var pills = document.querySelectorAll('.domain-pill');
   var items = document.querySelectorAll('.publication-item');
   var years = document.querySelectorAll('.publications-year');
   var empty = document.querySelector('.publications-empty');
-  if (!items.length) return;
-
-  var activeDomain = 'all';
-  var activeQuery = '';
+  if (!items.length || !search) return;
 
   function normalize(s) {
     return (s || '').toLowerCase()
       .normalize('NFD').replace(/[̀-ͯ]/g, '');
   }
 
-  function update() {
-    var q = normalize(activeQuery).trim();
+  function update(query) {
+    var q = normalize(query).trim();
     var anyVisible = false;
     items.forEach(function (item) {
-      var domains = (item.dataset.domains || '').split(/\s+/);
       var text = normalize(item.dataset.search);
-      var matchDomain = activeDomain === 'all'
-        || domains.some(function (d) {
-          return d === activeDomain || d.indexOf(activeDomain + '.') === 0;
-        });
-      var matchQuery = q === '' || text.indexOf(q) !== -1;
-      var visible = matchDomain && matchQuery;
+      var visible = q === '' || text.indexOf(q) !== -1;
       item.hidden = !visible;
       if (visible) anyVisible = true;
     });
@@ -288,18 +249,7 @@
     if (empty) empty.hidden = anyVisible;
   }
 
-  search.addEventListener('input', function (e) {
-    activeQuery = e.target.value;
-    update();
-  });
-  pills.forEach(function (p) {
-    p.addEventListener('click', function () {
-      pills.forEach(function (x) { x.classList.remove('active'); });
-      p.classList.add('active');
-      activeDomain = p.dataset.domain;
-      update();
-    });
-  });
+  search.addEventListener('input', function (e) { update(e.target.value); });
 })();
 </script>
 

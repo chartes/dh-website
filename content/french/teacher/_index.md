@@ -1,7 +1,7 @@
 ---
-title: "L'équipe"
+title: "Équipe enseignante"
 url: "/equipe/"
-draft: true
+draft: false
 bg_image: "images/backgrounds/page-title.jpg"
-description : "L'équipe Humanités numériques de l'École nationale des chartes – PSL : enseignants-chercheurs, ingénieurs, doctorants."
+description: "Équipe enseignante du master Humanités numériques de l'École nationale des chartes – PSL."
 ---
