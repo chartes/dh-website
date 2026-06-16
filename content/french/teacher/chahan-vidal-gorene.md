@@ -2,6 +2,7 @@
 title: "Chahan Vidal-Gorène"
 idhal: "chahan-vidal-gorene"
 scholar_id: "Ko0Fj6MAAAAJ"
+website: "https://www.chartes.psl.eu/annuaire/chahan-vidal-gorene"
 image: "images/team-pic/chahan-vidal-gorene.JPG"
 course: "Responsable du master Humanités numériques"
 category: "Enseignants-chercheurs"
