@@ -477,7 +477,7 @@
     <div class="row">
       {{ range $teachers }}
       <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-        <div class="person-card">
+        <a href="{{ .Permalink }}" class="person-card person-card--link">
           <div class="person-card__photo">
             {{ if .Params.image }}
             {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "person-card__img") }}
@@ -489,7 +489,7 @@
             <p class="person-card__name">{{ .Title }}</p>
             {{ if .Params.course }}<p class="person-card__role">{{ .Params.course }}</p>{{ end }}
           </div>
-        </div>
+        </a>
       </div>
       {{ end }}
     </div>
