@@ -7,7 +7,7 @@ description: "Retour sur la semaine de hackathons co-organisée par le master HN
 category: "hackathon"
 acronym: "Hackathon SHS 2026"
 
-url: "https://www.chartes.psl.eu/projets-pour-la-semaine-de-hackathons-pour-les-shs"
+external_url: "https://www.chartes.psl.eu/projets-pour-la-semaine-de-hackathons-pour-les-shs"
 
 type: "post"
 ---

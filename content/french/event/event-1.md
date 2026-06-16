@@ -12,7 +12,7 @@ acronym: "Biblissim-IA 2026"
 location: "Aubervilliers, France"
 
 # lien externe (bouton « Plus d'informations » en bas de single)
-url: "https://biblissim-ia-26.sciencesconf.org/"
+external_url: "https://biblissim-ia-26.sciencesconf.org/"
 
 type: "event"
 ---

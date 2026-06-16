@@ -1,7 +1,7 @@
 ################################### French language #####################################
 [fr]
-languageName = "Fr"
-languageCode = "fr-fr"
+label = "Fr"
+locale = "fr-fr"
 contentDir = "content/french"
 weight = 1
 

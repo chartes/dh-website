@@ -1,7 +1,7 @@
 baseURL = "https://chartes.github.io/dh-website/"
 canonifyURLs = true
 relativeURLs = true
-languageCode = "fr-fr"
+locale = "fr-fr"
 defaultContentLanguage = "fr"
 defaultContentLanguageInSubdir = false
 title = "Digital humanities @ Chartes"

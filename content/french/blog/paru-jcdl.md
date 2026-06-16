@@ -7,7 +7,7 @@ description: "Sortie d'un article co-écrit par l'équipe sur l'enrichissement a
 category: "publication"
 acronym: "JCDL 2025"
 
-url: "https://hal.science/"
+external_url: "https://hal.science/"
 
 type: "post"
 ---
