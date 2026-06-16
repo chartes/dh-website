@@ -1,40 +1,25 @@
 ---
-title: "Conférence sur les médias sociaux et l’économie béhaviorale"
-date: 2019-07-06T15:27:17+06:00
+title: "Réduction des biais de numérisation pour la détection de faux manuscrits : exploration d'embeddings visuels auto-supervisés"
+date: 2026-06-16
 draft: false
 # page title background image
 bg_image: "images/backgrounds/page-title.jpg"
 # meta description
-description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. dolore magna aliqua. Ut enim ad minim veniam, quis nostrud."
+description : "Damien Conceicao (M2) participe à la conférence biblissim-ia-26"
 # Event image
 image: "images/events/event-1.jpg"
 # location
-location: "Dhanmondi, Dhaka"
+location: "Aubervilliers, France"
 # entry fee
-fee: "À partir de 699$"
+# fee: "À partir de 699$"
 # apply url
-apply_url : "#"
+apply_url : "https://biblissim-ia-26.sciencesconf.org/"
 # event speaker
 speaker:
   # speaker loop
-  - name : "Jack Mastio"
+  - name : "Damien Conceicao"
     image : "images/event-speakers/speaker-1.jpg"
-    designation : "Enseignant"
-
-  # speaker loop
-  - name : "John Doe"
-    image : "images/event-speakers/speaker-2.jpg"
-    designation : "Enseignant"
-
-  # speaker loop
-  - name : "Randy Luis"
-    image : "images/event-speakers/speaker-3.jpg"
-    designation : "Enseignant"
-
-  # speaker loop
-  - name : "Alfred Jin"
-    image : "images/event-speakers/speaker-4.jpg"
-    designation : "Enseignant"
+    designation : "Étudiant M2"
 
 # type
 type: "event"
