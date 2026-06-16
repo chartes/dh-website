@@ -23,6 +23,14 @@
             {{ range . }}<li>{{ . }}</li>{{ end }}
           </ul>
           {{ end }}
+          {{ with .Params.website }}
+          <p class="teacher-profile__website">
+            <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">
+              <i class="ti-world"></i> Page officielle
+            </a>
+          </p>
+          {{ end }}
+
           {{ if or .Params.idhal .Params.scholar_id }}
           <ul class="teacher-profile__links">
             {{ with .Params.idhal }}

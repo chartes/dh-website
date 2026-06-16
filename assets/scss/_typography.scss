@@ -1654,10 +1654,18 @@ table.programme-table {
     }
   }
 
+  &__website {
+    margin: 1rem 0 0;
+    text-align: center;
+
+    .btn { display: inline-flex; align-items: center; gap: 0.35rem; }
+    i { font-size: 0.9rem; }
+  }
+
   &__links {
     list-style: none;
     padding: 0;
-    margin: 1rem 0 0;
+    margin: 0.85rem 0 0;
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem 1rem;

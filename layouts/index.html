@@ -551,7 +551,7 @@
           {{ $year := "" }}
           {{ with .producedDateY_i }}{{ $year = printf "%d" (int .) }}{{ end }}
           {{ $thumb := "" }}
-          {{ with .thumbId_i }}{{ $thumb = printf "https://thumb.ccsd.cnrs.fr/%d/medium" (int .) }}{{ end }}
+          {{ with .thumbId_i }}{{ $thumb = printf "https://thumb.ccsd.cnrs.fr/%d/large" (int .) }}{{ end }}
           <div class="col-lg-4 col-sm-6 mb-4">
             <a href="{{ .uri_s }}" target="_blank" rel="noopener" class="memoire-card">
               <div class="memoire-card__media">
