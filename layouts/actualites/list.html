@@ -35,6 +35,9 @@
           <a href="{{ .Permalink }}" class="actu-card__media actu-card__media--{{ $catKey }}">
             <i class="actu-card__icon {{ $icon }}" aria-hidden="true"></i>
             <span class="actu-card__kind actu-card__kind--{{ $catKey }}">{{ $category | humanize }}</span>
+            {{ with .Params.acronym }}
+            <span class="actu-card__acronym">{{ . }}</span>
+            {{ end }}
           </a>
           <div class="actu-card__body">
             <p class="actu-card__date">{{ .Date.Format "2 January 2006" }}</p>

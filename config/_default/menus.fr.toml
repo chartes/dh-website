@@ -16,25 +16,19 @@ url = "developpements/"
 weight = 3
 
 [[main]]
-name = "Actualités"
-url = "actualites/"
-weight = 4
-
-[[main]]
 name = "Publications"
 url = "publications/"
-weight = 5
+weight = 4
 
 [[main]]
 name = "Journée d'étude"
 url = "journee-etude/"
-weight = 6
+weight = 5
 
-# Lien externe vers la junior-entreprise Cartadata (pas de page locale).
 [[main]]
-name = "JE"
-url = "https://www.chartes.psl.eu/vie-de-campus/vie-etudiante-et-associative/cartadata"
-weight = 7
+name = "Actualités"
+url = "actualites/"
+weight = 6
 
 
 # footer menu
