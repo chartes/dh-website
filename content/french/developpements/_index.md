@@ -3,11 +3,11 @@ title: "Développements"
 url: "/developpements/"
 draft: false
 bg_image: "images/backgrounds/page-title.jpg"
-description: "Code, modèles, jeux de données et applications développés par l'équipe Humanités numériques."
+description: "Divers code, modèles, jeux de données et applications développés par l'équipe du master Humanités numériques ou par la mission numérique de l'école."
 
 apps:
   - name: "GitHub"
-    desc: "Code source, outils de traitement et pipelines d'analyse"
+    desc: "Code source, outils de traitement et pipelines d'analyse de l'École des chartes"
     url: "https://github.com/chartes"
     logo: "images/logos/github.svg"
     logo_light: true
@@ -116,5 +116,3 @@ hackathons_2026:
     url: "https://github.com/PoidsPlume/CDingo"
     image: "https://www.chartes.psl.eu/sites/default/files/public/styles/default_large/public/media/image/2025-12/photo_2025-12-21_20-11-50.jpg"
 ---
-
-L'équipe développe, ouvre et maintient un écosystème logiciel : code, modèles et applications mis à disposition de la communauté scientifique.
