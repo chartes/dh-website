@@ -1,9 +1,10 @@
 {{ define "main" }}
 
-{{/* Fil unique : billets (post) + conférences (event), triés par date desc. */}}
-{{ $posts := where site.RegularPages "Type" "post" }}
-{{ $events := where site.RegularPages "Type" "event" }}
-{{ $items := union $posts $events }}
+{{/* Fil unique : billets (post) + conférences (event) + participations (actualites), triés par date desc. */}}
+{{ $posts         := where site.RegularPages "Type" "post" }}
+{{ $events        := where site.RegularPages "Type" "event" }}
+{{ $participations := where site.RegularPages "Type" "actualites" }}
+{{ $items := $posts | union $events | union $participations }}
 {{ $items = $items.ByDate.Reverse }}
 
 <section class="section">
@@ -18,8 +19,49 @@
     {{ if $items }}
     <div class="row">
       {{ range $items }}
-      {{/* catégorie : champ frontmatter `category` (hackathon / conférence / publication / autre) ;
-           sinon défaut basé sur le type (post → Publication, event → Conférence). */}}
+
+      {{ if .Params.participants }}
+      {{/* ── Card participation (pleine largeur) ── */}}
+      {{ $category := .Params.category | default "Conférence" }}
+      {{ $catKey   := $category | lower | replaceRE "[éê]" "e" | replaceRE "[^a-z]" "" }}
+      <div class="col-12 mb-4">
+        <article class="participation-card participation-card--{{ $catKey }}">
+          <div class="participation-card__meta">
+            <span class="participation-card__type participation-card__type--{{ $catKey }}">{{ $category }}</span>
+            <span class="participation-card__date-lieu">
+              {{ .Date.Format "2 January 2006" }}
+              {{ with .Params.date_end }} – {{ (time .).Format "2 January 2006" }}{{ end }}
+              {{ with .Params.lieu }}<span class="participation-card__sep">·</span> {{ . }}{{ end }}
+            </span>
+          </div>
+          <h3 class="participation-card__title">
+            {{ if .Params.external_url }}
+            <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+            {{ else }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ end }}
+          </h3>
+          {{ with .Params.participants }}
+          <div class="participation-card__participants">
+            {{ range . }}
+            {{ $rk := .role | lower | replaceRE "[^a-z0-9]" "" }}
+            <span class="participation-card__chip participation-card__chip--{{ $rk }}">
+              {{ .name }}<em class="participation-card__chip-role">{{ .role }}</em>
+            </span>
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ with .Summary }}<p class="participation-card__summary">{{ . | plainify | truncate 220 }}</p>{{ end }}
+          {{ with .Params.external_url }}
+          <div class="participation-card__footer">
+            <a href="{{ . }}" target="_blank" rel="noopener" class="participation-card__link">Voir →</a>
+          </div>
+          {{ end }}
+        </article>
+      </div>
+
+      {{ else }}
+      {{/* ── Card standard (actu-card) ── */}}
       {{ $category := .Params.category }}
       {{ if not $category }}
         {{ if eq .Type "event" }}{{ $category = "conférence" }}{{ else }}{{ $category = "publication" }}{{ end }}
@@ -48,6 +90,8 @@
           </div>
         </article>
       </div>
+      {{ end }}
+
       {{ end }}
     </div>
     {{ else }}
