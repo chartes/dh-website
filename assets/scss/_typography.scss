@@ -2476,3 +2476,14 @@ table.programme-table {
   }
 }
 
+/* ── Fix menu desktop : 7 items trop larges pour le container ── */
+@media (min-width: 992px) {
+  .nav-item {
+    margin: 0 5px !important;
+  }
+  .navbar-expand-lg .navbar-nav .nav-link {
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+}
+
