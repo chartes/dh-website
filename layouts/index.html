@@ -4,16 +4,36 @@
 <section class="hero-section overlay position-relative">
   {{ partial "image.html" (dict "Src" .Params.hero_image "Alt" .Title "Class" "hero-bg-img") }}
   <div class="container position-relative" style="z-index: 2;">
-    <div class="row">
-      <div class="col-md-9 col-lg-8">
+    <div class="row align-items-center">
+      <div class="col-lg-7 col-md-9">
         {{ with .Params.subtitle }}<h6 class="text-white font-secondary mb-3 text-uppercase">{{ . | markdownify }}</h6>{{ end }}
         <h1 class="text-white mb-4">{{ .Title }}</h1>
         {{ with .Params.hero_intro }}<p class="text-lighten mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .Params.hero_button.enable }}
-        <a href="{{ .Params.hero_button.link }}" class="btn btn-primary">{{ .Params.hero_button.label }}</a>
+        <a href="{{ .Params.hero_button.link }}" class="btn btn-primary" target="_blank" rel="noopener">{{ .Params.hero_button.label }}</a>
         {{ end }}
         <a href="{{ `master/` | relLangURL }}" class="btn btn-outline-light ml-2">Découvrir le master</a>
       </div>
+      {{ with index .Params.home_logos.groups 0 }}
+      <div class="col-lg-4 offset-lg-1 d-none d-lg-block">
+        <div class="hero-partners-box">
+          <p class="hero-partners-box__label">{{ .label }}</p>
+          <div class="hero-partners-box__logos">
+            {{ range .items }}
+            {{ if .url }}
+            <a href="{{ .url }}" target="_blank" rel="noopener" class="hero-partners-box__link" title="{{ .alt }}">
+              {{ partial "image.html" (dict "Src" .src "Alt" .alt "Class" "hero-partners-box__img") }}
+            </a>
+            {{ else }}
+            <span class="hero-partners-box__link" title="{{ .alt }}">
+              {{ partial "image.html" (dict "Src" .src "Alt" .alt "Class" "hero-partners-box__img") }}
+            </span>
+            {{ end }}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
     </div>
   </div>
 </section>
@@ -42,51 +62,6 @@
   </div>
 </section>
 {{ end }}
-{{ end }}
-
-<!-- bandeau logos partenaires -->
-{{ with .Params.home_logos }}
-<section class="section-sm home-logos-section">
-  <div class="container">
-    {{ with .heading }}<h2 class="home-logos-section__heading">{{ . }}</h2>{{ end }}
-    {{ with .intro }}<p class="home-logos-section__intro">{{ . | markdownify }}</p>{{ end }}
-    {{ range .groups }}
-    <div class="home-logos-group">
-      {{ with .label }}<p class="home-logos-group__label">{{ . }}</p>{{ end }}
-      <div class="home-logos-group__row">
-        {{ range .items }}
-        {{ if .url }}
-        <a href="{{ .url }}" target="_blank" rel="noopener" class="home-logos-group__item" title="{{ .alt | default .name }}">
-          {{ partial "image.html" (dict "Src" .src "Alt" (.alt | default .name) "Class" "home-logos-group__img") }}
-        </a>
-        {{ else }}
-        <span class="home-logos-group__item" title="{{ .alt | default .name }}">
-          {{ partial "image.html" (dict "Src" .src "Alt" (.alt | default .name) "Class" "home-logos-group__img") }}
-        </span>
-        {{ end }}
-        {{ end }}
-      </div>
-    </div>
-    {{ end }}
-  </div>
-</section>
-{{ end }}
-
-<!-- bande chiffres clés -->
-{{ with .Params.stats }}
-<section class="stats-band">
-  <div class="container">
-    <div class="stats-band__inner">
-      {{ range . }}
-      <div class="stats-band__item">
-        <span class="stats-band__value">{{ .value }}</span>
-        <span class="stats-band__label">{{ .label }}</span>
-      </div>
-      {{ end }}
-      <a href="{{ `master/` | relLangURL }}" class="btn btn-outline-light stats-band__cta">En savoir plus</a>
-    </div>
-  </div>
-</section>
 {{ end }}
 
 {{ end }}
