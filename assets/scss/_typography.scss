@@ -2467,3 +2467,12 @@ table.programme-table {
   }
 }
 
+/* ── Fix menu mobile : empêche le débordement vertical ────────── */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
