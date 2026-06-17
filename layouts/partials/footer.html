@@ -1,5 +1,6 @@
 <!-- footer -->
 <footer>
+  {{ if not .IsHome }}
   <div class="footer bg-footer section border-bottom">
     <div class="container">
       <div class="row">
@@ -69,6 +70,7 @@
       </div>
     </div>
   </div>
+  {{ end }}
 
   <!-- copyright -->
   <div class="copyright py-4 bg-footer">
