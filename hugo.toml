@@ -38,6 +38,8 @@ google_analitycs_id = ""
 # top header
 top_header = false
 
+buildFuture = true
+
 ############################# Build ##############################
 [build]
 noJSConfigInAssets = false

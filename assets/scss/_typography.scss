@@ -2488,48 +2488,66 @@ table.programme-table {
 }
 
 /* ── Participation card (actualités) ───────────────────────── */
+$pc-conference : $primary-color;          // bordeaux ENC
+$pc-formation  : $secondary-color;        // bleu ENC
+$pc-hackathon  : #c47c1a;                 // ambre
+$pc-papier     : #1a6e62;                 // vert forêt
+
 .participation-card {
-  background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
-  border-left: 4px solid $primary-color;
-  padding: 1.4rem 1.75rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.09);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
-  &--formation { border-left-color: $secondary-color; }
-
-  &__meta {
+  /* ── bandeau coloré ── */
+  &__header {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: space-between;
+    padding: 0.7rem 1.4rem;
+    background: $pc-conference;
     flex-wrap: wrap;
-    margin-bottom: 0.6rem;
+    gap: 0.5rem;
   }
+  &--formation  .participation-card__header { background: $pc-formation; }
+  &--hackathon  .participation-card__header { background: $pc-hackathon; }
+  &--papier     .participation-card__header { background: $pc-papier; }
 
   &__type {
     font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.09em;
-    padding: 0.18rem 0.55rem;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.18);
+    padding: 0.15rem 0.5rem;
     border-radius: 3px;
-    background: $primary-color;
-    color: #fff;
-    &--formation { background: $secondary-color; }
   }
 
   &__date-lieu {
-    font-size: 0.82rem;
-    color: $text-color-light;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
   }
 
-  &__sep { margin: 0 0.25rem; }
+  &__sep { margin: 0 0.3rem; opacity: 0.6; }
+
+  /* ── corps blanc ── */
+  &__body {
+    background: #fff;
+    padding: 1.25rem 1.4rem 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
 
   &__title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 700;
     font-family: $secondary-font;
     color: $text-color-dark;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.65rem;
     line-height: 1.3;
     a {
       color: inherit;
@@ -2541,54 +2559,69 @@ table.programme-table {
   &__participants {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-bottom: 0.8rem;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
   }
 
   &__chip {
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    font-size: 0.76rem;
+    gap: 0;
+    font-size: 0.74rem;
     font-weight: 600;
-    padding: 0.22rem 0.65rem;
-    border-radius: 20px;
-    background: #e8edf1;
+    padding: 0.18rem 0;
     color: $text-color-dark;
+    border-radius: 0;
+    background: none;
 
-    &--m1 { background: #d4ede8; color: #0b5e53; }
-    &--m2 { background: lighten($primary-color, 42%); color: darken($primary-color, 5%); }
-    &--enseignant { background: $secondary-color; color: #fff; }
+    &--m1 { color: $pc-papier; }
+    &--m2 { color: $pc-conference; }
+    &--enseignant { color: $secondary-color; }
   }
 
   &__chip-role {
     font-style: normal;
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 500;
-    opacity: 0.8;
-    border-left: 1px solid currentColor;
-    padding-left: 0.3rem;
-    margin-left: 0.1rem;
+    opacity: 0.75;
+    margin-left: 0.25rem;
+    &::before { content: "("; }
+    &::after  { content: ")"; }
+  }
+
+  /* séparateur entre chips */
+  &__chip + &__chip::before {
+    content: "·";
+    margin: 0 0.35rem;
+    color: #bbb;
+    font-weight: 400;
   }
 
   &__summary {
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     color: $text-color;
     line-height: 1.6;
+    flex: 1;
     margin-bottom: 0.75rem;
   }
 
   &__footer {
     display: flex;
     justify-content: flex-end;
+    margin-top: auto;
   }
 
   &__link {
-    font-size: 0.82rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: $primary-color;
     text-decoration: none;
     &:hover { text-decoration: underline; }
   }
+  &--formation  .participation-card__link { color: $pc-formation; }
+  &--hackathon  .participation-card__link { color: $pc-hackathon; }
+  &--papier     .participation-card__link { color: $pc-papier; }
 }
 
