@@ -59,4 +59,14 @@ home_logos:
     #     - alt: "European Research Council"
     #       src: "images/logos/erc.png"
     #       url: "https://erc.europa.eu/"
+
+stats:
+  - value: "20"
+    label: "Enseignants-chercheurs"
+  - value: "8"
+    label: "Projets ANR / ERC"
+  - value: "4"
+    label: "Établissements PSL"
+  - value: "2"
+    label: "Ans de diplomés"
 ---
