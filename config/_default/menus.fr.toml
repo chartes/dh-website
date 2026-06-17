@@ -1,37 +1,46 @@
 ################### Navigation principale ####################
 
 [[main]]
+name = "Master HN"
+url = "master/"
+weight = 1
+
+[[main]]
 name = "Équipe enseignante"
 url = "equipe/"
-weight = 1
+weight = 2
 
 [[main]]
 name = "Écosystème de recherche"
 url = "projets/"
-weight = 2
+weight = 3
 
 [[main]]
 name = "Développements"
 url = "developpements/"
-weight = 3
+weight = 4
 
 [[main]]
 name = "Publications"
 url = "publications/"
-weight = 4
+weight = 5
 
 [[main]]
 name = "Journée d'étude"
 url = "journee-etude/"
-weight = 5
+weight = 6
 
 [[main]]
 name = "Actualités"
 url = "actualites/"
-weight = 6
+weight = 7
 
 
 # footer menu
+
+[[footer]]
+name = "Master HN"
+url = "master/"
 
 [[footer]]
 name = "Équipe enseignante"
