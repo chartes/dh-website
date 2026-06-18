@@ -2494,60 +2494,64 @@ $pc-hackathon  : #c47c1a;                 // ambre
 $pc-papier     : #1a6e62;                 // vert forêt
 
 .participation-card {
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.09);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background: #fff;
+  border-top: 4px solid $pc-conference;
 
-  /* ── bandeau coloré ── */
+  &--formation  { border-top-color: $pc-formation; }
+  &--hackathon  { border-top-color: $pc-hackathon; }
+  &--papier     { border-top-color: $pc-papier; }
+
+  /* ── bandeau sobre (sur fond blanc) ── */
   &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.4rem 1rem;
-    background: $pc-conference;
+    padding: 0.7rem 1.4rem 0;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.5rem;
   }
-  &--formation  .participation-card__header { background: $pc-formation; }
-  &--hackathon  .participation-card__header { background: $pc-hackathon; }
-  &--papier     .participation-card__header { background: $pc-papier; }
 
   &__type {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.95);
-    background: rgba(255, 255, 255, 0.18);
-    padding: 0.1rem 0.45rem;
-    border-radius: 2px;
+    color: $pc-conference;
+    background: rgba($pc-conference, 0.1);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
   }
+  &--formation .participation-card__type { color: $pc-formation; background: rgba($pc-formation, 0.1); }
+  &--hackathon .participation-card__type { color: $pc-hackathon; background: rgba($pc-hackathon, 0.12); }
+  &--papier    .participation-card__type { color: $pc-papier;    background: rgba($pc-papier, 0.12); }
 
   &__date-lieu {
-    font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.78rem;
+    color: $text-color-light;
     font-weight: 500;
   }
 
-  &__sep { margin: 0 0.25rem; opacity: 0.6; }
+  &__sep { margin: 0 0.3rem; opacity: 0.6; }
 
-  /* ── corps blanc ── */
+  /* ── corps ── */
   &__body {
-    background: #fff;
-    padding: 0.7rem 1rem 0.75rem;
+    padding: 0.75rem 1.4rem 1rem;
     flex: 1;
     display: flex;
     flex-direction: column;
   }
 
   &__title {
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: 700;
     font-family: $secondary-font;
     color: $text-color-dark;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.65rem;
     line-height: 1.3;
     a {
       color: inherit;
@@ -2559,17 +2563,17 @@ $pc-papier     : #1a6e62;                 // vert forêt
   &__participants {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.25rem;
-    margin-bottom: 0.4rem;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
   }
 
   &__chip {
     display: inline-flex;
     align-items: center;
     gap: 0;
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     font-weight: 600;
-    padding: 0.12rem 0;
+    padding: 0.18rem 0;
     color: $text-color-dark;
     border-radius: 0;
     background: none;
@@ -2581,30 +2585,29 @@ $pc-papier     : #1a6e62;                 // vert forêt
 
   &__chip-role {
     font-style: normal;
-    font-size: 0.62rem;
+    font-size: 0.65rem;
     font-weight: 500;
     opacity: 0.75;
-    margin-left: 0.2rem;
+    margin-left: 0.25rem;
     &::before { content: "("; }
     &::after  { content: ")"; }
   }
 
-  /* séparateur entre chips */
   &__chip + &__chip::before {
     content: "·";
-    margin: 0 0.3rem;
+    margin: 0 0.35rem;
     color: #bbb;
     font-weight: 400;
   }
 
   &__summary {
-    font-size: 0.82rem;
+    font-size: 0.86rem;
     color: $text-color;
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
 
     p { margin: 0; }
-    p + p { margin-top: 0.4rem; }
+    p + p { margin-top: 0.5rem; }
   }
 }
 
@@ -2613,44 +2616,44 @@ $pc-papier     : #1a6e62;                 // vert forêt
    bande latérale gauche colorée + fond très clair teinté. */
 .billet-card {
   position: relative;
-  border-radius: 6px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  background: #fafafa;
-  border-left: 4px solid $pc-conference;
+  background: #fff;
+  border-top: 4px solid $pc-conference;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     transform: translateY(-1px);
   }
 
-  &--hackathon   { border-left-color: $pc-hackathon;  background: rgba($pc-hackathon, 0.04); }
-  &--conference  { border-left-color: $pc-formation;  background: rgba($pc-formation, 0.04); }
-  &--publication { border-left-color: $pc-conference; background: rgba($pc-conference, 0.04); }
-  &--papier      { border-left-color: $pc-papier;     background: rgba($pc-papier, 0.05); }
+  &--hackathon   { border-top-color: $pc-hackathon; }
+  &--conference  { border-top-color: $pc-formation; }
+  &--publication { border-top-color: $pc-conference; }
+  &--papier      { border-top-color: $pc-papier; }
 
   &__body {
-    padding: 0.7rem 1rem 0.75rem;
+    padding: 1.1rem 1.4rem 1rem;
   }
 
   &__meta {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.3rem;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
   }
 
   &__type {
-    font-size: 0.6rem;
+    font-size: 0.66rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: $pc-conference;
     background: rgba($pc-conference, 0.1);
-    padding: 0.1rem 0.45rem;
-    border-radius: 2px;
+    padding: 0.18rem 0.55rem;
+    border-radius: 3px;
   }
   &--hackathon   .billet-card__type { color: $pc-hackathon;  background: rgba($pc-hackathon, 0.12); }
   &--conference  .billet-card__type { color: $pc-formation;  background: rgba($pc-formation, 0.1); }
@@ -2659,7 +2662,7 @@ $pc-papier     : #1a6e62;                 // vert forêt
 
   &__acronym {
     font-family: $secondary-font;
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: $text-color-dark;
     letter-spacing: 0.01em;
@@ -2667,19 +2670,19 @@ $pc-papier     : #1a6e62;                 // vert forêt
 
   &__date {
     margin-left: auto;
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     color: $text-color-light;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
   &__title {
-    font-size: 0.98rem;
+    font-size: 1.1rem;
     font-weight: 700;
     font-family: $secondary-font;
     color: $text-color-dark;
-    margin: 0 0 0.3rem;
-    line-height: 1.3;
+    margin: 0 0 0.5rem;
+    line-height: 1.35;
     a {
       color: inherit;
       text-decoration: none;
@@ -2688,13 +2691,13 @@ $pc-papier     : #1a6e62;                 // vert forêt
   }
 
   &__summary {
-    font-size: 0.82rem;
+    font-size: 0.88rem;
     color: $text-color;
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
 
     p { margin: 0; }
-    p + p { margin-top: 0.4rem; }
+    p + p { margin-top: 0.5rem; }
   }
 }
 
