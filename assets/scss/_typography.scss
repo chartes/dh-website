@@ -2494,8 +2494,8 @@ $pc-hackathon  : #c47c1a;                 // ambre
 $pc-papier     : #1a6e62;                 // vert forêt
 
 .participation-card {
-  border-radius: 8px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.09);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -2505,49 +2505,49 @@ $pc-papier     : #1a6e62;                 // vert forêt
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.7rem 1.4rem;
+    padding: 0.4rem 1rem;
     background: $pc-conference;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
   &--formation  .participation-card__header { background: $pc-formation; }
   &--hackathon  .participation-card__header { background: $pc-hackathon; }
   &--papier     .participation-card__header { background: $pc-papier; }
 
   &__type {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: rgba(255, 255, 255, 0.95);
     background: rgba(255, 255, 255, 0.18);
-    padding: 0.15rem 0.5rem;
-    border-radius: 3px;
+    padding: 0.1rem 0.45rem;
+    border-radius: 2px;
   }
 
   &__date-lieu {
-    font-size: 0.78rem;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.88);
     font-weight: 500;
   }
 
-  &__sep { margin: 0 0.3rem; opacity: 0.6; }
+  &__sep { margin: 0 0.25rem; opacity: 0.6; }
 
   /* ── corps blanc ── */
   &__body {
     background: #fff;
-    padding: 1.25rem 1.4rem 1rem;
+    padding: 0.7rem 1rem 0.75rem;
     flex: 1;
     display: flex;
     flex-direction: column;
   }
 
   &__title {
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 700;
     font-family: $secondary-font;
     color: $text-color-dark;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.35rem;
     line-height: 1.3;
     a {
       color: inherit;
@@ -2559,17 +2559,17 @@ $pc-papier     : #1a6e62;                 // vert forêt
   &__participants {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.3rem;
-    margin-bottom: 0.75rem;
+    gap: 0.25rem;
+    margin-bottom: 0.4rem;
   }
 
   &__chip {
     display: inline-flex;
     align-items: center;
     gap: 0;
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    padding: 0.18rem 0;
+    padding: 0.12rem 0;
     color: $text-color-dark;
     border-radius: 0;
     background: none;
@@ -2581,10 +2581,10 @@ $pc-papier     : #1a6e62;                 // vert forêt
 
   &__chip-role {
     font-style: normal;
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: 500;
     opacity: 0.75;
-    margin-left: 0.25rem;
+    margin-left: 0.2rem;
     &::before { content: "("; }
     &::after  { content: ")"; }
   }
@@ -2592,37 +2592,20 @@ $pc-papier     : #1a6e62;                 // vert forêt
   /* séparateur entre chips */
   &__chip + &__chip::before {
     content: "·";
-    margin: 0 0.35rem;
+    margin: 0 0.3rem;
     color: #bbb;
     font-weight: 400;
   }
 
   &__summary {
-    font-size: 0.86rem;
+    font-size: 0.82rem;
     color: $text-color;
-    line-height: 1.6;
-    flex: 1;
-    margin-bottom: 0.75rem;
-  }
+    line-height: 1.5;
+    margin: 0;
 
-  &__footer {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: auto;
+    p { margin: 0; }
+    p + p { margin-top: 0.4rem; }
   }
-
-  &__link {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: $primary-color;
-    text-decoration: none;
-    &:hover { text-decoration: underline; }
-  }
-  &--formation  .participation-card__link { color: $pc-formation; }
-  &--hackathon  .participation-card__link { color: $pc-hackathon; }
-  &--papier     .participation-card__link { color: $pc-papier; }
 }
 
 /* ── Billet card (actualités du blog) ──────────────────────── */
@@ -2630,15 +2613,15 @@ $pc-papier     : #1a6e62;                 // vert forêt
    bande latérale gauche colorée + fond très clair teinté. */
 .billet-card {
   position: relative;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   background: #fafafa;
-  border-left: 5px solid $pc-conference;
+  border-left: 4px solid $pc-conference;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
     transform: translateY(-1px);
   }
 
@@ -2648,26 +2631,26 @@ $pc-papier     : #1a6e62;                 // vert forêt
   &--papier      { border-left-color: $pc-papier;     background: rgba($pc-papier, 0.05); }
 
   &__body {
-    padding: 1.1rem 1.4rem 1rem;
+    padding: 0.7rem 1rem 0.75rem;
   }
 
   &__meta {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
   }
 
   &__type {
-    font-size: 0.66rem;
+    font-size: 0.6rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: $pc-conference;
     background: rgba($pc-conference, 0.1);
-    padding: 0.18rem 0.55rem;
-    border-radius: 3px;
+    padding: 0.1rem 0.45rem;
+    border-radius: 2px;
   }
   &--hackathon   .billet-card__type { color: $pc-hackathon;  background: rgba($pc-hackathon, 0.12); }
   &--conference  .billet-card__type { color: $pc-formation;  background: rgba($pc-formation, 0.1); }
@@ -2676,7 +2659,7 @@ $pc-papier     : #1a6e62;                 // vert forêt
 
   &__acronym {
     font-family: $secondary-font;
-    font-size: 0.95rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: $text-color-dark;
     letter-spacing: 0.01em;
@@ -2684,19 +2667,19 @@ $pc-papier     : #1a6e62;                 // vert forêt
 
   &__date {
     margin-left: auto;
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     color: $text-color-light;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
   &__title {
-    font-size: 1.1rem;
+    font-size: 0.98rem;
     font-weight: 700;
     font-family: $secondary-font;
     color: $text-color-dark;
-    margin: 0 0 0.5rem;
-    line-height: 1.35;
+    margin: 0 0 0.3rem;
+    line-height: 1.3;
     a {
       color: inherit;
       text-decoration: none;
@@ -2705,30 +2688,14 @@ $pc-papier     : #1a6e62;                 // vert forêt
   }
 
   &__summary {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     color: $text-color;
-    line-height: 1.6;
-    margin: 0 0 0.5rem;
-  }
+    line-height: 1.5;
+    margin: 0;
 
-  &__footer {
-    display: flex;
-    justify-content: flex-end;
+    p { margin: 0; }
+    p + p { margin-top: 0.4rem; }
   }
-
-  &__link {
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: $pc-conference;
-    text-decoration: none;
-    &:hover { text-decoration: underline; }
-  }
-  &--hackathon   .billet-card__link { color: $pc-hackathon; }
-  &--conference  .billet-card__link { color: $pc-formation; }
-  &--publication .billet-card__link { color: $pc-conference; }
-  &--papier      .billet-card__link { color: $pc-papier; }
 }
 
 /* ── Section "Dernières actualités" sur la home ─────────────── */

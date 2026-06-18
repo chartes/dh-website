@@ -24,7 +24,7 @@
       {{/* ── Card participation (pleine largeur) ── */}}
       {{ $category := .Params.category | default "Conférence" }}
       {{ $catKey   := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
-      <div class="col-12 mb-4">
+      <div class="col-12 mb-2">
         <article class="participation-card participation-card--{{ $catKey }}">
           <div class="participation-card__header">
             <span class="participation-card__type">{{ $category }}</span>
@@ -52,12 +52,7 @@
               {{ end }}
             </div>
             {{ end }}
-            {{ with .Summary }}<p class="participation-card__summary">{{ . | plainify | truncate 220 }}</p>{{ end }}
-            {{ with .Params.external_url }}
-            <div class="participation-card__footer">
-              <a href="{{ . }}" target="_blank" rel="noopener" class="participation-card__link">Voir →</a>
-            </div>
-            {{ end }}
+            {{ with .Content }}<div class="participation-card__summary">{{ . }}</div>{{ end }}
           </div>
         </article>
       </div>
@@ -69,7 +64,7 @@
         {{ if eq .Type "event" }}{{ $category = "conférence" }}{{ else }}{{ $category = "publication" }}{{ end }}
       {{ end }}
       {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
-      <div class="col-12 mb-4">
+      <div class="col-12 mb-2">
         <article class="billet-card billet-card--{{ $catKey }}">
           <div class="billet-card__body">
             <div class="billet-card__meta">
@@ -84,12 +79,7 @@
               <a href="{{ .Permalink }}">{{ .Title }}</a>
               {{ end }}
             </h3>
-            {{ with .Summary }}<p class="billet-card__summary">{{ . | plainify | truncate 240 }}</p>{{ end }}
-            {{ with .Params.external_url }}
-            <div class="billet-card__footer">
-              <a href="{{ . }}" target="_blank" rel="noopener" class="billet-card__link">Voir →</a>
-            </div>
-            {{ end }}
+            {{ with .Content }}<div class="billet-card__summary">{{ . }}</div>{{ end }}
           </div>
         </article>
       </div>
