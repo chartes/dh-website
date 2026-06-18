@@ -63,32 +63,33 @@
       </div>
 
       {{ else }}
-      {{/* ── Card standard (actu-card) ── */}}
+      {{/* ── Card billet (pleine largeur, bande latérale) ── */}}
       {{ $category := .Params.category }}
       {{ if not $category }}
         {{ if eq .Type "event" }}{{ $category = "conférence" }}{{ else }}{{ $category = "publication" }}{{ end }}
       {{ end }}
-      {{ $catKey := $category | lower | replaceRE "é" "e" }}
-      {{ $icon := "ti-bookmark-alt" }}
-      {{ if eq $catKey "hackathon" }}{{ $icon = "ti-pulse" }}
-      {{ else if eq $catKey "conference" }}{{ $icon = "ti-microphone" }}
-      {{ else if eq $catKey "publication" }}{{ $icon = "ti-book" }}
-      {{ end }}
-      <div class="col-lg-4 col-md-6 mb-4">
-        <article class="actu-card">
-          <a href="{{ .Permalink }}" class="actu-card__media actu-card__media--{{ $catKey }}">
-            <i class="actu-card__icon {{ $icon }}" aria-hidden="true"></i>
-          </a>
-          <div class="actu-card__body">
-            <p class="actu-card__lead">
-              {{ with .Params.acronym }}
-              <span class="actu-card__acronym-lead">{{ . }}</span>
+      {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
+      <div class="col-12 mb-4">
+        <article class="billet-card billet-card--{{ $catKey }}">
+          <div class="billet-card__body">
+            <div class="billet-card__meta">
+              <span class="billet-card__type">{{ $category | humanize }}</span>
+              {{ with .Params.acronym }}<span class="billet-card__acronym">{{ . }}</span>{{ end }}
+              <span class="billet-card__date">{{ .Date.Format "2 January 2006" }}</span>
+            </div>
+            <h3 class="billet-card__title">
+              {{ if .Params.external_url }}
+              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+              {{ else }}
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
               {{ end }}
-              <span class="actu-card__kind-inline actu-card__kind-inline--{{ $catKey }}">{{ $category | humanize }}</span>
-            </p>
-            <h3 class="actu-card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-            {{ with .Summary }}<p class="actu-card__summary">{{ . | plainify | truncate 140 }}</p>{{ end }}
-            <p class="actu-card__date">{{ .Date.Format "2 January 2006" }}</p>
+            </h3>
+            {{ with .Summary }}<p class="billet-card__summary">{{ . | plainify | truncate 240 }}</p>{{ end }}
+            {{ with .Params.external_url }}
+            <div class="billet-card__footer">
+              <a href="{{ . }}" target="_blank" rel="noopener" class="billet-card__link">Voir →</a>
+            </div>
+            {{ end }}
           </div>
         </article>
       </div>

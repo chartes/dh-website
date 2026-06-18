@@ -44,6 +44,98 @@
 {{ end }}
 {{ end }}
 
+<!-- Dernières actualités : fil unifié post + event + actualites -->
+{{ $posts          := where site.RegularPages "Type" "post" }}
+{{ $events         := where site.RegularPages "Type" "event" }}
+{{ $participations := where site.RegularPages "Type" "actualites" }}
+{{ $actus := $posts | union $events | union $participations }}
+{{ $actus = $actus.ByDate.Reverse }}
+{{ $latest := first 3 $actus }}
+{{ if $latest }}
+<section class="section home-actus">
+  <div class="container">
+    <h2 class="home-actus__heading">Dernières actualités</h2>
+    <p class="home-actus__intro">Conférences, publications et participations de l'équipe et des étudiants du master</p>
+    <div class="row">
+      {{ range $latest }}
+
+      {{ if .Params.participants }}
+      {{ $category := .Params.category | default "Conférence" }}
+      {{ $catKey   := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
+      <div class="col-12 mb-4">
+        <article class="participation-card participation-card--{{ $catKey }}">
+          <div class="participation-card__header">
+            <span class="participation-card__type">{{ $category }}</span>
+            <span class="participation-card__date-lieu">
+              {{ .Date.Format "2 January 2006" }}
+              {{ with .Params.date_end }} – {{ (time .).Format "2 January 2006" }}{{ end }}
+              {{ with .Params.lieu }}<span class="participation-card__sep">·</span> {{ . }}{{ end }}
+            </span>
+          </div>
+          <div class="participation-card__body">
+            <h3 class="participation-card__title">
+              {{ if .Params.external_url }}
+              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+              {{ else }}
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+              {{ end }}
+            </h3>
+            {{ with .Params.participants }}
+            <div class="participation-card__participants">
+              {{ range . }}
+              {{ $rk := .role | lower | replaceRE "[^a-z0-9]" "" }}
+              <span class="participation-card__chip participation-card__chip--{{ $rk }}">
+                {{ .name }}<em class="participation-card__chip-role">{{ .role }}</em>
+              </span>
+              {{ end }}
+            </div>
+            {{ end }}
+            {{ with .Summary }}<p class="participation-card__summary">{{ . | plainify | truncate 220 }}</p>{{ end }}
+            {{ with .Params.external_url }}
+            <div class="participation-card__footer">
+              <a href="{{ . }}" target="_blank" rel="noopener" class="participation-card__link">Voir →</a>
+            </div>
+            {{ end }}
+          </div>
+        </article>
+      </div>
+
+      {{ else }}
+      {{ $category := .Params.category }}
+      {{ if not $category }}
+        {{ if eq .Type "event" }}{{ $category = "conférence" }}{{ else }}{{ $category = "publication" }}{{ end }}
+      {{ end }}
+      {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
+      <div class="col-12 mb-4">
+        <article class="billet-card billet-card--{{ $catKey }}">
+          <div class="billet-card__body">
+            <div class="billet-card__meta">
+              <span class="billet-card__type">{{ $category | humanize }}</span>
+              {{ with .Params.acronym }}<span class="billet-card__acronym">{{ . }}</span>{{ end }}
+              <span class="billet-card__date">{{ .Date.Format "2 January 2006" }}</span>
+            </div>
+            <h3 class="billet-card__title">
+              {{ if .Params.external_url }}
+              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+              {{ else }}
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+              {{ end }}
+            </h3>
+            {{ with .Summary }}<p class="billet-card__summary">{{ . | plainify | truncate 240 }}</p>{{ end }}
+          </div>
+        </article>
+      </div>
+      {{ end }}
+
+      {{ end }}
+    </div>
+    <div class="home-actus__more">
+      <a href="{{ `actualites/` | relLangURL }}" class="btn btn-primary">Voir toutes les actualités</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
 <!-- bandeau logos partenaires PSL -->
 {{ with .Params.home_logos }}
 <section class="section-sm home-logos-section">
