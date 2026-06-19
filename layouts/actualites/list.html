@@ -24,7 +24,7 @@
       {{/* ── Card participation (pleine largeur) ── */}}
       {{ $category := .Params.category | default "Conférence" }}
       {{ $catKey   := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
-      <div class="col-12 mb-4">
+      <div class="col-md-6 mb-4 d-flex">
         <article class="participation-card participation-card--{{ $catKey }}">
           <div class="participation-card__header">
             <span class="participation-card__type">{{ $category }}</span>
@@ -64,7 +64,7 @@
         {{ if eq .Type "event" }}{{ $category = "conférence" }}{{ else }}{{ $category = "publication" }}{{ end }}
       {{ end }}
       {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
-      <div class="col-12 mb-4">
+      <div class="col-md-6 mb-4 d-flex">
         <article class="billet-card billet-card--{{ $catKey }}">
           <div class="billet-card__body">
             <div class="billet-card__meta">

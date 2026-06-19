@@ -2426,6 +2426,12 @@ table.programme-table {
 }
 
 /* — Footer : logos partenaires — */
+/* Réduit la taille du logo principal du footer (Chartes-PSL blanc) */
+.logo-footer img {
+  max-width: 180px;
+  height: auto;
+}
+
 .footer-partners {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 
@@ -2501,6 +2507,7 @@ $pc-papier     : #1a6e62;                 // vert forêt
   flex-direction: column;
   background: #fff;
   border-top: 4px solid $pc-conference;
+  width: 100%;
 
   &--formation  { border-top-color: $pc-formation; }
   &--hackathon  { border-top-color: $pc-hackathon; }
@@ -2621,6 +2628,9 @@ $pc-papier     : #1a6e62;                 // vert forêt
   overflow: hidden;
   background: #fff;
   border-top: 4px solid $pc-conference;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 
   &:hover {

@@ -17,4 +17,4 @@ participants:
   - name: "Maxime Létoffé"
     role: "M1"
 ---
-Formation professionnelle en IA, vision par ordinateur et geocoding pour l'analyse et l'étude d'archives et fonds photographiques en archéologie de l'Afghanistan.
+Intervention de nos étudiants pour une formation professionnelle en IA, vision par ordinateur et geocoding pour l'analyse et l'étude d'archives et fonds photographiques en archéologie de l'Afghanistan.
