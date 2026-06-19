@@ -5,11 +5,11 @@ draft: false
 bg_image: "images/backgrounds/page-title.jpg"
 description: "Journées d'étude annuelles du master Humanités numériques de l'École nationale des chartes – PSL."
 
-intro: "La journée d'étude annuelle du master Humanités numériques rassemble étudiants, enseignants, chercheurs et professionnels autour des thématiques de recherche du master : édition numérique, traitement automatique des langues, fouille de corpus, sciences de la donnée patrimoniale. Les étudiants de M2 y présentent leurs travaux de recherche via des communications courtes, en regard de conférences invitées internationales."
+intro: "La journée d'étude annuelle du master Humanités numériques rassemble étudiants, enseignants, chercheurs et professionnels autour des thématiques de recherche du master : édition numérique, traitement automatique des langues, fouille de corpus, sciences de la donnée patrimoniale. Les étudiants de M2 y présentent leurs travaux de recherche via des communications courtes ou des posters, en regard de conférences invitées internationales."
 
 editions:
   - year: 2026
-    status: "à venir"
+    status: "passée"
     title: "Computational Cultural Science Workshop"
     subtitle: "Application des méthodes computationnelles et de l'IA à l'étude des artefacts culturels"
     dates: "18 – 19 mai 2026"
