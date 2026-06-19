@@ -377,18 +377,18 @@ apprentissage:
       detail: "Pipelines de traitement, bases de données, valorisation et exposition de données de recherche."
 
 competitions:
-  - year: ""
-    colocated: ""
-    name: ""
-    students: []
-    rank: ""
-    repo_url: ""
-  - year: ""
-    colocated: ""
-    name: ""
-    students: []
-    rank: ""
-    repo_url: ""
+  - year: "2023"
+    colocated: "ICDAR 2023"
+    name: "Detection and recognition of Greek Papyri letters"
+    students: ["Noé Leroy", "Carolina Macedo", "Violette Saïag", "Chahan Vidal-Gorène", Malamatenia Vlachou Efstathiou"]
+    rank: "3"
+    repo_url: "https://link.springer.com/chapter/10.1007/978-3-031-41679-8_29"
+  - year: "2026"
+    colocated: "LREC 2026"
+    name: "EvaHAN @ Language Technologies for Historical and Ancient Languages"
+    students: ["Denise Atzori", "Marie Bizais-Lillig", "Mathias Garnier", "Maxime Létoffé", "Charles Planque", "Tianjie Yin", "Chahan Vidal-Gorène"]
+    rank: "3"
+    repo_url: "https://github.com/Bizais-Lillig/enchanteam"
 
 actualites:
   - title: "Journée d'études des étudiants — édition 2025"
