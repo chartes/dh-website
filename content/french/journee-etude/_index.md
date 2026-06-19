@@ -3,7 +3,7 @@ title: "Journée d'étude du master"
 url: "/journee-etude/"
 draft: false
 bg_image: "images/backgrounds/page-title.jpg"
-description: "Journées d'étude annuelles du master Humanités numériques de l'École nationale des chartes – PSL."
+description: ""
 
 intro: "La journée d'étude annuelle du master Humanités numériques rassemble étudiants, enseignants, chercheurs et professionnels autour des thématiques de recherche du master : édition numérique, traitement automatique des langues, fouille de corpus, sciences de la donnée patrimoniale. Les étudiants de M2 y présentent leurs travaux de recherche via des communications courtes ou des posters, en regard de conférences invitées internationales."
 
