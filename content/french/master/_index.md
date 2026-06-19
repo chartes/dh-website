@@ -376,6 +376,20 @@ apprentissage:
       label: "Ingénierie des données"
       detail: "Pipelines de traitement, bases de données, valorisation et exposition de données de recherche."
 
+competitions:
+  - year: ""
+    colocated: ""
+    name: ""
+    students: []
+    rank: ""
+    repo_url: ""
+  - year: ""
+    colocated: ""
+    name: ""
+    students: []
+    rank: ""
+    repo_url: ""
+
 actualites:
   - title: "Journée d'études des étudiants — édition 2025"
     tag: "Événement"
