@@ -358,36 +358,88 @@ a {
   }
 }
 
-// Table programme (dans accordéon)
+// Table programme (dans accordéon) — design moderne et sobre
 table.programme-table {
   width: 100%;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   border-collapse: collapse;
-  margin: 0.5rem 0;
+  margin: 0.25rem 0 0.5rem;
+  background: transparent;
 
   thead th {
-    background: $primary-color;
-    color: #fff;
-    padding: 0.4rem 0.6rem;
+    background: transparent;
+    color: $text-color-light;
+    padding: 0.65rem 0.75rem;
     font-weight: 600;
-    font-size: 0.78rem;
-    text-transform: uppercase;
+    font-size: 0.72rem;
     letter-spacing: 0.04em;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) { text-align: right; }
   }
 
   .cours-row {
-    td { padding: 0.35rem 0.6rem; border-bottom: 1px solid #e9ecef; vertical-align: top; }
-    .cours-name { font-weight: 500; }
-    .cours-lang, .cours-h, .cours-ects { white-space: nowrap; color: $text-color-light; text-align: right; }
-    .cours-ects strong { color: $primary-color; }
+    td {
+      padding: 0.7rem 0.75rem;
+      border-bottom: 1px solid #efefef;
+      vertical-align: top;
+      color: $text-color;
+    }
+    &:last-child td { border-bottom: none; }
+
+    .cours-name {
+      font-weight: 500;
+      color: $text-color-dark;
+      line-height: 1.45;
+    }
+    .cours-lang {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $text-color-light;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .cours-h {
+      font-variant-numeric: tabular-nums;
+      color: $text-color-light;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .cours-ects {
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+      white-space: nowrap;
+      color: $text-color-light;
+
+      strong {
+        display: inline-block;
+        font-weight: 600;
+        color: $primary-color;
+      }
+    }
   }
 
   .sous-cours-row td {
-    padding: 0.2rem 0.6rem 0.2rem 1.5rem;
-    border-bottom: 1px solid #f0f0f0;
-    font-size: 0.82rem;
-    color: #777;
+    padding: 0.35rem 0.75rem 0.35rem 1.75rem;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 0.83rem;
+    color: $text-color-light;
+    position: relative;
     em { font-style: normal; }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0.9rem;
+      top: 0.85rem;
+      width: 0.55rem;
+      height: 1px;
+      background: #d0d0d0;
+    }
   }
 }
 
