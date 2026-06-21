@@ -44,6 +44,15 @@
       </div>
       {{ end }}
 
+      {{ with .partenaires }}
+      <div class="je-edition__block">
+        <h4 class="je-edition__block-title">Partenaires retenus</h4>
+        <div class="je-edition__partners">
+          {{ range . }}<span class="je-edition__partner">{{ . }}</span>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+
       {{ with .soutien }}<p class="je-edition__soutien">{{ . | markdownify }}</p>{{ end }}
 
       {{ if .external_url }}

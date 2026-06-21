@@ -70,12 +70,12 @@ parcours:
 
 hackathons:
   enable: true
-  title: "Apprendre par les hackathons"
-  baseline: "Une semaine intensive par an, en partenariat avec quinze institutions de recherche et patrimoniales."
+  title: "Hackahtons du master HN - une pédagogie orientée projets"
+  baseline: "Une semaine intensive par an, autour d'une dizaine de projets sélectionnés sur appel auprès d'institutions de recherche et patrimoniales."
   content: |
-    Chaque année, les étudiants de M1 et de M2 consacrent une **semaine intensive** à un hackathon en sciences des données pour les humanités. Co-organisé avec une quinzaine de partenaires (Versailles, BnF, INHA, INA, Archives nationales, Sciences Po, GDR Silex…), il met les étudiants face à des **vrais corpus**, des **vrais commanditaires** et des **vrais livrables** : code, modèles, jeux de données déposés en accès ouvert.
+    Chaque année, le master lance un **appel à projets** auprès des institutions de recherche, des laboratoires et des partenaires patrimoniaux. Une **dizaine de projets** sont retenus et confiés aux étudiants de M1 et de M2 le temps d'une **semaine intensive** en sciences des données pour les humanités.
 
-    Cette pédagogie par projet, structurante de la formation, prolonge la philosophie du master : double compétence disciplinaire et data science, mise à l'épreuve sur des questions concrètes posées par la recherche et les institutions patrimoniales.
+    Cette pédagogie par projet met les étudiants face à des **vrais corpus**, des **vrais commanditaires** et des **vrais livrables** — code, modèles, jeux de données déposés en accès ouvert — et prolonge la philosophie du master : double compétence disciplinaire et data science, mise à l'épreuve sur des questions concrètes posées par la recherche et les institutions patrimoniales.
   image: ""
   image_alt: "Semaine de hackathons du master"
   link_url: "/evenements/#hackathons"

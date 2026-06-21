@@ -53,6 +53,31 @@ journee_etude:
 
 hackathons:
   title: "Semaine de hackathons"
-  description: "Chaque année, le master co-organise une semaine intensive de hackathons en sciences des données pour les humanités, en partenariat avec une quinzaine d'institutions de recherche et patrimoniales (Versailles, BnF, INHA, INA, Archives nationales, Sciences Po, etc.). Les étudiants de M1 et M2 livrent en cinq jours des prototypes, des modèles ou des jeux de données, rendus accessibles depuis la page Développements du site."
-  editions: []
+  description: "Chaque année, le master lance un appel à projets auprès d'institutions de recherche et patrimoniales. Une dizaine de projets sont retenus et confiés aux étudiants de M1 et de M2 le temps d'une semaine intensive en sciences des données pour les humanités. Les livrables — prototypes, modèles, jeux de données — sont rendus accessibles depuis la page Développements du site."
+  editions:
+    - year: 2026
+      status: "passée"
+      title: "Semaine de hackathons SHS 2026"
+      subtitle: "Quinze projets étudiants, une semaine intensive"
+      dates: "3 – 7 février 2026"
+      lieu: "École nationale des chartes – PSL, Paris"
+      description: |
+        Quinze équipes d'étudiants de M1 et de M2 ont livré en cinq jours du code, des modèles et des jeux de données pour les **institutions partenaires retenues sur appel à projets**, désormais accessibles depuis la page **Développements** du site.
+      partenaires:
+        - "Centre de recherche du château de Versailles"
+        - "Bibliothèque nationale de France (BnF)"
+        - "Institut national d'histoire de l'art (INHA)"
+        - "Institut national de l'audiovisuel (INA)"
+        - "Sciences Po"
+        - "EHESS"
+        - "EPFL"
+        - "Biblissima+"
+        - "Cellf (CNRS)"
+        - "BiblioBase"
+        - "Département de Vaucluse"
+        - "ERC LostMA"
+        - "DIM PAMIR"
+        - "GDR SILEX"
+      external_url: "https://www.chartes.psl.eu/projets-pour-la-semaine-de-hackathons-pour-les-shs"
+      external_label: "Voir les projets sur le site de l'École des chartes"
 ---
