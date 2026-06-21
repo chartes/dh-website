@@ -431,7 +431,7 @@
 <!-- junior entreprise -->
 {{ with .Params.junior_entreprise }}
 {{ if .enable }}
-<section class="section junior-section">
+<section class="section junior-section bg-gray">
   <div class="container">
     <h2 class="section-title mb-5">{{ .title }}</h2>
     <div class="row align-items-center">
@@ -460,7 +460,7 @@
 
 <!-- admissions -->
 {{ with .Params.admission }}
-<section class="section bg-gray">
+<section class="section">
   <div class="container">
     <h2 class="section-title mb-5">Admissions</h2>
     <div class="row">
@@ -510,7 +510,7 @@
 <!-- équipe enseignante -->
 {{ $teachers := sort (where (where site.RegularPages "Type" "teacher") "Params.master_teacher" true) "Params.weight" }}
 {{ if $teachers }}
-<section class="section team-section">
+<section class="section team-section bg-gray">
   <div class="container">
     <h2 class="section-title mb-5">Équipe enseignante</h2>
     <div class="row">
@@ -537,7 +537,7 @@
 {{ end }}
 
 <!-- partenariats -->
-<section class="section bg-gray">
+<section class="section">
   <div class="container">
     <h2 class="section-title mb-5">Partenariats</h2>
     <div class="row">
@@ -565,7 +565,7 @@
 
 <!-- mémoires (depuis DUMAS / MEM-ENC, degree 347) -->
 {{ $dumasURL := "https://api.archives-ouvertes.fr/search/MEM-ENC/?q=*&fq=dumas_degreeReference_s:347&fl=title_s,authFullName_s,producedDate_s,producedDateY_i,uri_s,halId_s,thumbId_i&sort=producedDate_s+desc&rows=3&wt=json" }}
-<section class="section">
+<section class="section bg-gray">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Mémoires de master</h2>
@@ -618,7 +618,7 @@
 
 <!-- distinctions étudiantes (compétitions) -->
 {{ with .Params.competitions }}
-<section class="section bg-gray">
+<section class="section">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Distinctions étudiantes</h2>
@@ -665,7 +665,7 @@
 <!-- projets étudiants (issus des hackathons 2026) -->
 {{ $devpage := site.GetPage "/developpements" }}
 {{ with $devpage.Params.hackathons_2026 }}
-<section class="section">
+<section class="section bg-gray">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Projets des étudiants</h2>
@@ -698,7 +698,7 @@
 {{ end }}
 
 <!-- actualités du master -->
-<section class="section bg-gray">
+<section class="section">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Actualités du master</h2>
@@ -706,37 +706,85 @@
       <a href="{{ `actualites/` | relLangURL }}" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir les actualités</a>
     </div>
 
-    {{ with .Params.actualites }}
-    <h5 class="actu-subsection-title">À la une</h5>
-    <div class="row mb-5">
-      {{ range . }}
-      <div class="col-lg-4 col-sm-6 mb-4">
-        <div class="actu-card">
-          {{ if .image }}
-          <div class="actu-card__img" style="background-image: url('{{ .image | relURL }}')"></div>
-          {{ end }}
-          <div class="actu-card__body">
-            {{ if .tag }}<span class="actu-card__tag">{{ .tag }}</span>{{ end }}
-            <p class="actu-card__title">{{ .title }}</p>
-            {{ if .date }}<p class="actu-card__meta">{{ .date }}</p>{{ end }}
-            {{ if .url }}<a href="{{ .url }}" class="actu-card__link">Lire →</a>{{ end }}
-          </div>
-        </div>
-      </div>
-      {{ end }}
-    </div>
-    {{ end }}
+    {{/* Actus mises en avant : frontmatter `pin_master: true` sur l'actu */}}
+    {{ $posts          := where site.RegularPages "Type" "post" }}
+    {{ $events         := where site.RegularPages "Type" "event" }}
+    {{ $participations := where site.RegularPages "Type" "actualites" }}
+    {{ $pinned := where ($posts | union $events | union $participations) ".Params.pin_master" true }}
+    {{ $pinned = $pinned.ByDate.Reverse }}
+    {{ $pinned = first 4 $pinned }}
 
-    {{ $masterPosts := where (where site.RegularPages "Type" "post") ".Params.tags" "intersect" (slice "master") }}
-    {{ if $masterPosts }}
-    <h5 class="actu-subsection-title">Du blog</h5>
+    {{ if $pinned }}
     <div class="row">
-      {{ range first 3 $masterPosts }}
-      <div class="col-lg-4 col-sm-6 mb-4">
-        {{ .Render "post" }}
+      {{ range $pinned }}
+
+      {{ if .Params.participants }}
+      {{ $category := .Params.category | default "Conférence" }}
+      {{ $catKey   := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
+      <div class="col-md-6 mb-4 d-flex">
+        <article class="participation-card participation-card--{{ $catKey }}">
+          <div class="participation-card__header">
+            <span class="participation-card__type">{{ $category }}</span>
+            <span class="participation-card__date-lieu">
+              {{ .Date.Format "2 January 2006" }}
+              {{ with .Params.date_end }} – {{ (time .).Format "2 January 2006" }}{{ end }}
+              {{ with .Params.lieu }}<span class="participation-card__sep">·</span> {{ . }}{{ end }}
+            </span>
+          </div>
+          <div class="participation-card__body">
+            <h3 class="participation-card__title">
+              {{ if .Params.external_url }}
+              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+              {{ else }}
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+              {{ end }}
+            </h3>
+            {{ with .Params.participants }}
+            <div class="participation-card__participants">
+              {{ range . }}
+              {{ $rk := .role | lower | replaceRE "[^a-z0-9]" "" }}
+              <span class="participation-card__chip participation-card__chip--{{ $rk }}">
+                {{ .name }}<em class="participation-card__chip-role">{{ .role }}</em>
+              </span>
+              {{ end }}
+            </div>
+            {{ end }}
+            {{ with .Content }}<div class="participation-card__summary">{{ . }}</div>{{ end }}
+          </div>
+        </article>
+      </div>
+
+      {{ else }}
+      {{ $category := .Params.category }}
+      {{ if not $category }}
+        {{ if eq .Type "event" }}{{ $category = "conférence" }}{{ else }}{{ $category = "publication" }}{{ end }}
+      {{ end }}
+      {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
+      <div class="col-md-6 mb-4 d-flex">
+        <article class="billet-card billet-card--{{ $catKey }}">
+          <div class="billet-card__body">
+            <div class="billet-card__meta">
+              <span class="billet-card__type">{{ $category | humanize }}</span>
+              {{ with .Params.acronym }}<span class="billet-card__acronym">{{ . }}</span>{{ end }}
+              <span class="billet-card__date">{{ .Date.Format "2 January 2006" }}</span>
+            </div>
+            <h3 class="billet-card__title">
+              {{ if .Params.external_url }}
+              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+              {{ else }}
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+              {{ end }}
+            </h3>
+            {{ with .Content }}<div class="billet-card__summary">{{ . }}</div>{{ end }}
+          </div>
+        </article>
       </div>
       {{ end }}
+
+      {{ end }}
     </div>
+    {{ else }}
+    <p class="text-muted">Aucune actualité épinglée pour le moment. Ajoutez <code>pin_master: true</code> dans le frontmatter d'une actu pour la mettre en avant ici.</p>
     {{ end }}
 
   </div>

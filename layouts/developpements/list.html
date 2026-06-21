@@ -31,9 +31,59 @@
   </div>
 </section>
 
+{{/* ── Applications mises à l'honneur ── */}}
+{{ with .Params.featured_apps }}
+<section class="section bg-gray featured-apps-section">
+  <div class="container">
+    <div class="hackathons-header">
+      <h2 class="hackathons-section__title">Applications mises à l'honneur</h2>
+      <p class="hackathons-section__intro">Une sélection d'applications développées dans le cadre des projets des étudiants ou de l'équipe du master.</p>
+    </div>
+    <div class="row">
+      {{ range . }}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="hackathon-card">
+          {{ if .url }}
+          <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__media">
+            {{ if .image }}
+            <img src="{{ .image }}" alt="{{ .title }}" class="hackathon-card__img" loading="lazy">
+            {{ else }}
+            <div class="hackathon-card__placeholder"><i class="ti-layout-grid2-alt"></i></div>
+            {{ end }}
+          </a>
+          {{ else }}
+          <div class="hackathon-card__media">
+            {{ if .image }}
+            <img src="{{ .image }}" alt="{{ .title }}" class="hackathon-card__img" loading="lazy">
+            {{ else }}
+            <div class="hackathon-card__placeholder"><i class="ti-layout-grid2-alt"></i></div>
+            {{ end }}
+          </div>
+          {{ end }}
+          <div class="hackathon-card__body">
+            {{ with .partner }}<p class="hackathon-card__partner">{{ . }}</p>{{ end }}
+            <h3 class="hackathon-card__title">
+              {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .title | default "À compléter" }}</a>
+              {{ else }}{{ .title | default "À compléter" }}{{ end }}
+            </h3>
+            {{ with .team }}<p class="hackathon-card__team">{{ . }}</p>{{ end }}
+            {{ if .url }}
+            <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__cta">
+              <i class="ti-external-link"></i> Ouvrir l'application
+            </a>
+            {{ end }}
+          </div>
+        </article>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
 {{/* ── Codes des hackathons 2026 ── */}}
 {{ with .Params.hackathons_2026 }}
-<section class="section bg-gray hackathons-section">
+<section class="section hackathons-section">
   <div class="container">
     <div class="hackathons-header">
       <h2 class="hackathons-section__title">Codes des hackathons 2026</h2>

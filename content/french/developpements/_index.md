@@ -25,6 +25,23 @@ apps:
     icon: "ti-server"
     cta: "Voir les applications"
 
+featured_apps:
+  - title: "Medieval Illumination Detector"
+    partner: "O.D.I.L"
+    team: "Lucas Terriel"
+    url: "https://huggingface.co/spaces/ENC-PSL/Medieval-Illumination-Detector"
+    image: ""
+  - title: "e-NDP"
+    partner: "ANR"
+    team: "Vincent Jolivet et al."
+    url: "https://endp.chartes.psl.eu/"
+    image: ""
+  - title: "LLM as (linguistic) annotators"
+    partner: "LREC 2026"
+    team: "Chahan Vidal-Gorène, Florian Cafiero"
+    url: "https://huggingface.co/spaces/ENC-PSL/lrec2026-llm-annotator"
+    image: ""
+
 hackathons_2026:
   - title: "Plonger au cœur des réseaux à la cour de France (XVIIe–XVIIIe siècles)"
     partner: "Centre de recherche du Château de Versailles"
