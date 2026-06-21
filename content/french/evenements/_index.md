@@ -59,7 +59,7 @@ hackathons:
       status: "passée"
       title: "Semaine de hackathons SHS 2026"
       subtitle: "Quinze projets étudiants, une semaine intensive"
-      dates: "3 – 7 février 2026"
+      dates: "5 – 9 janvier 2026"
       lieu: "École nationale des chartes – PSL, Paris"
       description: |
         Quinze équipes d'étudiants de M1 et de M2 ont livré en cinq jours du code, des modèles et des jeux de données pour les **institutions partenaires retenues sur appel à projets**, désormais accessibles depuis la page **Développements** du site.
