@@ -2786,12 +2786,44 @@ $pc-competition : #b88a1c;                 // or / podium
   }
 }
 
-/* ── Journée d'étude : éditions par année ───────────────────── */
+/* ── Évènements : journée d'étude + hackathons ──────────────── */
 .je-intro {
   font-size: 1.05rem;
   line-height: 1.65;
   color: $text-color;
   text-align: center;
+}
+
+.evenement-block {
+  margin-bottom: 4rem;
+  padding-top: 1rem;
+
+  & + & {
+    margin-top: 2rem;
+    padding-top: 3rem;
+    border-top: 1px dashed #d8d8d8;
+  }
+
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+  }
+
+  &__desc {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: $text-color;
+    margin: 0;
+    max-width: 880px;
+  }
 }
 
 .je-edition {
@@ -3050,4 +3082,61 @@ $pc-competition : #b88a1c;                 // or / podium
     i { font-size: 0.95rem; }
   }
 }
+
+/* ── Section Hackathons sur la page Master ──────────────────── */
+.hackathons-section {
+  &__baseline {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: $primary-color;
+    line-height: 1.4;
+    margin-bottom: 1.25rem;
+  }
+
+  &__content {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: $text-color;
+
+    p { margin-bottom: 0.9rem; }
+    p:last-child { margin-bottom: 0; }
+  }
+
+  &__media {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    img { display: block; }
+  }
+
+  &__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    aspect-ratio: 4 / 3;
+    background: repeating-linear-gradient(
+      45deg,
+      #f5f5f5,
+      #f5f5f5 14px,
+      #efefef 14px,
+      #efefef 28px
+    );
+    color: $text-color-light;
+    border-radius: 8px;
+
+    i {
+      font-size: 3.5rem;
+      color: rgba($primary-color, 0.35);
+    }
+    span {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+  }
+}
+
 

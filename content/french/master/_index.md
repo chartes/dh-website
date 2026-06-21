@@ -68,6 +68,19 @@ parcours:
     content: "Un parcours personnalisé peut être conçu selon le profil de l'étudiant et son projet de recherche."
     custom: true
 
+hackathons:
+  enable: true
+  title: "Apprendre par les hackathons"
+  baseline: "Une semaine intensive par an, en partenariat avec quinze institutions de recherche et patrimoniales."
+  content: |
+    Chaque année, les étudiants de M1 et de M2 consacrent une **semaine intensive** à un hackathon en sciences des données pour les humanités. Co-organisé avec une quinzaine de partenaires (Versailles, BnF, INHA, INA, Archives nationales, Sciences Po, GDR Silex…), il met les étudiants face à des **vrais corpus**, des **vrais commanditaires** et des **vrais livrables** : code, modèles, jeux de données déposés en accès ouvert.
+
+    Cette pédagogie par projet, structurante de la formation, prolonge la philosophie du master : double compétence disciplinaire et data science, mise à l'épreuve sur des questions concrètes posées par la recherche et les institutions patrimoniales.
+  image: ""
+  image_alt: "Semaine de hackathons du master"
+  link_url: "/evenements/#hackathons"
+  link_label: "Voir la section dédiée"
+
 debouches:
   - icon: "ti-microscope"
     title: "Recherche & doctorat"

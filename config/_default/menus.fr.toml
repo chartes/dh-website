@@ -26,8 +26,8 @@ url = "publications/"
 weight = 5
 
 [[main]]
-name = "Journée d'étude"
-url = "journee-etude/"
+name = "Évènements"
+url = "evenements/"
 weight = 6
 
 [[main]]
@@ -63,5 +63,5 @@ name = "Publications"
 url = "publications/"
 
 [[footer]]
-name = "Journée d'étude"
-url = "journee-etude/"
+name = "Évènements"
+url = "evenements/"

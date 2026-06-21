@@ -276,9 +276,43 @@
   </div>
 </section>
 
+<!-- semaine de hackathons (pédagogie par projet) -->
+{{ with .Params.hackathons }}
+{{ if .enable }}
+<section class="section hackathons-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+        <div class="hackathons-section__media">
+          {{ if .image }}
+          {{ partial "image.html" (dict "Src" .image "Alt" (.image_alt | default .title) "Class" "img-fluid w-100") }}
+          {{ else }}
+          <div class="hackathons-section__placeholder" aria-hidden="true">
+            <i class="ti-cup"></i>
+            <span>Visuel à venir</span>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <h2 class="section-title mb-3">{{ .title | default "Semaine de hackathons" }}</h2>
+        {{ with .baseline }}<p class="hackathons-section__baseline">{{ . }}</p>{{ end }}
+        {{ with .content }}<div class="hackathons-section__content">{{ . | markdownify }}</div>{{ end }}
+        {{ if .link_url }}
+        <a href="{{ .link_url | relLangURL }}" class="btn btn-outline-primary mt-3">
+          {{ .link_label | default "En savoir plus" }} →
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
 <!-- débouchés -->
 {{ with .Params.debouches }}
-<section class="section">
+<section class="section bg-gray">
   <div class="container">
     <h2 class="section-title mb-5">Débouchés</h2>
     <p class="mb-5 text-muted">Résolument tourné vers la recherche, ce master vise avant tout les étudiants souhaitant poursuivre en doctorat, mais ouvre aussi vers l'industrie IA et les métiers de la donnée.</p>

@@ -9,73 +9,33 @@
     </div>
     {{ end }}
 
-    {{ range .Params.editions }}
-    {{ $statusKey := .status | default "passee" | lower | replaceRE "[àâ]" "a" | replaceRE "[éêè]" "e" | replaceRE "[^a-z0-9]+" "-" | strings.Trim "-" }}
-    <article class="je-edition je-edition--{{ $statusKey }}">
-      <div class="je-edition__year">
-        <span class="je-edition__year-num">{{ .year }}</span>
-        <span class="je-edition__year-status">{{ .status }}</span>
-      </div>
-
-      <div class="row align-items-start">
-        {{/* Colonne image (à droite en desktop, en haut en mobile) */}}
-        {{ if .image }}
-        <div class="col-lg-5 order-lg-2 mb-4 mb-lg-0">
-          <div class="je-edition__media">
-            {{ partial "image.html" (dict "Src" .image "Alt" (.image_alt | default .title) "Class" "img-fluid w-100") }}
-          </div>
-        </div>
-        <div class="col-lg-7 order-lg-1">
-        {{ else }}
-        <div class="col-lg-12">
-        {{ end }}
-
-          {{ with .colocated }}
-          <div class="je-edition__colocated">
-            <i class="ti-link" aria-hidden="true"></i>
-            <span>{{ . | markdownify }}</span>
-          </div>
-          {{ end }}
-
-          <h2 class="je-edition__title">{{ .title }}</h2>
-          {{ with .subtitle }}<p class="je-edition__subtitle">{{ . }}</p>{{ end }}
-
-          <ul class="je-edition__meta">
-            {{ with .dates }}<li><i class="ti-calendar" aria-hidden="true"></i> {{ . }}</li>{{ end }}
-            {{ with .lieu }}<li><i class="ti-location-pin" aria-hidden="true"></i> {{ . }}</li>{{ end }}
-          </ul>
-
-          {{ with .description }}<div class="je-edition__description">{{ . | markdownify }}</div>{{ end }}
-
-          {{ with .organisateurs }}
-          <div class="je-edition__block">
-            <h4 class="je-edition__block-title">Organisation</h4>
-            <ul class="je-edition__list">
-              {{ range . }}<li>{{ . }}</li>{{ end }}
-            </ul>
-          </div>
-          {{ end }}
-
-          {{ with .soutien }}
-          <p class="je-edition__soutien">{{ . | markdownify }}</p>
-          {{ end }}
-
-          {{ if .external_url }}
-          <a href="{{ .external_url }}" target="_blank" rel="noopener" class="btn btn-primary je-edition__btn">
-            {{ .external_label | default "Voir le site de l'évènement" }} →
-          </a>
-          {{ end }}
-        </div>
-      </div>
-    </article>
+    {{/* ── Journée d'étude ── */}}
+    {{ with .Params.journee_etude }}
+    <div id="journee-etude" class="evenement-block">
+      <header class="evenement-block__header">
+        <h2 class="evenement-block__title">{{ .title | default "Journée d'étude" }}</h2>
+        {{ with .description }}<p class="evenement-block__desc">{{ . | markdownify }}</p>{{ end }}
+      </header>
+      {{ range .editions }}
+        {{ partial "edition-card.html" . }}
+      {{ end }}
+    </div>
     {{ end }}
 
-    {{/* Fallback : si pas d'éditions configurées, on retombe sur .Content */}}
-    {{ if not .Params.editions }}
-    <div class="row">
-      <div class="col-lg-9 mx-auto journee-etude-content">
-        {{ .Content }}
-      </div>
+    {{/* ── Semaine de hackathons ── */}}
+    {{ with .Params.hackathons }}
+    <div id="hackathons" class="evenement-block">
+      <header class="evenement-block__header">
+        <h2 class="evenement-block__title">{{ .title | default "Semaine de hackathons" }}</h2>
+        {{ with .description }}<p class="evenement-block__desc">{{ . | markdownify }}</p>{{ end }}
+      </header>
+      {{ if .editions }}
+        {{ range .editions }}
+          {{ partial "edition-card.html" . }}
+        {{ end }}
+      {{ else }}
+        <p class="text-muted">Programme de la prochaine édition à venir.</p>
+      {{ end }}
     </div>
     {{ end }}
 
