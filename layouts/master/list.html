@@ -299,7 +299,7 @@
 
 <!-- apprentissage -->
 {{ with .Params.apprentissage }}
-<section class="section">
+<section class="section bg-gray">
   <div class="container">
     <h2 class="section-title mb-2">Formation en apprentissage</h2>
     <p class="mb-5">{{ .intro }}</p>
@@ -397,7 +397,7 @@
 <!-- junior entreprise -->
 {{ with .Params.junior_entreprise }}
 {{ if .enable }}
-<section class="section bg-gray junior-section">
+<section class="section junior-section">
   <div class="container">
     <h2 class="section-title mb-5">{{ .title }}</h2>
     <div class="row align-items-center">
@@ -426,7 +426,7 @@
 
 <!-- admissions -->
 {{ with .Params.admission }}
-<section class="section">
+<section class="section bg-gray">
   <div class="container">
     <h2 class="section-title mb-5">Admissions</h2>
     <div class="row">
@@ -476,7 +476,7 @@
 <!-- équipe enseignante -->
 {{ $teachers := sort (where (where site.RegularPages "Type" "teacher") "Params.master_teacher" true) "Params.weight" }}
 {{ if $teachers }}
-<section class="section bg-gray team-section">
+<section class="section team-section">
   <div class="container">
     <h2 class="section-title mb-5">Équipe enseignante</h2>
     <div class="row">
@@ -503,7 +503,7 @@
 {{ end }}
 
 <!-- partenariats -->
-<section class="section">
+<section class="section bg-gray">
   <div class="container">
     <h2 class="section-title mb-5">Partenariats</h2>
     <div class="row">
@@ -531,7 +531,7 @@
 
 <!-- mémoires (depuis DUMAS / MEM-ENC, degree 347) -->
 {{ $dumasURL := "https://api.archives-ouvertes.fr/search/MEM-ENC/?q=*&fq=dumas_degreeReference_s:347&fl=title_s,authFullName_s,producedDate_s,producedDateY_i,uri_s,halId_s,thumbId_i&sort=producedDate_s+desc&rows=3&wt=json" }}
-<section class="section bg-gray">
+<section class="section">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Mémoires de master</h2>
@@ -584,7 +584,7 @@
 
 <!-- distinctions étudiantes (compétitions) -->
 {{ with .Params.competitions }}
-<section class="section">
+<section class="section bg-gray">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Distinctions étudiantes</h2>
@@ -631,7 +631,7 @@
 <!-- projets étudiants (issus des hackathons 2026) -->
 {{ $devpage := site.GetPage "/developpements" }}
 {{ with $devpage.Params.hackathons_2026 }}
-<section class="section bg-gray">
+<section class="section">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Projets des étudiants</h2>
@@ -664,7 +664,7 @@
 {{ end }}
 
 <!-- actualités du master -->
-<section class="section">
+<section class="section bg-gray">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Actualités du master</h2>
