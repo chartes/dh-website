@@ -41,20 +41,28 @@
     </div>
     <div class="row">
       {{ range . }}
+      {{ $imgSrc := "" }}
+      {{ with .image }}
+        {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+          {{ $imgSrc = . }}
+        {{ else }}
+          {{ $imgSrc = . | relURL }}
+        {{ end }}
+      {{ end }}
       <div class="col-lg-4 col-md-6 mb-4">
         <article class="hackathon-card">
           {{ if .url }}
           <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__media">
-            {{ if .image }}
-            <img src="{{ .image }}" alt="{{ .title }}" class="hackathon-card__img" loading="lazy">
+            {{ if $imgSrc }}
+            <img src="{{ $imgSrc }}" alt="{{ .title }}" class="hackathon-card__img" loading="lazy">
             {{ else }}
             <div class="hackathon-card__placeholder"><i class="ti-layout-grid2-alt"></i></div>
             {{ end }}
           </a>
           {{ else }}
           <div class="hackathon-card__media">
-            {{ if .image }}
-            <img src="{{ .image }}" alt="{{ .title }}" class="hackathon-card__img" loading="lazy">
+            {{ if $imgSrc }}
+            <img src="{{ $imgSrc }}" alt="{{ .title }}" class="hackathon-card__img" loading="lazy">
             {{ else }}
             <div class="hackathon-card__placeholder"><i class="ti-layout-grid2-alt"></i></div>
             {{ end }}
