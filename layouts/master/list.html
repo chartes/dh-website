@@ -278,7 +278,7 @@
 
 <!-- débouchés -->
 {{ with .Params.debouches }}
-<section class="section bg-gray">
+<section class="section">
   <div class="container">
     <h2 class="section-title mb-5">Débouchés</h2>
     <p class="mb-5 text-muted">Résolument tourné vers la recherche, ce master vise avant tout les étudiants souhaitant poursuivre en doctorat, mais ouvre aussi vers l'industrie IA et les métiers de la donnée.</p>
@@ -631,7 +631,7 @@
 <!-- projets étudiants (issus des hackathons 2026) -->
 {{ $devpage := site.GetPage "/developpements" }}
 {{ with $devpage.Params.hackathons_2026 }}
-<section class="section">
+<section class="section bg-gray">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Projets des étudiants</h2>
@@ -664,7 +664,7 @@
 {{ end }}
 
 <!-- actualités du master -->
-<section class="section bg-gray">
+<section class="section">
   <div class="container">
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Actualités du master</h2>
