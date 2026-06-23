@@ -6,7 +6,7 @@
       <div class="row">
 
         <!-- logo + adresse -->
-        <div class="col-lg-5 col-sm-12 mb-5 mb-lg-0">
+        <div class="col-lg-4 col-sm-12 mb-5 mb-lg-0">
           <a class="logo-footer" href="{{ site.BaseURL | relLangURL }}">
             {{ partial "image.html" (dict "Src" site.Params.logo "Alt" site.Title "Class" "img-fluid mb-4") }}
           </a>
@@ -18,7 +18,7 @@
         </div>
 
         <!-- navigation -->
-        <div class="col-lg-3 col-sm-6 mb-5 mb-lg-0">
+        <div class="col-lg-2 col-sm-6 mb-5 mb-lg-0">
           <h4 class="text-white mb-4 text-uppercase">Navigation</h4>
           <ul class="list-unstyled">
             {{ range site.Menus.footer }}
@@ -28,7 +28,7 @@
         </div>
 
         <!-- plateformes open source -->
-        <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+        <div class="col-lg-3 col-sm-6 mb-5 mb-lg-0">
           <h4 class="text-white mb-4 text-uppercase">Open Science</h4>
           <div class="footer-platforms">
             {{ with site.Params.github_url }}
@@ -49,6 +49,17 @@
               </div>
             </a>
             {{ end }}
+          </div>
+        </div>
+
+        <!-- entreprises & partenaires -->
+        <div class="col-lg-3 col-sm-6 mb-5 mb-lg-0">
+          <h4 class="text-white mb-4 text-uppercase">Entreprises</h4>
+          <div class="footer-entreprises">
+            <p class="footer-entreprises__desc">Stages, apprentissage, mécénat : plusieurs voies pour collaborer avec le master et soutenir la formation.</p>
+            <a href="{{ `entreprises/` | relLangURL }}" class="footer-entreprises__cta">
+              <i class="ti-briefcase"></i> Découvrir →
+            </a>
           </div>
         </div>
 

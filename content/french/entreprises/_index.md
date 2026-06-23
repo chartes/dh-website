@@ -4,7 +4,7 @@ url: "/entreprises/"
 draft: false
 description: "Recrutement, accueil de stagiaires, apprentissage et soutien au master Humanités numériques de l'École nationale des chartes – PSL."
 
-intro: "Le master Humanités numériques forme des étudiants à la croisée des sciences humaines, de l'informatique et des sciences des données. Cette double compétence en fait des profils recherchés pour des missions à fort enjeu sur les corpus textuels, visuels et patrimoniaux. Plusieurs voies existent pour collaborer avec la formation : accueillir un stagiaire ou un apprenti, ou soutenir le master via le mécénat."
+intro: "Le master Humanités numériques forme des étudiants dans une discipline thématique et en sciences des données. Cette double compétence en fait des profils pour des missions à fort enjeu sur les corpus textuels et visuels, qu'ils soient contemporains ou patrimoniaux. Plusieurs voies existent pour collaborer avec la formation : accueillir un stagiaire ou un apprenti, ou soutenir le master via le mécénat."
 
 competences:
   intro: "Les étudiants du master sont formés sur l'ensemble du cycle de la donnée patrimoniale, scientifique et culturelle :"
@@ -32,7 +32,7 @@ voies:
   - icon: "ti-bag"
     title: "Accueillir un stagiaire"
     content: |
-      Les étudiants effectuent un **stage de découverte en laboratoire** en M2 (4 à 8 semaines, semestre 3) puis un **stage de fin d'études** pour ceux qui le souhaitent. Les missions confiées peuvent porter sur le traitement de corpus textuels, la vision par ordinateur, le développement d'outils ou la valorisation de données patrimoniales.
+      Les étudiants effectuent obligatoirement au moins un **stage de découverte en laboratoire ou entreprise** en M2 (au moins deux mois). Il est possible de réaliser plusieurs stages. Le stage ne peut pas être à temps plein de septembre à avril (voir le rythme de l'apprentissage dans la page du master). Les missions confiées peuvent porter sur le traitement de corpus textuels, la vision par ordinateur, le développement d'outils ou la valorisation de données. Il est demandé un accompagnement au moins thématique.
     cta:
       label: "Proposer un stage"
       url: "https://www.chartes.psl.eu/ecole/au-quotidien/contact"
@@ -41,7 +41,7 @@ voies:
   - icon: "ti-id-badge"
     title: "Accueillir un apprenti"
     content: |
-      Le **M2 est ouvert à l'apprentissage** sur un rythme 2j / 3j puis 3j / 2j selon les semestres, et passe en temps plein en entreprise d'avril à juin. Tarifs : 5 847 € pour le secteur public, 8 271 € pour le secteur privé. Les apprentis sont mobilisables sur l'ensemble du périmètre de compétences du master.
+      Le **M2 est ouvert à l'apprentissage** sur un rythme 2j / 3j puis 3j / 2j selon les semestres, et passe en temps plein en entreprise d'avril à juin. Tarifs : 5 847 € pour le secteur public, 8 271 € pour le secteur privé. Les apprentis sont mobilisables sur l'ensemble du périmètre de compétences du master. Voir la page du master pour les détails.
     cta:
       label: "Discuter d'un apprentissage"
       url: "https://www.chartes.psl.eu/ecole/au-quotidien/contact"

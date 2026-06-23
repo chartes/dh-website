@@ -3157,54 +3157,38 @@ $pc-competition : #b88a1c;                 // or / podium
   }
 }
 
-/* ── Bandeau CTA Entreprises sur la home ────────────────────── */
-.home-entreprises {
-  &__inner {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem 2rem;
-    background: linear-gradient(135deg, rgba($primary-color, 0.06), rgba($secondary-color, 0.06));
-    border: 1px solid rgba($primary-color, 0.15);
-    border-radius: 8px;
+/* ── Bloc Entreprises dans le footer ────────────────────────── */
+.footer-entreprises {
+  &__desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #8996a7;
+    margin-bottom: 0.85rem;
+  }
 
-    @media (max-width: 575px) {
-      flex-direction: column;
-      text-align: center;
-      padding: 1.5rem 1.2rem;
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.45rem 0.9rem;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+
+    i { font-size: 0.95rem; }
+
+    &:hover {
+      background: $primary-color;
+      border-color: $primary-color;
+      color: #fff;
+      text-decoration: none;
     }
   }
-
-  &__icon {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: $primary-color;
-    color: #fff;
-    i { font-size: 1.5rem; }
-  }
-
-  &__text { flex: 1; }
-
-  &__title {
-    font-family: $secondary-font;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: $text-color-dark;
-    margin: 0 0 0.2rem;
-  }
-
-  &__desc {
-    font-size: 0.92rem;
-    color: $text-color;
-    margin: 0;
-  }
-
-  &__btn { flex-shrink: 0; }
 }
 
 /* ── Page Entreprises ───────────────────────────────────────── */
