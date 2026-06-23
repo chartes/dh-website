@@ -32,7 +32,7 @@ voies:
   - icon: "ti-bag"
     title: "Accueillir un stagiaire"
     content: |
-      Les étudiants effectuent obligatoirement au moins un **stage de découverte en laboratoire ou entreprise** en M2 (au moins deux mois). Il est possible de réaliser plusieurs stages. Le stage ne peut pas être à temps plein de septembre à avril (voir le rythme de l'apprentissage dans la page du master). Les missions confiées peuvent porter sur le traitement de corpus textuels, la vision par ordinateur, le développement d'outils ou la valorisation de données. Il est demandé un accompagnement au moins thématique.
+      Les étudiants effectuent obligatoirement au moins un **stage de découverte en laboratoire ou entreprise** en M2 (au moins deux mois). Mis à part ce cadre, il n'y a pas de limite au nombre de stages (M1 et M2), et toute proposition peut nous être envoyée au fil de l'eau. Le stage ne peut pas être à temps plein de septembre à avril (voir le rythme de l'apprentissage dans la page du master). Les missions confiées peuvent porter sur le traitement de corpus textuels, la vision par ordinateur, le développement d'outils ou la valorisation de données. Il est demandé un accompagnement au moins thématique.
     cta:
       label: "Proposer un stage"
       url: "https://www.chartes.psl.eu/ecole/au-quotidien/contact"
@@ -41,7 +41,7 @@ voies:
   - icon: "ti-id-badge"
     title: "Accueillir un apprenti"
     content: |
-      Le **M2 est ouvert à l'apprentissage** sur un rythme 2j / 3j puis 3j / 2j selon les semestres, et passe en temps plein en entreprise d'avril à juin. Tarifs : 5 847 € pour le secteur public, 8 271 € pour le secteur privé. Les apprentis sont mobilisables sur l'ensemble du périmètre de compétences du master. Voir la page du master pour les détails.
+      Le **M2 est ouvert à l'apprentissage** sur un rythme 2j / 3j puis 3j / 2j selon les semestres, et passe en temps plein en entreprise d'avril à juin. Tarifs : 5 847 € pour le secteur public, 8 271 € pour le secteur privé. Les apprentis sont mobilisables sur l'ensemble du périmètre de compétences du master. Voir la page du master pour les détails. L'apprentissage peut débuter en septembre, octobre ou novembre, selon les besoins de l'entreprise.
     cta:
       label: "Discuter d'un apprentissage"
       url: "https://www.chartes.psl.eu/ecole/au-quotidien/contact"
