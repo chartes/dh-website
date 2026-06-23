@@ -3157,4 +3157,141 @@ $pc-competition : #b88a1c;                 // or / podium
   }
 }
 
+/* ── Bandeau CTA Entreprises sur la home ────────────────────── */
+.home-entreprises {
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, rgba($primary-color, 0.06), rgba($secondary-color, 0.06));
+    border: 1px solid rgba($primary-color, 0.15);
+    border-radius: 8px;
+
+    @media (max-width: 575px) {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.5rem 1.2rem;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: $primary-color;
+    color: #fff;
+    i { font-size: 1.5rem; }
+  }
+
+  &__text { flex: 1; }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: $text-color-dark;
+    margin: 0 0 0.2rem;
+  }
+
+  &__desc {
+    font-size: 0.92rem;
+    color: $text-color;
+    margin: 0;
+  }
+
+  &__btn { flex-shrink: 0; }
+}
+
+/* ── Page Entreprises ───────────────────────────────────────── */
+.entreprises-intro {
+  &__title {
+    font-family: $secondary-font;
+    font-size: 2.2rem;
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+
+  &__lead {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: $text-color;
+  }
+}
+
+.entreprises-voie {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    border-color: rgba($primary-color, 0.2);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba($primary-color, 0.08);
+    color: $primary-color;
+    margin-bottom: 1rem;
+    i { font-size: 1.4rem; }
+  }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $text-color-dark;
+    margin: 0 0 0.75rem;
+    line-height: 1.3;
+  }
+
+  &__content {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: $text-color;
+    flex: 1;
+
+    p { margin-bottom: 0.65rem; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: $text-color-dark; }
+  }
+
+  &__cta {
+    align-self: flex-start;
+    margin-top: 1.25rem;
+  }
+}
+
+.entreprises-contact {
+  &__title {
+    font-family: $secondary-font;
+    font-size: 1.5rem;
+    color: $primary-color;
+    margin-bottom: 0.6rem;
+  }
+
+  &__content {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: $text-color;
+    margin: 0;
+  }
+}
+
 

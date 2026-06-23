@@ -65,3 +65,7 @@ url = "publications/"
 [[footer]]
 name = "Évènements"
 url = "evenements/"
+
+[[footer]]
+name = "Entreprises"
+url = "entreprises/"

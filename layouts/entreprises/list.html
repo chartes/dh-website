@@ -1,0 +1,82 @@
+{{ define "main" }}
+
+<!-- intro -->
+<section class="section entreprises-intro">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 mx-auto text-center">
+        <h1 class="entreprises-intro__title">{{ .Title }}</h1>
+        {{ with .Params.intro }}<p class="entreprises-intro__lead">{{ . | markdownify }}</p>{{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- compétences clés -->
+{{ with .Params.competences }}
+<section class="section bg-gray">
+  <div class="container">
+    <h2 class="section-title mb-2">Compétences des étudiants</h2>
+    {{ with .intro }}<p class="mb-5 text-muted">{{ . }}</p>{{ end }}
+    <div class="competences-grid">
+      {{ range .items }}
+      <div class="competence-item">
+        <i class="{{ .icon }} competence-item__icon"></i>
+        <div>
+          <p class="competence-item__label">{{ .label }}</p>
+          <p class="competence-item__detail">{{ .detail }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- voies de collaboration -->
+{{ with .Params.voies }}
+<section class="section">
+  <div class="container">
+    <h2 class="section-title mb-5">Trois manières de collaborer</h2>
+    <div class="row">
+      {{ range . }}
+      <div class="col-lg-4 mb-4 d-flex">
+        <article class="entreprises-voie">
+          <div class="entreprises-voie__icon" aria-hidden="true"><i class="{{ .icon }}"></i></div>
+          <h3 class="entreprises-voie__title">{{ .title }}</h3>
+          {{ with .content }}<div class="entreprises-voie__content">{{ . | markdownify }}</div>{{ end }}
+          {{ with .cta }}
+          <a href="{{ .url }}"
+             {{ if .external }} target="_blank" rel="noopener"{{ end }}
+             class="btn btn-outline-primary entreprises-voie__cta">
+            {{ .label }} →
+          </a>
+          {{ end }}
+        </article>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- bloc contact -->
+{{ with .Params.contact }}
+<section class="section bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 mx-auto text-center entreprises-contact">
+        <h2 class="entreprises-contact__title">{{ .title }}</h2>
+        <p class="entreprises-contact__content">{{ .content }}</p>
+        {{ if .cta_url }}
+        <a href="{{ .cta_url }}" target="_blank" rel="noopener" class="btn btn-primary mt-3">
+          {{ .cta_label | default "Nous contacter" }} →
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

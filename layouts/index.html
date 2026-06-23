@@ -131,6 +131,20 @@
 </section>
 {{ end }}
 
+<!-- bandeau entreprises (CTA) -->
+<section class="section-sm home-entreprises">
+  <div class="container">
+    <div class="home-entreprises__inner">
+      <div class="home-entreprises__icon" aria-hidden="true"><i class="ti-briefcase"></i></div>
+      <div class="home-entreprises__text">
+        <h3 class="home-entreprises__title">Vous êtes une entreprise ?</h3>
+        <p class="home-entreprises__desc">Stages, apprentissage, mécénat : plusieurs voies pour collaborer avec le master et soutenir la formation.</p>
+      </div>
+      <a href="{{ `entreprises/` | relLangURL }}" class="btn btn-primary home-entreprises__btn">Découvrir →</a>
+    </div>
+  </div>
+</section>
+
 <!-- bandeau logos partenaires PSL -->
 {{ with .Params.home_logos }}
 <section class="section-sm home-logos-section">
