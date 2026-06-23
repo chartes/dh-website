@@ -41,7 +41,7 @@ voies:
   - icon: "ti-id-badge"
     title: "Accueillir un apprenti"
     content: |
-      Le **M2 est ouvert à l'apprentissage** sur un rythme 2j / 3j puis 3j / 2j selon les semestres, et passe en temps plein en entreprise d'avril à juin. Tarifs : 5 847 € pour le secteur public, 8 271 € pour le secteur privé. Les apprentis sont mobilisables sur l'ensemble du périmètre de compétences du master. Voir la page du master pour les détails. L'apprentissage peut débuter en septembre, octobre ou novembre, selon les besoins de l'entreprise.
+      Le **M2 est ouvert à l'apprentissage** sur un rythme 2j / 3j puis 3j / 2j selon les semestres, et passe en temps plein en entreprise d'avril à août. Les frais d'inscriptions (hors salaires) s'élèvent à 5 847 € pour le secteur public, 8 271 € pour le secteur privé. Les apprentis sont mobilisables sur l'ensemble du périmètre de compétences du master. Voir la page du master pour les détails. L'apprentissage peut débuter en septembre, octobre ou novembre, selon les besoins de l'entreprise.
     cta:
       label: "Discuter d'un apprentissage"
       url: "https://www.chartes.psl.eu/ecole/au-quotidien/contact"
