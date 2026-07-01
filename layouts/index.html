@@ -90,7 +90,7 @@
               {{ end }}
             </div>
             {{ end }}
-            {{ with .Content }}<div class="participation-card__summary">{{ . }}</div>{{ end }}
+            {{ with .Content }}<p class="participation-card__summary">{{ . | plainify | truncate 220 }}</p>{{ end }}
           </div>
         </article>
       </div>
@@ -117,7 +117,7 @@
               <a href="{{ .Permalink }}">{{ .Title }}</a>
               {{ end }}
             </h3>
-            {{ with .Content }}<div class="billet-card__summary">{{ . }}</div>{{ end }}
+            {{ with .Content }}<p class="billet-card__summary">{{ . | plainify | truncate 240 }}</p>{{ end }}
           </div>
         </article>
       </div>
