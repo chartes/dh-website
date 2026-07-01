@@ -3,7 +3,7 @@ title: "From Closure to Sharing: Heritage of Afghanistan"
 date: 2026-06-17
 date_end: "2026-06-19"
 category: "Formation"
-pin_master: True
+pin_master: true
 lieu: "Paris"
 external_url: "https://etudes-areales.cnrs.fr/programme-summer-school/"
 participants:
