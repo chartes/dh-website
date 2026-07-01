@@ -11,4 +11,4 @@ participants:
   - name: "Chahan Vidal-Gorène"
     role: "Enseignant"
 ---
-Participation au colloque ACQuA 2026, organisé par le chapitre français du CAA (Computer Applications and Quantitative Methods in Archaeology), avec la présentation d'un [poster déposé sur HAL](https://enc.hal.science/hal-05509883/).
+Participation au colloque ACQuA 2026, organisé par le chapitre français du CAA (Computer Applications and Quantitative Methods in Archaeology), avec un poster "Entre maçonneries "tordues" et photos non rectifiées : approche exploratoire de vision par ordinateur en archéologie du bâti" (https://enc.hal.science/hal-05509883/).
