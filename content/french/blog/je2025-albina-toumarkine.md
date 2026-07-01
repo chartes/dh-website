@@ -8,6 +8,7 @@ event_tag: "Journée d'étude HN 2025"
 author_m1: "Martin Houllier, Quanwen Long"
 subject_m2: "Albina Toumarkine"
 poster_title: "From Paper to Porcelain : Pattern Books and the Diffusion of Islamic Art Models in French Ceramic Design during the Industrial Age"
+image: "images/blog/je2025/albina-toumarkine/fig1.jpeg"
 type: "post"
 ---
 
@@ -21,11 +22,15 @@ L'hypothèse est que les recueils de modèles ont constitué un vecteur essentie
 
 Ces modèles, perçus comme à la fois exotiques, sophistiqués et techniquement aboutis, donnent lieu à une série d'appropriations qui vont bien au-delà de la simple copie, et qui impliquent des processus de recomposition, d'hybridation et d'invention.
 
+![Motifs d'inspiration islamique dans la céramique française du XIXᵉ siècle](/images/blog/je2025/albina-toumarkine/fig1.jpeg)
+
 La problématique centrale de la recherche consiste à évaluer dans quelle mesure les recueils de motifs ont effectivement contribué à la diffusion, à grande échelle, de modèles d'inspiration islamique dans la céramique française. Pour y répondre, l'intervenante a constitué un corpus de travail fondé sur un large ensemble de données visuelles, issues de sources variées : musées, bibliothèques spécialisées, archives de manufactures, catalogues de ventes aux enchères. Ce corpus comprend plus de 1000 pages de recueils de modèles et plus de 300 objets céramiques produits en France ou dans d'autres régions d'Europe.
 
 L'ambition est de couvrir un spectre représentatif des pratiques ornementales du XIXe siècle, à travers une analyse croisée entre sources imprimées et productions matérielles.
 
-Ce travail mobilise l'histoire de l'art et une approche computationnelle fondée sur l'analyse d'images à grande échelle. L'ensemble du corpus visuel a d'abord fait l'objet d'un travail de normalisation (homogénéisation des formats, des dimensions et des fonds), afin de permettre une comparaison rigoureuse des éléments graphiques. Albina Toumarkine a ensuite mis en place une classification des images selon trois catégories principales : les objets entiers, les motifs isolés, et les motifs continus. Cette typologie vise à mieux cerner les différentes modalités d'intégration des modèles islamiques dans les objets céramiques, en distinguant les cas de simple insertion décorative, les formes récurrentes, et les structures ornementales complexes.
+Ce travail mobilise l'histoire de l'art et une approche computationnelle fondée sur l'analyse d'images à grande échelle. L'ensemble du corpus visuel a d'abord fait l'objet d'un travail de normalisation (homogénéisation des formats, des dimensions et des fonds), afin de permettre une comparaison rigoureuse des éléments graphiques.
+
+![Exemples de correspondances visuelles entre recueils de modèles et objets céramiques](/images/blog/je2025/albina-toumarkine/fig2.jpeg) Albina Toumarkine a ensuite mis en place une classification des images selon trois catégories principales : les objets entiers, les motifs isolés, et les motifs continus. Cette typologie vise à mieux cerner les différentes modalités d'intégration des modèles islamiques dans les objets céramiques, en distinguant les cas de simple insertion décorative, les formes récurrentes, et les structures ornementales complexes.
 
 Pour procéder à l'analyse comparative, plusieurs outils issus de la vision par ordinateur ont été mobilisés. Des réseaux de neurones convolutifs (CNN), notamment ResNet et VGGNet, ont été utilisés pour établir des correspondances globales entre objets, en s'appuyant sur les similitudes de forme, de composition et de couleur. Ces modèles sont particulièrement efficaces pour repérer des correspondances entre objets entiers, mais montrent leurs limites lorsqu'il s'agit de reconnaître des motifs fragmentés ou subtilement transformés. Afin de pallier cette difficulté, des modèles Transformers (ViT) ont été mis en œuvre pour une analyse à plus fine échelle, au niveau des segments d'image (*patches*). Cette méthode permet d'identifier des similarités locales entre motifs, en se concentrant sur des détails ornementaux souvent négligés par les approches plus globales.
 

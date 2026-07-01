@@ -8,6 +8,7 @@ event_tag: "Journée d'étude HN 2025"
 author_m1: "Maria Kirbasova"
 subject_m2: "Yaelle Zribi"
 poster_title: "Joke Maths : Modelling and Analyzing 91 Netflix Stand-up Comedy Specials"
+image: "images/blog/je2025/yaelle-zribi/fig1.png"
 type: "post"
 ---
 
@@ -27,10 +28,16 @@ En partant de l'hypothèse que, d'une part, les Netflix Comedy Specials peuvent 
 
 Les méthodes utilisées par Yaelle Zribi combinent les méthodes propres aux études théâtrales avec des méthodes computationnelles. Ainsi, elle utilise tout d'abord le *Topic Modelling* pour analyser les transitions thématiques dans les stand-ups. Cette méthode a révélé une grande variété de thèmes apparaissant dans les stand-up comiques, mais a également montré certaines limites. Tout d'abord, dans le cadre d'un stand-up, les thèmes peuvent changer très rapidement, avec seulement 10 à 20 secondes consacrées à chaque thème. De plus, le changement de thème peut parfois être difficile à percevoir, même pour un être humain, ce qui complique également la détection automatique.
 
+![Figure 1 : une partie des sujets fréquents identifiés par Yaelle Zribi à la suite du *Topic Modelling*](/images/blog/je2025/yaelle-zribi/fig1.png)
+
 Yaelle Zribi a également identifié les moments de rire en déterminant le nombre de segments contenant des rires pour chaque élément étudié du corpus (spectacles de stand-up).
+
+![Figure 2 : répartition des segments contenant des émotions de rire parmi les éléments du corpus](/images/blog/je2025/yaelle-zribi/fig2.png)
 
 En interprétant les données présentées, Yaelle Zribi se pose la question suivante : les meilleurs humoristes font-ils rire davantage ? Ses résultats démontrent que ce n'est pas toujours le cas. En comparant les deux extrêmes, la chercheuse conclut que le nombre de rires reflète davantage le style personnel et la manière de se produire du comédien qu'il ne constitue un indicateur universel du « succès » d'une performance. Ainsi, un niveau élevé de rire peut être associé, par exemple, à une présentation plus expressive et « énergique », tandis que des réactions moins fréquentes du public peuvent être liées à une forme de stand-up plus introspective ou mélancolique.
 
 Une autre méthode utilisée par Yaelle Zribi repose sur l'étude du corps des humoristes de stand-up. Cette méthode vise à étudier de près non seulement les gestes et les mouvements, mais également le positionnement des artistes sur scène. Pour ce faire, elle a d'abord procédé à la détection des personnes sur l'ensemble du corpus. Les données obtenues représentent 500 000 images. Ensuite, elle a extrait un sous-ensemble de 80 000 images afin de tester plus précisément les postures frontales des artistes. Sur ces images, elle a appliqué une détection de silhouettes et a observé les différentes manières dont les humoristes occupent l'espace scénique. Cela lui a permis de construire une sorte de dictionnaire des postures corporelles, dans le but de catégoriser les types de présence scénique (statique, mobile, ouverte, fermée, etc.) et d'analyser leur rôle dans la construction du style comique.
+
+![Figure 3 : étude du corps — méthode innovante d'analyse des postures scéniques](/images/blog/je2025/yaelle-zribi/fig3.png)
 
 Pour conclure, l'étude menée par Yaelle Zribi permet de faire des progrès importants vers une formalisation de la compréhension de la comédie stand-up, même si la « formule magique » d'un spectacle réussi n'a pas encore été trouvée. La comédie stand-up s'est révélée être un sujet pertinent d'analyse à l'aide des méthodes de « visionnage distant » (*distant viewing*), ainsi qu'un phénomène culturel significatif, suscitant l'intérêt tant d'un point de vue épistémologique qu'artistique. La prochaine étape logique de la recherche consiste à améliorer le pipeline analytique, notamment en renforçant sa stabilité et son efficacité.

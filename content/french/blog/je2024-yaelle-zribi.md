@@ -8,6 +8,7 @@ event_tag: "Séminaire du master 2023-2024"
 author_m1: "Albina Toumarkine"
 subject_m2: "Yaelle Zribi"
 poster_title: "L'auteur de stand-up : dramaturge, acteur et personnage. Analyse des styles d'écriture et de jeu d'humoristes américains"
+image: "images/blog/je2024/yaelle-zribi/fig1.png"
 type: "post"
 ---
 
@@ -35,6 +36,8 @@ Les travaux de Yaelle Zribi reposent sur un corpus de 91 captations de *Stand-Up
 
 Le corpus est constitué de deux types de documents : des vidéos sous format MP4 et MKV correspondant aux captations et les transcriptions qui leur sont associées, sous format SRT.
 
+![Figure 1 : contenu d'un fichier SRT](/images/blog/je2024/yaelle-zribi/fig1.png)
+
 Un premier volet de cette étude, dédié au placement des rires, cherche à comprendre dans quelle mesure la dynamique des thèmes et le placement des rires répondent à des motifs du genre du stand-up.
 
 Yaelle Zribi repère les transitions thématiques avec du *Topic Modelling*, appliqué sur les fichiers SRT. En parallèle de cette démarche, une analyse des documents audiovisuels, avec la librairie *Py audio analysis* sur Python, permet de repérer les moments de rires et d'étudier ainsi le placement des rires par rapport aux transitions thématiques.
@@ -49,8 +52,12 @@ Enfin, le dernier volet de ce travail explore l'articulation entre la parole et 
 
 La première chaîne de traitement analyse les fichiers SRT, à l'aide de la librairie *NRClex* sur Python. Celle-ci effectue une classification du texte selon les dix émotions suivantes : la colère, la peur, l'anticipation, la tristesse, le dégoût, l'anticipation, la surprise, la joie et la confiance, les émotions positives et les émotions négatives. Elle offre également la possibilité de visualiser l'évolution de ces émotions au fil du texte, permettant ainsi de suivre l'évolution des émotions à travers différents moments et transitions thématiques du spectacle. Les premiers résultats sont prometteurs : les courbes obtenues à partir du *Sentiment Analysis* textuel semblent suivre les différents moments du spectacle et les alternances dans le discours, entre les mises en place (*set-up*) et les *punchlines* (la chute, la phrase choc).
 
+![Figure 2 : Sentiment Analysis textuel](/images/blog/je2024/yaelle-zribi/fig2.png)
+
 La deuxième chaîne de traitement utilise *OpenFace*, une bibliothèque open-source d'analyse d'expressions faciales développée par la Carnegie Mellon University et le Brandon Amos' research group, qui utilise des techniques de vision par ordinateur et d'apprentissage automatique pour détecter et analyser les visages dans les documents visuels.
 
 Yaelle Zribi a constitué un sous-corpus de captures d'images extraites à intervalles définis à partir d'enregistrements vidéo. *OpenFace* analyse ces images en décomposant l'expression faciale en *action units*, c'est-à-dire des mouvements musculaires spécifiques du visage. Les émotions principales sont déterminées en fonction de la configuration de ces *action units*.
+
+![Figure 3 : Sentiment Analysis visuel](/images/blog/je2024/yaelle-zribi/fig3.png)
 
 Pour étudier le jeu corporel des acteurs, Yaelle Zribi utilise également la détection de poses grâce au modèle de détection d'objets en temps réel *YOLOv8*. L'objectif de cette étape est de créer un dictionnaire de poses par une classification non-supervisée. Cependant, deux obstacles majeurs se présentent : les biais imposés par le montage et le manque de référentiel pour la détection de poses. Si le premier reste plus difficile à contourner, un travail statistique élaboré peut compenser l'absence de classifieur de poses.

@@ -8,6 +8,7 @@ event_tag: "Séminaire du master 2023-2024"
 author_m1: "Donghan Bian"
 subject_m2: "Aaron Parmentelat"
 poster_title: "La distribution des propriétaires immobiliers à Paris (1898-1951)"
+image: "images/blog/je2024/aaron-parmentelat/fig1.png"
 type: "post"
 ---
 
@@ -18,6 +19,8 @@ Lors de la séance du 10 avril 2024 du séminaire du master Humanités Numériqu
 ## Contexte et objectifs
 
 La recherche explore la localisation des propriétaires, la présence de multipropriétaires et les liens entre les propriétés détenues et les lieux de résidence. L'analyse s'effectue à une granularité très fine, subdivisant chaque arrondissement parisien en quatre quartiers administratifs, totalisant 80 quartiers.
+
+![Fig. 1 — Le nombre d'immeubles par quartier en 1898](/images/blog/je2024/aaron-parmentelat/fig1.png)
 
 ## Méthodologie
 
@@ -31,13 +34,21 @@ Face aux limitations de Transkribus, un nouveau processus de traitement a été 
 - Application de PÉROU pour la reconnaissance de texte manuscrit
 - Utilisation de spaCy pour la reconnaissance d'entités nommées (NER) et génération de fichiers CSV
 
+![Fig. 2 — Pipeline de l'extraction des informations depuis la liste des propriétés](/images/blog/je2024/aaron-parmentelat/fig2.png)
+
 Les modèles ont été sélectionnés pour leur performance : YOLO pour la détection des colonnes, PÉROU pour la HTR avec de meilleurs résultats que Tesseract, et spaCy pour l'extraction d'entités avec *few-shot learning*. Le seul problème restant concerne la distinction entre noms de personnes et d'organisations.
+
+![Fig. 3 — Score du modèle fine-tuné de YOLO v8 (segmentation)](/images/blog/je2024/aaron-parmentelat/fig3.png)
 
 ## Résultats préliminaires
 
 Les cartes exploratoires générées pour 1898 montrent la densité des immeubles et la distribution des multipropriétaires, principalement concentrés dans l'ouest et le sud de Paris, ainsi que dans leurs lieux de résidence.
 
+![Fig. 4 — Résultats préliminaires, partie 1](/images/blog/je2024/aaron-parmentelat/fig4.png)
+
 L'année 1951 marque un changement dans l'enregistrement, passant de l'immeuble à l'appartement, reflétant une transition vers la copropriété plus fréquente.
+
+![Fig. 5 — Résultats préliminaires, partie 2](/images/blog/je2024/aaron-parmentelat/fig5.png)
 
 ## Questions et discussions
 

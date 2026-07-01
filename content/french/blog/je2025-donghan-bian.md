@@ -8,6 +8,7 @@ event_tag: "Journée d'étude HN 2025"
 author_m1: "Juliette Grenier"
 subject_m2: "Donghan Bian"
 poster_title: "Multilateralism between the two World Wars and its perception in the French Parliament"
+image: "images/blog/je2025/donghan-bian/fig1.png"
 type: "post"
 ---
 
@@ -17,8 +18,16 @@ Les recherches menées par Donghan Bian portent sur le multilatéralisme dans l'
 
 Les séances du Parlement sont, aux XIXe et XXe siècles, publiques. Ainsi, les sources utilisées par Donghan Bian sont les numéros du Journal officiel de la République française, qui publie de manière quotidienne les textes de lois et les décrets officiels, entre le 1er janvier 1929 et le 31 décembre 1939. Il mobilise aussi deux « sous-corpus » : les parutions propres à la Chambre des députés (soit 989 documents) et celles relatives au Sénat (766 documents). L'intégralité du corpus est scrappée directement depuis Gallica et nécessite donc un traitement post-OCR. C'est une étape délicate, puisqu'elle dépend de facteurs extérieurs : sur Gallica, les pages sont arrondies, il est donc difficile de détecter tous les caractères et le texte ne peut pas être bien lu. Les erreurs sont donc, en raison de la mise en page, complexes à corriger. Chaque document compte un ratio de 13,35 % d'erreurs. Ce taux tend à diminuer au fil de la position des caractères dans le texte.
 
+![Fig. 1 — Distribution des erreurs dans les textes (D. Bian)](/images/blog/je2025/donghan-bian/fig1.png)
+
 Une fois le corpus corrigé, il s'agit d'en extraire les données pour pouvoir les traiter. Les différents textes sont découpés pour en extraire les entités nommées afin d'établir une liste de noms propres. Un calcul de distance de Levenshtein est appliqué à ces entités. On obtient une liste de morceaux des textes avec les entités. Cette liste est annotée : si le mot est une entité, alors on lui attribue la valeur 1 sinon 0. À ce dataset final, on applique un système de régression pour faire un classifieur. Pour obtenir une meilleure contextualisation des entités, on extrait aussi des morceaux de textes ce qui vient avant et après l'entité. Les résultats du classifieur sont plutôt concluants, puisque les données de départ ne sont pas très propres, sauf pour la catégorie propre à la politique internationale. La précision est de 0,80 pour les données utiles et de 0,93 pour les données inutiles. Les résultats du classifieur sont classés selon le score obtenu. De plus, un classement est réalisé aussi pour les données annotées avec 0 et 1.
 
+![Fig. 2 — Chaîne de traitement des données (D. Bian)](/images/blog/je2025/donghan-bian/fig2.png)
+
 L'extraction avec la génération augmentée de récupération (ou RAG) permet de produire un graphique de connaissances fondé sur les données extraites des textes avec 40 474 nœuds, et 23 426 relations entre les entités. 91,06 % de ces nœuds sont classés dans 7 catégories (comme les personnes nommées, les organisations, les événements, la géographie, les concepts, etc.). La vision générale n'est, cependant, pas jugée convaincante pour le moment.
+
+![Fig. 3 — Classification des nœuds (D. Bian)](/images/blog/je2025/donghan-bian/fig3.png)
+
+![Fig. 4 — Graphe de connaissances (D. Bian)](/images/blog/je2025/donghan-bian/fig4.png)
 
 L'ensemble de cette étude présente, toutefois, quelques limites, selon Donghan Bian. En effet, les erreurs de l'OCR ne peuvent pas être éliminées entièrement et faussent nécessairement les résultats. L'extraction avec RAG prend un temps très long. De plus, l'utilisation de petits LLMs produit des anomalies et des valeurs qui ne sont pas exploitables. Enfin, l'interprétation des résultats implique nécessairement l'intervention humaine.

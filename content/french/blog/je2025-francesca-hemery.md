@@ -8,6 +8,7 @@ event_tag: "Journée d'étude HN 2025"
 author_m1: "Nana Maglakelidze"
 subject_m2: "Francesca Hemery"
 poster_title: "Emotion and expertise in disinformation discourses about climate change on french YouTube : automatic detection and linguistic analysis"
+image: "images/blog/je2025/francesca-hemery/fig1.png"
 type: "post"
 ---
 
@@ -23,10 +24,14 @@ Cependant, identifier ces deux composantes représente un défi méthodologique,
 
 Le corpus utilisé pour l'étude comprenait plus de 100 vidéos en français (YouTube et Shorts) présentant des discours de désinformation sur le changement climatique. Francesca Hemery a utilisé le package Python approprié pour collecter les données. Notamment elle a utilisé `youtube-transcript-api`, ce qui lui a permis d'extraire les sous-titres des vidéos du corpus, puis de traiter automatiquement la ponctuation et la segmentation des textes. Elle a obtenu plus de 2 000 unités de texte (*chunks*). Pour annoter ces chunks, elle a choisi de développer une échelle d'annotation avec trois scores : un, deux, trois, pour chaque dimension, un étant le score le plus bas et trois le score le plus élevé.
 
+![Figure 1 : instructions d'annotation](/images/blog/je2025/francesca-hemery/fig1.png)
+
 Francesca Hemery a utilisé deux méthodes différentes pour analyser les caractéristiques émotionnelles et expertes, car elles représentent toutes deux des aspects complexes et difficiles à identifier du discours. Initialement, une tentative d'annotation complète du corpus a été effectuée à l'aide d'un modèle de langage étendu (LLM), mais cette méthode a donné de mauvais résultats à la tâche de reconnaissance des émotions. Cela était probablement dû à la complexité inhérente à la tâche elle-même, à sa subjectivité et au fait que les caractéristiques émotionnelles sont souvent dissimulées dans des formes linguistiques complexes. Des méthodologies distinctes ont donc été développées pour chaque dimension linguistique (émotion et expertise).
 
 L'étude a utilisé deux étapes pour identifier les caractéristiques émotionnelles : la première était EmoVerse, un modèle de TAL spécifique aux sentiments, qui ne parvenait souvent pas à identifier un vocabulaire spécifique ou offensant. Le modèle GPT-4 a été utilisé pour identifier l'expertise. Une attention particulière a été portée à des caractéristiques telles que l'utilisation de citations, la démonstration d'un statut académique ou scientifique et la citation de données — des signes qui tentent de créer une impression d'autorité, souvent sans véritable connaissance. Par exemple, Benoît Rittaud, mathématicien et professeur à l'université en France, est aujourd'hui l'un des principaux diffuseurs de discours climato-sceptiques. Il utilise ses titres académiques pour paraître comme un expert et renforcer son autorité. Cela correspond bien à une stratégie classique de pseudo-expertise.
 
 Enfin, une analyse basée sur les annotations obtenues a montré que le discours de désinformation sur le changement climatique repose davantage sur l'imitation de la rhétorique des experts que sur un fort attrait émotionnel. Un score d'expertise élevé (3) est plus fréquent dans le corpus, tandis qu'un score moyen (2) domine en termes de caractéristiques émotionnelles. Bien que les scores kappa ne soient pas parfaits, ils sont satisfaisants compte tenu des difficultés inhérentes à une telle annotation linguistique (score ≈ 0,75).
+
+![Figure 2 : analyse linguistique — statistiques de base](/images/blog/je2025/francesca-hemery/fig2.png)
 
 L'analyse du corpus a montré que des niveaux élevés d'émotion et d'expertise coexistent rarement dans un même segment de texte ; un petit nombre de cas (environ 100 ou moins) ont été observés. En revanche, les textes présentant soit une forte expertise et une faible émotivité, soit une forte émotivité et un manque d'expertise, sont beaucoup plus fréquents. Cette structure polarisée reflète les orientations rhétoriques et les stratégies discursives mobilisées dans les discours de désinformation, ce qui est particulièrement important pour analyser le processus de transmission et de réception d'informations sur les enjeux climatiques.

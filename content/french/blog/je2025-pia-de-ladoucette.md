@@ -8,6 +8,7 @@ event_tag: "Journée d'étude HN 2025"
 author_m1: "Chloé Jollivet-Courtois"
 subject_m2: "Pia de Ladoucette"
 poster_title: "Mapping ideological shifts : a discourse analysis of the far-right press in France, 1934-1944"
+image: "images/blog/je2025/pia-de-ladoucette/fig1.png"
 type: "post"
 ---
 
@@ -38,6 +39,12 @@ Les principaux objectifs de l'étude sont :
 
 Les journaux sélectionnés sont issus de la campagne de digitalisation de la presse de *Gallica* (depuis 2006), de la plateforme de presse de la BnF *Retronews* et du projet *Europeana Newspapers* (2012-2015). La taille du corpus est de 10 637 numéros de journaux.
 
+![Fig. 1 — Tableau des journaux sélectionnés dans le corpus de presse et leurs caractéristiques](/images/blog/je2025/pia-de-ladoucette/fig1.png)
+
+![Fig. 2 — Chronologie des publications de journaux par année (1934-1944)](/images/blog/je2025/pia-de-ladoucette/fig2.png)
+
+![Fig. 3 — Nombre d'articles par mois et par journal (1934-1944)](/images/blog/je2025/pia-de-ladoucette/fig3.png)
+
 Le corpus a été prétraité en effectuant un nettoyage, une tokenization et une lemmatization. Les données ont également été séparées en 4 périodes temporelles afin de capturer les dynamiques.
 
 ## Approches computationnelles
@@ -46,13 +53,19 @@ Différentes approches computationnelles sont mobilisées :
 
 **Dynamic Topic Modeling (Latent Dirichlet Allocation)** : utilisé pour découvrir des thèmes latents dans le corpus à travers le temps.
 
+![Fig. 4 — Nuages de mots (1934-1936)](/images/blog/je2025/pia-de-ladoucette/fig4.png)
+
 **Analyse structurale de réseau** : employée pour visualiser des co-occurrences thématiques. Les nœuds sont des concepts clés dérivés des topics LDA et les liens représentent la co-occurrence d'idées entre les articles ou journaux. Les réseaux sont des réseaux non dirigés, illustrant l'intersection mutuelle des discours. Les liens sont pondérés par la force des co-occurrences.
+
+![Fig. 5 — Réseau de co-occurrence thématique par communautés (Louvain) — 1934-1936](/images/blog/je2025/pia-de-ladoucette/fig5.png)
 
 **Métriques mesurées** :
 
 - La centralité identifie les idées les plus influentes ou centrales
 - Le coefficient de clustering mesure les interconnexions locales et reflète les cohésions idéologiques
 - La modularité détecte des communautés thématiques ou des clusters idéologiques
+
+![Fig. 6 — Tableau comparatif des différentes métriques des réseaux de co-occurrence thématique par périodes temporelles](/images/blog/je2025/pia-de-ladoucette/fig6.png)
 
 ## Résultats par périodes temporelles
 
