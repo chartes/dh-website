@@ -2197,6 +2197,26 @@ table.programme-table {
     margin-bottom: 1rem;
   }
 
+  &__kind {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.28rem 0.65rem;
+    border-radius: 3px;
+    color: $pc-conference;
+    background: rgba($pc-conference, 0.1);
+
+    &--hackathon    { color: $pc-hackathon;    background: rgba($pc-hackathon, 0.12); }
+    &--conference   { color: $pc-formation;    background: rgba($pc-formation, 0.1); }
+    &--publication  { color: $pc-conference;   background: rgba($pc-conference, 0.1); }
+    &--papier       { color: $pc-papier;       background: rgba($pc-papier, 0.12); }
+    &--competition  { color: $pc-competition;  background: rgba($pc-competition, 0.12); }
+    &--compte-rendu { color: $pc-compte-rendu; background: rgba($pc-compte-rendu, 0.12); }
+  }
+
   &__acronym {
     display: inline-block;
     background: rgba($secondary-color, 0.1);

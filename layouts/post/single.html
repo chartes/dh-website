@@ -7,9 +7,9 @@
 
         <header class="actu-single__header">
           {{ $category := .Params.category | default "publication" }}
-          {{ $catKey := $category | lower | replaceRE "é" "e" }}
+          {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z0-9-]" "" }}
           <div class="actu-single__meta">
-            <span class="actu-card__kind actu-card__kind--{{ $catKey }}">{{ $category | humanize }}</span>
+            <span class="actu-single__kind actu-single__kind--{{ $catKey }}">{{ $category | humanize }}</span>
             {{ with .Params.acronym }}<span class="actu-single__acronym">{{ . }}</span>{{ end }}
             {{ with .Params.event_tag }}<span class="actu-single__event"><i class="ti-bookmark"></i> {{ . }}</span>{{ end }}
             <time class="actu-single__date">{{ .Date.Format "2 January 2006" }}</time>
