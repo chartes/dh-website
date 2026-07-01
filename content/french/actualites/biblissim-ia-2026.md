@@ -3,6 +3,7 @@ title: "Biblissim-IA 2026"
 date: 2026-06-16
 category: "Conférence"
 lieu: "Aubervilliers"
+pin_master: True
 external_url: "https://biblissim-ia-26.sciencesconf.org/"
 participants:
   - name: "Damien Conceicao"

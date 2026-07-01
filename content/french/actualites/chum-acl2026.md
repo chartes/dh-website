@@ -3,6 +3,7 @@ title: "Chum @ ACL 2026"
 date: 2026-07-03
 category: "Conférence"
 lieu: "Online"
+pin_master: True
 external_url: "https://chumweb.org/"
 participants:
   - name: "Yaelle Zribi"
