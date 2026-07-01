@@ -100,13 +100,14 @@
       {{ if not $category }}
         {{ if eq .Type "event" }}{{ $category = "conférence" }}{{ else }}{{ $category = "publication" }}{{ end }}
       {{ end }}
-      {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
+      {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z0-9-]" "" }}
       <div class="col-md-6 mb-4 d-flex">
         <article class="billet-card billet-card--{{ $catKey }}">
           <div class="billet-card__body">
             <div class="billet-card__meta">
               <span class="billet-card__type">{{ $category | humanize }}</span>
               {{ with .Params.acronym }}<span class="billet-card__acronym">{{ . }}</span>{{ end }}
+              {{ with .Params.event_tag }}<span class="billet-card__event"><i class="ti-bookmark"></i> {{ . }}</span>{{ end }}
               <span class="billet-card__date">{{ .Date.Format "2 January 2006" }}</span>
             </div>
             <h3 class="billet-card__title">

@@ -2208,6 +2208,23 @@ table.programme-table {
     border-radius: 2px;
   }
 
+  &__event {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: $text-color-light;
+    background: rgba($secondary-color, 0.07);
+    padding: 0.22rem 0.6rem;
+    border-radius: 2px;
+
+    i {
+      font-size: 0.8rem;
+      color: $secondary-color;
+    }
+  }
+
   &__date {
     color: $text-color-light;
     font-size: 0.85rem;
@@ -2551,6 +2568,7 @@ $pc-formation   : $secondary-color;        // bleu ENC
 $pc-hackathon   : #c47c1a;                 // ambre
 $pc-papier      : #1a6e62;                 // vert forêt
 $pc-competition : #b88a1c;                 // or / podium
+$pc-compte-rendu: #6b4c93;                 // violet doux — compte-rendu de poster
 
 .participation-card {
   border-radius: 8px;
@@ -2693,11 +2711,12 @@ $pc-competition : #b88a1c;                 // or / podium
     transform: translateY(-1px);
   }
 
-  &--hackathon   { border-top-color: $pc-hackathon; }
-  &--conference  { border-top-color: $pc-formation; }
-  &--publication { border-top-color: $pc-conference; }
-  &--papier      { border-top-color: $pc-papier; }
-  &--competition { border-top-color: $pc-competition; }
+  &--hackathon    { border-top-color: $pc-hackathon; }
+  &--conference   { border-top-color: $pc-formation; }
+  &--publication  { border-top-color: $pc-conference; }
+  &--papier       { border-top-color: $pc-papier; }
+  &--competition  { border-top-color: $pc-competition; }
+  &--compte-rendu { border-top-color: $pc-compte-rendu; }
 
   &__body {
     padding: 1.1rem 1.4rem 1rem;
@@ -2721,11 +2740,29 @@ $pc-competition : #b88a1c;                 // or / podium
     padding: 0.18rem 0.55rem;
     border-radius: 3px;
   }
-  &--hackathon   .billet-card__type { color: $pc-hackathon;   background: rgba($pc-hackathon, 0.12); }
-  &--conference  .billet-card__type { color: $pc-formation;   background: rgba($pc-formation, 0.1); }
-  &--publication .billet-card__type { color: $pc-conference;  background: rgba($pc-conference, 0.1); }
-  &--papier      .billet-card__type { color: $pc-papier;      background: rgba($pc-papier, 0.12); }
-  &--competition .billet-card__type { color: $pc-competition; background: rgba($pc-competition, 0.12); }
+  &--hackathon    .billet-card__type { color: $pc-hackathon;    background: rgba($pc-hackathon, 0.12); }
+  &--conference   .billet-card__type { color: $pc-formation;    background: rgba($pc-formation, 0.1); }
+  &--publication  .billet-card__type { color: $pc-conference;   background: rgba($pc-conference, 0.1); }
+  &--papier       .billet-card__type { color: $pc-papier;       background: rgba($pc-papier, 0.12); }
+  &--competition  .billet-card__type { color: $pc-competition;  background: rgba($pc-competition, 0.12); }
+  &--compte-rendu .billet-card__type { color: $pc-compte-rendu; background: rgba($pc-compte-rendu, 0.12); }
+
+  &__event {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: $text-color-light;
+    background: rgba($secondary-color, 0.07);
+    padding: 0.18rem 0.5rem;
+    border-radius: 3px;
+
+    i {
+      font-size: 0.75rem;
+      color: $secondary-color;
+    }
+  }
 
   &__acronym {
     font-family: $secondary-font;
