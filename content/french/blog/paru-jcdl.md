@@ -1,7 +1,7 @@
 ---
 title: "Un article paru dans les actes de JCDL 2025"
 date: 2025-12-04
-draft: false
+draft: true
 description: "Sortie d'un article co-écrit par l'équipe sur l'enrichissement automatique de notices catalographiques."
 
 category: "publication"
