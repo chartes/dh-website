@@ -1,98 +1,161 @@
 {{ define "main" }}
 
 {{/* Fil unique : billets (post) + conférences (event) + participations (actualites), triés par date desc. */}}
-{{ $posts         := where site.RegularPages "Type" "post" }}
-{{ $events        := where site.RegularPages "Type" "event" }}
+{{ $posts          := where site.RegularPages "Type" "post" }}
+{{ $events         := where site.RegularPages "Type" "event" }}
 {{ $participations := where site.RegularPages "Type" "actualites" }}
 {{ $items := $posts | union $events | union $participations }}
 {{ $items = $items.ByDate.Reverse }}
+
+{{/* Collecte des catégories présentes pour les chips de filtre. */}}
+{{ $categories := slice }}
+{{ range $items }}
+  {{ $cat := .Params.category }}
+  {{ if not $cat }}
+    {{ if eq .Type "event" }}{{ $cat = "conférence" }}{{ else }}{{ $cat = "publication" }}{{ end }}
+  {{ end }}
+  {{ $categories = $categories | append $cat }}
+{{ end }}
+{{ $categories = $categories | uniq | sort }}
 
 <section class="section">
   <div class="container">
 
     {{ with .Content }}
-    <div class="row mb-5">
+    <div class="row mb-4">
       <div class="col-lg-10 mx-auto actualites-intro">{{ . }}</div>
     </div>
     {{ end }}
 
     {{ if $items }}
-    <div class="row">
-      {{ range $items }}
 
-      {{ if .Params.participants }}
-      {{/* ── Card participation (pleine largeur) ── */}}
-      {{ $category := .Params.category | default "Conférence" }}
-      {{ $catKey   := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
-      <div class="col-md-6 mb-4 d-flex">
-        <article class="participation-card participation-card--{{ $catKey }}">
-          <div class="participation-card__header">
-            <span class="participation-card__type">{{ $category }}</span>
-            <span class="participation-card__date-lieu">
-              {{ .Date.Format "2 January 2006" }}
-              {{ with .Params.date_end }} – {{ (time .).Format "2 January 2006" }}{{ end }}
-              {{ with .Params.lieu }}<span class="participation-card__sep">·</span> {{ . }}{{ end }}
-            </span>
-          </div>
-          <div class="participation-card__body">
-            <h3 class="participation-card__title">
-              {{ if .Params.external_url }}
-              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
-              {{ else }}
-              <a href="{{ .Permalink }}">{{ .Title }}</a>
-              {{ end }}
-            </h3>
-            {{ with .Params.participants }}
-            <div class="participation-card__participants">
-              {{ range . }}
-              {{ $rk := .role | lower | replaceRE "[^a-z0-9]" "" }}
-              <span class="participation-card__chip participation-card__chip--{{ $rk }}">
-                {{ .name }}<em class="participation-card__chip-role">{{ .role }}</em>
-              </span>
-              {{ end }}
-            </div>
-            {{ end }}
-            {{ with .Content }}<p class="participation-card__summary">{{ . | plainify | truncate 220 }}</p>{{ end }}
-          </div>
-        </article>
-      </div>
-
-      {{ else }}
-      {{/* ── Card billet (pleine largeur, bande latérale) ── */}}
-      {{ $category := .Params.category }}
-      {{ if not $category }}
-        {{ if eq .Type "event" }}{{ $category = "conférence" }}{{ else }}{{ $category = "publication" }}{{ end }}
-      {{ end }}
-      {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z0-9-]" "" }}
-      <div class="col-md-6 mb-4 d-flex">
-        <article class="billet-card billet-card--{{ $catKey }}">
-          <div class="billet-card__body">
-            <div class="billet-card__meta">
-              <span class="billet-card__type">{{ $category | humanize }}</span>
-              {{ with .Params.acronym }}<span class="billet-card__acronym">{{ . }}</span>{{ end }}
-              {{ with .Params.event_tag }}<span class="billet-card__event"><i class="ti-bookmark"></i> {{ . }}</span>{{ end }}
-              <span class="billet-card__date">{{ .Date.Format "2 January 2006" }}</span>
-            </div>
-            <h3 class="billet-card__title">
-              {{ if .Params.external_url }}
-              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
-              {{ else }}
-              <a href="{{ .Permalink }}">{{ .Title }}</a>
-              {{ end }}
-            </h3>
-            {{ with .Content }}<p class="billet-card__summary">{{ . | plainify | truncate 240 }}</p>{{ end }}
-          </div>
-        </article>
-      </div>
-      {{ end }}
-
+    {{/* ── Barre de filtres cliquables ── */}}
+    {{ if gt (len $categories) 1 }}
+    <div class="actus-filters" role="tablist" aria-label="Filtrer par catégorie">
+      <button type="button" class="actus-filter is-active" data-filter="all">Toutes</button>
+      {{ range $categories }}
+      {{ $key := . | lower | replaceRE "[éêè]" "e" | replaceRE "[àâ]" "a" | replaceRE "[^a-z0-9-]" "" }}
+      <button type="button" class="actus-filter" data-filter="{{ $key }}">{{ . | humanize }}</button>
       {{ end }}
     </div>
+    {{ end }}
+
+    {{/* ── Groupement par année ── */}}
+    {{ range $items.GroupByDate "2006" }}
+    <div class="actus-year-block" data-year="{{ .Key }}">
+      <h2 class="actus-year">{{ .Key }}</h2>
+      <div class="row">
+        {{ range .Pages }}
+
+        {{ $category := .Params.category }}
+        {{ if not $category }}
+          {{ if eq .Type "event" }}{{ $category = "conférence" }}{{ else }}{{ $category = "publication" }}{{ end }}
+        {{ end }}
+        {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[àâ]" "a" | replaceRE "[^a-z0-9-]" "" }}
+
+        {{ if .Params.participants }}
+        {{/* Card participation */}}
+        <div class="col-md-6 mb-4 d-flex actus-item" data-category="{{ $catKey }}">
+          <article class="participation-card participation-card--{{ $catKey }}">
+            <div class="participation-card__header">
+              <span class="participation-card__type">{{ $category }}</span>
+              <span class="participation-card__date-lieu">
+                {{ .Date.Format "2 January 2006" }}
+                {{ with .Params.date_end }} – {{ (time .).Format "2 January 2006" }}{{ end }}
+                {{ with .Params.lieu }}<span class="participation-card__sep">·</span> {{ . }}{{ end }}
+              </span>
+            </div>
+            <div class="participation-card__body">
+              <h3 class="participation-card__title">
+                {{ if .Params.external_url }}
+                <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+                {{ else }}
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                {{ end }}
+              </h3>
+              {{ with .Params.participants }}
+              <div class="participation-card__participants">
+                {{ range . }}
+                {{ $rk := .role | lower | replaceRE "[^a-z0-9]" "" }}
+                <span class="participation-card__chip participation-card__chip--{{ $rk }}">
+                  {{ .name }}<em class="participation-card__chip-role">{{ .role }}</em>
+                </span>
+                {{ end }}
+              </div>
+              {{ end }}
+              {{ with .Content }}<p class="participation-card__summary">{{ . | plainify | truncate 220 }}</p>{{ end }}
+            </div>
+          </article>
+        </div>
+
+        {{ else }}
+        {{/* Card billet */}}
+        <div class="col-md-6 mb-4 d-flex actus-item" data-category="{{ $catKey }}">
+          <article class="billet-card billet-card--{{ $catKey }}">
+            <div class="billet-card__body">
+              <div class="billet-card__meta">
+                <span class="billet-card__type">{{ $category | humanize }}</span>
+                {{ with .Params.acronym }}<span class="billet-card__acronym">{{ . }}</span>{{ end }}
+                {{ with .Params.event_tag }}<span class="billet-card__event"><i class="ti-bookmark"></i> {{ . }}</span>{{ end }}
+                <span class="billet-card__date">{{ .Date.Format "2 January 2006" }}</span>
+              </div>
+              <h3 class="billet-card__title">
+                {{ if .Params.external_url }}
+                <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+                {{ else }}
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                {{ end }}
+              </h3>
+              {{ with .Content }}<p class="billet-card__summary">{{ . | plainify | truncate 240 }}</p>{{ end }}
+            </div>
+          </article>
+        </div>
+        {{ end }}
+
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <p class="actus-empty text-center text-muted" hidden>Aucune actualité ne correspond à ce filtre.</p>
+
     {{ else }}
     <p class="text-center text-muted">Aucune actualité pour le moment.</p>
     {{ end }}
 
   </div>
 </section>
+
+<script>
+(function() {
+  var filters = document.querySelectorAll('.actus-filter');
+  if (!filters.length) return;
+  var items = document.querySelectorAll('.actus-item');
+  var years = document.querySelectorAll('.actus-year-block');
+  var empty = document.querySelector('.actus-empty');
+
+  filters.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var filter = btn.getAttribute('data-filter');
+      filters.forEach(function(b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+
+      var visibleCount = 0;
+      items.forEach(function(item) {
+        var show = filter === 'all' || item.getAttribute('data-category') === filter;
+        item.hidden = !show;
+        if (show) visibleCount++;
+      });
+
+      years.forEach(function(year) {
+        var hasVisible = year.querySelector('.actus-item:not([hidden])');
+        year.hidden = !hasVisible;
+      });
+
+      if (empty) empty.hidden = visibleCount > 0;
+    });
+  });
+})();
+</script>
 
 {{ end }}
