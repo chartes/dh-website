@@ -2183,6 +2183,14 @@ table.programme-table {
   }
 }
 
+/* ── Palette catégories (partagée cards + single) ───────────── */
+$pc-conference  : $primary-color;          // bordeaux ENC
+$pc-formation   : $secondary-color;        // bleu ENC
+$pc-hackathon   : #c47c1a;                 // ambre
+$pc-papier      : #1a6e62;                 // vert forêt
+$pc-competition : #b88a1c;                 // or / podium
+$pc-compte-rendu: #6b4c93;                 // violet doux — compte-rendu de poster
+
 /* — Page single d'une actu (conférence / billet / hackathon) — */
 .actu-single {
   &__header {
@@ -2602,13 +2610,6 @@ table.programme-table {
 }
 
 /* ── Participation card (actualités) ───────────────────────── */
-$pc-conference  : $primary-color;          // bordeaux ENC
-$pc-formation   : $secondary-color;        // bleu ENC
-$pc-hackathon   : #c47c1a;                 // ambre
-$pc-papier      : #1a6e62;                 // vert forêt
-$pc-competition : #b88a1c;                 // or / podium
-$pc-compte-rendu: #6b4c93;                 // violet doux — compte-rendu de poster
-
 .participation-card {
   border-radius: 8px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.09);
