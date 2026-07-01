@@ -3403,8 +3403,13 @@ $pc-compte-rendu: #6b4c93;                 // violet doux — compte-rendu de po
 
 .actus-year-block {
   margin-bottom: 2.5rem;
+}
 
-  &[hidden] { display: none; }
+/* Override du display: flex !important de Bootstrap pour laisser `hidden` fonctionner */
+.actus-item[hidden],
+.actus-year-block[hidden],
+.actus-empty[hidden] {
+  display: none !important;
 }
 
 .actus-year {
