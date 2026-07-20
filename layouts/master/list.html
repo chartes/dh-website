@@ -93,6 +93,43 @@
   <div class="container">
     <h2 class="section-title mb-2">Programme</h2>
 
+    {{ with .Params.programme_commun }}
+    <div class="programme-commun mb-5">
+      <p class="mb-4 text-muted">Enseignements communs aux M1 et aux M2, non crédités en ECTS.</p>
+      {{ range . }}
+      <div class="programme-accordion__item mb-3">
+        <div class="programme-accordion__body">
+          <table class="programme-table">
+            <thead>
+              <tr>
+                <th>{{ .semestre }}</th>
+                <th>Langue</th>
+                <th>{{ .heures }}</th>
+                <th>{{ .ects }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ range .cours }}
+              <tr class="cours-row">
+                <td class="cours-name">{{ .name }}</td>
+                <td class="cours-lang">{{ .langue }}</td>
+                <td class="cours-h">{{ .heures }}</td>
+                <td class="cours-ects">{{ if .ects }}<strong>{{ .ects }}</strong>{{ end }}</td>
+              </tr>
+              {{ range .items }}
+              <tr class="sous-cours-row">
+                <td colspan="4"><em>{{ . }}</em></td>
+              </tr>
+              {{ end }}
+              {{ end }}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
     {{ if .Params.programme_m1 }}
     <div class="programme-tabs">
       <ul class="nav nav-pills programme-tabs__nav mb-4" id="programmeTabs" role="tablist">
