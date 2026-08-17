@@ -1,5 +1,6 @@
 ---
 title: "Emotion and expertise in disinformation discourses about climate change on french YouTube : automatic detection and linguistic analysis"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2025-06-27
 draft: false
 description: "Compte-rendu du lightning-talk M2 de Francesca Hemery par Nana Maglakelidze (M1) — analyse linguistique et TAL du discours climato-sceptique sur YouTube français, entre attrait émotionnel et pseudo-expertise."
@@ -12,7 +13,8 @@ image: "images/blog/je2025/francesca-hemery/fig1.png"
 type: "post"
 ---
 
-> Compte-rendu par **Nana Maglakelidze (M1)** du lightning-talk de **Francesca Hemery (M2)** présenté lors de la journée d'étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque *Bridging Computational Humanities and Computational Social Sciences* organisé par AISSAI — Marie Puren et Florian Cafiero — et l'ENC — Chahan Vidal-Gorène).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Nana Maglakelidze (M1)</strong> du lightning-talk de <strong>Francesca Hemery (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque <em>Bridging Computational Humanities and Computational Social Sciences</em> organisé par AISSAI — Marie Puren et Florian Cafiero — et l&rsquo;ENC — Chahan Vidal-Gorène).</p>
 
 Dans le cadre du séminaire de recherche du Master organisé à l'ENC le 27 juin 2025, Francesca Hemery a présenté son mémoire intitulé : « *Emotion and expertise in disinformation discourses about climate change on french YouTube : automatic detection and linguistic analysis* ». Francesca Hemery a fait un parcours universitaire en linguistique littérature française, avec notamment un master recherche à la Sorbonne Nouvelle Paris 3, où elle a fait de l'analyse du discours et de la stylistique.
 

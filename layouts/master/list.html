@@ -2,11 +2,13 @@
 
 <!-- hero -->
 <section class="hero-section overlay position-relative">
-  {{ partial "image.html" (dict "Src" .Params.hero_image "Alt" .Title "Class" "hero-bg-img") }}
+  {{/* Image d'ambiance du hero : décorative (l'alternative dupliquait le <h1>) — RGAA 1.2 */}}
+  {{ partial "image.html" (dict "Src" .Params.hero_image "Alt" "" "Class" "hero-bg-img") }}
   <div class="container position-relative" style="z-index: 2;">
     <div class="row">
       <div class="col-md-9 col-lg-8">
-        {{ with .Params.subtitle }}<h6 class="text-white font-secondary mb-3 text-uppercase">{{ . | markdownify }}</h6>{{ end }}
+        {{/* Sur-titre du hero : ce n'est pas un titre de section, il ne doit pas être un <hx> — RGAA 9.1 */}}
+        {{ with .Params.subtitle }}<p class="h6 text-white font-secondary mb-3 text-uppercase">{{ . | markdownify }}</p>{{ end }}
         <h1 class="text-white mb-4">{{ .Title }}</h1>
         {{ with .Params.hero_intro }}<p class="text-lighten mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .Params.hero_button.enable }}
@@ -37,7 +39,7 @@
         {{ with .Params.info }}
         <div class="master-info-card">
           <div class="master-info-card__header">
-            <i class="ti-info-alt"></i> Informations
+            <i class="ti-info-alt" aria-hidden="true"></i> Informations
           </div>
           <ul class="master-info-card__list">
             <li><span class="label">Type</span><span class="value">{{ .type }}</span></li>
@@ -47,7 +49,10 @@
             <li><span class="label">Programme gradué PSL</span><span class="value">{{ .programme_gradue }}</span></li>
             <li><span class="label">Alternance</span><span class="value">{{ .apprentissage }}</span></li>
             <li><span class="label">Responsable</span><span class="value">{{ .responsable }}</span></li>
-            <li><span class="label">Contact</span><span class="value"><a href="mailto:{{ .contact }}">{{ .contact }}</a></span></li>
+            {{/* Même protection contre le moissonnage que sur la page Accessibilité :
+                 l'adresse ne doit pas figurer d'un seul tenant dans le HTML servi.
+                 Cf. partials/mailto-protege.html. */}}
+            <li><span class="label">Contact</span><span class="value">{{ partial "mailto-protege.html" (dict "adresse" .contact) }}</span></li>
             <li><span class="label">Capacité</span><span class="value">{{ .capacite }}</span></li>
             <!-- <li><span class="label">Frais (init.)</span><span class="value">{{ .frais_init }}</span></li> -->
           </ul>
@@ -55,13 +60,28 @@
         {{ end }}
         {{ with .Params.documents }}
         <div class="master-docs mt-4">
-          <h5 class="master-docs__title">Documents utiles</h5>
+          <h3 class="master-docs__title">Documents utiles</h3>
+          {{/* RGAA 6.1 / 13.3 — tant que le PDF n'est pas déposé, `url` vaut « # » :
+               le lien n'a pas de destination, il recharge la page et se retrouve
+               annoncé comme lien par les technologies d'assistance. On ne rend donc
+               un <a> que si l'URL est réelle ; sinon le même bloc est rendu en
+               <span>, avec les mêmes classes — rendu strictement identique, mais
+               plus de lien mort ni d'arrêt de tabulation inutile. */}}
           {{ range . }}
-          <a href="{{ .url }}" class="master-docs__item">
-            <i class="ti-file"></i>
+          {{ $url := .url | default "" }}
+          {{ if and $url (ne $url "#") }}
+          <a href="{{ $url }}" class="master-docs__item">
+            <i class="ti-file" aria-hidden="true"></i>
             <span class="name">{{ .name }}</span>
             <span class="size">{{ .size }}</span>
           </a>
+          {{ else }}
+          <span class="master-docs__item">
+            <i class="ti-file" aria-hidden="true"></i>
+            <span class="name">{{ .name }}</span>
+            <span class="size">{{ .size }}</span>
+          </span>
+          {{ end }}
           {{ end }}
         </div>
         {{ end }}
@@ -78,9 +98,9 @@
     <div class="parcours-grid">
       {{ range . }}
       <div class="parcours-card{{ if .custom }} parcours-card--custom{{ end }}">
-        <h4 class="parcours-card__name">{{ .name }}</h4>
+        <h3 class="parcours-card__name">{{ .name }}</h3>
         <p class="parcours-card__content">{{ .content }}</p>
-        <p class="parcours-card__referent"><i class="ti-user"></i> {{ .referent }}</p>
+        <p class="parcours-card__referent"><i class="ti-user" aria-hidden="true"></i> {{ .referent }}</p>
       </div>
       {{ end }}
     </div>
@@ -98,14 +118,21 @@
       <p class="mb-4 text-muted">Enseignements communs aux M1 et aux M2, non crédités en ECTS.</p>
       {{ range . }}
       <div class="programme-accordion__item mb-3">
-        <div class="programme-accordion__body">
+        <div class="programme-accordion__body" tabindex="0" role="group" aria-label="Tableau des enseignements">
           <table class="programme-table">
+            <caption class="sr-only">{{ .semestre }}</caption>
+            {{/* Cette bande d'en-tête ne contient qu'un seul véritable en-tête de colonne
+                 (« Langue ») : les trois autres cellules portent des DONNÉES (intitulé du
+                 bloc, volume horaire total, ECTS totaux). Ce sont donc de vrais <td>
+                 (RGAA 5.3 / 5.6 / 8.2) — sans quoi un lecteur d'écran annoncerait
+                 « 30 h » comme en-tête de chaque ligne. Le rendu est inchangé : le
+                 sélecteur de `_typography.scss` couvre `thead th, thead td`. */}}
             <thead>
               <tr>
-                <th>{{ .semestre }}</th>
-                <th>Langue</th>
-                <th>{{ .heures }}</th>
-                <th>{{ .ects }}</th>
+                <td>{{ .semestre }}</td>
+                <th scope="col">Langue</th>
+                <td>{{ .heures }}</td>
+                <td>{{ .ects }}</td>
               </tr>
             </thead>
             <tbody>
@@ -132,19 +159,25 @@
 
     {{ if .Params.programme_m1 }}
     <div class="programme-tabs">
-      <ul class="nav nav-pills programme-tabs__nav mb-4" id="programmeTabs" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="m1-tab" data-toggle="tab" href="#m1" role="tab">Master 1</a>
+      {{/* Onglets — RGAA 7.1. Bootstrap 4 ne pose `aria-selected` qu'au premier clic et ne
+           pose jamais `aria-controls` : les deux sont écrits ici pour que l'état soit correct
+           dès le chargement. `role="presentation"` sur les <li> rétablit la relation
+           tablist → tab (un `listitem` intercalé la rompt).
+           Bootstrap 4 n'implémente pas la navigation aux flèches (ajoutée en BS5) ; les
+           onglets restent des liens, donc atteignables par Tab et activables par Entrée. */}}
+      <ul class="nav nav-pills programme-tabs__nav mb-4" id="programmeTabs" role="tablist" aria-label="Programme par année">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="m1-tab" data-toggle="tab" href="#m1" role="tab" aria-controls="m1" aria-selected="true">Master 1</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" id="m2-tab" data-toggle="tab" href="#m2" role="tab">Master 2</a>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="m2-tab" data-toggle="tab" href="#m2" role="tab" aria-controls="m2" aria-selected="false">Master 2</a>
         </li>
       </ul>
 
       <div class="tab-content" id="programmeTabContent">
 
         <!-- M1 -->
-        <div class="tab-pane fade show active" id="m1" role="tabpanel">
+        <div class="tab-pane fade show active" id="m1" role="tabpanel" aria-labelledby="m1-tab" tabindex="0">
           <p class="mb-4 text-muted">La première année combine un tronc commun (40 ECTS) centré sur la programmation, les méthodes quantitatives et le machine learning, et un programme individualisé (20 ECTS) adapté à la discipline de chaque étudiant. Une semaine intensive d'accueil est organisée en septembre.</p>
           <div class="accordion" id="accordionM1">
             {{ range $i, $sem := .Params.programme_m1 }}
@@ -156,15 +189,24 @@
                   aria-controls="m1collapse{{ $i }}">
                   <span class="sem-title">{{ $sem.semestre }}</span>
                   <span class="sem-meta">{{ $sem.heures }}{{ if and $sem.heures $sem.ects }} · {{ end }}{{ $sem.ects }}</span>
-                  <i class="ti-angle-down"></i>
+                  <i class="ti-angle-down" aria-hidden="true"></i>
                 </button>
               </div>
-              <div id="m1collapse{{ $i }}" class="collapse{{ if eq $i 0 }} show{{ end }}"
+              {{/* RGAA 7.1 — le panneau d'un accordéon doit être une région nommée :
+                   `aria-labelledby` seul, sur un <div>, ne produit aucun rôle. On passe
+                   par l'élément natif <section>, qui prend le rôle « region » dès qu'il a
+                   un nom accessible (« no ARIA is better than bad ARIA » ; un
+                   `role="region"` explicite déclencherait `prefer-native-element`, la même
+                   régression que celle corrigée en A10). <section> et <div> sont tous deux
+                   `display:block` et aucune règle CSS ne cible l'élément `section` :
+                   rendu strictement identique. */}}
+              <section id="m1collapse{{ $i }}" class="collapse{{ if eq $i 0 }} show{{ end }}"
                 aria-labelledby="m1heading{{ $i }}" data-parent="#accordionM1">
-                <div class="programme-accordion__body">
+                <div class="programme-accordion__body" tabindex="0" role="group" aria-label="Tableau des enseignements">
                   <table class="programme-table">
+                    <caption class="sr-only">Master 1 — {{ $sem.semestre }}</caption>
                     <thead>
-                      <tr><th>Enseignement</th><th>Langue</th><th>Heures</th><th>ECTS</th></tr>
+                      <tr><th scope="col">Enseignement</th><th scope="col">Langue</th><th scope="col">Heures</th><th scope="col">ECTS</th></tr>
                     </thead>
                     <tbody>
                       {{ range $sem.cours }}
@@ -183,14 +225,14 @@
                     </tbody>
                   </table>
                 </div>
-              </div>
+              </section>
             </div>
             {{ end }}
           </div>
         </div>
 
         <!-- M2 -->
-        <div class="tab-pane fade" id="m2" role="tabpanel">
+        <div class="tab-pane fade" id="m2" role="tabpanel" aria-labelledby="m2-tab" tabindex="0">
           <p class="mb-4 text-muted">La deuxième année prolonge le tronc commun de M1 et est validée pour un tiers par un mémoire de recherche co-dirigé. Le M2 est ouvert à l'apprentissage (jeudis et vendredis à l'École).</p>
           <div class="accordion" id="accordionM2">
             {{ range $i, $sem := .Params.programme_m2 }}
@@ -202,15 +244,17 @@
                   aria-controls="m2collapse{{ $i }}">
                   <span class="sem-title">{{ $sem.semestre }}</span>
                   <span class="sem-meta">{{ $sem.heures }}{{ if and $sem.heures $sem.ects }} · {{ end }}{{ $sem.ects }}</span>
-                  <i class="ti-angle-down"></i>
+                  <i class="ti-angle-down" aria-hidden="true"></i>
                 </button>
               </div>
-              <div id="m2collapse{{ $i }}" class="collapse{{ if eq $i 0 }} show{{ end }}"
+              {{/* RGAA 7.1 — cf. commentaire du panneau M1. */}}
+              <section id="m2collapse{{ $i }}" class="collapse{{ if eq $i 0 }} show{{ end }}"
                 aria-labelledby="m2heading{{ $i }}" data-parent="#accordionM2">
-                <div class="programme-accordion__body">
+                <div class="programme-accordion__body" tabindex="0" role="group" aria-label="Tableau des enseignements">
                   <table class="programme-table">
+                    <caption class="sr-only">Master 2 — {{ $sem.semestre }}</caption>
                     <thead>
-                      <tr><th>Enseignement</th><th>Langue</th><th>Heures</th><th>ECTS</th></tr>
+                      <tr><th scope="col">Enseignement</th><th scope="col">Langue</th><th scope="col">Heures</th><th scope="col">ECTS</th></tr>
                     </thead>
                     <tbody>
                       {{ range $sem.cours }}
@@ -229,7 +273,7 @@
                     </tbody>
                   </table>
                 </div>
-              </div>
+              </section>
             </div>
             {{ end }}
           </div>
@@ -256,56 +300,56 @@
 
       <!-- Pré-rentrée commune -->
       <div class="phase-divider">
-        <div class="phase-divider__badge"><i class="ti-flag-alt"></i> Semaine de pré-rentrée — M1 &amp; M2</div>
+        <div class="phase-divider__badge"><i class="ti-flag-alt" aria-hidden="true"></i> Semaine de pré-rentrée — M1 &amp; M2</div>
       </div>
 
       <!-- S1 / S3 -->
       <div class="phase-row">
         <div class="phase-card phase-card--m1">
           <p class="phase-card__meta"><span class="phase-card__year">M1</span> Oct — Déc</p>
-          <h5 class="phase-card__title">Initiation &amp; fondamentaux</h5>
+          <h3 class="phase-card__title">Initiation &amp; fondamentaux</h3>
           <p class="phase-card__desc">Prise en main des méthodes computationnelles, machine learning appliqué aux SHS, et maturation du projet de recherche.</p>
         </div>
         <div class="phase-card phase-card--m2">
           <p class="phase-card__meta"><span class="phase-card__year">M2</span> Oct — Déc</p>
-          <h5 class="phase-card__title">Spécialisation &amp; définition du corpus</h5>
+          <h3 class="phase-card__title">Spécialisation &amp; définition du corpus</h3>
           <p class="phase-card__desc">Approfondissement de la spécialisation disciplinaire, stage en laboratoire et construction du corpus du mémoire.</p>
         </div>
       </div>
 
       <!-- Hackathon commun -->
       <div class="phase-divider">
-        <div class="phase-divider__badge"><i class="ti-cup"></i> Semaine hackathon données — M1 &amp; M2</div>
+        <div class="phase-divider__badge"><i class="ti-cup" aria-hidden="true"></i> Semaine hackathon données — M1 &amp; M2</div>
       </div>
 
       <!-- S2 / S4 -->
       <div class="phase-row">
         <div class="phase-card phase-card--m1">
           <p class="phase-card__meta"><span class="phase-card__year">M1</span> Fév — Mai</p>
-          <h5 class="phase-card__title">Approfondissement &amp; mini-mémoire</h5>
+          <h3 class="phase-card__title">Approfondissement &amp; mini-mémoire</h3>
           <p class="phase-card__desc">Programmation avancée, IA et grands modèles de langue. Rédaction et soutenance du mini-mémoire de recherche.</p>
         </div>
         <div class="phase-card phase-card--m2">
           <p class="phase-card__meta"><span class="phase-card__year">M2</span> Fév — Mai</p>
-          <h5 class="phase-card__title">Rédaction du mémoire</h5>
+          <h3 class="phase-card__title">Rédaction du mémoire</h3>
           <p class="phase-card__desc">Rédaction du mémoire de recherche mobilisant méthodes computationnelles et expertise disciplinaire.</p>
         </div>
       </div>
 
       <!-- Conférence commune -->
       <div class="phase-divider">
-        <div class="phase-divider__badge"><i class="ti-microphone"></i> Conférence du master — M1 &amp; M2</div>
+        <div class="phase-divider__badge"><i class="ti-microphone" aria-hidden="true"></i> Conférence du master — M1 &amp; M2</div>
       </div>
 
       <!-- Rendus -->
       <div class="phase-row">
         <div class="phase-card phase-card--m1 phase-card--rendu">
           <p class="phase-card__meta"><span class="phase-card__year">M1</span> Juin</p>
-          <h5 class="phase-card__title">Rendu du mini-mémoire</h5>
+          <h3 class="phase-card__title">Rendu du mini-mémoire</h3>
         </div>
         <div class="phase-card phase-card--m2 phase-card--rendu">
           <p class="phase-card__meta"><span class="phase-card__year">M2</span> Juin</p>
-          <h5 class="phase-card__title">Rendu &amp; soutenance du mémoire</h5>
+          <h3 class="phase-card__title">Rendu &amp; soutenance du mémoire</h3>
         </div>
       </div>
 
@@ -325,7 +369,7 @@
           {{ partial "image.html" (dict "Src" .image "Alt" (.image_alt | default .title) "Class" "img-fluid w-100") }}
           {{ else }}
           <div class="hackathons-section__placeholder" aria-hidden="true">
-            <i class="ti-cup"></i>
+            <i class="ti-cup" aria-hidden="true"></i>
             <span>Visuel à venir</span>
           </div>
           {{ end }}
@@ -357,8 +401,8 @@
       {{ range . }}
       <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
         <div class="debouche-card">
-          <i class="{{ .icon }} debouche-card__icon"></i>
-          <h5 class="debouche-card__title">{{ .title }}</h5>
+          <i class="{{ .icon }} debouche-card__icon" aria-hidden="true"></i>
+          <h3 class="debouche-card__title">{{ .title }}</h3>
           <p class="debouche-card__content">{{ .content }}</p>
         </div>
       </div>
@@ -380,13 +424,13 @@
       <div class="col-lg-5 mb-5 mb-lg-0">
 
         <!-- rythme par phase -->
-        <h4 class="admission-subtitle">Rythme d'alternance</h4>
+        <h3 class="admission-subtitle">Rythme d'alternance</h3>
         <div class="phase-timeline mt-3">
 
           <div class="phase-row">
             <div class="phase-card phase-card--m2">
               <p class="phase-card__meta">Oct — Déc</p>
-              <h5 class="phase-card__title">2j entreprise · 3j master</h5>
+              <h4 class="phase-card__title">2j entreprise · 3j master</h4>
               <p class="phase-card__desc">Lundi–mardi en entreprise, mercredi–vendredi à l'École.</p>
               <div class="rythme-mini">
                 <div class="rythme-mini__day rythme-mini__day--e">Lun</div>
@@ -398,7 +442,7 @@
             </div>
             <div class="phase-card phase-card--m2">
               <p class="phase-card__meta">Jan — Mar</p>
-              <h5 class="phase-card__title">3j entreprise · 2j master</h5>
+              <h4 class="phase-card__title">3j entreprise · 2j master</h4>
               <p class="phase-card__desc">Lundi–mercredi en entreprise, jeudi–vendredi à l'École.</p>
               <div class="rythme-mini">
                 <div class="rythme-mini__day rythme-mini__day--e">Lun</div>
@@ -411,7 +455,7 @@
           </div>
 
           <div class="phase-divider">
-            <div class="phase-divider__badge"><i class="ti-cup"></i> Hackathon données — janvier</div>
+            <div class="phase-divider__badge"><i class="ti-cup" aria-hidden="true"></i> Hackathon données — janvier</div>
           </div>
 
           <div class="phase-solo phase-solo--full">
@@ -420,17 +464,17 @@
           </div>
 
           <div class="phase-divider">
-            <div class="phase-divider__badge"><i class="ti-microphone"></i> Conférence du master — mai</div>
+            <div class="phase-divider__badge"><i class="ti-microphone" aria-hidden="true"></i> Conférence du master — mai</div>
           </div>
 
         </div>
 
         <div class="apprentissage-note mt-3">
-          <i class="ti-info-alt"></i>
+          <i class="ti-info-alt" aria-hidden="true"></i>
           <p>Le calendrier et les rendus peuvent être affinés au cas par cas selon le projet de recherche de l'étudiant et les besoins de l'entreprise ou de l'institution d'accueil.</p>
         </div>
 
-        <h4 class="admission-subtitle mt-4">Tarifs</h4>
+        <h3 class="admission-subtitle mt-4">Tarifs</h3>
         <div class="apprentissage-tarifs">
           {{ range .tarifs }}
           <div class="apprentissage-tarif">
@@ -451,12 +495,12 @@
 
       <!-- colonne droite : compétences -->
       <div class="col-lg-6 offset-lg-1">
-        <h4 class="admission-subtitle">Compétences mobilisables</h4>
+        <h3 class="admission-subtitle">Compétences mobilisables</h3>
         <p class="text-muted mb-4" style="font-size:0.9rem;">Les étudiants en alternance peuvent être mobilisés sur les missions suivantes :</p>
         <div class="competences-grid">
           {{ range .competences }}
           <div class="competence-item">
-            <i class="{{ .icon }} competence-item__icon"></i>
+            <i class="{{ .icon }} competence-item__icon" aria-hidden="true"></i>
             <div>
               <p class="competence-item__label">{{ .label }}</p>
               <p class="competence-item__detail">{{ .detail }}</p>
@@ -479,18 +523,20 @@
     <div class="row align-items-center">
       <div class="col-md-4 mb-4 mb-md-0 text-center">
         {{ if .logo }}
+        {{/* Le lien n'a que l'image pour contenu : son alternative doit décrire la
+             destination, pas le fichier — RGAA 6.1 / 1.1 */}}
         <a href="{{ .url }}" target="_blank" rel="noopener" class="junior-logo-link">
-          {{ partial "image.html" (dict "Src" .logo "Alt" "Logo Junior Entreprise" "Class" "junior-logo") }}
+          {{ partial "image.html" (dict "Src" .logo "Alt" "Site de la junior-entreprise du master" "Class" "junior-logo") }}<span class="sr-only"> (nouvelle fenêtre)</span>
         </a>
         {{ else }}
-        <div class="junior-logo-placeholder"><i class="ti-id-badge"></i></div>
+        <div class="junior-logo-placeholder"><i class="ti-id-badge" aria-hidden="true"></i></div>
         {{ end }}
       </div>
       <div class="col-md-8">
         <div class="junior-content">{{ .content | markdownify }}</div>
         {{ with .url }}
         <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-outline-primary mt-3">
-          {{ $.Params.junior_entreprise.cta | default "En savoir plus" }} →
+          {{ $.Params.junior_entreprise.cta | default "En savoir plus" }} →<span class="sr-only"> (nouvelle fenêtre)</span>
         </a>
         {{ end }}
       </div>
@@ -508,7 +554,7 @@
     <div class="row">
       <!-- calendrier -->
       <div class="col-lg-5 mb-5 mb-lg-0">
-        <h4 class="admission-subtitle">Calendrier 2026</h4>
+        <h3 class="admission-subtitle">Calendrier 2026</h3>
         <div class="timeline-admission">
           {{ range .calendrier }}
           <div class="timeline-admission__step">
@@ -521,21 +567,21 @@
           {{ end }}
         </div>
         <div class="admission-cta mt-4">
-          <a href="{{ .m1_url }}" class="btn btn-primary btn-sm mr-2" target="_blank" rel="noopener">Candidater en M1</a>
-          <a href="{{ .m2_url }}" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener">Candidater en M2</a>
+          <a href="{{ .m1_url }}" class="btn btn-primary btn-sm mr-2" target="_blank" rel="noopener">Candidater en M1<span class="sr-only"> (nouvelle fenêtre)</span></a>
+          <a href="{{ .m2_url }}" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener">Candidater en M2<span class="sr-only"> (nouvelle fenêtre)</span></a>
         </div>
       </div>
       <!-- conditions + frais -->
       <div class="col-lg-6 offset-lg-1">
-        <h4 class="admission-subtitle">Conditions d'accès</h4>
+        <h3 class="admission-subtitle">Conditions d'accès</h3>
         <p>Le master s'adresse aux titulaires d'une licence/CPES en Humanités (Histoire, Philologie, Sciences du langage, MIASHS, Philosophie, Anthropologie, Lettres-Info, etc.). Si aucun pré-requis en maths-info n'est exigé, une familiarisation et une vraie appétence est demandée (rythme soutenu du tronc commun numérique). La langue d'enseignement est le <strong>français (C1)</strong>. Une entrée directe en M2 est possible pour les titulaires d'un M1 avec des bases solides en programmation et un projet de recherche déjà clair.</p>
-        <h4 class="admission-subtitle mt-4">Pièces justificatives</h4>
+        <h3 class="admission-subtitle mt-4">Pièces justificatives</h3>
         <ul class="admission-list">
           <li>CV en français, diplômes, relevés de notes (S1–S6), lettre de motivation</li>
           <li><strong>En M1 :</strong> questionnaire de recherche (disponible sur MonMaster)</li>
           <li><strong>En M2 :</strong> projet de recherche détaillé</li>
         </ul>
-        <h4 class="admission-subtitle mt-4">Frais d'inscription</h4>
+        <h3 class="admission-subtitle mt-4">Frais d'inscription</h3>
         <div class="frais-grid">
           <div class="frais-item"><span class="frais-label">Formation initiale</span><span class="frais-value">254 € + CVEC 105 €</span></div>
           <div class="frais-item"><span class="frais-label">Année de césure</span><span class="frais-value">166 €</span></div>
@@ -561,9 +607,11 @@
         <a href="{{ .Permalink }}" class="person-card person-card--link">
           <div class="person-card__photo">
             {{ if .Params.image }}
-            {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "person-card__img") }}
+            {{/* Le nom est déjà repris en texte dans .person-card__name : la photo est
+                 décorative dans ce lien, sinon l'intitulé est doublé — RGAA 1.2 / 6.1 */}}
+            {{ partial "image.html" (dict "Src" .Params.image "Alt" "" "Class" "person-card__img") }}
             {{ else }}
-            <div class="person-card__placeholder"><i class="ti-user"></i></div>
+            <div class="person-card__placeholder"><i class="ti-user" aria-hidden="true"></i></div>
             {{ end }}
           </div>
           <div class="person-card__info">
@@ -582,22 +630,27 @@
 <section class="section">
   <div class="container">
     <h2 class="section-title mb-5">Partenariats</h2>
+    {{/* RGAA 9.1 — ces titres suivent un <h2> : leur niveau réel est 3.
+         Le style les concernant ciblait l'élément `h5` (`.partenaire-card { h5 { … } }`),
+         ce qui figeait leur niveau sémantique. Le sélecteur a été ouvert à une classe
+         dans assets/scss/_typography.scss : le titre est désormais un vrai <h3>,
+         avec exactement la même mise en forme (0,95 rem, bleu, marge basse 0,6 rem). */}}
     <div class="row">
       <div class="col-md-4 mb-4 mb-md-0">
         <div class="partenaire-card">
-          <h5>Double diplôme — Université de Pise</h5>
-          <p>Issu de la convention entre l'ENC–PSL et l'Université de Pise, dont le master <em>Informatica Umanistica</em> recourt aux mêmes approches sur quatre parcours comparables.</p>
+          <h3 class="partenaire-card__title">Double diplôme — Université de Pise</h3>
+          <p>Issu de la convention entre l'ENC–PSL et l'Université de Pise, dont le master <em lang="it">Informatica Umanistica</em> recourt aux mêmes approches sur quatre parcours comparables.</p>
         </div>
       </div>
       <div class="col-md-4 mb-4 mb-md-0">
         <div class="partenaire-card">
-          <h5>PSL Sustainability Science</h5>
+          <h3 class="partenaire-card__title">PSL Sustainability Science</h3>
           <p>Le master est partenaire de cette formation PSL. Informations et inscriptions spécifiques sur le site de PSL.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="partenaire-card">
-          <h5>Erasmus-Socrates</h5>
+          <h3 class="partenaire-card__title">Erasmus-Socrates</h3>
           <p>La formation est ouverte à la mobilité internationale. Contacter le service des relations internationales de l'ENC–PSL.</p>
         </div>
       </div>
@@ -612,7 +665,7 @@
     <div class="d-flex align-items-center section-title justify-content-between mb-5">
       <h2 class="mb-0 text-nowrap mr-3">Mémoires de master</h2>
       <div class="border-top w-100 border-primary d-none d-sm-block"></div>
-      <a href="https://dumas.ccsd.cnrs.fr/MEM-ENC/search/index/?q=%2A&dumas_degreeReference_s=347" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir plus de mémoires</a>
+      <a href="https://dumas.ccsd.cnrs.fr/MEM-ENC/search/index/?q=%2A&dumas_degreeReference_s=347" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir plus de mémoires<span class="sr-only"> (nouvelle fenêtre)</span></a>
     </div>
 
     {{ with try (resources.GetRemote $dumasURL) }}
@@ -637,17 +690,20 @@
             <a href="{{ .uri_s }}" target="_blank" rel="noopener" class="memoire-card">
               <div class="memoire-card__media">
                 {{ if $thumb }}
-                <img src="{{ $thumb }}" alt="Couverture du mémoire" class="memoire-card__img" loading="lazy" onerror="this.classList.add('memoire-card__img--missing')">
+                {{/* La carte entière est le lien ; son intitulé est déjà donné par le titre
+                     et les auteurs du mémoire, juste en dessous. La vignette est donc
+                     décorative : une alternative la ferait doubler — RGAA 1.2 / 6.1 */}}
+                <img src="{{ $thumb }}" alt="" class="memoire-card__img" loading="lazy" onerror="this.classList.add('memoire-card__img--missing')">
                 {{ end }}
                 <div class="memoire-card__placeholder" aria-hidden="true">
-                  <i class="ti-book"></i>
+                  <i class="ti-book" aria-hidden="true"></i>
                 </div>
                 <span class="memoire-card__kind">Mémoire</span>
               </div>
               <div class="memoire-card__body">
                 <p class="memoire-card__title">{{ $title }}</p>
                 <p class="memoire-card__meta">{{ $authors }}{{ with $year }} · {{ . }}{{ end }}</p>
-              </div>
+              </div><span class="sr-only"> (nouvelle fenêtre)</span>
             </a>
           </div>
           {{ end }}
@@ -667,7 +723,7 @@
       <div class="border-top w-100 border-primary d-none d-sm-block"></div>
       <a href="{{ `actualites/` | relLangURL }}" class="btn btn-sm btn-outline-primary ml-sm-3 text-nowrap d-none d-sm-block">Voir les actualités</a>
     </div>
-    <p class="mb-5 text-muted">Les étudiants du master participent à compétitions internationales (ou <i>shared tasks</i> en TAL et vision par ordinateur, dans le cadre de la validation de cours ou d'intiatives personnelles, avec quelques succès.</p>
+    <p class="mb-5 text-muted">Les étudiants du master participent à compétitions internationales (ou <i lang="en">shared tasks</i> en TAL et vision par ordinateur, dans le cadre de la validation de cours ou d'intiatives personnelles, avec quelques succès.</p>
     <div class="row">
       {{ range . }}
       <div class="col-md-6 mb-4 d-flex">
@@ -691,7 +747,7 @@
             {{ with .repo_url }}
             <div class="competition-card__footer">
               <a href="{{ . }}" target="_blank" rel="noopener" class="competition-card__link">
-                <i class="ti-github" aria-hidden="true"></i> Code et résultats →
+                <i class="ti-github" aria-hidden="true"></i> Code et résultats →<span class="sr-only"> (nouvelle fenêtre)</span>
               </a>
             </div>
             {{ end }}
@@ -720,12 +776,14 @@
         <a href="{{ .url }}" target="_blank" rel="noopener" class="student-project-card">
           <div class="student-project-card__media">
             {{ if .image }}
-            <img src="{{ .image }}" alt="{{ .title }}" class="student-project-card__img" loading="lazy">
+            {{/* Le titre du projet est repris en texte juste en dessous : la vignette est
+                 redondante, donc décorative — RGAA 1.2 */}}
+            <img src="{{ .image }}" alt="" class="student-project-card__img" loading="lazy">
             {{ else }}
-            <div class="student-project-card__placeholder"><i class="ti-github"></i></div>
+            <div class="student-project-card__placeholder"><i class="ti-github" aria-hidden="true"></i></div>
             {{ end }}
           </div>
-          <p class="student-project-card__title">{{ .title }}</p>
+          <p class="student-project-card__title">{{ .title }}</p><span class="sr-only"> (nouvelle fenêtre)</span>
         </a>
       </div>
       {{ end }}
@@ -776,7 +834,7 @@
           <div class="participation-card__body">
             <h3 class="participation-card__title">
               {{ if .Params.external_url }}
-              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
               {{ else }}
               <a href="{{ .Permalink }}">{{ .Title }}</a>
               {{ end }}
@@ -808,12 +866,12 @@
             <div class="billet-card__meta">
               <span class="billet-card__type">{{ $category | humanize }}</span>
               {{ with .Params.acronym }}<span class="billet-card__acronym">{{ . }}</span>{{ end }}
-              {{ with .Params.event_tag }}<span class="billet-card__event"><i class="ti-bookmark"></i> {{ . }}</span>{{ end }}
+              {{ with .Params.event_tag }}<span class="billet-card__event"><i class="ti-bookmark" aria-hidden="true"></i> {{ . }}</span>{{ end }}
               <span class="billet-card__date">{{ .Date.Format "2 January 2006" }}</span>
             </div>
             <h3 class="billet-card__title">
               {{ if .Params.external_url }}
-              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
               {{ else }}
               <a href="{{ .Permalink }}">{{ .Title }}</a>
               {{ end }}

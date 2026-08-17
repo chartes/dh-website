@@ -1,0 +1,577 @@
+// =====================================================================
+//  Accessibilité — RGAA 4.1.2 / WCAG 2.1 AA
+//  Chargé EN DERNIER par assets/scss/main.scss (cf. commentaire d'en-tête
+//  de ce fichier) afin de gagner la cascade face aux feuilles du thème.
+//
+//  Règle de travail : rien ici ne doit modifier le rendu au repos.
+//  Les deux seules exceptions, explicitement signalées, sont en fin de
+//  fichier (§ 6 et § 7) — elles sont imposées par les critères 10.6 et 3.3,
+//  qui ne peuvent pas être satisfaits à rendu constant.
+// =====================================================================
+
+
+// ---------------------------------------------------------------------
+// 1. Contenu réservé aux technologies d'assistance
+//    Bootstrap 4 fournit `.sr-only`, mais sa version en `position:absolute`
+//    se comporte mal sur <caption> dans certains moteurs de rendu :
+//    on redéclare explicitement, en dernier, la version robuste.
+// ---------------------------------------------------------------------
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Variante utilisable sur <caption> : ne sort pas du flux, mais reste
+// invisible. `position:absolute` sur un caption casse la mise en page
+// du tableau dans WebKit.
+// ⚠ Cette règle complète `.sr-only`, elle ne la remplace pas : il faut bien
+// écrire `<caption class="sr-only">`. C'est le `padding: 0 !important` de
+// `.sr-only` qui neutralise le `caption { padding: .75rem 0 }` du reboot
+// Bootstrap — sans lui, chaque tableau gagnerait 25 px de hauteur.
+caption.sr-only {
+  position: static !important;
+  display: block;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+}
+
+
+// ---------------------------------------------------------------------
+// 2. RGAA 12.7 — lien d'accès rapide au contenu
+//    Hors du flux tant qu'il n'a pas le focus : invisible à la souris,
+//    donc aucun impact sur le design.
+// ---------------------------------------------------------------------
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 2000; // au-dessus de .fixed-top (z-index Bootstrap : 1030)
+  padding: 0.75rem 1.25rem;
+  background: #ffffff;
+  color: #00445e;
+  font-weight: 600;
+  text-decoration: underline;
+  border-radius: 0 0 4px 4px;
+  transition: none;
+
+  &:focus {
+    top: 0;
+    color: #00445e;
+    outline: 3px solid #bc052d;
+    outline-offset: 2px;
+  }
+}
+
+// <main tabindex="-1"> reçoit le focus après activation du lien d'évitement.
+// On ne veut pas d'anneau autour de toute la page pour autant.
+main:focus {
+  outline: none;
+}
+
+
+// ---------------------------------------------------------------------
+// 3. RGAA 10.7 + 3.3 — visibilité de la prise de focus
+//
+//    Le thème pose `outline: 0` sur a / button / select (_common.scss:47-56,
+//    _buttons.scss:28-36, _slider.scss:19-21 & 59-61) et le projet fait de
+//    même sur .programme-accordion__btn (_typography.scss:332).
+//    Résultat mesuré : six familles de composants sans aucune indication de
+//    focus. On restaure un anneau via :focus-visible — donc visible au
+//    clavier uniquement, jamais à la souris.
+//
+//    Contrastes vérifiés (seuil WCAG 1.4.11 : 3:1) :
+//      #bc052d sur #ffffff .................. 6,57:1
+//      #bc052d sur #f5f2ef (.bg-gray) ....... 6,20:1
+//      #ffffff sur #00445e (nav, pied) ..... 10,56:1
+//      #ffffff sur #bc052d (nav défilée) .... 6,57:1
+// ---------------------------------------------------------------------
+%a11y-focus-ring {
+  outline: 3px solid #bc052d;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible,
+.btn:focus-visible,
+.programme-accordion__btn:focus-visible,
+.actus-filter:focus-visible,
+.programme-tabs__nav .nav-link:focus-visible,
+.publications-search:focus-visible {
+  @extend %a11y-focus-ring;
+}
+
+// Fonds foncés : anneau clair, sinon le rouge ne se détache pas du bleu nuit.
+.navigation a:focus-visible,
+.navbar-nav .nav-link:focus-visible,
+.navbar-brand:focus-visible,
+.navbar-toggler:focus-visible,
+.bg-footer a:focus-visible,
+.footer a:focus-visible,
+.copyright a:focus-visible,
+.hero-section a:focus-visible,
+.page-title-section a:focus-visible {
+  outline-color: #ffffff;
+}
+
+// Bootstrap déclare `.form-control:focus { outline: 0 }` (spécificité 0,2,0),
+// qui bat `input:focus-visible` (0,2,0 mais déclaré avant) : sans cette règle,
+// les champs du formulaire de contact restent sans aucun indicateur de focus.
+.form-control:focus-visible {
+  outline: 3px solid #bc052d !important;
+  outline-offset: 2px;
+}
+
+// Navigateurs sans :focus-visible (Safari < 15.4) — repli sur :focus.
+// L'interpolation est nécessaire : libsass, utilisé par Hugo pour `toCSS`,
+// ne sait pas analyser `@supports not selector(...)` et échouerait à la compilation.
+@supports #{"not selector(:focus-visible)"} {
+  a:focus,
+  button:focus,
+  select:focus,
+  input:focus,
+  textarea:focus,
+  .programme-accordion__btn:focus,
+  .actus-filter:focus {
+    outline: 3px solid #bc052d;
+    outline-offset: 2px;
+  }
+
+  .navigation a:focus,
+  .navbar-nav .nav-link:focus,
+  .footer a:focus,
+  .copyright a:focus {
+    outline-color: #ffffff;
+  }
+}
+
+
+// ---------------------------------------------------------------------
+// 4. RGAA 3.2 — contrastes de texte (seuil 4,5:1, ou 3:1 ≥ 24 px / ≥ 18,5 px gras)
+//    Ratios mesurés sur le CSS compilé, fonds résolus par la cascade réelle.
+//    Couleurs corrigées calculées en OKLCh : teinte et chroma conservées,
+//    seule la clarté est abaissée, pour la dérive perceptuelle minimale.
+// ---------------------------------------------------------------------
+
+// 4.a — .text-muted : le thème écrase le gris Bootstrap (#6c757d, 4,68:1)
+//       par #b5b5b7 → 2,05:1 sur blanc et 1,84:1 sur .bg-gray.
+//       #6f6f70 satisfait les deux fonds (4,86:1 et 4,50:1).
+.text-muted {
+  color: #6f6f70 !important;
+}
+
+// 4.b — Pied de page (fond #00445e, et #14536b pour le bloc « Entreprises »).
+//       #8996a7 donnait 3,51:1 sur le bleu nuit et 2,82:1 sur le bloc CTA.
+.footer a,
+.copyright p,
+.copyright {
+  color: #b1bfd0; // 5,49:1 sur #00445e — 4,53:1 sur #14536b
+}
+
+.footer-platform-desc {
+  // Deux pièges superposés ici, l'un après l'autre :
+  //  1. le thème pose `rgba(255,255,255,.55) !important` (main.css:1281) — sans
+  //     `!important` de notre côté, le correctif est silencieusement annulé ;
+  //  2. le parent `.footer-platform-link` porte `opacity: .8`, qui COMPOSE la
+  //     couleur avec le fond. Le seuil doit donc être calculé sur la couleur
+  //     rendue, pas sur la valeur déclarée : #90afbb, pourtant à 4,52:1 « sur le
+  //     papier », ne donnait que 3,47:1 à l'écran sur 200 occurrences / 100 pages.
+  // #b0d2df composé à 80 % sur #00445e donne #8db6c5, soit 4,84:1 réels.
+  // (#a7cbd9 passait tout juste, à 4,519 pour un seuil de 4,5 : trop peu de marge
+  //  pour survivre à un futur ajustement de la teinte du pied de page.)
+  color: #b0d2df !important;
+}
+
+// 4.c — Chapeau du hero sur photo. Le voile .overlay::before (bleu, 80 %)
+//       laisse passer les zones claires de banniere.jpg : pire cas mesuré
+//       sur l'image réelle = fond #33697e, où #d6d6e0 tombait à 4,18:1.
+.text-lighten {
+  color: #dedee8 !important; // 4,50:1 au pire cas
+}
+
+// 4.d — Aplats cyan issus de `lighten($secondary-color, 60%)`.
+//       lighten() conserve la saturation HSL et produit un cyan vif (#91e1ff)
+//       sur lequel le gris de texte ne passe plus. On assombrit le texte,
+//       et uniquement dans ces variantes : la dérive est 3 à 5 fois moindre
+//       qu'en éclaircissant l'aplat.
+.programme-accordion__btn:not(.collapsed) .sem-meta {
+  color: #5e5d5d; // 4,51:1 sur #91e1ff
+}
+
+.frais-item--intl .frais-label {
+  color: #5f5f5f; // 4,51:1 sur #9be3ff
+}
+
+.phase-solo--full .phase-solo__label {
+  color: #5e5d5d; // 4,51:1 sur #91e1ff
+}
+
+// 4.e — Sélection de texte : 4,45:1, il manquait 0,05.
+::selection {
+  background: #e00534; // 4,95:1 avec le blanc
+  color: #ffffff;
+}
+
+
+// ---------------------------------------------------------------------
+// 5. Préférence « animations réduites » (WCAG 2.3.3, préventif)
+//    Le CSS du projet ne prenait pas en compte prefers-reduced-motion
+//    alors qu'il déclare de nombreuses transitions et transformations.
+// ---------------------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+// =====================================================================
+//  À PARTIR D'ICI : les deux seuls correctifs qui modifient le rendu.
+//  Ils sont isolés pour pouvoir être retirés d'un bloc si la maîtrise
+//  d'ouvrage préfère assumer la non-conformité correspondante.
+// =====================================================================
+
+
+// ---------------------------------------------------------------------
+// 6. RGAA 10.6 — les liens en corps de texte doivent être distinguables
+//    autrement que par la couleur.
+//    Le thème pose `a, a:hover, a:focus { text-decoration: none }`.
+//    Contrastes lien/texte environnant mesurés :
+//      #bc052d vs #333333 ... 1,92:1   (seuil : 3:1)
+//      #bc052d vs #1a1a1a ... 2,65:1
+//      #bc052d vs #6b6b6b ... 1,23:1
+//    Aucune couleur de lien conforme à la charte n'atteint 3:1 : le
+//    soulignement est la seule issue. Il est limité au corps de texte —
+//    la navigation, les cartes, les boutons et les listes de liens restent
+//    identifiables par leur contexte et ne sont pas touchés.
+//
+//    → POUR REVENIR EN ARRIÈRE : supprimer ce bloc (critère 10.6 non conforme).
+// ---------------------------------------------------------------------
+.content p > a:not(.btn),
+.content li > a:not(.btn),
+.hackathons-section__content a:not(.btn),
+.junior-content a:not(.btn),
+.entreprise-intro a:not(.btn) {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+
+// ---------------------------------------------------------------------
+// 7. RGAA 3.3 — contraste des composants d'interface (seuil 3:1).
+//    Quatre composants ne sont identifiables que par une bordure gris très
+//    clair sur fond blanc. Ratios mesurés :
+//      .form-control ........ #ced4da / #ffffff ... 1,49:1
+//      .publications-search . #e3e3e3 / #ffffff ... 1,28:1
+//      .actus-filter ........ #dcdcdc / #ffffff ... 1,37:1
+//      .phase-solo__year .... #45cbff / #a0e5ff ... 1,35:1
+//    Correction scopée : on ne touche PAS à $border-color globalement, qui
+//    sert de séparateur décoratif partout ailleurs (les séparateurs purement
+//    décoratifs sont hors du champ de 3.3).
+//
+//    → POUR REVENIR EN ARRIÈRE : supprimer ce bloc (critère 3.3 non conforme).
+// ---------------------------------------------------------------------
+.form-control {
+  border-color: #878d92; // 3,00:1 sur blanc
+}
+
+.publications-search {
+  border-color: #8c8c8c; // 3,00:1 sur blanc
+}
+
+.actus-filter {
+  border-color: #8c8c8c; // 3,00:1 sur blanc
+}
+
+.phase-solo__year {
+  border-color: #0085b6; // 3,00:1 sur #a0e5ff
+}
+
+
+// ---------------------------------------------------------------------
+// 8. Plan du site et liens obligatoires du pied de page
+//    Ces deux pages n'existaient pas ; le style reprend celui du contenu
+//    courant pour ne pas introduire de nouvelle identité visuelle.
+// ---------------------------------------------------------------------
+.plan-site,
+.plan-site__sub {
+  list-style: none;
+  padding-left: 0;
+}
+
+.plan-site > li {
+  margin-bottom: 1.25rem;
+
+  > a {
+    font-weight: 600;
+  }
+}
+
+.plan-site__sub {
+  margin: 0.4rem 0 0 1.25rem;
+  border-left: 2px solid #e3e3e3;
+  padding-left: 1rem;
+
+  li {
+    margin-bottom: 0.2rem;
+    font-size: 0.92rem;
+  }
+}
+
+.plan-site__label {
+  color: #6f6f70; // 4,86:1 sur blanc
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+}
+
+// Liens obligatoires ajoutés à la ligne de copyright : même graisse et même
+// taille que le texte qui les précède, seule la couleur les distingue —
+// ils sont soulignés pour rester conformes à 10.6 sur fond foncé.
+.copyright-links {
+  a {
+    color: #b1bfd0; // 5,49:1 sur #00445e
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+}
+
+// ---------------------------------------------------------------------
+// 9. RGAA 7.1 / 10.13 — sous-menus (préventif)
+//    Le thème n'ouvre .dropdown-menu qu'au :hover. Aucun sous-menu n'est
+//    configuré aujourd'hui, mais le jour où il y en aura un il serait
+//    inaccessible au clavier. :focus-within corrige par anticipation.
+// ---------------------------------------------------------------------
+.navbar .dropdown:focus-within .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+
+// ---------------------------------------------------------------------
+// 10. Classes miroir de titre appliquées à un élément non-titre
+//     RGAA 9.1 impose de ne pas utiliser un <hN> pour du texte qui n'est
+//     pas un titre : le sur-titre du hero, jusqu'ici en <h6>, est devenu
+//     <p class="h6">. Or _typography.scss ne pose `font-weight: 600` que
+//     sur les ÉLÉMENTS h1–h6 ; sur un <p>, c'est le `font-weight: 500` de
+//     Bootstrap qui l'emporte. On restaure la graisse pour que le rendu
+//     soit strictement identique à celui d'avant la correction.
+//     Portée volontairement limitée à <p> : les <hN class="hM"> posés
+//     ailleurs héritent déjà de 600 par leur élément.
+// ---------------------------------------------------------------------
+// La classe (spécificité 0,1,0) bat le sélecteur d'élément `h1…h6` (0,0,1) de
+// _typography.scss : un <h2 class="h4"> prenait donc le `font-weight: 500` de
+// Bootstrap au lieu du 600 du thème. Mesuré en contre-audit : 413 titres sur
+// 100 pages. La règle s'applique aux classes elles-mêmes, pas seulement à <p>.
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: 600;
+}
+
+// Sur un élément non-titre, il faut en plus rétablir l'interligne : <p> hérite
+// du 1.7 du <body> là où les éléments h1…h6 sont à 1.2 (~8 px de hauteur en plus).
+p.h1,
+p.h2,
+p.h3,
+p.h4,
+p.h5,
+p.h6 {
+  line-height: 1.2;
+}
+
+
+// ---------------------------------------------------------------------
+// 11. RGAA 3.2 — `<code>` en ligne
+//     Bootstrap 4 déclare `code { color: #e83e8c }`, soit 3,82:1 sur blanc
+//     pour un seuil de 4,5:1. Assombrissement minimal à teinte constante.
+// ---------------------------------------------------------------------
+code {
+  color: #e21b77; // 4,51:1 sur #ffffff — était #e83e8c à 3,82:1
+}
+
+
+// ---------------------------------------------------------------------
+// 12. RGAA 10.11 / WCAG 1.4.10 — pas de défilement horizontal à 320 px
+//
+//     Mesure (Chromium, 27 pages, `body{overflow-x:hidden}` neutralisé,
+//     `document.documentElement.scrollWidth` vs `clientWidth`) :
+//       master ........ 333 px   (.phase-divider__badge, 302 px, nowrap)
+//       evenements .... 493 px   (.je-edition__btn, 478 px, .btn{nowrap})
+//       journee-etude . 493 px   (idem)
+//       blog .......... 373 px   (ul.pagination, 8 items sur une ligne)
+//       entreprises ... 360 px   (.entreprises-voie__cta, 319 px, nowrap)
+//     `body { overflow-x: hidden }` (main.css:3049) masquait le symptôme :
+//     il supprime la barre de défilement, pas le débordement.
+//
+//     Toutes les règles sont sous `max-width` : au-dessus du point de
+//     rupture elles n'existent pas. Vérifié par comparaison de géométrie
+//     (x, y, largeur, hauteur, font-size, display de CHAQUE élément) à
+//     576, 768, 992 et 1 200 px sur les 27 pages : 0 écart sur 15 215
+//     éléments à 1 200 px, 0 écart aux trois autres largeurs.
+//
+//     → Sous 576 px le rendu change, c'est l'objet même du correctif :
+//       les libellés trop longs passent à la ligne au lieu de sortir de
+//       l'écran. POUR REVENIR EN ARRIÈRE : supprimer ce bloc.
+// ---------------------------------------------------------------------
+@media (max-width: 575.98px) {
+  // Bootstrap 4 pose `white-space: nowrap` sur .btn (_buttons.scss) : un
+  // intitulé long produit un bouton plus large que l'écran. Le retour à la
+  // ligne ne se déclenche que si le bouton ne tient pas — les autres sont
+  // inchangés au pixel (vérifié : seule la valeur calculée de `white-space`
+  // change, jamais la géométrie).
+  .btn {
+    white-space: normal;
+    max-width: 100%;
+  }
+
+  // Pagination : .pagination est un conteneur flex sans retour à la ligne.
+  // Avec 8 items (« ‹‹ ‹ 1 2 3 4 › ›› ») la barre atteint 373 px.
+  .pagination {
+    flex-wrap: wrap;
+    row-gap: 0.5rem; // sans effet tant que la pagination tient sur une ligne
+  }
+
+  // Pastille de séparation de la frise du master : `white-space: nowrap`
+  // (_typography.scss) + `min-width: auto` hérité du contexte flex.
+  .phase-divider__badge {
+    white-space: normal;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+// Logo du bandeau. `_typography.scss` impose `height: 60px !important` et
+// `max-width: none !important` : à 320 px le logo mesure 372 px et la mention
+// « Université PSL » est coupée par le bord de l'écran sur les 27 pages.
+// Le débordement n'apparaît pas dans `scrollWidth` (l'en-tête est
+// `position: fixed`, il ne crée pas de zone défilable) — d'où son absence
+// des relevés automatiques.
+// `object-fit: contain` est déjà déclaré sur cette image : en bornant la
+// largeur, l'image se réduit DANS une boîte qui reste haute de 60 px, donc
+// la hauteur du bandeau ne bouge pas (mesuré : 124 px avant et après).
+// La règle est inerte dès que le logo tient (≥ 460 px environ).
+@media (max-width: 991.98px) {
+  .navbar-brand {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .navbar-brand img {
+    max-width: 100% !important; // neutralise le `max-width: none !important`
+  }
+}
+
+
+// ---------------------------------------------------------------------
+// 13. RGAA 10.12 / WCAG 1.4.12 — espacement du texte
+//
+//     Deux titres de carte sont tronqués par `-webkit-line-clamp: 3`
+//     (_typography.scss:2188 et :2544). Mesure sur les 27 pages, avant :
+//       au repos ......................... 4 titres coupés à 1 200 px
+//                                          (6 à 320 px)
+//       avec le CSS d'espacement WCAG .... 6 titres coupés à 1 200 px
+//       (line-height:1.5 / letter-spacing:.12em / word-spacing:.16em /
+//        margin-bottom:2em sur les <p>)     (7 à 320 px)
+//     Pire cas mesuré : .memoire-card__title clientHeight 68 px pour
+//     scrollHeight 114 px, soit deux lignes de titre perdues.
+//
+//     Il n'y a pas de `height` fixe à convertir en `min-height` : la
+//     troncature vient uniquement du clamp. On le retire ; la carte grandit
+//     au lieu de couper. Les titres qui tenaient déjà en trois lignes ne
+//     bougent pas.
+//
+//     Alignement de la grille vérifié à 1 200 px : les trois `.memoire-card`
+//     de la rangée grandissent ensemble (575,09 → 595,61 px — `height: 100%`
+//     joue son rôle), et les vignettes des `.student-project-card` restent
+//     toutes à la même ordonnée. Hauteur totale de /master/ : +54 px
+//     (13 990 → 14 044 px, soit +0,4 %).
+//
+//     → Changement de rendu au repos, limité à 4 titres de la page /master/.
+//       POUR REVENIR EN ARRIÈRE : supprimer ce bloc (critère 10.12 NC).
+// ---------------------------------------------------------------------
+.memoire-card__title,
+.student-project-card__title {
+  display: block;
+  -webkit-line-clamp: none;
+  overflow: visible;
+}
+
+// 13.b — Second volet de 10.12 : le débordement HORIZONTAL provoqué par
+//        `letter-spacing: .12em` et `word-spacing: .16em`. Mesuré à 320 px
+//        sous le CSS d'espacement, avant correction :
+//          /master/ ................. page à 351 px (h2 `.text-nowrap`
+//                                     de .section-title, 336 px)
+//          .master-info-card ........ 308 px dans 290 → « Translitteræ »
+//                                     amputé de 18 px
+//          .programme-accordion__item 300 px dans 288 → chevron coupé
+//          /developpements/ ......... h1 du bandeau, texte à 383 px dans 290
+//          /actualites/acqua-2026/ .. h1 du bandeau, 398 px dans 320
+//        Ces quatre règles ne produisent aucun effet tant que le texte tient
+//        dans sa boîte : `overflow-wrap: break-word` ne coupe que le mot qui
+//        déborderait déjà, `flex-shrink`/`min-width` ne jouent que sur un
+//        conteneur flex saturé, et le titre de section ne se replie que si la
+//        ligne est trop longue. Vérifié : 0 écart de géométrie au repos sur
+//        les 27 pages à 320, 576, 768, 992 et 1 200 px.
+h1, h2, h3, h4, h5, h6,
+p, li, dd, dt, td, th,
+figcaption,
+.btn {
+  overflow-wrap: break-word;
+}
+
+// « ≈ 100 h · 20 ECTS » en `nowrap` repoussait le chevron hors de l'entête.
+.programme-accordion__btn .sem-meta {
+  white-space: normal;
+}
+
+@media (max-width: 575.98px) {
+  // Colonne d'intitulés de la carte « Informations » : `flex-shrink: 0` +
+  // `min-width: auto` sur la valeur = aucun des deux ne peut céder.
+  // Le `min-width: 110px` de l'intitulé reste le plancher.
+  // ⚠ Volontairement borné à 576 px : sans borne, la règle se déclenche aussi
+  //   à 992 px, où l'adresse de contact déborde DÉJÀ au repos (voir le rapport,
+  //   défaut résiduel n° 3) et passerait alors sur deux lignes — ce serait un
+  //   changement de rendu de bureau non demandé.
+  .master-info-card__list {
+    .label { flex-shrink: 1; }
+    .value { min-width: 0; }
+  }
+
+  // `.text-nowrap` (utilitaire Bootstrap, `!important`) est posé dans le gabarit
+  // sur les titres de section. Sous 576 px et avec l'espacement WCAG, la ligne
+  // atteint 336 px pour 290 px disponibles : on autorise le repli.
+  .section-title h2 {
+    white-space: normal !important;
+  }
+}

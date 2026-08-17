@@ -7,8 +7,8 @@
 
         <!-- logo + adresse -->
         <div class="col-lg-5 col-sm-12 mb-5 mb-lg-0">
-          <a class="logo-footer" href="{{ site.BaseURL | relLangURL }}">
-            {{ partial "image.html" (dict "Src" site.Params.logo "Alt" site.Title "Class" "img-fluid mb-4") }}
+          <a class="logo-footer" href="{{ site.BaseURL | relLangURL }}" aria-label="{{ site.Title }} — retour à l’accueil">
+            {{ partial "image.html" (dict "Src" site.Params.logo "Alt" "" "Class" "img-fluid mb-4") }}
           </a>
           <p class="text-white">
             Humanités numériques<br>
@@ -19,24 +19,28 @@
 
         <!-- plateformes open source -->
         <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
-          <h4 class="text-white mb-4 text-uppercase">Open Science</h4>
+          {{/* RGAA 9.1 — le pied de page suit un <h1> ; un <h4> créerait un saut
+               de niveau. La classe .h4 conserve exactement la même taille. */}}
+          <h2 class="h4 text-white mb-4 text-uppercase">Open Science</h2>
           <div class="footer-platforms">
             {{ with site.Params.github_url }}
             <a href="{{ . }}" target="_blank" rel="noopener" class="footer-platform-link">
-              <img src="{{ `images/logos/github.svg` | relURL }}" alt="GitHub" class="footer-platform-logo footer-platform-logo--light">
+              <img src="{{ `images/logos/github.svg` | relURL }}" alt="" class="footer-platform-logo footer-platform-logo--light">
               <div>
                 <p class="footer-platform-name">GitHub</p>
                 <p class="footer-platform-desc">Code, outils et pipelines</p>
               </div>
+              <span class="sr-only"> (nouvelle fenêtre)</span>
             </a>
             {{ end }}
             {{ with site.Params.huggingface_url }}
             <a href="{{ . }}" target="_blank" rel="noopener" class="footer-platform-link">
-              <img src="{{ `images/logos/huggingface.svg` | relURL }}" alt="HuggingFace" class="footer-platform-logo">
+              <img src="{{ `images/logos/huggingface.svg` | relURL }}" alt="" class="footer-platform-logo">
               <div>
                 <p class="footer-platform-name">HuggingFace Hub</p>
                 <p class="footer-platform-desc">Modèles et jeux de données</p>
               </div>
+              <span class="sr-only"> (nouvelle fenêtre)</span>
             </a>
             {{ end }}
           </div>
@@ -44,11 +48,11 @@
 
         <!-- entreprises & partenaires -->
         <div class="col-lg-3 col-sm-6 mb-5 mb-lg-0">
-          <h4 class="text-white mb-4 text-uppercase">Entreprises</h4>
+          <h2 class="h4 text-white mb-4 text-uppercase">Entreprises</h2>
           <div class="footer-entreprises">
             <p class="footer-entreprises__desc">Stages, apprentissage, mécénat : plusieurs voies pour collaborer avec le master et soutenir la formation.</p>
             <a href="{{ `entreprises/` | relLangURL }}" class="footer-entreprises__cta">
-              <i class="ti-briefcase"></i> Découvrir →
+              <i class="ti-briefcase" aria-hidden="true"></i> Découvrir<span class="sr-only"> la page Entreprises et partenaires</span> →
             </a>
           </div>
         </div>
@@ -66,7 +70,7 @@
           {{ partial "image.html" (dict "Src" "images/Logo-chartes+PSL-coul_0.png" "Alt" "École nationale des chartes – PSL" "Class" "footer-partners__img") }}
           {{ partial "image.html" (dict "Src" "images/logo_ens_psl_en_png.png" "Alt" "École normale supérieure – PSL" "Class" "footer-partners__img") }}
           {{ partial "image.html" (dict "Src" "images/logo-ephe-psl.png" "Alt" "École pratique des hautes études – PSL" "Class" "footer-partners__img") }}
-          {{ partial "image.html" (dict "Src" "images/Logo_EHESS_2021.svg.png" "Alt" "EHESS" "Class" "footer-partners__img") }}
+          {{ partial "image.html" (dict "Src" "images/Logo_EHESS_2021.svg.png" "Alt" "École des hautes études en sciences sociales" "Class" "footer-partners__img") }}
         </div>
       </div>
     </div>
@@ -78,18 +82,31 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-8 text-md-left text-center">
-          <p class="mb-0">{{ site.Params.copyright | markdownify }}</p>
+          <p class="mb-0">
+            {{ site.Params.copyright | markdownify }}
+            {{/* Mentions obligatoires — décret n° 2019-768 du 24 juillet 2019 :
+                 la mention de conformité doit figurer en page d'accueil, et la page
+                 « Accessibilité » être atteignable depuis n'importe quelle page.
+                 RGAA 12.1 — le plan du site constitue le second système de navigation. */}}
+            <span class="copyright-links">
+              <a href="{{ `accessibilite/` | relLangURL }}">Accessibilité&nbsp;: {{ site.Params.accessibility.level | default "non conforme" }}</a>
+              <span aria-hidden="true"> · </span>
+              <a href="{{ `plan-du-site/` | relLangURL }}">Plan du site</a>
+            </span>
+          </p>
         </div>
         <div class="col-md-4 text-md-right text-center mt-3 mt-md-0">
           <div class="footer-copyright-logos">
             {{ with site.Params.github_url }}
-            <a href="{{ . }}" target="_blank" rel="noopener" aria-label="GitHub" class="footer-copyright-logo-link">
-              <img src="{{ `images/logos/github.svg` | relURL }}" alt="GitHub" class="footer-copyright-logo footer-copyright-logo--light">
+            <a href="{{ . }}" target="_blank" rel="noopener" class="footer-copyright-logo-link">
+              <img src="{{ `images/logos/github.svg` | relURL }}" alt="" class="footer-copyright-logo footer-copyright-logo--light">
+              <span class="sr-only">GitHub (nouvelle fenêtre)</span>
             </a>
             {{ end }}
             {{ with site.Params.huggingface_url }}
-            <a href="{{ . }}" target="_blank" rel="noopener" aria-label="HuggingFace" class="footer-copyright-logo-link">
-              <img src="{{ `images/logos/huggingface.svg` | relURL }}" alt="HuggingFace" class="footer-copyright-logo">
+            <a href="{{ . }}" target="_blank" rel="noopener" class="footer-copyright-logo-link">
+              <img src="{{ `images/logos/huggingface.svg` | relURL }}" alt="" class="footer-copyright-logo">
+              <span class="sr-only">HuggingFace (nouvelle fenêtre)</span>
             </a>
             {{ end }}
           </div>

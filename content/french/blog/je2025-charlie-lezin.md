@@ -1,5 +1,6 @@
 ---
 title: "Analyzing Electoral Manifesto Discourse: The Case of Legislative Elections in Two French Départements, 1958–1986"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2025-06-27
 draft: false
 description: "Compte-rendu du lightning-talk M2 de Charlie Lezin par Damien Conceicao (M1) — analyse du degré de personnalisation du discours dans les professions de foi des candidats aux législatives en Eure-et-Loir et Loir-et-Cher."
@@ -12,7 +13,8 @@ image: "images/blog/je2025/charlie-lezin/fig1.png"
 type: "post"
 ---
 
-> Compte-rendu par **Damien Conceicao (M1)** du lightning-talk de **Charlie Lezin (M2)** présenté lors de la journée d'étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque *Bridging Computational Humanities and Computational Social Sciences* organisé par AISSAI — Marie Puren et Florian Cafiero — et l'ENC — Chahan Vidal-Gorène).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Damien Conceicao (M1)</strong> du lightning-talk de <strong>Charlie Lezin (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque <em>Bridging Computational Humanities and Computational Social Sciences</em> organisé par AISSAI — Marie Puren et Florian Cafiero — et l&rsquo;ENC — Chahan Vidal-Gorène).</p>
 
 Dans son mémoire « *Analyzing Electoral Manifesto Discourse: The Case of Legislative Elections in Two French Départements, 1958–1986* », Charlie se propose d'étudier le discours des candidats dans les professions de foi avec un focus sur le degré de personnalisation du discours.
 

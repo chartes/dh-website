@@ -13,8 +13,11 @@
             {{ with .Params.acronym }}<span class="actu-single__acronym">{{ . }}</span>{{ end }}
             <time class="actu-single__date">{{ .Date.Format "2 January 2006" }}</time>
           </div>
-          <h1 class="actu-single__title">{{ .Title }}</h1>
-          {{ with .Params.location }}<p class="actu-single__location"><i class="ti-location-pin"></i> {{ . }}</p>{{ end }}
+          {{/* RGAA 9.1 : le <h1> de la page est déjà émis par la bannière (partials/page-header.html).
+               La classe BEM fixe la taille, le rendu est inchangé.
+               RGAA 8.7 : `lang` posé seulement si le frontmatter le déclare (pas de devinette). */}}
+          <h2 class="actu-single__title"{{ with .Params.title_lang }} lang="{{ . }}"{{ end }}>{{ .Title }}</h2>
+          {{ with .Params.location }}<p class="actu-single__location"><i class="ti-location-pin" aria-hidden="true"></i> {{ . }}</p>{{ end }}
         </header>
 
         <div class="actu-single__content content">
@@ -23,8 +26,9 @@
 
         {{ with .Params.external_url }}
         <p class="actu-single__external">
+          {{/* RGAA 6.1 / 13.2 : intitulé complété hors contexte, ouverture signalée. */}}
           <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-outline-primary">
-            <i class="ti-link"></i> Plus d'informations
+            <i class="ti-link" aria-hidden="true"></i> Plus d'informations<span class="sr-only"> sur « {{ $.Title }} » (nouvelle fenêtre)</span>
           </a>
         </p>
         {{ end }}

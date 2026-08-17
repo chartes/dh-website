@@ -1,5 +1,6 @@
 ---
 title: "From Paper to Porcelain : Pattern Books and the Diffusion of Islamic Art Models in French Ceramic Design during the Industrial Age"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2025-06-27
 draft: false
 description: "Compte-rendu du lightning-talk M2 d'Albina Toumarkine par Martin Houllier et Quanwen Long (M1) — vision par ordinateur appliquée à la circulation des motifs d'art islamique dans la céramique française du XIXe siècle."
@@ -12,7 +13,8 @@ image: "images/blog/je2025/albina-toumarkine/fig1.jpeg"
 type: "post"
 ---
 
-> Compte-rendu par **Martin Houllier et Quanwen Long (M1)** du lightning-talk de **Albina Toumarkine (M2)** présenté lors de la journée d'étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque *Bridging Computational Humanities and Computational Social Sciences* organisé par AISSAI — Marie Puren et Florian Cafiero — et l'ENC — Chahan Vidal-Gorène).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Martin Houllier et Quanwen Long (M1)</strong> du lightning-talk de <strong>Albina Toumarkine (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque <em>Bridging Computational Humanities and Computational Social Sciences</em> organisé par AISSAI — Marie Puren et Florian Cafiero — et l&rsquo;ENC — Chahan Vidal-Gorène).</p>
 
 La séance du 27 juin 2025 du séminaire du master nous a permis d'assister à une présentation d'Albina Toumarkine, portant sur la circulation des motifs d'art islamique dans la production de céramique, faïence en France au XIXe siècle.
 

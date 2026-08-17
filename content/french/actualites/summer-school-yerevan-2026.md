@@ -1,5 +1,6 @@
 ---
 title: "Digital Humanities, Under-Resourced Languages and Armenian"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2026-07-06
 date_end: "2026-07-10"
 category: "Formation"

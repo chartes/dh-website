@@ -3,12 +3,19 @@
 {{ if ne .Section "master" }}
 <section class="page-title-section overlay position-relative">
   {{/* Bannière unique pour tout le site (cf. homepage). On ignore .Params.Bg_image
-       qui resterait sur d'anciennes images de placeholder dans certains _index.md. */}}
-  {{ partial "image.html" (dict "Src" "images/banniere.jpg" "Alt" .Title "Class" "hero-bg-img") }}
+       qui resterait sur d'anciennes images de placeholder dans certains _index.md.
+       RGAA 1.2 — image d'ambiance : son alternative dupliquait le <h1> juste en
+       dessous, ce qui la rendait porteuse d'une information redondante. Alt "". */}}
+  {{ partial "image.html" (dict "Src" "images/banniere.jpg" "Alt" "" "Class" "hero-bg-img") }}
   <div class="container position-relative" style="z-index: 2;">
     <div class="row">
       <div class="col-md-9 col-lg-8">
-        <h1 class="text-white mb-3">{{ .Title }}</h1>
+        {{/* RGAA 8.7 — plusieurs billets ont un titre anglais alors que leur corps
+             est en français : le frontmatter porte alors `title_lang: "en"`.
+             RGAA 8.6 — la page 404 de Hugo a un titre anglais codé en dur. */}}
+        <h1 class="text-white mb-3"{{ with .Params.title_lang }} lang="{{ . }}"{{ end }}>
+          {{- if eq .Kind "404" }}Page introuvable{{ else }}{{ .Title }}{{ end -}}
+        </h1>
         {{ with .Params.Description }}<p class="text-lighten mb-0">{{ . | markdownify }}</p>{{ end }}
       </div>
     </div>

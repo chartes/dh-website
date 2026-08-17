@@ -10,7 +10,9 @@
     {{ if .image }}
     <div class="col-lg-5 order-lg-2 mb-4 mb-lg-0">
       <div class="je-edition__media">
-        {{ partial "image.html" (dict "Src" .image "Alt" (.image_alt | default .title) "Class" "img-fluid w-100") }}
+        {{/* RGAA 1.2 — illustration décorative : le titre, les dates et le lieu
+             de l'édition sont donnés en texte juste à côté. */}}
+        {{ partial "image.html" (dict "Src" .image "Alt" "" "Class" "img-fluid w-100") }}
       </div>
     </div>
     <div class="col-lg-7 order-lg-1">
@@ -57,7 +59,7 @@
 
       {{ if .external_url }}
       <a href="{{ .external_url }}" target="_blank" rel="noopener" class="btn btn-primary je-edition__btn">
-        {{ .external_label | default "Voir le site de l'évènement" }} →
+        {{ .external_label | default "Voir le site de l'évènement" }}<span class="sr-only"> : {{ .title }}</span> <span aria-hidden="true">→</span><span class="sr-only"> (nouvelle fenêtre)</span>
       </a>
       {{ end }}
     </div>

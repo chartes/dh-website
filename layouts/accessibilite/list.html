@@ -1,0 +1,22 @@
+{{/* Page « Accessibilité » — déclaration d'accessibilité RGAA.
+
+     Obligation : décret n° 2019-768 du 24 juillet 2019, art. 4 — la déclaration
+     est publiée sur une page dédiée, atteignable depuis la page d'accueil et
+     depuis n'importe quelle page du site (lien posé dans partials/footer.html).
+
+     Le gabarit reste volontairement minimal : tout le contenu éditorial vit dans
+     content/french/accessibilite/_index.md, pour rester modifiable sans toucher
+     au code. Le <h1> est fourni par partials/page-header.html via le baseof. */}}
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="content accessibilite">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

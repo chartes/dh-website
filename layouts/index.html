@@ -2,15 +2,17 @@
 
 <!-- hero -->
 <section class="hero-section overlay position-relative">
-  {{ partial "image.html" (dict "Src" .Params.hero_image "Alt" .Title "Class" "hero-bg-img") }}
+  {{/* RGAA 1.2 : image d'ambiance, l'alternative dupliquait le <h1> juste en dessous. */}}
+  {{ partial "image.html" (dict "Src" .Params.hero_image "Alt" "" "Class" "hero-bg-img") }}
   <div class="container position-relative" style="z-index: 2;">
     <div class="row">
       <div class="col-md-9 col-lg-8">
-        {{ with .Params.subtitle }}<h6 class="text-white font-secondary mb-3 text-uppercase">{{ . | markdownify }}</h6>{{ end }}
+        {{/* RGAA 9.1 : sur-titre placé avant le <h1>, ce n'est pas un titre → <p> + classe miroir. */}}
+        {{ with .Params.subtitle }}<p class="h6 text-white font-secondary mb-3 text-uppercase">{{ . | markdownify }}</p>{{ end }}
         <h1 class="text-white mb-4">{{ .Title }}</h1>
         {{ with .Params.hero_intro }}<p class="text-lighten mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .Params.hero_button.enable }}
-        <a href="{{ .Params.hero_button.link }}" class="btn btn-primary" target="_blank" rel="noopener">{{ .Params.hero_button.label }}</a>
+        <a href="{{ .Params.hero_button.link }}" class="btn btn-primary" target="_blank" rel="noopener">{{ .Params.hero_button.label }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
         {{ end }}
         <a href="{{ `master/` | relLangURL }}" class="btn btn-outline-light ml-2">Découvrir le master</a>
       </div>
@@ -25,13 +27,17 @@
   <div class="container-fluid p-0">
     <div class="row no-gutters">
       <div class="col-xl-4 col-lg-5 align-self-center">
-        {{ partial "image.html" (dict "Src" .image "Alt" "banner-feature" "Class" "img-fluid w-100") }}
+        {{/* RGAA 1.2 : photo d'illustration, l'ancienne alternative « banner-feature » était un nom de fichier. */}}
+        {{ partial "image.html" (dict "Src" .image "Alt" "" "Class" "img-fluid w-100") }}
       </div>
       <div class="col-xl-8 col-lg-7">
+        {{/* RGAA 9.1 : titre de section réservé aux lecteurs d'écran, il évite le saut h1 → h3
+             (le rendu ne peut pas porter de titre visible ici sans changer le design). */}}
+        <h2 class="sr-only">Points clés de la formation</h2>
         <div class="row feature-blocks bg-gray justify-content-between">
           {{ range .feature_item }}
           <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
-            <i class="{{ .icon }} mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <i class="{{ .icon }} mb-xl-4 mb-lg-3 mb-4 feature-icon" aria-hidden="true"></i>
             <h3 class="mb-xl-4 mb-lg-3 mb-4">{{ .name | markdownify }}</h3>
             <p>{{ .content | markdownify }}</p>
           </div>
@@ -56,13 +62,15 @@
   <div class="container">
     <h2 class="home-actus__heading">Dernières actualités</h2>
     <p class="home-actus__intro">Conférences, publications et participations de l'équipe et des étudiants du master</p>
-    <div class="row">
+    {{/* RGAA 9.3 : grille de cartes = liste. `list-unstyled mb-0` neutralise la puce,
+         le padding et la marge par défaut de <ul> — rendu strictement identique au <div class="row">. */}}
+    <ul class="row list-unstyled mb-0">
       {{ range $latest }}
 
       {{ if .Params.participants }}
       {{ $category := .Params.category | default "Conférence" }}
       {{ $catKey   := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
-      <div class="col-md-6 mb-4 d-flex">
+      <li class="col-md-6 mb-4 d-flex">
         <article class="participation-card participation-card--{{ $catKey }}">
           <div class="participation-card__header">
             <span class="participation-card__type">{{ $category }}</span>
@@ -73,27 +81,30 @@
             </span>
           </div>
           <div class="participation-card__body">
-            <h3 class="participation-card__title">
+            {{/* RGAA 8.7 : `lang` posé seulement si le frontmatter le déclare (pas de devinette). */}}
+            <h3 class="participation-card__title"{{ with .Params.title_lang }} lang="{{ . }}"{{ end }}>
               {{ if .Params.external_url }}
-              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
               {{ else }}
               <a href="{{ .Permalink }}">{{ .Title }}</a>
               {{ end }}
             </h3>
             {{ with .Params.participants }}
-            <div class="participation-card__participants">
+            {{/* RGAA 9.3 : suite de participants = liste. `.participation-card__participants`
+                 fixe déjà display/margin, `list-unstyled` supprime puce et padding par défaut. */}}
+            <ul class="participation-card__participants list-unstyled">
               {{ range . }}
               {{ $rk := .role | lower | replaceRE "[^a-z0-9]" "" }}
-              <span class="participation-card__chip participation-card__chip--{{ $rk }}">
+              <li class="participation-card__chip participation-card__chip--{{ $rk }}">
                 {{ .name }}<em class="participation-card__chip-role">{{ .role }}</em>
-              </span>
+              </li>
               {{ end }}
-            </div>
+            </ul>
             {{ end }}
             {{ with .Content }}<p class="participation-card__summary">{{ . | plainify | truncate 220 }}</p>{{ end }}
           </div>
         </article>
-      </div>
+      </li>
 
       {{ else }}
       {{ $category := .Params.category }}
@@ -101,18 +112,19 @@
         {{ if eq .Type "event" }}{{ $category = "conférence" }}{{ else }}{{ $category = "publication" }}{{ end }}
       {{ end }}
       {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z0-9-]" "" }}
-      <div class="col-md-6 mb-4 d-flex">
+      <li class="col-md-6 mb-4 d-flex">
         <article class="billet-card billet-card--{{ $catKey }}">
           <div class="billet-card__body">
             <div class="billet-card__meta">
               <span class="billet-card__type">{{ $category | humanize }}</span>
               {{ with .Params.acronym }}<span class="billet-card__acronym">{{ . }}</span>{{ end }}
-              {{ with .Params.event_tag }}<span class="billet-card__event"><i class="ti-bookmark"></i> {{ . }}</span>{{ end }}
+              {{ with .Params.event_tag }}<span class="billet-card__event"><i class="ti-bookmark" aria-hidden="true"></i> {{ . }}</span>{{ end }}
               <span class="billet-card__date">{{ .Date.Format "2 January 2006" }}</span>
             </div>
-            <h3 class="billet-card__title">
+            {{/* RGAA 8.7 : `lang` posé seulement si le frontmatter le déclare (pas de devinette). */}}
+            <h3 class="billet-card__title"{{ with .Params.title_lang }} lang="{{ . }}"{{ end }}>
               {{ if .Params.external_url }}
-              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+              <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
               {{ else }}
               <a href="{{ .Permalink }}">{{ .Title }}</a>
               {{ end }}
@@ -120,11 +132,11 @@
             {{ with .Content }}<p class="billet-card__summary">{{ . | plainify | truncate 240 }}</p>{{ end }}
           </div>
         </article>
-      </div>
+      </li>
       {{ end }}
 
       {{ end }}
-    </div>
+    </ul>
     <div class="home-actus__more">
       <a href="{{ `actualites/` | relLangURL }}" class="btn btn-primary">Voir toutes les actualités</a>
     </div>
@@ -141,19 +153,26 @@
     {{ range .groups }}
     <div class="home-logos-group">
       {{ with .label }}<p class="home-logos-group__label">{{ . }}</p>{{ end }}
-      <div class="home-logos-group__row">
+      {{/* RGAA 9.3 : rangée de logos = liste. `list-unstyled mb-0` neutralise puce, padding et marge. */}}
+      <ul class="home-logos-group__row list-unstyled mb-0">
         {{ range .items }}
-        {{ if .url }}
-        <a href="{{ .url }}" target="_blank" rel="noopener" class="home-logos-group__item" title="{{ .alt | default .name }}">
-          {{ partial "image.html" (dict "Src" .src "Alt" (.alt | default .name) "Class" "home-logos-group__img") }}
-        </a>
-        {{ else }}
-        <span class="home-logos-group__item" title="{{ .alt | default .name }}">
-          {{ partial "image.html" (dict "Src" .src "Alt" (.alt | default .name) "Class" "home-logos-group__img") }}
-        </span>
+        {{/* `d-flex` sur le <li> : l'ancien enfant direct était un inline-flex, un <li> en bloc
+             créerait une ligne de texte et donc quelques pixels de plus. */}}
+        <li class="d-flex">
+          {{ if .url }}
+          {{/* RGAA 6.1 : le seul contenu du lien est une image, son alternative nomme la destination. */}}
+          <a href="{{ .url }}" target="_blank" rel="noopener" class="home-logos-group__item" title="{{ .alt | default .name }}">
+            {{ partial "image.html" (dict "Src" .src "Alt" (.alt | default .name) "Class" "home-logos-group__img") }}
+            <span class="sr-only"> (nouvelle fenêtre)</span>
+          </a>
+          {{ else }}
+          <span class="home-logos-group__item" title="{{ .alt | default .name }}">
+            {{ partial "image.html" (dict "Src" .src "Alt" (.alt | default .name) "Class" "home-logos-group__img") }}
+          </span>
+          {{ end }}
+        </li>
         {{ end }}
-        {{ end }}
-      </div>
+      </ul>
     </div>
     {{ end }}
   </div>

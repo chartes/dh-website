@@ -1,5 +1,6 @@
 ---
 title: "Digital Traces of the Reception of Forcibly Displaced People from Ukraine in Russia: Between Staged Hospitality and Everyday Tensions"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2026-05-19
 draft: false
 description: "Compte-rendu du poster M2 de Maria Kirbasova par Marisol de Nazelle (M1) — une approche cyberethnographique confrontant discours étatique russe (TASS) et traces numériques des déplacés d'Ukraine sur Telegram."
@@ -11,12 +12,15 @@ poster_title: "Digital Traces of the Reception of Forcibly Displaced People from
 type: "post"
 ---
 
-> Compte-rendu par **Marisol de Nazelle (M1)** du poster de **Maria Kirbasova (M2)** présenté lors de la journée d'étude du master, 19 mai 2026 (Computational Cultural Science Workshop, École nationale des chartes, 18–19 mai 2026). Mémoire codirigé par Françoise Daucé (EHESS, CERCEC) et Thierry Poibeau (CNRS, LATTICE).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Marisol de Nazelle (M1)</strong> du poster de <strong>Maria Kirbasova (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 19 mai 2026 (Computational Cultural Science Workshop, École nationale des chartes, 18–19 mai 2026). Mémoire codirigé par Françoise Daucé (EHESS, CERCEC) et Thierry Poibeau (CNRS, LATTICE).</p>
 
 Si *LinkedIn* avait existé depuis 1847 et que Taras Chevtchenko[^1] avait pu passer par la session de posters CultureLab du 19 mai 2026[^2], nul doute que le poster de Maria Kirbasova aurait attiré son attention. Prolongeons l'hallucination collective. Son post aurait commencé ainsi :
 
-> « Шановна мереже,
-> вау... »,
+<blockquote lang="uk">
+<p>« Шановна мереже,
+вау... »,</p>
+</blockquote>
 
 ce qu'un expert chevronné traduirait en
 

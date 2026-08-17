@@ -12,7 +12,8 @@ image: "images/blog/je2025/emilie-guidi/fig1.jpg"
 type: "post"
 ---
 
-> Compte-rendu par **Philippe Chaumet-Riffaud (M1)** du lightning-talk d'**Émilie Guidi (M2)** présenté lors de la journée d'étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque *Bridging Computational Humanities and Computational Social Sciences* organisé par AISSAI — Marie Puren et Florian Cafiero — et l'ENC — Chahan Vidal-Gorène). Mémoire sous la direction de Jean-Baptiste Camps et François Ploton-Nicollet.
+<p class="actu-chapeau">
+Compte-rendu par <strong>Philippe Chaumet-Riffaud (M1)</strong> du lightning-talk d&rsquo;<strong>Émilie Guidi (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque <em>Bridging Computational Humanities and Computational Social Sciences</em> organisé par AISSAI — Marie Puren et Florian Cafiero — et l&rsquo;ENC — Chahan Vidal-Gorène). Mémoire sous la direction de Jean-Baptiste Camps et François Ploton-Nicollet.</p>
 
 Le sujet du mémoire était « d'évaluer l'emploi d'approches quantitatives pour décrire et modéliser la dynamique complexe de transmission des manuscrits patristiques ».
 

@@ -366,7 +366,12 @@ table.programme-table {
   margin: 0.25rem 0 0.5rem;
   background: transparent;
 
-  thead th {
+  // Le premier tableau (« programme commun ») affiche dans sa ligne de tête des
+  // DONNÉES (intitulé du module, volume horaire, ECTS) et non des en-têtes de
+  // colonne : ces cellules-là sont des <td> (RGAA 5.3/5.6), seul « Langue » reste
+  // un <th scope="col">. Le sélecteur couvre les deux pour un rendu identique.
+  thead th,
+  thead td {
     background: transparent;
     color: $text-color-light;
     padding: 0.65rem 0.75rem;
@@ -611,7 +616,10 @@ table.programme-table {
   height: 100%;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 
-  h5 { color: $secondary-color; font-size: 0.95rem; margin-bottom: 0.6rem; }
+  // Le sélecteur ciblait l'élément `h5`, ce qui figeait le niveau sémantique du
+  // titre (RGAA 9.1 : il doit être un h3 ici). On passe par une classe pour que
+  // le niveau soit libre, à rendu strictement identique.
+  h3, h4, h5, .partenaire-card__title { color: $secondary-color; font-size: 0.95rem; margin-bottom: 0.6rem; }
   p { font-size: 0.87rem; color: #555; margin: 0; }
 }
 
@@ -2186,9 +2194,14 @@ table.programme-table {
 /* ── Palette catégories (partagée cards + single) ───────────── */
 $pc-conference  : $primary-color;          // bordeaux ENC
 $pc-formation   : $secondary-color;        // bleu ENC
-$pc-hackathon   : #c47c1a;                 // ambre
+// RGAA 3.2 — ambre et or assombris : les valeurs d'origine (#c47c1a et #b88a1c)
+// tombaient entre 2,78:1 et 3,36:1 selon le fond, pour un seuil de 4,5:1. Ces deux
+// variables servent à la fois de couleur de texte, de teinte de pastille (12 %) et
+// d'aplat sous texte blanc : les valeurs ci-dessous ont été résolues sous ces cinq
+// contraintes à la fois, teinte et saturation conservées (seule la clarté baisse).
+$pc-hackathon   : #8d5913;                 // ambre  — était #c47c1a
 $pc-papier      : #1a6e62;                 // vert forêt
-$pc-competition : #b88a1c;                 // or / podium
+$pc-competition : #7f5f13;                 // or / podium — était #b88a1c
 $pc-compte-rendu: #6b4c93;                 // violet doux — compte-rendu de poster
 
 /* — Page single d'une actu (conférence / billet / hackathon) — */
@@ -2292,6 +2305,7 @@ $pc-compte-rendu: #6b4c93;                 // violet doux — compte-rendu de po
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     }
 
+    /* Vraie citation (parole rapportée, extrait de texte). */
     blockquote {
       border-left: 3px solid $primary-color;
       background: rgba($primary-color, 0.04);
@@ -2300,6 +2314,31 @@ $pc-compte-rendu: #6b4c93;                 // violet doux — compte-rendu de po
       font-size: 0.95rem;
       color: $text-color;
       p:last-child { margin-bottom: 0; }
+    }
+
+    /* RGAA 8.9 / 9.4 — chapeau éditorial des comptes rendus, autrefois saisi
+       en citation Markdown pour obtenir cet encadré (détournement de
+       <blockquote>). Balisage désormais <p class="actu-chapeau">, rendu inchangé.
+       Points de reprise, mesurés sur le rendu précédent (public-v6) :
+       - `font-style: italic` reprend `.content blockquote p` du thème
+         (_common.scss) qui italisait le paragraphe interne ;
+       - pas de `font-size` ici : dans l'ancien balisage, le <p> interne était
+         déjà ramené à 16px/1.7 par la règle `p, .paragraph` (haut de ce
+         fichier), qui l'emportait sur le `0.95rem` hérité du <blockquote> ;
+       - sélectivité (0,2,0) obligatoire pour passer devant
+         `.actu-single__content p` (0,1,1) et `.content *` (0,1,0) du thème,
+         sinon la marge basse retombe à 1rem / 20px au lieu de 1.5rem.
+       Côté Markdown, le texte du chapeau commence sur la ligne SUIVANT la
+       balise ouvrante : ce saut de ligne remplace celui que goldmark plaçait
+       entre <blockquote> et <p>, et que `truncate` compte dans les résumés
+       tronqués des cartes de /blog/ et /actualites/. */
+    .actu-chapeau {
+      border-left: 3px solid $primary-color;
+      background: rgba($primary-color, 0.04);
+      padding: 0.8rem 1.2rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: $text-color;
     }
   }
 
@@ -2707,7 +2746,11 @@ $pc-compte-rendu: #6b4c93;                 // violet doux — compte-rendu de po
     font-style: normal;
     font-size: 0.65rem;
     font-weight: 500;
-    opacity: 0.75;
+    // RGAA 3.2 — l'opacité compose la couleur avec le fond : à 0.75 la variante
+    // --m1 (vert forêt) ne donnait que 3,60:1 sur blanc et 3,35:1 sur bg-gray,
+    // pour un seuil de 4,5:1 à cette taille. 0.95 fait passer les trois variantes
+    // (4,92 / 5,62 / 8,31 sur le fond le plus défavorable) sans effet perceptible.
+    opacity: 0.95;
     margin-left: 0.25rem;
     &::before { content: "("; }
     &::after  { content: ")"; }

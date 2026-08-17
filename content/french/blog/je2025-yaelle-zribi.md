@@ -1,5 +1,6 @@
 ---
 title: "Joke Maths : Modelling and Analyzing 91 Netflix Stand-up Comedy Specials"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2025-06-27
 draft: false
 description: "Compte-rendu du lightning-talk M2 de Yaelle Zribi par Maria Kirbasova (M1) — modélisation computationnelle du stand-up à partir de 91 spéciaux Netflix, entre topic modelling, détection des rires et analyse du corps sur scène."
@@ -12,7 +13,8 @@ image: "images/blog/je2025/yaelle-zribi/fig1.png"
 type: "post"
 ---
 
-> Compte-rendu par **Maria Kirbasova (M1)** du lightning-talk de **Yaelle Zribi (M2)** présenté lors de la journée d'étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque *Bridging Computational Humanities and Computational Social Sciences* organisé par AISSAI — Marie Puren et Florian Cafiero — et l'ENC — Chahan Vidal-Gorène).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Maria Kirbasova (M1)</strong> du lightning-talk de <strong>Yaelle Zribi (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque <em>Bridging Computational Humanities and Computational Social Sciences</em> organisé par AISSAI — Marie Puren et Florian Cafiero — et l&rsquo;ENC — Chahan Vidal-Gorène).</p>
 
 Le stand-up est un genre de spectacle comique qui peut sembler simple à première vue : une personne seule sur scène, sans costume ni décors, partage ses pensées et ses anecdotes. Cependant, derrière cette apparente spontanéité se cache une forme de performance complexe. Les principales caractéristiques de ce format sont le « one man/woman show », le minimalisme dans la mise en scène et l'absence de frontière claire entre l'artiste et le public. Le comédien de stand-up interagit activement avec le spectateur, brisant ainsi le « quatrième mur » (*crowd work*). Le plus souvent, le style de présentation imite le « flux de conscience », créant l'illusion de l'improvisation. Le discours du stand-up aborde souvent des thèmes obscènes ou politiquement chargés, oscillant entre les expériences personnelles du comédien et les problèmes sociaux.
 

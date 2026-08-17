@@ -1,1 +1,8 @@
 .DS_STORE
+.DS_Store
+
+# Artefacts générés par un build Hugo local (le déploiement les régénère)
+/public/
+/resources/
+/.hugo_build.lock
+/hugo_stats.json

@@ -29,16 +29,21 @@
 
     {{ if $items }}
 
-    {{/* ── Barre de filtres cliquables ── */}}
+    {{/* ── Barre de filtres cliquables ──
+         RGAA 7.1 — ce ne sont pas des onglets (pas de panneau associé) mais des
+         boutons bascule : `role="group"` + `aria-pressed`, synchronisé en JS. */}}
     {{ if gt (len $categories) 1 }}
-    <div class="actus-filters" role="tablist" aria-label="Filtrer par catégorie">
-      <button type="button" class="actus-filter is-active" data-filter="all">Toutes</button>
+    <div class="actus-filters" role="group" aria-label="Filtrer par catégorie">
+      <button type="button" class="actus-filter is-active" data-filter="all" aria-pressed="true">Toutes</button>
       {{ range $categories }}
       {{ $key := . | lower | replaceRE "[éêè]" "e" | replaceRE "[àâ]" "a" | replaceRE "[^a-z0-9-]" "" }}
-      <button type="button" class="actus-filter" data-filter="{{ $key }}">{{ . | humanize }}</button>
+      <button type="button" class="actus-filter" data-filter="{{ $key }}" aria-pressed="false">{{ . | humanize }}</button>
       {{ end }}
     </div>
     {{ end }}
+
+    {{/* RGAA 7.5 — message de statut : le résultat du filtrage est annoncé. */}}
+    <p class="sr-only" role="status" aria-live="polite" id="actus-status"></p>
 
     {{/* ── Groupement par année ── */}}
     {{ range $items.GroupByDate "2006" }}
@@ -66,9 +71,9 @@
               </span>
             </div>
             <div class="participation-card__body">
-              <h3 class="participation-card__title">
+              <h3 class="participation-card__title"{{ with .Params.title_lang }} lang="{{ . }}"{{ end }}>
                 {{ if .Params.external_url }}
-                <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+                <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
                 {{ else }}
                 <a href="{{ .Permalink }}">{{ .Title }}</a>
                 {{ end }}
@@ -96,12 +101,12 @@
               <div class="billet-card__meta">
                 <span class="billet-card__type">{{ $category | humanize }}</span>
                 {{ with .Params.acronym }}<span class="billet-card__acronym">{{ . }}</span>{{ end }}
-                {{ with .Params.event_tag }}<span class="billet-card__event"><i class="ti-bookmark"></i> {{ . }}</span>{{ end }}
+                {{ with .Params.event_tag }}<span class="billet-card__event"><i class="ti-bookmark" aria-hidden="true"></i> {{ . }}</span>{{ end }}
                 <span class="billet-card__date">{{ .Date.Format "2 January 2006" }}</span>
               </div>
-              <h3 class="billet-card__title">
+              <h3 class="billet-card__title"{{ with .Params.title_lang }} lang="{{ . }}"{{ end }}>
                 {{ if .Params.external_url }}
-                <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+                <a href="{{ .Params.external_url }}" target="_blank" rel="noopener">{{ .Title }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
                 {{ else }}
                 <a href="{{ .Permalink }}">{{ .Title }}</a>
                 {{ end }}
@@ -133,12 +138,18 @@
   var items = document.querySelectorAll('.actus-item');
   var years = document.querySelectorAll('.actus-year-block');
   var empty = document.querySelector('.actus-empty');
+  var status = document.getElementById('actus-status');
 
   filters.forEach(function(btn) {
     btn.addEventListener('click', function() {
       var filter = btn.getAttribute('data-filter');
-      filters.forEach(function(b) { b.classList.remove('is-active'); });
+      // RGAA 7.1 — l'état pressé suit la classe visuelle `is-active`.
+      filters.forEach(function(b) {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('is-active');
+      btn.setAttribute('aria-pressed', 'true');
 
       var visibleCount = 0;
       items.forEach(function(item) {
@@ -153,6 +164,13 @@
       });
 
       if (empty) empty.hidden = visibleCount > 0;
+
+      // RGAA 7.5 — restitution du résultat du filtrage aux technologies d'assistance.
+      if (status) {
+        status.textContent = visibleCount === 0
+          ? 'Aucune actualité ne correspond à ce filtre.'
+          : visibleCount + (visibleCount > 1 ? ' actualités affichées.' : ' actualité affichée.');
+      }
     });
   });
 })();

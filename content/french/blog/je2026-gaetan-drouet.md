@@ -1,5 +1,6 @@
 ---
 title: "Spatio-temporal analysis of the suffix -(V)λ(λ)-"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2026-05-19
 draft: false
 description: "Compte-rendu du poster M2 de Gaëtan Drouet par Mathieu Rivière (M1) — spatialisation et historicisation d'un suffixe onomastique grec ancien."
@@ -12,7 +13,8 @@ image: "images/blog/je2026/gaetan-drouet/image0_GD.png"
 type: "post"
 ---
 
-> Compte-rendu par **Mathieu Rivière (M1)** du poster de **Gaëtan Drouet (M2)** présenté lors de la journée d'étude du master, 19 mai 2026 (Computational Cultural Science Workshop).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Mathieu Rivière (M1)</strong> du poster de <strong>Gaëtan Drouet (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 19 mai 2026 (Computational Cultural Science Workshop).</p>
 
 La session de poster CultureLab du 19 mai 2026 nous a permis d'assister à une présentation par Gaëtan Drouet de son travail. Il étudie les mentions d'anthroponymes à suffixe -(V)λ(λ)- dans le monde grec antique en interrogeant les facteurs spatio-temporels de ses usages.
 

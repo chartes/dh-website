@@ -12,7 +12,8 @@ image: "images/blog/je2024/aaron-parmentelat/fig1.png"
 type: "post"
 ---
 
-> Compte-rendu par **Donghan Bian (M1)** de la présentation d'**Aaron Parmentelat (M2)** lors du séminaire du master, 10 avril 2024.
+<p class="actu-chapeau">
+Compte-rendu par <strong>Donghan Bian (M1)</strong> de la présentation d&rsquo;<strong>Aaron Parmentelat (M2)</strong> lors du séminaire du master, 10 avril 2024.</p>
 
 Lors de la séance du 10 avril 2024 du séminaire du master Humanités Numériques, Aaron Parmentelat, titulaire de la licence MIASHS à l'Université Panthéon-Sorbonne et en master 2 de Humanités Numériques à l'École nationale des chartes, a présenté son projet de recherche sur la distribution des propriétaires immobiliers à Paris pour les années 1898 et 1951.
 

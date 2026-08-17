@@ -1,5 +1,6 @@
 ---
 title: "Self-Presentation Strategies on Airbnb in Response to the Paris 2024 Olympic Games"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2026-05-19
 draft: false
 description: "Compte-rendu du poster M2 de Ye Liu par Mathias Garnier (M1) — une lecture computationnelle et multimodale de la marchandisation de soi des hôtes Airbnb à Paris pendant les JO 2024."
@@ -12,7 +13,8 @@ image: "images/blog/je2026/ye-liu/img-000.jpg"
 type: "post"
 ---
 
-> Compte-rendu par **Mathias Garnier (M1)** du poster de **Ye Liu (M2)** présenté lors de la journée d'étude du master, 19 mai 2026 (Computational Cultural Science Workshop, École nationale des chartes, 18–19 mai 2026). Mémoire dirigé par Thierry Poibeau et Christophe Bénavent.
+<p class="actu-chapeau">
+Compte-rendu par <strong>Mathias Garnier (M1)</strong> du poster de <strong>Ye Liu (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 19 mai 2026 (Computational Cultural Science Workshop, École nationale des chartes, 18–19 mai 2026). Mémoire dirigé par Thierry Poibeau et Christophe Bénavent.</p>
 
 Paris, 2024. D'une cérémonie d'ouverture mettant en scène la France aux exploits sportifs collectifs et individuels, la 33ème Olympiade des temps modernes se jouait tout aussi bien dans les multiples équipements sportifs consacrés à la gloire du sport que dans les infrastructures destinées à accueillir le public. Le plaisir de participer aux Jeux olympiques n'était aucunement réservé aux quelques 10 500 athlètes et 4 400 para-athlètes. Affluant du monde entier, le public a également pu prendre part aux célébrations et festivités en tout genre. Toutefois, la tâche de loger une quantité si importante de personnes aux intérêts et prétentions locatives si différentes n'était pas une moindre affaire. Le recours à des solutions privées en Île-de-France s'est alors imposé.
 

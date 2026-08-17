@@ -1,0 +1,67 @@
+{{/* Surcharge projet de themes/educenter-hugo/layouts/partials/head.html
+     (le thème est un sous-module git : toute correction doit vivre ici).
+
+     Corrections d'accessibilité — RGAA 4.1.2 :
+     · 10.4 / 10.11 — suppression de `maximum-scale=1`, qui interdisait le zoom
+       par pincement sur mobile et tablette (WCAG 1.4.4 et 1.4.10) ;
+     · 8.6 — titre de page complété par le nom du site, pour rester pertinent
+       hors contexte (onglet, favoris, résultats de recherche).
+     Le reste du fichier est repris à l'identique du thème. */}}
+<head>
+  <meta charset="utf-8">
+  {{/* RGAA 8.6 — le titre doit être pertinent ET distinguer la page des autres.
+       Trois corrections :
+       · Hugo code en dur « 404 Page not found » comme .Title de la page d'erreur ;
+       · l'accueil et /master/ portaient le même titre de contenu — on inverse
+         l'ordre des deux composantes pour les distinguer sans toucher aux <h1> ;
+       · les pages de pagination partageaient toutes le titre de leur rubrique.
+         Le numéro est déduit de l'URL plutôt que de .Paginator, qui déclencherait
+         une pagination implicite depuis le <head>. */}}
+  {{- $titre := cond (eq .Kind "404") "Page introuvable" .Title -}}
+  {{- $numero := "" -}}
+  {{- /* Les pages de pagination sont le MÊME objet Page rendu à plusieurs URL :
+         .RelPermalink y vaut toujours « /blog/ », il n'y a donc pas moyen de
+         déduire le numéro de l'URL. Seul le pager le connaît. On l'interroge avec
+         exactement le même argument que layouts/_default/list.html, sinon Hugo
+         refuse de construire deux paginations différentes pour la même page.
+         ⚠ Si l'argument de .Paginate change dans _default/list.html, il faut le
+         changer ici aussi. Le garde-fou sur la section limite le couplage. */ -}}
+  {{- if and (eq .Kind "section") (eq .Section "blog") -}}
+    {{- with .Paginate (where .Data.Pages "Type" "post") -}}
+      {{- if gt .PageNumber 1 }}{{ $numero = printf " — page %d" .PageNumber }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+  <title>{{ if .IsHome }}{{ site.Title }} — {{ $titre }}{{ else }}{{ $titre }}{{ $numero }} — {{ site.Title }}{{ end }}</title>
+
+  {{ "<!-- mobile responsive meta -->" | safeHTML }}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="{{ with .Params.Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  {{ with site.Params.author }}
+  <meta name="author" content="{{ . }}">{{ end }}
+
+  <!-- theme meta -->
+  <meta name="theme-name" content="educenter-hugo" />
+
+  {{ hugo.Generator }}
+  {{ "<!-- multilingual SEO optimizations -->" | safeHTML }}
+  {{ if .IsTranslated }}
+  {{ range .Page.AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+  {{ end }}
+  {{ end }}
+
+  {{ "<!-- plugins -->" | safeHTML }}
+  {{ range site.Params.plugins.css }}
+  <link rel="stylesheet" href="{{ .link | absURL }}">
+  {{ end }}
+
+  {{ "<!-- Main Stylesheet -->" | safeHTML }}
+  {{ $styles := resources.Get "scss/main.scss" | toCSS | fingerprint "sha512" }}
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+
+  {{ "<!--Favicon-->" | safeHTML }}
+  <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
+  <link rel="icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
+
+</head>

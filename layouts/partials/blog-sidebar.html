@@ -1,0 +1,79 @@
+{{/* Surcharge projet de themes/educenter-hugo/layouts/partials/blog-sidebar.html
+     (le thème est un sous-module git : toute correction doit vivre ici).
+     Barre latérale affichée par _default/list.html et _default/single.html.
+
+     Corrections d'accessibilité, sans effet sur la mise en page :
+     · RGAA 1.3 / 6.1 — la vignette de chaque « dernier article » est le seul
+       contenu de son lien et portait alt="Image" : le lien n'avait donc pas
+       d'intitulé exploitable. L'alternative décrit désormais la destination.
+     · RGAA 9.1 — les titres de la barre latérale enchaînaient <h1> (page-header)
+       puis <h4>, puis <h5> pour les articles. Niveaux corrigés en <h2>/<h3>,
+       tailles conservées par les classes miroir `.h4` / `.h5` de
+       _typography.scss (rendu strictement identique).
+     · RGAA 12.6 — le landmark <aside> (rôle « complementary ») n'avait pas de
+       nom accessible : ajout d'un aria-label. */}}
+{{ "<!-- sidebar -->" | safeHTML }}
+<aside class="col-lg-4" aria-label="Informations complémentaires">
+  {{/* RGAA 9.1 — le titre était émis même quand la taxinomie est vide, et se
+       retrouvait seul, sans contenu à annoncer. C'est le cas aujourd'hui pour
+       « Catégories » : les contenus utilisent `category:` au singulier, qui
+       n'alimente pas `site.Taxonomies.categories`. Le titre n'est donc plus
+       rendu que s'il a effectivement quelque chose à titrer. */}}
+  {{ "<!-- categories -->" | safeHTML }}
+  {{- with site.Taxonomies.categories }}
+  <div class="bg-white mb-5">
+    <h2 class="h4 mb-4">{{ i18n "categories" }}</h2>
+    <ul class="list-unstyled">
+      {{- range $name, $items := . }}
+      <li class="border-bottom"><a href="{{ `categories/` | relLangURL }}{{ $name | urlize | lower }}/" class="d-block pb-3 mt-3">{{ $name | title | humanize }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+  {{ "<!-- tags -->" | safeHTML }}
+  {{- with site.Taxonomies.tags }}
+  <div class="bg-white mb-5">
+    <h2 class="h4 mb-4">{{ i18n "tags" }}</h2>
+    <ul class="list-inline tag-list">
+      {{- range $name, $items := . }}
+      <li class="list-inline-item mb-2"><a href="{{ `tags/` | relLangURL }}{{ $name | urlize | lower }}/">{{ $name | humanize }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+  {{ "<!-- latest post -->" | safeHTML }}
+  <div class="bg-white">
+    <h2 class="h4 mb-4">{{ i18n "latest_article" }}</h2>
+    {{ "<!-- post-item -->" | safeHTML }}
+    {{ range first 3 ( where site.Pages "Type" "post" )}}
+    {{- $post := . }}
+    {{/* Chaque article était annoncé par DEUX liens successifs vers la même
+         page : la vignette puis le titre. Deux arrêts de tabulation pour une
+         seule destination, et l'alternative de la vignette redoublait le titre.
+         La vignette est donc neutralisée (décorative, hors tabulation, retirée
+         de l'arbre d'accessibilité) ; le lien du titre porte l'intitulé.
+         `tabindex="-1"` est indispensable avec `aria-hidden` : masquer un
+         élément focusable créerait une violation `aria-hidden-focus`.
+         RGAA 1.3 (qualité) — aucun billet ne renseigne `image` : le partial était
+         appelé avec un `Src` vide et produisait un <img src="../"> pointant sur un
+         répertoire (128 occurrences sur 38 pages). La vignette — et le lien qui la
+         porte — ne sont donc rendus que si l'image existe. Rendu inchangé :
+         `.post-thumb-sm` n'impose pas de dimension, une image cassée en `alt=""`
+         n'occupait déjà aucune place. */}}
+    <div class="media border-bottom border-color pb-3 mb-3">
+      {{- with .Params.image }}
+      <a href="{{ $post.Permalink }}" aria-hidden="true" tabindex="-1">
+        {{ partial "image.html" (dict "Src" . "Alt" "" "Class" "mr-3 post-thumb-sm") }}
+      </a>
+      {{- end }}
+      <div class="media-body">
+        <a href="{{ .Permalink }}">
+          <h3 class="h5 mt-0"{{ with .Params.title_lang }} lang="{{ . }}"{{ end }}>{{ .Title }}</h3>
+        </a>
+        {{ .PublishDate.Format "02 Jan 2006" }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</aside>
+{{ "<!-- /sidebar -->" | safeHTML }}

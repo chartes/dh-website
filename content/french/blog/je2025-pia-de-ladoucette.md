@@ -1,5 +1,6 @@
 ---
 title: "Mapping ideological shifts : a discourse analysis of the far-right press in France, 1934-1944"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2025-06-27
 draft: false
 description: "Compte-rendu du lightning-talk M2 de Pia de Ladoucette par Chloé Jollivet-Courtois (M1) — analyse dynamique de topics et de réseaux sur 10 000 numéros de la presse d'extrême droite française sur une décennie de bouleversements politiques."
@@ -12,7 +13,8 @@ image: "images/blog/je2025/pia-de-ladoucette/fig1.png"
 type: "post"
 ---
 
-> Compte-rendu par **Chloé Jollivet-Courtois (M1)** du lightning-talk de **Pia de Ladoucette (M2)** présenté lors de la journée d'étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque *Bridging Computational Humanities and Computational Social Sciences* organisé par AISSAI — Marie Puren et Florian Cafiero — et l'ENC — Chahan Vidal-Gorène).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Chloé Jollivet-Courtois (M1)</strong> du lightning-talk de <strong>Pia de Ladoucette (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque <em>Bridging Computational Humanities and Computational Social Sciences</em> organisé par AISSAI — Marie Puren et Florian Cafiero — et l&rsquo;ENC — Chahan Vidal-Gorène).</p>
 
 Le 27 juin 2025, lors du séminaire de recherche du Master de l'ENC, Pia de Ladoucette a présenté les recherches portées dans son mémoire *Mapping ideological shifts : a discourse analysis of the far-right press in France, 1934-1944*.
 

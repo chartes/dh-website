@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{/* Page d'erreur 404. Le fichier du thème est vide (0 octet) : aucune page
+     /404.html n'était produite. GitHub Pages sert automatiquement /404.html
+     à la racine du site publié.
+
+     · Le <h1> est fourni par layouts/partials/page-header.html via baseof.html :
+       on n'en ajoute pas de second (RGAA 9.1).
+     · Le landmark <main> et le lien d'évitement viennent également de baseof.html.
+     · Uniquement des classes existantes (section, container, btn btn-primary) :
+       aucun style nouveau. */}}
+
+<!-- 404 -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <p>La page que vous cherchez n’existe pas ou plus. Elle a peut-être été
+          déplacée, ou l’adresse saisie comporte une erreur.</p>
+        <p class="mb-4">Vous pouvez revenir à l’accueil ou rejoindre directement
+          l’une des rubriques du site.</p>
+        <a href="{{ "" | relLangURL }}" class="btn btn-primary">Retour à l’accueil</a>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-8">
+        <h2 class="h4 mb-4">Rubriques principales</h2>
+        <ul class="list-unstyled">
+          {{ range site.Menus.main }}
+          <li class="border-bottom"><a href="{{ .URL | relLangURL }}" class="d-block pb-3 mt-3">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /404 -->
+
+{{ end }}

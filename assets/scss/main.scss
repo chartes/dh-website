@@ -1,0 +1,34 @@
+/*!------------------------------------------------------------------
+[MAIN STYLESHEET]
+
+Surcharge projet de themes/educenter-hugo/assets/scss/main.scss.
+
+Le thème est un sous-module git : on ne peut pas y toucher. Or son main.scss
+importe `typography` (surchargé par le projet) AVANT `buttons`, `common` et les
+quatre feuilles `templates/*` du thème. À spécificité égale, le thème gagnait
+donc systématiquement sur nos surcharges — c'est ce qui neutralisait déjà
+`.copyright p { color: rgba(255,255,255,.85) }` dans _typography.scss.
+
+Ce fichier reprend la liste d'imports du thème à l'identique et ajoute
+`_a11y.scss` EN DERNIER, pour que les correctifs RGAA gagnent la cascade.
+-------------------------------------------------------------------*/
+
+@import 'variables';
+
+@import 'mixins';
+
+@import 'typography';
+
+@import 'buttons';
+
+@import 'common';
+
+@import 'templates/navigation';
+
+@import 'templates/slider';
+
+@import 'templates/homepage';
+
+@import 'templates/otherspage';
+
+@import 'a11y';

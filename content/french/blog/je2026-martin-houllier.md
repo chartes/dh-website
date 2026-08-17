@@ -1,5 +1,6 @@
 ---
 title: "Workers & their machines"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2026-05-19
 draft: false
 description: "Compte-rendu du poster M2 de Martin Houllier par Charles Planque (M1) — une lecture stylométrique du rapport ouvrier à la machine sur trois siècles d'écriture."
@@ -11,7 +12,8 @@ poster_title: "Workers & their machines"
 type: "post"
 ---
 
-> Compte-rendu par **Charles Planque (M1)** du poster de **Martin Houllier (M2)** présenté lors de la journée d'étude du master, 19 mai 2026 (Computational Cultural Science Workshop, dans le cadre du colloque Humanistica 2026).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Charles Planque (M1)</strong> du poster de <strong>Martin Houllier (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 19 mai 2026 (Computational Cultural Science Workshop, dans le cadre du colloque Humanistica 2026).</p>
 
 La séance « posters » du séminaire du master nous a permis d'assister à une présentation du poster de Martin Houllier, portant sur l'étude des écrits d'auteurs de journaux ou de romans, ouvriers ou canoniques, vis-à-vis de la machine. Elle s'étend de la moitié du XVIIIème siècle à nos jours.
 

@@ -9,10 +9,11 @@
 
 <article class="project-card">
   <div class="project-card__media">
+    {{/* RGAA 1.2 — vignette décorative : le titre du projet est affiché juste en dessous. */}}
     {{ if .Params.image }}
-      {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "project-card__img") }}
+      {{ partial "image.html" (dict "Src" .Params.image "Alt" "" "Class" "project-card__img") }}
     {{ else }}
-      <div class="project-card__placeholder"><i class="ti-folder"></i></div>
+      <div class="project-card__placeholder"><i class="ti-folder" aria-hidden="true"></i></div>
     {{ end }}
     {{ with .Params.funding }}
     <span class="project-card__funding project-card__funding--{{ . | lower }}">{{ . }}</span>
@@ -28,18 +29,20 @@
     {{ end }}
     <h3 class="project-card__title">{{ .Title }}</h3>
     <ul class="project-card__meta">
-      {{ with $dates }}<li><i class="ti-calendar"></i> {{ . }}</li>{{ end }}
+      {{ with $dates }}<li><i class="ti-calendar" aria-hidden="true"></i> {{ . }}</li>{{ end }}
       {{ with .Params.porteur }}
         {{ if reflect.IsSlice . }}
-          <li><i class="ti-user"></i> {{ delimit . ", " " & " }}</li>
+          <li><i class="ti-user" aria-hidden="true"></i> {{ delimit . ", " " & " }}</li>
         {{ else }}
-          <li><i class="ti-user"></i> {{ . }}</li>
+          <li><i class="ti-user" aria-hidden="true"></i> {{ . }}</li>
         {{ end }}
       {{ end }}
     </ul>
+    {{/* RGAA 6.1 — « En savoir plus » est répété sur toutes les tuiles :
+         on le rend explicite hors contexte par un complément invisible. */}}
     {{ with .Params.external_url }}
     <a href="{{ . }}" target="_blank" rel="noopener" class="project-card__cta">
-      En savoir plus <span aria-hidden="true">→</span>
+      En savoir plus<span class="sr-only"> sur « {{ $.Title }} »</span> <span aria-hidden="true">→</span><span class="sr-only"> (nouvelle fenêtre)</span>
     </a>
     {{ end }}
   </div>

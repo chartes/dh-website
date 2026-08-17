@@ -1,0 +1,75 @@
+{{/* Plan du site.
+
+     Motif RGAA 12.1 : « chaque ensemble de pages dispose-t-il d'au moins deux
+     systèmes de navigation différents ? » Le site n'en avait qu'un (le menu
+     principal) ; le plan du site constitue le second. Il doit être atteignable
+     depuis toutes les pages (lien posé dans partials/footer.html — RGAA 12.4)
+     et refléter l'arborescence réelle (RGAA 12.3).
+
+     Le plan se construit à partir du menu principal : ajouter une entrée dans
+     config/_default/menus.fr.toml suffit à la voir apparaître ici, la navigation
+     et le plan ne peuvent donc pas se désynchroniser.
+
+     $expand associe l'URL d'une entrée de menu aux `Type` Hugo des pages filles
+     à déplier sous elle. On passe par le Type et non par la section parce que
+     les URL sont francisées par [permalinks] dans hugo.toml (teacher → /equipe/,
+     projects → /projets/, event → /conferences/). */}}
+{{ define "main" }}
+
+{{ $expand := dict
+  "equipe/"     (slice (dict "type" "teacher"    "label" "Fiches de l’équipe enseignante" "sort" "title"))
+  "projets/"    (slice (dict "type" "projects"   "label" "Projets"                        "sort" "title"))
+  "evenements/" (slice (dict "type" "event"      "label" "Conférences"                    "sort" "date"))
+  "actualites/" (slice (dict "type" "actualites" "label" "Participations et annonces"     "sort" "date")
+                       (dict "type" "post"       "label" "Billets et travaux d’étudiants" "sort" "date"))
+}}
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="content">
+          <p>Cette page récapitule l’arborescence du site. Elle constitue, avec le
+          menu principal, le second système de navigation prévu par le référentiel
+          général d’amélioration de l’accessibilité.</p>
+        </div>
+
+        <nav aria-label="Plan du site">
+          <ul class="plan-site">
+            {{ range site.Menus.main }}
+            <li>
+              <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+              {{ with index $expand .URL }}
+              {{ range . }}
+              {{ $pages := where site.RegularPages "Type" .type }}
+              {{ if eq .sort "date" }}{{ $pages = $pages.ByDate.Reverse }}{{ else }}{{ $pages = $pages.ByTitle }}{{ end }}
+              {{ if $pages }}
+              <p class="plan-site__label">{{ .label }}</p>
+              <ul class="plan-site__sub">
+                {{ range $pages }}
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                {{ end }}
+              </ul>
+              {{ end }}
+              {{ end }}
+              {{ end }}
+            </li>
+            {{ end }}
+
+            {{/* Rubriques publiées et référencées depuis le contenu ou le pied de
+                 page, mais absentes du menu principal. */}}
+            {{ range slice "entreprises" "candidature" "alternance" }}
+            {{ with site.GetPage (printf "/%s" .) }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+            {{ end }}
+
+            <li><a href="{{ `accessibilite/` | relLangURL }}">Accessibilité</a></li>
+            <li><a href="{{ `plan-du-site/` | relLangURL }}" aria-current="page">Plan du site</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

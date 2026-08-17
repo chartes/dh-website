@@ -12,7 +12,8 @@ image: "images/blog/je2024/fengyi-chen/fig1.png"
 type: "post"
 ---
 
-> Compte-rendu par **Arsène Géry (M1)** de la présentation de **Fengyi Chen (M2)** lors du séminaire du master 2023-2024. Mémoire sous la direction de Marc Bui et Olivier Venture.
+<p class="actu-chapeau">
+Compte-rendu par <strong>Arsène Géry (M1)</strong> de la présentation de <strong>Fengyi Chen (M2)</strong> lors du séminaire du master 2023-2024. Mémoire sous la direction de Marc Bui et Olivier Venture.</p>
 
 Ce projet de recherche, mené par Fengyi Chen sous la direction de Marc Bui et Olivier Venture, explore les pratiques de sacrifice animal à Yinxu, un site significatif de la fin de la dynastie Shang (1300-1050 avant J.-C.). Chen vise à élucider les rôles religieux et funéraires des offrandes animales en examinant les inscriptions écrites et les vestiges archéologiques.
 

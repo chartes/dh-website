@@ -5,7 +5,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-9 mx-auto text-center">
-        <h1 class="entreprises-intro__title">{{ .Title }}</h1>
+        {{/* RGAA 9.1 : le <h1> de la page est déjà émis par la bannière (partials/page-header.html).
+             La classe BEM fixe la taille, le rendu est inchangé. */}}
+        <h2 class="entreprises-intro__title">{{ .Title }}</h2>
         {{ with .Params.intro }}<p class="entreprises-intro__lead">{{ . | markdownify }}</p>{{ end }}
       </div>
     </div>
@@ -18,21 +20,23 @@
   <div class="container">
     <h2 class="section-title mb-2">Compétences des étudiants</h2>
     {{ with .intro }}<p class="mb-5 text-muted">{{ . }}</p>{{ end }}
-    <div class="competences-grid">
+    {{/* RGAA 9.3 : énumération de compétences = liste. `list-unstyled mb-0` neutralise
+         puce, padding et marge par défaut de <ul> ; `.competences-grid` porte déjà le flex. */}}
+    <ul class="competences-grid list-unstyled mb-0">
       {{ range .items }}
-      <div class="competence-item">
-        <i class="{{ .icon }} competence-item__icon"></i>
+      <li class="competence-item">
+        <i class="{{ .icon }} competence-item__icon" aria-hidden="true"></i>
         <div>
           <p class="competence-item__label">{{ .label }}</p>
           <p class="competence-item__detail">{{ .detail }}</p>
         </div>
-      </div>
+      </li>
       {{ end }}
-    </div>
+    </ul>
     <div class="competences-cta">
       <p class="competences-cta__hint">Quelques exemples de réalisations menées par les étudiants et l'équipe :</p>
       <a href="{{ `developpements/` | relLangURL }}" class="btn btn-outline-primary">
-        Voir les développements →
+        Voir les développements <span aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -44,24 +48,30 @@
 <section class="section">
   <div class="container">
     <h2 class="section-title mb-5">Trois manières de collaborer</h2>
-    <div class="row">
+    {{/* RGAA 9.3 : les trois voies forment une liste. `list-unstyled mb-0` garde le rendu du <div class="row">. */}}
+    <ul class="row list-unstyled mb-0">
       {{ range . }}
-      <div class="col-lg-4 mb-4 d-flex">
+      {{ $voie := .title }}
+      <li class="col-lg-4 mb-4 d-flex">
         <article class="entreprises-voie">
-          <div class="entreprises-voie__icon" aria-hidden="true"><i class="{{ .icon }}"></i></div>
+          {{/* RGAA 1.2 : icône purement décorative. `aria-hidden` est porté par le
+               conteneur ET par la balise <i> elle-même, pour que l'ornement reste
+               hors de l'arbre d'accessibilité même si le conteneur évolue. */}}
+          <div class="entreprises-voie__icon" aria-hidden="true"><i class="{{ .icon }}" aria-hidden="true"></i></div>
           <h3 class="entreprises-voie__title">{{ .title }}</h3>
           {{ with .content }}<div class="entreprises-voie__content">{{ . | markdownify }}</div>{{ end }}
           {{ with .cta }}
+          {{/* RGAA 6.1 / 13.2 : intitulé complété hors contexte, ouverture signalée. */}}
           <a href="{{ .url }}"
              {{ if .external }} target="_blank" rel="noopener"{{ end }}
              class="btn btn-outline-primary entreprises-voie__cta">
-            {{ .label }} →
+            {{ .label }} <span aria-hidden="true">→</span><span class="sr-only"> — {{ $voie }}{{ if .external }} (nouvelle fenêtre){{ end }}</span>
           </a>
           {{ end }}
         </article>
-      </div>
+      </li>
       {{ end }}
-    </div>
+    </ul>
   </div>
 </section>
 {{ end }}
@@ -76,7 +86,7 @@
         <p class="entreprises-contact__content">{{ .content }}</p>
         {{ if .cta_url }}
         <a href="{{ .cta_url }}" target="_blank" rel="noopener" class="btn btn-primary mt-3">
-          {{ .cta_label | default "Nous contacter" }} →
+          {{ .cta_label | default "Nous contacter" }} <span aria-hidden="true">→</span><span class="sr-only"> (nouvelle fenêtre)</span>
         </a>
         {{ end }}
       </div>

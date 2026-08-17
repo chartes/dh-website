@@ -1,0 +1,6 @@
+{{- /* Adresse de contact « accessibilité », affichée dans la déclaration
+       (content/french/accessibilite/_index.md, via le shortcode contact-a11y).
+       Toute la mécanique de protection contre le moissonnage est documentée
+       dans partials/mailto-protege.html. L'adresse est tenue dans
+       hugo.toml → params.accessibility.contact. */ -}}
+{{- partial "mailto-protege.html" (dict "adresse" site.Params.accessibility.contact) -}}

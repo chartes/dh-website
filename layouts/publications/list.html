@@ -24,7 +24,10 @@
 {{ end }}
 {{ $q := delimit $clauses " OR " }}
 
-{{ $fields := "title_s,authFullName_s,producedDate_s,producedDateY_i,uri_s,docType_s,journalTitle_s,domain_s,keyword_s" }}
+{{/* `language_s` (RGAA 8.7) : tableau de codes ISO 639-1 renvoyé par HAL
+     (["en"], ["fr"], ["it"], ["und"]…). Sert à poser `lang` sur les titres et
+     les noms de revue qui ne sont pas en français. */}}
+{{ $fields := "title_s,authFullName_s,producedDate_s,producedDateY_i,uri_s,docType_s,journalTitle_s,domain_s,keyword_s,language_s" }}
 {{ $params := querify "q" $q "fl" $fields "sort" "producedDate_s desc" "rows" "2000" "wt" "json" }}
 {{ $url := printf "https://api.archives-ouvertes.fr/search/?%s" $params }}
 
@@ -114,16 +117,18 @@
           <!-- bannière plateformes -->
           {{ if or site.Params.github_url site.Params.huggingface_url }}
           <div class="openscience-strip">
+            {{/* RGAA 1.2 — logos décoratifs : le nom de la plateforme est déjà
+                 dans le texte du lien, juste à côté. */}}
             {{ with site.Params.github_url }}
             <a href="{{ . }}" target="_blank" rel="noopener" class="openscience-strip__link">
-              <img src="{{ `images/logos/github.svg` | relURL }}" alt="GitHub" class="openscience-strip__logo openscience-strip__logo--dark">
-              <span>GitHub</span>
+              <img src="{{ `images/logos/github.svg` | relURL }}" alt="" class="openscience-strip__logo openscience-strip__logo--dark">
+              <span>GitHub</span><span class="sr-only"> (nouvelle fenêtre)</span>
             </a>
             {{ end }}
             {{ with site.Params.huggingface_url }}
             <a href="{{ . }}" target="_blank" rel="noopener" class="openscience-strip__link">
-              <img src="{{ `images/logos/huggingface.svg` | relURL }}" alt="HuggingFace" class="openscience-strip__logo">
-              <span>HuggingFace Hub</span>
+              <img src="{{ `images/logos/huggingface.svg` | relURL }}" alt="" class="openscience-strip__logo">
+              <span>HuggingFace Hub</span><span class="sr-only"> (nouvelle fenêtre)</span>
             </a>
             {{ end }}
           </div>
@@ -139,6 +144,9 @@
                    placeholder="Rechercher dans les titres, auteurs, mots-clés, revues…"
                    aria-label="Recherche dans les publications">
           </div>
+
+          {{/* RGAA 7.5 — message de statut : le résultat de la recherche est annoncé. */}}
+          <p class="sr-only" role="status" aria-live="polite" id="publications-status"></p>
 
           {{/* ── Regroupement par année ── */}}
           {{ $byYear := dict }}
@@ -162,7 +170,9 @@
           {{ range $years }}
           {{ $year := . }}
           <div class="publications-year" data-year="{{ $year }}">
-            <h3 class="publications-year__title">{{ $year }}</h3>
+            {{/* RGAA 9.1 — niveau 2 : premier niveau sous le <h1> de page-header.
+                 `.publications-year__title` fixe font-size : rendu inchangé. */}}
+            <h2 class="publications-year__title">{{ $year }}</h2>
             <ul class="publications-list">
               {{ range index $byYear $year }}
               {{ $title := "" }}
@@ -175,17 +185,31 @@
               {{ with .keyword_s }}{{ $keywords = delimit . " " }}{{ end }}
               {{ $journal := "" }}
               {{ with .journalTitle_s }}{{ $journal = . }}{{ end }}
+              {{/* RGAA 8.7 — code langue du document (HAL `language_s`, tableau ISO 639-1).
+                   On ne pose `lang` que si la langue est connue, non française et
+                   déterminée (« und » = indéterminée ⇒ on s'abstient). */}}
+              {{ $lang := "" }}
+              {{ with .language_s }}
+                {{ $code := "" }}
+                {{ if reflect.IsSlice . }}
+                  {{ if gt (len .) 0 }}{{ $code = printf "%v" (index . 0) }}{{ end }}
+                {{ else }}
+                  {{ $code = printf "%v" . }}
+                {{ end }}
+                {{ $code = lower (trim $code " ") }}
+                {{ if and (ne $code "") (ne $code "fr") (ne $code "und") }}{{ $lang = $code }}{{ end }}
+              {{ end }}
               {{ $searchBlob := printf "%s %s %s %s %s" $title $authors $keywords $journal $year | lower }}
               <li class="publication-item" data-search="{{ $searchBlob }}">
                 <p class="publication-item__title">
-                  {{ with .uri_s }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $title }}</a>
-                  {{ else }}{{ $title }}{{ end }}
+                  {{ with .uri_s }}<a href="{{ . }}" target="_blank" rel="noopener">{{ if $lang }}<span lang="{{ $lang }}">{{ $title }}</span>{{ else }}{{ $title }}{{ end }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
+                  {{ else }}{{ if $lang }}<span lang="{{ $lang }}">{{ $title }}</span>{{ else }}{{ $title }}{{ end }}{{ end }}
                 </p>
                 {{ with .authFullName_s }}
                 <p class="publication-item__authors">{{ delimit . ", " ", et " }}</p>
                 {{ end }}
                 <p class="publication-item__meta">
-                  {{ with .journalTitle_s }}<em>{{ . }}</em>{{ end }}
+                  {{ with .journalTitle_s }}<em{{ with $lang }} lang="{{ . }}"{{ end }}>{{ . }}</em>{{ end }}
                   {{ with .docType_s }}
                     {{ $label := . }}
                     {{ if eq . "ART" }}{{ $label = "Article" }}
@@ -223,6 +247,8 @@
   var items = document.querySelectorAll('.publication-item');
   var years = document.querySelectorAll('.publications-year');
   var empty = document.querySelector('.publications-empty');
+  var status = document.getElementById('publications-status');
+  var statusTimer = null;
   if (!items.length || !search) return;
 
   function normalize(s) {
@@ -230,14 +256,26 @@
       .normalize('NFD').replace(/[̀-ͯ]/g, '');
   }
 
+  // RGAA 7.5 — annonce du nombre de résultats, temporisée pour ne pas
+  // bavarder à chaque frappe (le filtrage visuel, lui, reste immédiat).
+  function announce(count) {
+    if (!status) return;
+    window.clearTimeout(statusTimer);
+    statusTimer = window.setTimeout(function () {
+      status.textContent = count === 0
+        ? 'Aucune publication ne correspond à ces critères.'
+        : count + (count > 1 ? ' publications affichées.' : ' publication affichée.');
+    }, 400);
+  }
+
   function update(query) {
     var q = normalize(query).trim();
-    var anyVisible = false;
+    var visibleCount = 0;
     items.forEach(function (item) {
       var text = normalize(item.dataset.search);
       var visible = q === '' || text.indexOf(q) !== -1;
       item.hidden = !visible;
-      if (visible) anyVisible = true;
+      if (visible) visibleCount++;
     });
     years.forEach(function (y) {
       var anyHere = Array.prototype.some.call(
@@ -246,7 +284,8 @@
       );
       y.hidden = !anyHere;
     });
-    if (empty) empty.hidden = anyVisible;
+    if (empty) empty.hidden = visibleCount > 0;
+    announce(visibleCount);
   }
 
   search.addEventListener('input', function (e) { update(e.target.value); });

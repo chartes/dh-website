@@ -1,0 +1,26 @@
+{{/* Gabarit des pages d'alias (redirections déclarées par `aliases:` en front matter).
+     Le thème n'en fournit pas : Hugo utilisait son gabarit interne, dont le <title>
+     est l'URL de destination brute (« /evenements/ »).
+
+     Corrections d'accessibilité :
+     · RGAA 8.6  — titre de page pertinent et rédigé en français, au lieu d'une URL.
+     · RGAA 8.3  — langue de la page explicite (repli « fr », comme dans baseof.html).
+     · RGAA 13.1 — la redirection reste IMMÉDIATE (délai 0), seul cas où une
+       redirection par <meta http-equiv="refresh"> est conforme (test 13.1.2).
+       Un lien de repli est fourni pour les agents utilisateurs qui n'appliquent
+       pas la redirection automatique. */}}
+<!DOCTYPE html>
+<html lang="{{ with site.LanguageCode }}{{ . }}{{ else }}fr{{ end }}">
+  <head>
+    <meta charset="utf-8">
+    <title>Page déplacée — {{ site.Title }}</title>
+    <link rel="canonical" href="{{ .Permalink }}">
+    <meta name="robots" content="noindex">
+    <meta http-equiv="refresh" content="0; url={{ .Permalink }}">
+  </head>
+  <body>
+    <h1>Page déplacée</h1>
+    <p>Cette adresse a changé. Vous allez être redirigé automatiquement.</p>
+    <p><a href="{{ .Permalink }}">Poursuivre vers la nouvelle adresse</a></p>
+  </body>
+</html>

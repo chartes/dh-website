@@ -1,5 +1,6 @@
 ---
 title: "Does the Legislative Framework Shape Media Coverage of Prostitution? Evidence from a Francophone Press Corpus"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2026-05-19
 draft: false
 description: "Compte-rendu du poster M2 de Damien Conceição par Maxime Létoffé (M1) — une lecture computationnelle du discours médiatique sur la prostitution sur près de 173 000 articles francophones."
@@ -11,7 +12,8 @@ poster_title: "Does the Legislative Framework Shape Media Coverage of Prostituti
 type: "post"
 ---
 
-> Compte-rendu par **Maxime Létoffé (M1)** du poster de **Damien Conceição (M2)** présenté lors de la journée d'étude du master, 19 mai 2026 (Computational Cultural Science Workshop).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Maxime Létoffé (M1)</strong> du poster de <strong>Damien Conceição (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 19 mai 2026 (Computational Cultural Science Workshop).</p>
 
 La session de poster CultureLab de 2026 nous a permis d'assister à une présentation du travail de Damien Conceição. Il interroge la manière dont le cadre législatif d'un pays façonne le traitement médiatique de la prostitution, à travers un vaste corpus de presse francophone.
 

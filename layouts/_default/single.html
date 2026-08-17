@@ -1,0 +1,78 @@
+{{ define "main" }}
+{{/* Surcharge projet de themes/educenter-hugo/layouts/_default/single.html
+     (le thème est un sous-module git : toute correction doit vivre ici).
+     Gabarit de repli des pages de détail (actualités, projets…).
+
+     Corrections d'accessibilité, sans effet sur la mise en page :
+     · RGAA 6.2 — le lien « auteur » était émis inconditionnellement alors que
+       `Author` n'est renseigné dans aucun contenu : <a href="../../author/"></a>,
+       lien sans intitulé vers une section inexistante. Le <li> entier est
+       conditionné à la présence réelle de l'information (motif 7 des conventions).
+       Même traitement pour la liste des catégories, qui n'affichait que le
+       libellé « Catégorie : » suivi de rien.
+     · RGAA 1.1 — l'image de tête portait alt="blog-thumb" (nom de gabarit, pas
+       une alternative) ; elle illustre l'article dont le titre figure déjà dans
+       le <h1> juste au-dessus : elle est donc décorative, alt="". */}}
+
+<!-- blog details -->
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      {{/* RGAA 12.8 — voir le commentaire équivalent dans _default/list.html :
+           suppression de l'inversion `order-*` pour que l'ordre de tabulation
+           corresponde à l'ordre d'affichage sous 992 px comme au-dessus. */}}
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-12 mb-4">
+            {{/* RGAA 1.3 (qualité) — aucune de ces pages ne renseigne `image` : le partial
+                 était appelé avec un `Src` vide et produisait un <img src="../"> pointant
+                 sur un répertoire (6 occurrences sur les 6 pages /actualites/). L'image
+                 n'est rendue que si le paramètre existe. Le conteneur `.col-12.mb-4` est
+                 conservé : l'image cassée mesurait 0 × 0 px, la marge ne bouge pas. */}}
+            {{ with .Params.image }}
+            {{ partial "image.html" (dict "Src" . "Alt" "" "Class" "img-fluid w-100" ) }}
+            {{ end }}
+          </div>
+          <div class="col-12">
+            <ul class="list-inline">
+              {{ with .Params.Author }}
+              <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><span class="font-weight-bold mr-2">{{ i18n "posted_by" }}
+                  :</span><a
+                  href="{{ `author/` | relLangURL }}{{ . | urlize }}">{{ . | title }}</a></li>
+              {{ end }}
+
+              <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><span class="font-weight-bold mr-2">{{ i18n "date" }}
+                  :</span>{{ .PublishDate.Format "02 Jan, 2006" }}</li>
+
+              {{ with .Params.Categories }}
+              <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><span class="font-weight-bold mr-2">{{ i18n "category" }}
+                  :</span>{{ range $index, $elements:= . }}<a
+                  href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}"> {{ if ne $index 0 }}, {{ end }}
+                  {{ . | title }}</a> {{ end}}</li>
+              {{ end }}
+
+            </ul>
+          </div>
+          <!-- border -->
+          <div class="col-12 my-4">
+            <div class="border-bottom"></div>
+          </div>
+          <!-- blog contect -->
+          <div class="col-12 mb-5">
+            {{ .Content }}
+          </div>
+           <!-- Disqus comments -->
+        {{ if site.Config.Services.Disqus.Shortname }}
+        <div class="mt-20">
+          {{ template "_internal/disqus.html" . }}
+        </div>
+      {{ end }}
+        </div>
+      </div>
+      {{ partial "blog-sidebar.html" . }}
+    </div>
+  </div>
+</section>
+<!-- /blog details -->
+
+{{ end }}

@@ -1,5 +1,6 @@
 ---
 title: "Multilateralism between the two World Wars and its perception in the French Parliament"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2025-06-27
 draft: false
 description: "Compte-rendu du lightning-talk M2 de Donghan Bian par Juliette Grenier (M1) — RAG appliqué au Journal officiel de la République française pour étudier la perception du multilatéralisme au Parlement dans les années 1929-1939."
@@ -12,7 +13,8 @@ image: "images/blog/je2025/donghan-bian/fig1.png"
 type: "post"
 ---
 
-> Compte-rendu par **Juliette Grenier (M1)** du lightning-talk de **Donghan Bian (M2)** présenté lors de la journée d'étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque *Bridging Computational Humanities and Computational Social Sciences* organisé par AISSAI — Marie Puren et Florian Cafiero — et l'ENC — Chahan Vidal-Gorène).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Juliette Grenier (M1)</strong> du lightning-talk de <strong>Donghan Bian (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque <em>Bridging Computational Humanities and Computational Social Sciences</em> organisé par AISSAI — Marie Puren et Florian Cafiero — et l&rsquo;ENC — Chahan Vidal-Gorène).</p>
 
 Les recherches menées par Donghan Bian portent sur le multilatéralisme dans l'entre-deux-guerres, et plus particulièrement sur sa perception par le Parlement français. Dans les années 1920, le régime politique français est qualifié par Raymond Carré de Malberg de « gouvernement parlementaire », mettant ainsi l'accent sur l'importance du Parlement, composé du Sénat et de la Chambre des députés, dont l'objectif est de lier, toujours selon Carré de Malberg, les pouvoirs exécutif et législatif. Le multilatéralisme désigne, quant à lui, un type de relations internationales entre plusieurs États, ayant pour objectif de mettre en place des règles et des accords de coopération communs. Donghan Bian s'intéresse à l'expression de ce multilatéralisme au sein du Parlement français, tout en cherchant à savoir si la génération augmentée de récupération (ou RAG) — une technique spécifique de traitement du langage naturel — peut s'appliquer aux travaux historiques. Il s'agit donc de mêler technologie de pointe et histoire internationale.
 

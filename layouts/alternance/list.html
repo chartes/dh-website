@@ -4,7 +4,8 @@
     <div class="row">
       <div class="col-lg-10 mx-auto">
         {{ with .Params.image }}
-        {{ partial "image.html" (dict "Src" . "Alt" "alternance et stage" "Class" "img-fluid w-100 mb-4" ) }}
+        {{/* RGAA 1.2 : illustration d'en-tête, l'alternative reprenait le titre de la page. */}}
+        {{ partial "image.html" (dict "Src" . "Alt" "" "Class" "img-fluid w-100 mb-4" ) }}
         {{ end }}
         {{ .Content }}
       </div>

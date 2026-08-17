@@ -1,5 +1,6 @@
 ---
 title: "From Closure to Sharing: Heritage of Afghanistan"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2026-06-17
 date_end: "2026-06-19"
 category: "Formation"

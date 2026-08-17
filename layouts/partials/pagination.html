@@ -1,0 +1,121 @@
+{{/* Surcharge projet du gabarit interne de Hugo `_internal/pagination.html`
+     (embedded/templates/_partials/pagination.html de hugo 0.148.2), recopié puis corrigé.
+     Le gabarit d'origine est embarqué dans le binaire ; depuis Hugo 0.146 les gabarits
+     internes sont des partials, la surcharge se fait donc ici et l'appel se fait par
+     `{{ partial "pagination.html" . }}` (cf. layouts/_default/list.html).
+
+     Corrections d'accessibilité, sans effet sur la mise en page — mêmes classes
+     Bootstrap (`pagination`, `page-item`, `page-item active`, `page-item disabled`,
+     `page-link`), mêmes libellés visibles (« « « », « « », numéros, « » », « » » »),
+     même ordre, mêmes URL. Toutes les règles CSS concernées portent sur des CLASSES
+     (`.page-link`, `.page-item…`), jamais sur l'élément `a` : remplacer un `<a>` sans
+     `href` par un `<span>` de même classe ne change strictement rien au rendu.
+
+     · RGAA 9.2 / 12.2 — la liste n'était pas un point de repère : elle est enveloppée
+       d'un <nav aria-label="Pagination">, élément de bloc sans marge propre.
+     · RGAA 8.7 — noms accessibles en anglais (« First », « Previous », « Next »,
+       « Last ») dans une page `lang="fr"` : francisés. Le site est monolingue
+       (`disableLanguages = ["en"]`), les chaînes sont écrites en dur plutôt que dans
+       `i18n/fr.yaml`, fichier hors de ce lot.
+     · RGAA 6.1 / 7.1 — `role="button"` était posé sur les 8 <a> : ils naviguent, ce
+       sont des liens. Le rôle est retiré, le rôle natif reprend la main.
+     · RGAA 6.1 / 8.2 — les <a> SANS `href` (flèches inactives, page courante) ne sont
+       pas des liens : ce sont des éléments génériques, sur lesquels `aria-label` est
+       interdit (html-validate `aria-label-misuse`). Ils deviennent des <span> :
+       les flèches inactives, qui n'apportent aucune information, sortent de l'arbre
+       d'accessibilité.
+     · RGAA 12.2 — la page courante suit le motif documenté par Bootstrap 4 :
+       `aria-current="page"` sur le <li class="page-item active"> (un <span> a le rôle
+       « generic », qui ne calcule aucun nom accessible et n'expose pas l'état), et
+       l'intitulé « Page N » restitué par un texte réservé aux lecteurs d'écran
+       — `.sr-only` est en `position:absolute`, il n'occupe aucune place. */}}
+{{- $validFormats := slice "default" "terse" }}
+{{- $msg1 := "When passing a map to the internal pagination template, one of the elements must be named 'page', and it must be set to the context of the current page." }}
+{{- $msg2 := "The 'format' specified in the map passed to the internal pagination template is invalid. Valid choices are: %s." }}
+{{- $page := . }}
+{{- $format := "default" }}
+{{- if reflect.IsMap . }}
+  {{- with .page }}
+    {{- $page = . }}
+  {{- else }}
+    {{- errorf $msg1 }}
+  {{- end }}
+  {{- with .format }}
+    {{- $format = lower . }}
+  {{- end }}
+{{- end }}
+{{- if in $validFormats $format }}
+  {{- if gt $page.Paginator.TotalPages 1 }}
+    {{- $terse := eq $format "terse" }}
+    {{- $slots := cond $terse 3 5 }}
+    <nav aria-label="Pagination">
+    <ul class="pagination pagination-{{ $format }}">
+      {{- with $page.Paginator }}
+        {{- $currentPageNumber := .PageNumber }}
+        {{- with .First }}
+          {{- if ne $currentPageNumber .PageNumber }}
+      <li class="page-item">
+        <a href="{{ .URL }}" aria-label="Première page" class="page-link"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+          {{- else if not $terse }}
+      <li class="page-item disabled" aria-hidden="true">
+        <span class="page-link">&laquo;&laquo;</span>
+      </li>
+          {{- end }}
+        {{- end }}
+        {{- with .Prev }}
+      <li class="page-item">
+        <a href="{{ .URL }}" aria-label="Page précédente" class="page-link"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+        {{- else }}
+          {{- if not $terse }}
+      <li class="page-item disabled" aria-hidden="true">
+        <span class="page-link">&laquo;</span>
+      </li>
+          {{- end }}
+        {{- end }}
+        {{- $start := math.Max 1 (sub .PageNumber (math.Floor (div $slots 2))) }}
+        {{- $end := math.Min .TotalPages (sub (add $start $slots) 1) }}
+        {{- if lt (add (sub $end $start) 1) $slots }}
+          {{- $start = math.Max 1 (add (sub $end $slots) 1) }}
+        {{- end }}
+        {{- range $k := seq $start $end }}
+          {{- if eq $page.Paginator.PageNumber $k }}
+      <li class="page-item active" aria-current="page">
+        <span class="page-link"><span class="sr-only">Page </span>{{ $k }}</span>
+      </li>
+          {{- else }}
+      <li class="page-item">
+        <a href="{{ (index $page.Paginator.Pagers (sub $k 1)).URL }}" aria-label="Page {{ $k }}" class="page-link">{{ $k }}</a>
+      </li>
+          {{- end }}
+        {{- end }}
+        {{- with .Next }}
+      <li class="page-item">
+        <a href="{{ .URL }}" aria-label="Page suivante" class="page-link"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+        {{- else }}
+          {{- if not $terse }}
+      <li class="page-item disabled" aria-hidden="true">
+        <span class="page-link">&raquo;</span>
+      </li>
+          {{- end }}
+        {{- end }}
+        {{- with .Last }}
+          {{- if ne $currentPageNumber .PageNumber }}
+      <li class="page-item">
+        <a href="{{ .URL }}" aria-label="Dernière page" class="page-link"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+          {{- else if not $terse }}
+      <li class="page-item disabled" aria-hidden="true">
+        <span class="page-link">&raquo;&raquo;</span>
+      </li>
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    </ul>
+    </nav>
+  {{- end }}
+{{- else }}
+  {{- errorf $msg2 (delimit $validFormats ", ") }}
+{{- end -}}

@@ -9,12 +9,15 @@
         <div class="teacher-profile__sidebar">
           <div class="teacher-profile__photo">
             {{ if .Params.image }}
-            {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "teacher-profile__img") }}
+            {{/* RGAA 1.2 : le nom figure juste en dessous, la photo n'apporte pas d'information. */}}
+            {{ partial "image.html" (dict "Src" .Params.image "Alt" "" "Class" "teacher-profile__img") }}
             {{ else }}
-            <div class="teacher-profile__placeholder"><i class="ti-user"></i></div>
+            <div class="teacher-profile__placeholder"><i class="ti-user" aria-hidden="true"></i></div>
             {{ end }}
           </div>
-          <h1 class="teacher-profile__name">{{ .Title }}</h1>
+          {{/* RGAA 9.1 : le <h1> de la page est déjà émis par la bannière (partials/page-header.html).
+               La classe BEM fixe la taille, le rendu est inchangé. */}}
+          <h2 class="teacher-profile__name">{{ .Title }}</h2>
           {{ with .Params.institution }}
           <p class="teacher-profile__institution">{{ . }}</p>
           {{ end }}
@@ -25,8 +28,9 @@
           {{ end }}
           {{ with .Params.website }}
           <p class="teacher-profile__website">
+            {{/* RGAA 6.1 / 13.2 : intitulé complété hors contexte, ouverture signalée. */}}
             <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">
-              <i class="ti-world"></i> Page officielle
+              <i class="ti-world" aria-hidden="true"></i> Page officielle<span class="sr-only"> de {{ $.Title }} (nouvelle fenêtre)</span>
             </a>
           </p>
           {{ end }}
@@ -35,15 +39,17 @@
           <ul class="teacher-profile__links">
             {{ with .Params.idhal }}
             <li>
-              <a href="https://cv.hal.science/{{ . }}" target="_blank" rel="noopener" aria-label="Profil HAL">
-                <i class="ti-link"></i> HAL
+              {{/* RGAA 6.1 : l'ancien aria-label masquait l'intitulé visible ; on le complète
+                   désormais par du texte réservé aux lecteurs d'écran. */}}
+              <a href="https://cv.hal.science/{{ . }}" target="_blank" rel="noopener">
+                <i class="ti-link" aria-hidden="true"></i> HAL<span class="sr-only"> — profil de {{ $.Title }} (nouvelle fenêtre)</span>
               </a>
             </li>
             {{ end }}
             {{ with .Params.scholar_id }}
             <li>
-              <a href="https://scholar.google.com/citations?user={{ . }}" target="_blank" rel="noopener" aria-label="Profil Google Scholar">
-                <i class="ti-bookmark-alt"></i> Google Scholar
+              <a href="https://scholar.google.com/citations?user={{ . }}" target="_blank" rel="noopener">
+                <i class="ti-bookmark-alt" aria-hidden="true"></i> Google Scholar<span class="sr-only"> — profil de {{ $.Title }} (nouvelle fenêtre)</span>
               </a>
             </li>
             {{ end }}
@@ -81,7 +87,7 @@
               <span class="memoire-item__year">{{ .annee }}</span>
               <div class="memoire-item__content">
                 <span class="memoire-item__title">
-                  {{ with .lien }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $titre }}</a>{{ else }}{{ $titre }}{{ end }}
+                  {{ with .lien }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $titre }}<span class="sr-only"> (nouvelle fenêtre)</span></a>{{ else }}{{ $titre }}{{ end }}
                 </span>
                 {{ with $niveau }}
                 <span class="memoire-item__level memoire-item__level--{{ . | lower }}">{{ . }}</span>

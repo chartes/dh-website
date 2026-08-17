@@ -1,5 +1,6 @@
 ---
 title: "Women representation in Arabic and French travel narratives: a NLP-based study"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2026-05-19
 draft: false
 description: "Compte-rendu du poster M2 de Radjaa Benabdallah par Irandokht Dina Moinzadeh (M1) — comparaison des représentations féminines dans les récits de voyage arabophones et francophones."
@@ -11,7 +12,8 @@ poster_title: "Women representation in Arabic and French travel narratives: a NL
 type: "post"
 ---
 
-> Compte-rendu par **Irandokht Dina Moinzadeh (M1)** du poster de **Radjaa Benabdallah (M2)** présenté lors de la journée d'étude du master, 19 mai 2026 (Computational Cultural Science Workshop, dans le cadre de la conférence Humanistica).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Irandokht Dina Moinzadeh (M1)</strong> du poster de <strong>Radjaa Benabdallah (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 19 mai 2026 (Computational Cultural Science Workshop, dans le cadre de la conférence Humanistica).</p>
 
 La séance de posters du 19 mai 2026 nous a permis de découvrir le poster de Radjaa Benabdallah, portant sur la représentation des femmes dans les récits de voyage arabophones et francophones.
 

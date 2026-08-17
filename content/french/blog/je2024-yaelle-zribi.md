@@ -12,7 +12,8 @@ image: "images/blog/je2024/yaelle-zribi/fig1.png"
 type: "post"
 ---
 
-> Compte-rendu par **Albina Toumarkine (M1)** de la présentation de **Yaelle Zribi (M2)** lors du séminaire du master, 15 mai 2024.
+<p class="actu-chapeau">
+Compte-rendu par <strong>Albina Toumarkine (M1)</strong> de la présentation de <strong>Yaelle Zribi (M2)</strong> lors du séminaire du master, 15 mai 2024.</p>
 
 La séance du 15 mai 2024 du séminaire du master a donné l'occasion d'assister à une présentation délivrée par Yaelle Zribi, étudiante en deuxième année du master Humanités numériques à l'École des Chartes. Après avoir suivi une classe préparatoire économique et commerciale, Yaelle Zribi obtient, en 2022, une licence bi-disciplinaire Lettres-Histoire à l'Université Paris Cité.
 

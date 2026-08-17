@@ -1,5 +1,6 @@
 ---
 title: "Machine Learning-Based Identification and Comparison of Different Rubbings from the Same Object, 13th–3rd Centuries BCE"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2026-05-19
 draft: false
 description: "Compte-rendu du poster M2 de Quanwen Long par Chiara Tedesco (M1) — vision par ordinateur appliquée aux estampages d'inscriptions sur bronze des dynasties Shang et Zhou."
@@ -11,7 +12,8 @@ poster_title: "Machine Learning-Based Identification and Comparison of Different
 type: "post"
 ---
 
-> Compte-rendu par **Chiara Tedesco (M1)** du poster de **Quanwen Long (M2)** présenté lors de la journée d'étude du master, 19 mai 2026 (Computational Cultural Science Workshop).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Chiara Tedesco (M1)</strong> du poster de <strong>Quanwen Long (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 19 mai 2026 (Computational Cultural Science Workshop).</p>
 
 Dans le cadre de l'édition 2026 du colloque Humanistica, qui s'est tenue à Paris, le Grand Programme de Recherche CultureLab de l'université PSL a organisé un évènement satellite, le *Computational Cultural Science Workshop*, accueilli à l'École nationale des chartes – PSL. Celui-ci s'est déroulé les 18 et 19 mai 2026 dans les locaux de l'École. Conçu comme un véritable colloque à part entière, il a réuni une *keynote lecture*, des communications longues, des *lightning talks*, ainsi que des sessions de présentation de posters.
 

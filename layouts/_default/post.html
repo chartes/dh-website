@@ -1,0 +1,33 @@
+{{/* Surcharge projet de themes/educenter-hugo/layouts/_default/post.html
+     (le thème est un sous-module git : toute correction doit vivre ici).
+     Carte d'article ; corrections identiques à celles de _default/list.html.
+
+     · RGAA 6.2 — <li> « auteur » conditionné à la présence réelle de `.Params.Author`
+       (sinon le thème émettait <a href="../../author/"></a>, lien sans intitulé).
+     · RGAA 1.2 — icônes themify décoratives : aria-hidden="true".
+     · RGAA 9.1 — titre de carte en <h2> avec la classe miroir `.h4` (rendu identique). */}}
+<article class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
+  {{/* RGAA 1.2 — aucun billet ne renseigne `image` : le partial produisait un
+       <img src="../"> pointant sur un répertoire, dont le texte de remplacement
+       (le titre de l'article) s'affichait en doublon du titre juste en dessous.
+       La vignette n'est plus rendue que si le fichier est renseigné. */}}
+  {{ with .Params.image }}{{ partial "image.html" (dict "Src" . "Alt" "" "Class" "card-img-top rounded-0") }}{{ end }}
+  <div class="card-body">
+    <!-- post meta -->
+    <ul class="list-inline mb-3">
+      <!-- post date -->
+      <li class="list-inline-item mr-3 ml-0"><i class="ti-calendar" aria-hidden="true"></i> {{ .PublishDate.Format "02 Jan, 2006" }}</li>
+      <!-- author : affiché uniquement si l'auteur est réellement renseigné -->
+      {{ with .Params.Author }}
+      <li class="list-inline-item mr-3 ml-0"><i class="ti-user" aria-hidden="true"></i> <a
+        href="{{ `author/` | relLangURL }}{{ . | urlize }}">{{ . | title }}</a></li>
+      {{ end }}
+    </ul>
+      <h2 class="h4 card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{/* RGAA 8.2 / 8.9 / 9.4 — cf. commentaire de _default/list.html : on ne garde du
+         résumé que son contenu en ligne, pour ne pas imbriquer un <blockquote> dans un <p>
+         et ne pas détourner <blockquote> en outil de mise en forme. */}}
+    <p class="card-text">{{ .Summary | truncate 100 | replaceRE `</?(?:p|blockquote)(?:\s[^>]*)?>` "" | strings.TrimSpace | safeHTML }}</p>
+    <a href="{{ .Permalink }}" class="btn btn-primary btn-sm">{{ i18n "read_more" }}</a>
+  </div>
+</article>

@@ -1,0 +1,59 @@
+{{- /*
+  Affiche une adresse électronique lisible par tout le monde, mais non
+  moissonnable telle quelle dans le HTML servi.
+
+  Appel :  {{ partial "mailto-protege.html" (dict "adresse" "nom@domaine.fr") }}
+           {{ partial "mailto-protege.html" (dict "adresse" .contact "class" "value") }}
+
+  CONTRAINTE — l'adresse doit rester parfaitement normale pour un être humain :
+  lisible à l'écran, restituée d'un seul tenant par un lecteur d'écran,
+  copiable-collable, et présente sans JavaScript. Elle ne doit simplement pas
+  apparaître d'un seul tenant dans le fichier servi.
+
+  CE QUI NE MARCHE PAS — l'écrire en références de caractères numériques
+  (`&#101;&#116;…`) : c'est bien ce qui est servi en développement, mais le
+  déploiement passe par `hugo --minify` (.github/workflows/hugo.yml) et le
+  minifieur tdewolff décode les entités. L'adresse ressortait en clair. Vérifié.
+
+  CE QUI EST FAIT — l'adresse est découpée en fragments <span> aux frontières
+  de « @ » et des points. Après minification le source contient
+  `>etudes</span><span>@</span><span>chartes…`, où aucune expression régulière
+  du type `[\w.]+@[\w.]+` ne trouve d'occurrence : les balises coupent la chaîne.
+  Le rendu est identique — les <span> sont en ligne, sans blanc entre eux.
+
+  · Lecteur d'écran : les fragments sont concaténés, l'adresse est énoncée
+    normalement (pas d'`aria-label`, pas de rôle : c'est du texte ordinaire).
+  · Copier-coller : rend bien l'adresse exacte, sans caractère parasite — on
+    n'insère aucun espace de largeur nulle, qui serait copié et la casserait.
+  · Sans JavaScript : lisible et sélectionnable, simplement pas cliquable. Un
+    mécanisme de contact accessible au sens du décret n° 2019-768 n'exige pas
+    un lien `mailto:`.
+  · Avec JavaScript : le script reconstruit un vrai lien `mailto:`. L'adresse
+    n'existe alors que dans le DOM, jamais dans le fichier servi.
+*/ -}}
+{{- $adresse := .adresse -}}
+{{- $class := .class | default "" -}}
+{{- $id := printf "courriel-%s" (substr (sha256 $adresse) 0 8) -}}
+{{- if $adresse -}}
+{{- $fragments := slice -}}
+{{- range $i, $bloc := split $adresse "@" -}}
+  {{- if gt $i 0 }}{{ $fragments = $fragments | append "@" }}{{ end -}}
+  {{- range $j, $part := split $bloc "." -}}
+    {{- if gt $j 0 }}{{ $fragments = $fragments | append (printf ".%s" $part) }}
+    {{- else }}{{ $fragments = $fragments | append $part }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+<span{{ with $class }} class="{{ . }}"{{ end }} data-courriel id="{{ $id }}">{{ range $fragments }}<span>{{ . }}</span>{{ end }}</span>
+<script>
+  (function () {
+    var el = document.getElementById({{ $id }});
+    if (!el) { return; }
+    var adresse = el.textContent.replace(/\s+/g, '');
+    var lien = document.createElement('a');
+    lien.href = 'mail' + 'to:' + adresse;
+    lien.textContent = adresse;
+    if (el.className) { lien.className = el.className; }
+    el.parentNode.replaceChild(lien, el);
+  })();
+</script>
+{{- end -}}

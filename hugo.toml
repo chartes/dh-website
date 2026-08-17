@@ -38,6 +38,17 @@ google_analitycs_id = ""
 # top header
 top_header = false
 
+# Accessibilité — mention obligatoire affichée en pied de page sur toutes les pages
+# (décret n° 2019-768 du 24 juillet 2019). Valeurs admises, et elles seules :
+#   "totalement conforme"   — 100 % des critères RGAA applicables respectés
+#   "partiellement conforme" — au moins 50 %
+#   "non conforme"          — moins de 50 %, ou aucun audit en cours de validité
+# À mettre à jour en même temps que content/french/accessibilite/_index.md.
+[params.accessibility]
+level = "partiellement conforme"
+audit_date = "2026-08-16"
+contact = "etudes@chartes.psl.eu"
+
 buildFuture = true
 
 ############################# Build ##############################

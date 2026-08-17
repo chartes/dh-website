@@ -17,4 +17,17 @@ disableLanguages = [
 hasCJKLanguage = false #  If hasCJKLanguage true, auto-detect Chinese/Japanese/Korean Languages in the content. see: https://gohugo.io/getting-started/configuration/#hascjklanguage
 
 [services.disqus]
-shortname = 'themefisher-template' # we use disqus to show comments in blog posts . To install disqus please follow this tutorial https://portfolio.peter-baumgartner.net/2017/09/10/how-to-install-disqus-on-hugo/
+# Désactivé — RGAA 2.1 / 8.7, et accessoirement fuite de données.
+#
+# Le `shortname` hérité du thème (« themefisher-template ») est celui de l'éditeur
+# du thème, pas celui de l'École : les commentaires déposés sur ce site partaient
+# donc sur le compte d'un tiers. Le module injectait par ailleurs, sur 15 pages,
+# un cadre <iframe> dont l'accessibilité n'est ni évaluable ni sous le contrôle de
+# l'École, ainsi que des mentions en anglais (« comments powered by Disqus ») sans
+# indication de changement de langue.
+#
+# Le gabarit (layouts/_default/single.html) conditionne déjà l'affichage à la
+# présence de cette valeur : la laisser vide suffit à retirer le module.
+# Pour réactiver des commentaires, renseigner ici le shortname de l'École — et
+# auditer alors les critères 2.1, 2.2 et 8.7, qui redeviendront applicables.
+shortname = ''

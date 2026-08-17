@@ -5,8 +5,10 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-sm-4 position-relative success-video">
+        {{/* RGAA 1.2 / 6.1 : le lien n'a qu'une icône pour contenu, il lui faut un intitulé. */}}
         <a class="play-btn venobox" href="{{ .video_link | safeURL }}" data-vbtype="video">
-          <i class="ti-control-play"></i>
+          <i class="ti-control-play" aria-hidden="true"></i>
+          <span class="sr-only">Lire la vidéo{{ with .title }} : {{ . | plainify }}{{ end }}</span>
         </a>
       </div>
       <div class="col-lg-6 col-sm-8">

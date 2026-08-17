@@ -1,5 +1,6 @@
 ---
 title: "The Persuasive Power of Media Framing on Television: Modeling the Impact of Immigration Framing on Public Opinion (2013-2017)"
+title_lang: "en"  # RGAA 8.7 — le titre est en anglais, le corps du billet est en français
 date: 2026-05-19
 draft: false
 description: "Compte-rendu du poster M2 de Chloé Jollivet-Courtois par Manon Remot (M1) — mesure computationnelle du cadrage médiatique de l'immigration dans les JT français et impact sur l'opinion publique."
@@ -12,7 +13,8 @@ image: "images/blog/je2026/chloe-jollivet-courtois/img-000.jpg"
 type: "post"
 ---
 
-> Compte-rendu par **Manon Remot (M1)** du poster de **Chloé Jollivet-Courtois (M2)** présenté lors de la journée d'étude du master, 19 mai 2026 (Computational Cultural Science Workshop, dans le cadre du colloque Humanistica).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Manon Remot (M1)</strong> du poster de <strong>Chloé Jollivet-Courtois (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 19 mai 2026 (Computational Cultural Science Workshop, dans le cadre du colloque Humanistica).</p>
 
 Lors de la séance du mardi 19 mai 2026 du séminaire du master humanités numériques de l'École des chartes, Chloé Jollivet-Courtois a présenté les recherches menées dans le cadre de son mémoire intitulé : *The Persuasive Power of Media Framing on Television: Modeling the Impact of Immigration Framing on Public Opinion (2013-2017)*.
 

@@ -5,15 +5,18 @@
 <section class="section">
   <div class="container">
     {{ if $teachers }}
-    <div class="row">
+    {{/* RGAA 9.3 : grille de fiches = liste. `list-unstyled mb-0` neutralise puce, padding
+         et marge par défaut de <ul> — rendu identique au <div class="row">. */}}
+    <ul class="row list-unstyled mb-0">
       {{ range $teachers }}
-      <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+      <li class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
         <a href="{{ .Permalink }}" class="person-card person-card--link">
           <div class="person-card__photo">
             {{ if .Params.image }}
-            {{ partial "image.html" (dict "Src" .Params.image "Alt" .Title "Class" "person-card__img") }}
+            {{/* RGAA 1.2 : le nom est déjà donné en texte dans la carte, la photo est décorative. */}}
+            {{ partial "image.html" (dict "Src" .Params.image "Alt" "" "Class" "person-card__img") }}
             {{ else }}
-            <div class="person-card__placeholder"><i class="ti-user"></i></div>
+            <div class="person-card__placeholder"><i class="ti-user" aria-hidden="true"></i></div>
             {{ end }}
           </div>
           <div class="person-card__info">
@@ -21,9 +24,9 @@
             {{ with .Params.institution }}<p class="person-card__role">{{ . }}</p>{{ end }}
           </div>
         </a>
-      </div>
+      </li>
       {{ end }}
-    </div>
+    </ul>
     {{ else }}
     <p class="text-center text-muted">Aucun enseignant pour le moment.</p>
     {{ end }}

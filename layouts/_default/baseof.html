@@ -1,0 +1,26 @@
+{{/* Surcharge projet de themes/educenter-hugo/layouts/_default/baseof.html
+     (le thème est un sous-module git : toute correction doit vivre ici).
+
+     Ajouts d'accessibilité — RGAA 4.1.2 :
+     · 8.3  — langue par défaut explicite, repli sur "fr" plutôt que "en-US" ;
+     · 12.7 — lien d'accès rapide au contenu, visible uniquement à la prise de focus ;
+     · 9.2 / 12.6 — landmark <main> englobant le titre de page et le contenu.
+     Aucun de ces ajouts n'a d'effet visuel tant que l'on ne navigue pas au clavier. */}}
+<!DOCTYPE html>
+<html lang="{{ with site.LanguageCode }}{{ . }}{{ else }}fr{{ end }}">
+{{- partial "head.html" . -}}
+
+<body>
+	{{- partial "preloader.html" . -}}
+	<a class="skip-link" href="#contenu">Aller au contenu principal</a>
+	{{- partial "header.html" . -}}
+	<main id="contenu" tabindex="-1">
+		{{ if not .IsHome }}
+		{{ partial "page-header.html" . }}
+		{{ end }}
+		{{- block "main" . }}{{- end }}
+	</main>
+	{{- partial "footer.html" . -}}
+</body>
+
+</html>

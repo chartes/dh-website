@@ -8,16 +8,22 @@
         <div class="col-lg-4 text-center text-lg-left">
           <ul class="list-inline">
             {{ range site.Params.social }}
-            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
+            {{ if ne .link "#" }}
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="{{ .link | safeURL }}" target="_blank" rel="noopener"><i class="{{ .icon }}" aria-hidden="true"></i><span class="sr-only">{{ .title | title }} (nouvelle fenêtre)</span></a></li>
+            {{ end }}
             {{ end }}
           </ul>
         </div>
         <div class="col-lg-8 text-center text-lg-right">
           <ul class="list-inline">
+            {{ if ne site.Params.mobile "#" }}
             <li class="list-inline-item">
               <a class="text-color mr-3" href="tel:{{ site.Params.mobile }}"><strong>{{ i18n "call" | upper }} : </strong> {{ site.Params.mobile }}</a></li>
+            {{ end }}
+            {{ if ne site.Params.email "#" }}
             <li class="list-inline-item">
               <a class="text-color" href="mailto:{{ site.Params.email }}"><strong>{{ i18n "email" | upper }} : </strong> {{ site.Params.email }}</a></li>
+            {{ end }}
           </ul>
         </div>
       </div>
@@ -27,21 +33,29 @@
   <!-- navbar -->
   <div class="navigation w-100 {{ if site.Params.top_header }} top-hider {{ end }}">
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-dark p-0">
-        <a class="navbar-brand" href="{{ site.BaseURL | relLangURL }}">
-          {{ partial "image.html" (dict "Src" site.Params.logo "Alt" site.Title "Class" "img-fluid") }}
+      {{/* RGAA 12.6 — la zone de navigation doit être identifiable et nommée :
+           plusieurs <nav> coexistent sur une page (principale, pied de page). */}}
+      <nav class="navbar navbar-expand-lg navbar-dark p-0" aria-label="Navigation principale">
+        {{/* RGAA 6.1 — le nom accessible du lien porte la destination ; l'image
+             est alors décorative (Alt "") pour ne pas doubler l'intitulé. */}}
+        <a class="navbar-brand" href="{{ site.BaseURL | relLangURL }}" aria-label="{{ site.Title }} — retour à l’accueil">
+          {{ partial "image.html" (dict "Src" site.Params.logo "Alt" "" "Class" "img-fluid") }}
         </a>
         <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
-          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          aria-controls="navigation" aria-expanded="false" aria-label="Afficher ou masquer le menu de navigation">
+          <span class="navbar-toggler-icon" aria-hidden="true"></span>
         </button>
 
         <div class="collapse navbar-collapse text-center" id="navigation">
           <ul class="navbar-nav ml-auto">
             {{ range site.Menus.main }}
             {{ if .HasChildren }}
+            {{/* RGAA 7.1 / 10.13 — un sous-menu ouvert au seul survol serait
+                 inaccessible au clavier : le CSS d'accompagnement (_a11y.scss)
+                 ajoute :focus-within, et l'état est exposé ici. */}}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 {{ .Name }}
               </a>
               <div class="dropdown-menu">
@@ -51,8 +65,14 @@
               </div>
             </li>
             {{ else }}
+            {{/* Repérage de la page courante dans le menu.
+                 `IsMenuCurrent` ne fonctionne pas ici : menus.fr.toml déclare les URL
+                 sans barre oblique initiale (« master/ ») alors que .RelPermalink en
+                 porte une (« /master/ »), et Hugo compare les deux chaînes telles
+                 quelles. On normalise donc les deux côtés avant de comparer. */}}
+            {{ $courante := eq (path.Clean (strings.TrimPrefix "/" .URL)) (path.Clean (strings.TrimPrefix "/" $.RelPermalink)) }}
             <li class="nav-item">
-              <a class="nav-link" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+              <a class="nav-link" href="{{ .URL | absLangURL }}"{{ if $courante }} aria-current="page"{{ end }}>{{ .Name }}</a>
             </li>
             {{ end }}
             {{ end }}
@@ -60,24 +80,39 @@
 
           <!-- Language List -->
           {{ if .IsTranslated }}
-          <select class="m-2 border-0 mb-5 mb-lg-2" id="select-language" onchange="location = this.value;">
+          {{/* RGAA 11.1 — le sélecteur doit être étiqueté ; RGAA 7.4 — la navigation
+               ne doit pas se déclencher au simple changement de valeur (au clavier,
+               le parcours des options provoquerait un changement de page). */}}
+          <label for="select-language" class="sr-only">Choisir la langue du site</label>
+          <select class="m-2 border-0 mb-5 mb-lg-2" id="select-language">
             {{ $siteLanguages := site.Languages}}
             {{ $pageLang := .Page.Lang}}
             {{ range .Page.AllTranslations }}
             {{ $translation := .}}
             {{ range $siteLanguages }}
             {{ if eq $translation.Lang .Lang }}
-            {{ $selected := false }}
             {{ if eq $pageLang .Lang}}
-            <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
+            <option value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
             </option>
             {{ else }}
-            <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
+            <option value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
             {{ end }}
             {{ end }}
             {{ end }}
             {{ end }}
           </select>
+          <button type="button" class="btn btn-sm btn-outline-light m-2" id="select-language-go">Changer de langue</button>
+          <script>
+            (function () {
+              var sel = document.getElementById('select-language');
+              var go = document.getElementById('select-language-go');
+              if (sel && go) {
+                go.addEventListener('click', function () {
+                  if (sel.value) { location = sel.value; }
+                });
+              }
+            })();
+          </script>
           {{ end }}
         </div>
       </nav>

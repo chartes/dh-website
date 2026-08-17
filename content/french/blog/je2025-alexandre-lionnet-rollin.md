@@ -11,7 +11,8 @@ poster_title: "Canon littéraire : Creepypastas"
 type: "post"
 ---
 
-> Compte-rendu par **Julie Duhesme et Ye Liu (M1)** du lightning-talk de **Alexandre Lionnet-Rollin (M2)** présenté lors de la journée d'étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque *Bridging Computational Humanities and Computational Social Sciences* organisé par AISSAI — Marie Puren et Florian Cafiero — et l'ENC — Chahan Vidal-Gorène).
+<p class="actu-chapeau">
+Compte-rendu par <strong>Julie Duhesme et Ye Liu (M1)</strong> du lightning-talk de <strong>Alexandre Lionnet-Rollin (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque <em>Bridging Computational Humanities and Computational Social Sciences</em> organisé par AISSAI — Marie Puren et Florian Cafiero — et l&rsquo;ENC — Chahan Vidal-Gorène).</p>
 
 Dans son étude, Alexandre Lionnet-Rollin se penche sur le phénomène des creepypastas, un genre littéraire relativement nouveau, né sur Internet, qui se caractérise par la diffusion massive d'histoires d'horreur et d'épouvante. Ces histoires, issues à l'origine de ce qu'on appelle des « copypastas », trouvent leur origine sur les réseaux sociaux, les forums ou dans les sections de commentaires et se caractérisent par leur diffusion virale (blend de « copy and paste »). Les creepypastas exploitent généralement les peurs collectives et jouent souvent avec des motifs tirés de la vie quotidienne, ce qui leur confère une grande reconnaissance et un fort impact émotionnel.
 

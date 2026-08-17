@@ -14,14 +14,18 @@
       {{ range . }}
       <div class="col-md-4 mb-4">
         <a href="{{ .url }}" target="_blank" rel="noopener" class="openscience-card openscience-card--light">
+          {{/* RGAA 1.2 — logo décoratif : le nom est répété en titre juste en dessous. */}}
           {{ if .logo }}
-          <img src="{{ .logo | relURL }}" alt="{{ .name }}" class="openscience-card__logo{{ if .logo_light }} openscience-card__logo--invert{{ end }}">
+          <img src="{{ .logo | relURL }}" alt="" class="openscience-card__logo{{ if .logo_light }} openscience-card__logo--invert{{ end }}">
           {{ else if .icon }}
-          <span class="openscience-card__icon openscience-card__icon--solid" aria-hidden="true"><i class="{{ .icon }}"></i></span>
+          <span class="openscience-card__icon openscience-card__icon--solid" aria-hidden="true"><i class="{{ .icon }}" aria-hidden="true"></i></span>
           {{ end }}
-          <h3 class="openscience-card__name">{{ .name }}</h3>
+          {{/* RGAA 9.1 — premier niveau sous le <h1> de page-header ;
+               `.openscience-card__name` fixe font-size : rendu inchangé. */}}
+          <h2 class="openscience-card__name">{{ .name }}</h2>
           <p class="openscience-card__desc">{{ .desc }}</p>
-          <span class="openscience-card__cta">{{ .cta | default "En savoir plus" }} →</span>
+          <span class="openscience-card__cta">{{ .cta | default "En savoir plus" }} <span aria-hidden="true">→</span></span>
+          <span class="sr-only"> (nouvelle fenêtre)</span>
         </a>
       </div>
       {{ end }}
@@ -52,32 +56,37 @@
       <div class="col-lg-4 col-md-6 mb-4">
         <article class="hackathon-card">
           {{ if .url }}
+          {{/* RGAA 6.1 — l'image est le seul contenu du lien : son alternative
+               décrit la destination. Sans image, un intitulé invisible prend le relais. */}}
           <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__media">
             {{ if $imgSrc }}
-            <img src="{{ $imgSrc }}" alt="{{ .title }}" class="hackathon-card__img" loading="lazy">
+            <img src="{{ $imgSrc }}" alt="{{ .title | default "À compléter" }}" class="hackathon-card__img" loading="lazy">
             {{ else }}
-            <div class="hackathon-card__placeholder"><i class="ti-layout-grid2-alt"></i></div>
+            <div class="hackathon-card__placeholder"><i class="ti-layout-grid2-alt" aria-hidden="true"></i></div>
+            <span class="sr-only">{{ .title | default "À compléter" }}</span>
             {{ end }}
+            <span class="sr-only"> (nouvelle fenêtre)</span>
           </a>
           {{ else }}
           <div class="hackathon-card__media">
+            {{/* RGAA 1.2 — hors lien, l'illustration est décorative : le titre est juste en dessous. */}}
             {{ if $imgSrc }}
-            <img src="{{ $imgSrc }}" alt="{{ .title }}" class="hackathon-card__img" loading="lazy">
+            <img src="{{ $imgSrc }}" alt="" class="hackathon-card__img" loading="lazy">
             {{ else }}
-            <div class="hackathon-card__placeholder"><i class="ti-layout-grid2-alt"></i></div>
+            <div class="hackathon-card__placeholder"><i class="ti-layout-grid2-alt" aria-hidden="true"></i></div>
             {{ end }}
           </div>
           {{ end }}
           <div class="hackathon-card__body">
             {{ with .partner }}<p class="hackathon-card__partner">{{ . }}</p>{{ end }}
             <h3 class="hackathon-card__title">
-              {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .title | default "À compléter" }}</a>
+              {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .title | default "À compléter" }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
               {{ else }}{{ .title | default "À compléter" }}{{ end }}
             </h3>
             {{ with .team }}<p class="hackathon-card__team">{{ . }}</p>{{ end }}
             {{ if .url }}
             <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__cta">
-              <i class="ti-external-link"></i> Ouvrir l'application
+              <i class="ti-external-link" aria-hidden="true"></i> Ouvrir l'application<span class="sr-only"> « {{ .title | default "À compléter" }} »</span><span class="sr-only"> (nouvelle fenêtre)</span>
             </a>
             {{ end }}
           </div>
@@ -101,21 +110,25 @@
       {{ range . }}
       <div class="col-lg-4 col-md-6 mb-4">
         <article class="hackathon-card">
+          {{/* RGAA 6.1 — l'image est le seul contenu du lien : son alternative
+               décrit la destination. Sans image, un intitulé invisible prend le relais. */}}
           <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__media">
             {{ if .image }}
             <img src="{{ .image }}" alt="{{ .title }}" class="hackathon-card__img" loading="lazy">
             {{ else }}
-            <div class="hackathon-card__placeholder"><i class="ti-github"></i></div>
+            <div class="hackathon-card__placeholder"><i class="ti-github" aria-hidden="true"></i></div>
+            <span class="sr-only">{{ .title }}</span>
             {{ end }}
+            <span class="sr-only"> (nouvelle fenêtre)</span>
           </a>
           <div class="hackathon-card__body">
             {{ with .partner }}<p class="hackathon-card__partner">{{ . }}</p>{{ end }}
             <h3 class="hackathon-card__title">
-              <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
+              <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
             </h3>
             {{ with .team }}<p class="hackathon-card__team">{{ . }}</p>{{ end }}
             <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__cta">
-              <i class="ti-github"></i> Voir le code
+              <i class="ti-github" aria-hidden="true"></i> Voir le code<span class="sr-only"> de « {{ .title }} »</span><span class="sr-only"> (nouvelle fenêtre)</span>
             </a>
           </div>
         </article>
