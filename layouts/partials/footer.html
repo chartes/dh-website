@@ -88,11 +88,11 @@
                  la mention de conformité doit figurer en page d'accueil, et la page
                  « Accessibilité » être atteignable depuis n'importe quelle page.
                  RGAA 12.1 — le plan du site constitue le second système de navigation. */}}
-            <span class="copyright-links">
-              <a href="{{ `accessibilite/` | relLangURL }}">Accessibilité&nbsp;: {{ site.Params.accessibility.level | default "non conforme" }}</a>
-              <span aria-hidden="true"> · </span>
-              <a href="{{ `plan-du-site/` | relLangURL }}">Plan du site</a>
-            </span>
+          </p>
+          <p class="mb-0 copyright-links">
+            <a href="{{ `accessibilite/` | relLangURL }}">Accessibilité&nbsp;: {{ site.Params.accessibility.level | default "non conforme" }}</a>
+            <span aria-hidden="true"> · </span>
+            <a href="{{ `plan-du-site/` | relLangURL }}">Plan du site</a>
           </p>
         </div>
         <div class="col-md-4 text-md-right text-center mt-3 mt-md-0">

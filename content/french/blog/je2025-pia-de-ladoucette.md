@@ -43,9 +43,48 @@ Les journaux sélectionnés sont issus de la campagne de digitalisation de la pr
 
 ![Fig. 1 — Tableau des journaux sélectionnés dans le corpus de presse et leurs caractéristiques](/images/blog/je2025/pia-de-ladoucette/fig1.png)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure 1</summary>
+
+Tableau des six titres de presse du corpus, avec leur fondateur ou directeur, leur
+périodicité, le fonds où ils ont été consultés et leurs dates de publication.
+
+| Titre | Fondateur / directeur | Périodicité | Fonds | Dates |
+|---|---|---|---|---|
+| L'Action Française | Charles Maurras | quotidien | Europeana Newspapers | 21/03/1908 – 24/08/1944 |
+| Candide | Arthème Fayard, Jacques Bainville, Pierre Gaxotte | hebdomadaire | Gallica | 20/03/1924 – 09/08/1944 |
+| Gringoire | Horace de Carbuccia, Georges Suarez | hebdomadaire | Gallica | 09/11/1928 – 26/05/1944 |
+| Je suis partout | Arthème Fayard | hebdomadaire | Retronews | 29/11/1934 – 16/08/1944 |
+| La Liberté | Jacques Doriot | quotidien | Gallica | 16/07/1865 – 11/06/1940 |
+| Le Matin | Maurice Bunau-Varilla | quotidien | Gallica | 26/02/1884 – 17/08/1944 |
+
+</details>
+
 ![Fig. 2 — Chronologie des publications de journaux par année (1934-1944)](/images/blog/je2025/pia-de-ladoucette/fig2.png)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure 2</summary>
+
+Diagramme en barres empilées, une barre par année de 1934 à 1944, portant le nombre de
+publications en ordonnée (de 0 à environ 1 260). Chaque barre est segmentée par titre :
+Candide, Gringoire, Je Suis Partout, L'Action Française, La Liberté et Le Matin. Le
+total culmine en 1936 puis décroît ; La Liberté disparaît des barres à partir de 1941,
+et 1944, année incomplète, est la plus basse.
+
+</details>
+
 ![Fig. 3 — Nombre d'articles par mois et par journal (1934-1944)](/images/blog/je2025/pia-de-ladoucette/fig3.png)
+
+<details class="figure-desc">
+<summary>Description détaillée de la figure 3</summary>
+
+Graphique en courbes portant les années de 1934 à 1944 en abscisse et le nombre
+d'articles par mois en ordonnée (de 0 à 60). Une courbe par titre. Le Matin et
+L'Action Française se tiennent autour de 25 à 31 articles mensuels ; La Liberté suit un
+palier vers 25 jusqu'en 1939 puis tombe à zéro ; les hebdomadaires (Candide, Gringoire,
+Je Suis Partout) restent autour de 4 à 5. Un pic isolé de Le Matin atteint 60 fin 1940.
+
+</details>
 
 Le corpus a été prétraité en effectuant un nettoyage, une tokenization et une lemmatization. Les données ont également été séparées en 4 périodes temporelles afin de capturer les dynamiques.
 
@@ -57,9 +96,37 @@ Différentes approches computationnelles sont mobilisées :
 
 ![Fig. 4 — Nuages de mots (1934-1936)](/images/blog/je2025/pia-de-ladoucette/fig4.png)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure 4</summary>
+
+Six nuages de mots, un par thème détecté (Topic 1 à Topic 6), la taille de chaque mot
+traduisant son poids dans le thème. Les termes les plus saillants sont, dans l'ordre des
+thèmes : « garantie », « remboursement » et « faculte » ; « hitler », « mentir » et
+« juif » ; « stavisky », « dossier » et « scandale » ; « laval », « pacte » et
+« milliard » ; « federation », « match » et « luxembourg » ; « sanction », « pacte » et
+« etudiant ».
+
+</details>
+
 **Analyse structurale de réseau** : employée pour visualiser des co-occurrences thématiques. Les nœuds sont des concepts clés dérivés des topics LDA et les liens représentent la co-occurrence d'idées entre les articles ou journaux. Les réseaux sont des réseaux non dirigés, illustrant l'intersection mutuelle des discours. Les liens sont pondérés par la force des co-occurrences.
 
 ![Fig. 5 — Réseau de co-occurrence thématique par communautés (Louvain) — 1934-1936](/images/blog/je2025/pia-de-ladoucette/fig5.png)
+
+<details class="figure-desc">
+<summary>Description détaillée de la figure 5</summary>
+
+Graphe de co-occurrence thématique pour la période 1934-1936. Treize nœuds nommés, dont
+la taille traduit la centralité et la couleur la communauté détectée par l'algorithme de
+Louvain : « Economic Crisis and Social Issues », « Diplomacy and the Rise of Nazism »,
+« Foreign affairs and international tensions », « National armed violence and repression »,
+« Justice and International Sanctions », « Institutional Justice », « Urban crisis and
+French politiques », « Political institutions and Ideologies », « Sports and Leisure »,
+« Royalist Culture & the Far Right », « Stavisky Affair and Judicial Scandals » et
+« Italo-Ethiopian Conflict and the League of Nations ». L'épaisseur des liens traduit la
+force de la co-occurrence ; le graphe se lit comme un ensemble dense à gauche et trois
+nœuds plus isolés à droite.
+
+</details>
 
 **Métriques mesurées** :
 
@@ -68,6 +135,23 @@ Différentes approches computationnelles sont mobilisées :
 - La modularité détecte des communautés thématiques ou des clusters idéologiques
 
 ![Fig. 6 — Tableau comparatif des différentes métriques des réseaux de co-occurrence thématique par périodes temporelles](/images/blog/je2025/pia-de-ladoucette/fig6.png)
+
+<details class="figure-desc">
+<summary>Description détaillée de la figure 6</summary>
+
+Tableau comparant les réseaux de co-occurrence sur quatre périodes. Pour chacune : les
+trois thèmes de plus forte centralité de degré, les trois de plus forte centralité
+d'intermédiarité, le coefficient de clustering moyen, la modularité et le nombre de
+communautés. Les intitulés de thèmes sont en anglais dans l'original.
+
+| Période | Centralité de degré (3 premiers) | Centralité d'intermédiarité (3 premiers) | Clustering moyen | Modularité | Communautés |
+|---|---|---|---|---|---|
+| 1934-1936 | Political Institutions and Ideologies (0,091) ; Diplomacy and the Rise of Nazism (0,074) ; National Armed Violence and Repression (0,066) | Political Institutions and Ideologies (0,021) ; National Armed Violence and Repression (0,005) ; Diplomacy and the Rise of Nazism (0,004) | 0,805 | 0,25 | 4 |
+| 1936-1939 | Literature and Artistic Criticism (0,056) ; Antisemitism and Nazism (0,056) ; Conflicts in Asia and Central Europe (0,056) | Antisemitism and Nazism (0,021) ; Political Figures and Discourse (0,004) ; Literature and Artistic Criticism (0,004) | 0,661 | 0,403 | 3 |
+| 1939-1940 | Battle of Belgium and Civilian Exodus (0,167) ; Conflict, Violence and Human Losses (0,167) ; Winter War and Revolutions (0,111) | Battle of Belgium and Civilian Exodus (0,035) ; Conflict, Violence and Human Losses (0,035) ; Winter War and Revolutions (0,004) | 0,819 | 0,225 | 2 |
+| 1940-1944 | Officers and the Military Hierarchy (0,1) ; Air War and the Italian Front (0,07) ; Japanese Threat and the Pacific War (0,07) | Officers and the Military Hierarchy (0,033) ; Vichy and Nationalist Ideology (0,007) ; Air War and the Italian Front (0,005) | 0,808 | 0,31 | 3 |
+
+</details>
 
 ## Résultats par périodes temporelles
 

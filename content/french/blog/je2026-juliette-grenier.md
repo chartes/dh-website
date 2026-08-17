@@ -26,7 +26,20 @@ Car le corpus étudié est très riche : ce sont des journaux de bord (*logbooks
 
 Toutefois, ces journaux de bord sont des sources du XVIIIe siècle, en français moderne, de plusieurs dizaines de pages étant donné qu'une traversée de l'Atlantique durait un à deux mois et que le voyage complet depuis l'Europe vers l'Afrique, puis les colonies américaines et le retour en Europe 4 à 6 mois. Elle a d'abord sélectionné une vingtaine de navires à partir des sources en utilisant les journaux de bord aux entrées les plus fréquentes et les plus riches. Juliette Grenier a donc développé une chaîne de traitement semi-automatique depuis l'océrisation jusqu'aux cartes.
 
-![Chaîne de traitement — de l'océrisation à la cartographie](/images/blog/je2026/juliette-grenier/image1_JG.png)
+![Folio d'un journal de bord manuscrit de juin 1735](/images/blog/je2026/juliette-grenier/image1_JG.png)
+
+<details class="figure-desc">
+<summary>Description de la figure</summary>
+
+Reproduction d’un folio manuscrit de journal de bord, daté « juin 1735 », à l’encre
+brune sur papier jauni. Le texte est organisé en séquences quotidiennes introduites par
+une mention de type « Du 21ᵉ au mercredy 22ᵉ ». Chaque séquence comporte une phrase sur
+le vent et la route suivie, puis trois relevés alignés à droite : le chemin parcouru en
+lieues, la « latitude nord estimée » et la « longitude arrivée ». Une annotation
+marginale « vent détaillé » signale l’une de ces séquences. L’écriture cursive du
+XVIIIᵉ siècle rend une partie des mots difficilement lisible à cette résolution.
+
+</details>
 
 L'ensemble du corpus a été numérisé par les Archives nationales sous les cotes MAR/4JJ/15 à MAR/4JJ/144/G. Ces archives couvrent 10 années de campagnes de traite.
 
@@ -34,15 +47,63 @@ Juliette Grenier a d'abord réalisé une transcription et une correction automat
 
 ![Pipeline de transcription et de correction](/images/blog/je2026/juliette-grenier/image2_JG.png)
 
+<details class="figure-desc">
+<summary>Description de la figure</summary>
+
+Schéma de chaîne de traitement, lu de gauche à droite, reprenant sous forme graphique
+les étapes décrites dans le texte. En jaune, l’entrée : « Manuscripts scraping ». Puis
+trois étapes bleues : « Automatic transcription using LLM », « Automatic post-HTR
+correction », « Manual correction ». Vient ensuite une étape verte, « Topic-based data
+extraction », d’où partent trois branches.
+
+Vers le haut, « Standardisation of longitudes on the Tenerife meridian » (vert) mène à
+« General map generation » (violet). Vers la droite, « Visualization of key topics with
+graphs » (violet). Vers le bas, « Conversion of compass directions to numerical values
+(based on a 36-point compass rose) » (vert) alimente deux sorties violettes : « Maps of
+wind conditions relative to ships » et « Prevailing wind comparison graphs ». Les
+libellés sont en anglais.
+
+</details>
+
 L'étape suivante de son travail était l'extraction d'informations, structurées pour une part, et non structurées de l'autre. L'essentiel étant les informations géographiques / de navigation, elle a choisi de se concentrer ici sur celles-ci, c'est-à-dire la latitude, longitude, direction des vents et axe des vents par rapport à celui du navire. Quant au reste du contenu des descriptions qualitatives et notes séparées du corps du texte, elle en a fait l'extraction sans toutefois les exploiter dans le cadre de ce poster/travail. Cette extraction a été réalisée par un LLM, en l'occurrence GPT-4 mini.
 
 D'une part, à partir de la longitude et de la latitude qui ont été normalisées, Juliette Grenier a produit une carte renseignant la position du navire quotidiennement. D'autre part, en utilisant les directions des vents – décrites dans les sources avec les points cardinaux, les marins utilisant un compas de navigation – elle a projeté ces aires de vent sur un intervalle de 1 à 36. Elle a ainsi pu établir les vents les plus communs pour chacun des navires, et bientôt, pour les différentes routes maritimes. En injectant les vents au sein des cartes déjà produites, elle obtient une représentation visuelle – pour chaque navire – à la fois de sa position et de la direction des vents, jour après jour, de l'Afrique aux Antilles.
 
-![Représentation cartographique — positions et vents](/images/blog/je2026/juliette-grenier/image3_JG.png)
+![Directions dominantes des vents pour chacun des navires](/images/blog/je2026/juliette-grenier/image3_JG.png)
+
+<details class="figure-desc">
+<summary>Description de la figure</summary>
+
+Diagramme en barres groupées intitulé « Directions dominantes des vents par CSV ».
+L’axe horizontal porte dix-neuf navires, désignés par le nom du fichier
+(Barbotin, Baré, Behourd, BocquetG, BocquetSt, Colombier, Comtesse, Gambier, Joynon,
+Kertanguy, LeHoux, Lory1, Lory2, MaugueretAigle, MaugueretAurore, Prejan, Prudhomme,
+Taffu). L’axe vertical, gradué de 0 à 86 par pas de 2, donne le nombre d’occurrences de
+directions de vent. Quatre barres par navire : nord en rose, sud en violet, est en
+orange, ouest en rouge.
+
+Les valeurs les plus élevées sont un vent d’est à 85 occurrences pour MaugueretAigle et
+un vent de sud à 78 pour Lory2, puis des vents de sud à 73 (Barbotin) et 68 (Comtesse).
+L’ouest reste partout minoritaire, sous une quinzaine d’occurrences.
+
+</details>
 
 Plusieurs faits significatifs ont été observés : d'abord les vents sont globalement favorables aux navires traversant l'Atlantique d'est en ouest puisqu'ils sont majoritairement d'est. Toutefois certains navires ont une part importante de vent de sud si leur zone de départ se situe dans le golfe de Guinée ou sur la côte angolaise. Ce constat est vérifié par les travaux météorologiques, qui expliquent un tel vent. Juliette Grenier note que les négriers prennent ce vent de travers, leur permettant ainsi de remonter vers l'Atlantique nord pour rejoindre les trajectoires des navires partis depuis le Sénégal. Cette convergence des tracés se fait pourtant à quelques centaines de kilomètres à l'est des Antilles, une dizaine de jours avant de les rejoindre. C'est ici qu'un choix semble être fait par les capitaines pour atteindre les îles françaises : deux voies existent, l'une par le sud des Antilles, passant par la Martinique et caractérisée par un vent de nord, l'autre par le nord des Antilles, au-dessus de l'île de Saint-Domingue, voie caractérisée par des vents d'est et de sud.
 
 ![Deux voies possibles pour rejoindre les Antilles françaises](/images/blog/je2026/juliette-grenier/image4_JG.png)
+
+<details class="figure-desc">
+<summary>Description de la figure</summary>
+
+Carte de l’Atlantique tropical, de l’Afrique de l’Ouest aux Antilles, sur un fond
+bathymétrique bleu. Une trentaine de trajectoires, tracées en points reliés, partent des
+côtes africaines (du Sénégal au golfe de Guinée) et traversent l’océan vers l’ouest. Deux
+couleurs les distinguent : bleu et magenta. Les tracés convergent au large avant de se
+séparer à l’approche de l’arc antillais, une partie passant au nord vers
+Saint-Domingue et Porto Rico, une autre plus au sud. La légende n’est pas incluse dans
+l’image et les noms de navires ne sont pas indiqués.
+
+</details>
 
 Mais il n'existe étonnamment pas de corrélation visible entre la zone de départ (Afrique de l'Ouest ou golfe de Guinée) et le choix de la voie sud ou nord des Antilles. De même pour les navires partis des côtes sénégalaises, le choix de passer par le sud ou le nord des îles du Cap-Vert ne semble pas influencer le passage par le sud ou le nord des Antilles. Et comme nous l'avons mentionné ci-dessus, le choix sud ou nord des Antilles se fait quelques jours en amont.
 

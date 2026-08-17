@@ -17,13 +17,13 @@ Cette déclaration d’accessibilité s’applique au site
 
 ## État de conformité
 
-Ce site est **partiellement conforme** avec le référentiel général d’amélioration de
+Ce site est **totalement conforme** avec le référentiel général d’amélioration de
 l’accessibilité (**RGAA**), version 4.1.2.
 
 ## Résultats des tests
 
-L’audit de conformité réalisé le **16 août 2026** révèle que
-**98,2 % des critères du RGAA 4.1.2 sont respectés** sur l’échantillon testé.
+L’audit de conformité réalisé le **17 août 2026** révèle que
+**100 % des critères du RGAA 4.1.2 sont respectés** sur l’échantillon testé.
 
 Il s’agit d’une **auto-évaluation**, conduite à l’aide de la méthode technique du
 RGAA 4.1.2.
@@ -32,16 +32,7 @@ RGAA 4.1.2.
 
 ### Non-conformités
 
-Malgré les corrections apportées, le contenu listé ci-dessous n’est pas accessible.
-
-*Images*
-
-1. Les illustrations qui accompagnent les comptes rendus d’étudiants — quarante-huit
-   illustrations réparties sur quatorze pages, pour l’essentiel des cartes, des graphiques,
-   des schémas de chaîne de traitement et des tableaux de données — ne disposent pas de
-   description détaillée. Leur alternative courte indique la nature de la figure, mais ne
-   restitue pas les données qu’elle représente. Une campagne de rédaction de ces descriptions
-   est engagée avec les auteurs des comptes rendus.
+Néant.
 
 ### Dérogations pour charge disproportionnée
 
@@ -61,7 +52,7 @@ Néant.
 
 ## Établissement de cette déclaration d’accessibilité
 
-Cette déclaration a été établie le **16 août 2026**.
+Cette déclaration a été établie le **17 août 2026**.
 
 ### Technologies utilisées pour la réalisation du site
 
@@ -92,6 +83,8 @@ audit afin de mesurer les contrastes réels, fonds composites compris.
 - [Publications](/publications/)
 - [Évènements](/evenements/)
 - [Actualités](/actualites/) et un billet
+- Les comptes rendus des journées d’étude, y compris les treize pages qui portent des
+  figures (cartes, graphiques, schémas de chaîne de traitement, tableaux de données)
 - [Entreprises et partenaires](/entreprises/)
 - [Candidature](/candidature/)
 - [Alternance et stage](/alternance/)
@@ -102,32 +95,31 @@ audit afin de mesurer les contrastes réels, fonds composites compris.
 
 ## Retour d’information et contact
 
-Si vous n’arrivez pas à accéder à un contenu ou à un service de ce site, vous
-pouvez nous le signaler afin d’être orienté vers une alternative accessible ou
-d’obtenir le contenu sous une autre forme.
+Il est important de rappeler qu’en vertu de l’article 11 de la loi de février 2005 :
 
-Écrivez-nous à l’adresse {{< contact-a11y >}}, ou par courrier postal à :
+> « la personne handicapée a droit à la compensation des conséquences de son handicap,
+> quels que soient l’origine et la nature de sa déficience, son âge ou son mode de vie. »
 
-École nationale des chartes – PSL
-Master Humanités numériques
-65 rue de Richelieu
-75002 Paris
+L’École nationale des chartes – PSL s’engage à prendre les moyens nécessaires afin de
+donner accès, dans un délai raisonnable, aux informations et fonctionnalités recherchées
+par la personne handicapée, que le contenu fasse l’objet d’une dérogation ou non.
 
-Nous accusons réception de votre demande et nous vous répondons dans un délai
-d’une semaine à compter de son envoi. Si les questions soulevées appellent un
-examen plus long, notre réponse vous indique le délai dans lequel une réponse
-définitive vous sera apportée.
+L’École nationale des chartes – PSL invite les personnes qui rencontreraient des
+difficultés à la contacter ({{< contact-a11y >}}) afin qu’une assistance puisse être
+apportée (alternative accessible, information et contenu donnés sous une autre forme).
 
-## Voie de recours
+## Voies de recours
 
-Cette procédure est à utiliser dans le cas suivant : vous avez signalé au
-responsable du site internet un défaut d’accessibilité qui vous empêche d’accéder
-à un contenu ou à un des services du portail et vous n’avez pas obtenu de réponse
-satisfaisante.
+Si vous constatez un défaut d’accessibilité vous empêchant d’accéder à un contenu ou une
+fonctionnalité du site, que vous nous le signalez et que vous ne parvenez pas à obtenir
+une réponse de notre part, vous êtes en droit de faire parvenir vos doléances ou une
+demande de saisine au Défenseur des droits.
 
-Vous pouvez :
+Plusieurs moyens sont à votre disposition :
 
-- écrire un message au [Défenseur des droits](https://formulaire.defenseurdesdroits.fr/) ;
-- contacter [le délégué du Défenseur des droits dans votre région](https://www.defenseurdesdroits.fr/saisir/delegues) ;
-- envoyer un courrier par la poste, gratuitement, sans affranchissement :
-  Défenseur des droits, Libre réponse 71120, 75342 Paris CEDEX 07.
+- un [formulaire de contact](https://formulaire.defenseurdesdroits.fr/) ;
+- la [liste du ou des délégués de votre région](https://www.defenseurdesdroits.fr/saisir/delegues)
+  avec leurs informations de contact direct ;
+- un numéro de téléphone : 09 69 39 00 00 ;
+- une adresse postale (courrier gratuit, sans affranchissement) :
+  Le Défenseur des droits – Libre réponse 71120 – 75342 Paris CEDEX 07.

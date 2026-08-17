@@ -34,6 +34,18 @@ Ce travail mobilise l'histoire de l'art et une approche computationnelle fondée
 
 ![Exemples de correspondances visuelles entre recueils de modèles et objets céramiques](/images/blog/je2025/albina-toumarkine/fig2.jpeg) Albina Toumarkine a ensuite mis en place une classification des images selon trois catégories principales : les objets entiers, les motifs isolés, et les motifs continus. Cette typologie vise à mieux cerner les différentes modalités d'intégration des modèles islamiques dans les objets céramiques, en distinguant les cas de simple insertion décorative, les formes récurrentes, et les structures ornementales complexes.
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure</summary>
+
+Deux images accolées mettant en regard un objet et son modèle. À gauche, un grand
+cache-pot en faïence à décor floral bleu, vert et rouge sur fond blanc, légendé
+« Eugène Collinot, Grand Cache-Pot En Faïence, v. 1865-85, Tajan, Paris, 24 mai 2012,
+lot. 213 ». À droite, une planche gravée d'ornements floraux comparables, légendée
+« Adalbert de Beaumont et Eugène Collinot, Encyclopédie des arts décoratifs de l'Orient.
+Ornements turcs, Paris, Canson, 1883, pl. 24 ».
+
+</details>
+
 Pour procéder à l'analyse comparative, plusieurs outils issus de la vision par ordinateur ont été mobilisés. Des réseaux de neurones convolutifs (CNN), notamment ResNet et VGGNet, ont été utilisés pour établir des correspondances globales entre objets, en s'appuyant sur les similitudes de forme, de composition et de couleur. Ces modèles sont particulièrement efficaces pour repérer des correspondances entre objets entiers, mais montrent leurs limites lorsqu'il s'agit de reconnaître des motifs fragmentés ou subtilement transformés. Afin de pallier cette difficulté, des modèles Transformers (ViT) ont été mis en œuvre pour une analyse à plus fine échelle, au niveau des segments d'image (*patches*). Cette méthode permet d'identifier des similarités locales entre motifs, en se concentrant sur des détails ornementaux souvent négligés par les approches plus globales.
 
 En complément, des techniques de *clustering* stochastique ont été expérimentées, dans le but d'identifier automatiquement des regroupements formels au sein du corpus. Cette approche permet de révéler des familles de motifs récurrents, et de dégager des tendances visuelles qui échappent à une observation purement manuelle. Le croisement de ces méthodes ouvre ainsi la voie à une analyse plus systématique et rigoureuse des phénomènes de transformation graphique, en posant notamment la question de la frontière entre reproduction fidèle, variation stylistique et réinvention créative.

@@ -23,6 +23,16 @@ La recherche explore la localisation des propriétaires, la présence de multipr
 
 ![Fig. 1 — Le nombre d'immeubles par quartier en 1898](/images/blog/je2024/aaron-parmentelat/fig1.png)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure 1</summary>
+
+Carte de Paris par quartier administratif montrant le nombre d'immeubles en 1898,
+du crème clair (environ 500) au rouge sombre (plus de 3 000). Le centre est
+faiblement doté ; les valeurs les plus élevées se situent dans un quartier du nord,
+sur la bordure est et à l'ouest.
+
+</details>
+
 ## Méthodologie
 
 Les données proviennent des annuaires des propriétaires de Paris. Pour 1898, les données ont été nettoyées par Carmen Brando et Frédérique Mélanie-Becquet, transformant les listes de noms en listes d'adresses.
@@ -37,9 +47,37 @@ Face aux limitations de Transkribus, un nouveau processus de traitement a été 
 
 ![Fig. 2 — Pipeline de l'extraction des informations depuis la liste des propriétés](/images/blog/je2024/aaron-parmentelat/fig2.png)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure 2</summary>
+
+Schéma reprenant sous forme graphique les étapes énumérées dans le paragraphe
+précédent : préparation des 531 pages du PDF, annotation de 75 pages, fine-tuning
+de YOLO v8 pour la segmentation, puis découpage en 1 655 images, HTR avec PERO et
+reconnaissance d'entités avec spaCy jusqu'au fichier CSV final.
+
+</details>
+
 Les modèles ont été sélectionnés pour leur performance : YOLO pour la détection des colonnes, PÉROU pour la HTR avec de meilleurs résultats que Tesseract, et spaCy pour l'extraction d'entités avec *few-shot learning*. Le seul problème restant concerne la distinction entre noms de personnes et d'organisations.
 
 ![Fig. 3 — Score du modèle fine-tuné de YOLO v8 (segmentation)](/images/blog/je2024/aaron-parmentelat/fig3.png)
+
+<details class="figure-desc">
+<summary>Description détaillée de la figure 3</summary>
+
+Matrice 4 × 4 : les lignes sont les classes prédites, les colonnes les classes
+réelles. Valeurs normalisées entre 0 et 1 ; les cases vides valent 0.
+
+| Prédit \ réel | col_1 | col_2 | col_3 | fond |
+|---|---|---|---|---|
+| **col_1** | 1,00 | – | – | 0,50 |
+| **col_2** | – | 0,94 | – | 0,25 |
+| **col_3** | – | 0,06 | 1,00 | 0,25 |
+| **fond** | – | – | – | – |
+
+Les trois colonnes sont donc reconnues avec un rappel de 1,00, 0,94 et 1,00.
+Les erreurs portent sur le fond, réparti à tort entre les trois classes.
+
+</details>
 
 ## Résultats préliminaires
 
@@ -47,9 +85,42 @@ Les cartes exploratoires générées pour 1898 montrent la densité des immeuble
 
 ![Fig. 4 — Résultats préliminaires, partie 1](/images/blog/je2024/aaron-parmentelat/fig4.png)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure 4</summary>
+
+Deux cartes choroplèthes de Paris présentées côte à côte sur un fond de plan clair,
+colorées par quartier en nuances de rouge.
+
+À gauche, « Nombre total d'immeubles » : les teintes les plus soutenues occupent une
+large couronne nord et est, le centre restant clair.
+
+À droite, « Densité d'immeubles » : la répartition est plus homogène, avec quelques
+quartiers plus soutenus au nord et à l'est.
+
+Les échelles de couleurs figurent à droite de chaque carte mais leurs bornes ne sont
+pas lisibles à la résolution de l'image.
+
+</details>
+
 L'année 1951 marque un changement dans l'enregistrement, passant de l'immeuble à l'appartement, reflétant une transition vers la copropriété plus fréquente.
 
 ![Fig. 5 — Résultats préliminaires, partie 2](/images/blog/je2024/aaron-parmentelat/fig5.png)
+
+<details class="figure-desc">
+<summary>Description détaillée de la figure 5</summary>
+
+Deux cartes choroplèthes de Paris par quartier, sur fond de plan clair, en nuances
+de rouge.
+
+À gauche, « Nombre d'immeubles possédés par des multipropriétaires » : teintes
+soutenues à l'ouest, au nord et à l'est, centre et sud-est plus clairs.
+
+À droite, « Nombre de domiciles de multipropriétaires » : concentration à l'ouest et
+au nord-ouest, plusieurs quartiers centraux très clairs.
+
+Les bornes des échelles ne sont pas lisibles à la résolution de l'image.
+
+</details>
 
 ## Questions et discussions
 

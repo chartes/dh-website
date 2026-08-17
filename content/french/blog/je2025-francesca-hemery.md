@@ -28,6 +28,26 @@ Le corpus utilisé pour l'étude comprenait plus de 100 vidéos en français (Yo
 
 ![Figure 1 : instructions d'annotation](/images/blog/je2025/francesca-hemery/fig1.png)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure 1</summary>
+
+Tableau à deux colonnes donnant les critères d'annotation, en anglais dans l'original.
+
+<div lang="en">
+
+| Elements that imply a high emotional dimension: from 1 to 3 | Elements that imply a high expertise: from 1 to 3 |
+|---|---|
+| the speaker uses irony, a mocking tone or insults | the speaker quotes books, research articles, researchers, press article |
+| the speaker uses anxiety-inducing images | the speaker quotes data (dates, statistics) |
+| the speaker evokes a conspiracy | the speaker defines the notion he uses |
+| the speaker produces a protest speech | the speaker expresses a reflexion about the tools of science (for example, reflexion about the relevance of scientific predictions) |
+| the speaker show emotion (he is visibly angry, anxious, happy) | the speaker claims an academic training, an scientific expertise |
+| he evokes a future in which the listener could be in physical or psychological danger | |
+
+</div>
+
+</details>
+
 Francesca Hemery a utilisé deux méthodes différentes pour analyser les caractéristiques émotionnelles et expertes, car elles représentent toutes deux des aspects complexes et difficiles à identifier du discours. Initialement, une tentative d'annotation complète du corpus a été effectuée à l'aide d'un modèle de langage étendu (LLM), mais cette méthode a donné de mauvais résultats à la tâche de reconnaissance des émotions. Cela était probablement dû à la complexité inhérente à la tâche elle-même, à sa subjectivité et au fait que les caractéristiques émotionnelles sont souvent dissimulées dans des formes linguistiques complexes. Des méthodologies distinctes ont donc été développées pour chaque dimension linguistique (émotion et expertise).
 
 L'étude a utilisé deux étapes pour identifier les caractéristiques émotionnelles : la première était EmoVerse, un modèle de TAL spécifique aux sentiments, qui ne parvenait souvent pas à identifier un vocabulaire spécifique ou offensant. Le modèle GPT-4 a été utilisé pour identifier l'expertise. Une attention particulière a été portée à des caractéristiques telles que l'utilisation de citations, la démonstration d'un statut académique ou scientifique et la citation de données — des signes qui tentent de créer une impression d'autorité, souvent sans véritable connaissance. Par exemple, Benoît Rittaud, mathématicien et professeur à l'université en France, est aujourd'hui l'un des principaux diffuseurs de discours climato-sceptiques. Il utilise ses titres académiques pour paraître comme un expert et renforcer son autorité. Cela correspond bien à une stratégie classique de pseudo-expertise.
@@ -35,5 +55,17 @@ L'étude a utilisé deux étapes pour identifier les caractéristiques émotionn
 Enfin, une analyse basée sur les annotations obtenues a montré que le discours de désinformation sur le changement climatique repose davantage sur l'imitation de la rhétorique des experts que sur un fort attrait émotionnel. Un score d'expertise élevé (3) est plus fréquent dans le corpus, tandis qu'un score moyen (2) domine en termes de caractéristiques émotionnelles. Bien que les scores kappa ne soient pas parfaits, ils sont satisfaisants compte tenu des difficultés inhérentes à une telle annotation linguistique (score ≈ 0,75).
 
 ![Figure 2 : analyse linguistique — statistiques de base](/images/blog/je2025/francesca-hemery/fig2.png)
+
+<details class="figure-desc">
+<summary>Description détaillée de la figure 2</summary>
+
+Deux histogrammes accolés, portant en abscisse le score annoté (1, 2 ou 3) et la
+fréquence en ordonnée. À gauche, « Répartition des scores d'émotion » : la valeur 2 est
+la plus fréquente (environ 1 170 occurrences), devant 1 (environ 860) puis 3 (environ
+360). À droite, « Répartition des scores d'expertise » : la valeur 3 domine (environ
+1 360), devant 1 (environ 680) puis 2 (environ 355). Les moyennes sont indiquées à
+gauche de la figure : 1,8 pour l'émotion et 2,3 pour l'expertise.
+
+</details>
 
 L'analyse du corpus a montré que des niveaux élevés d'émotion et d'expertise coexistent rarement dans un même segment de texte ; un petit nombre de cas (environ 100 ou moins) ont été observés. En revanche, les textes présentant soit une forte expertise et une faible émotivité, soit une forte émotivité et un manque d'expertise, sont beaucoup plus fréquents. Cette structure polarisée reflète les orientations rhétoriques et les stratégies discursives mobilisées dans les discours de désinformation, ce qui est particulièrement important pour analyser le processus de transmission et de réception d'informations sur les enjeux climatiques.

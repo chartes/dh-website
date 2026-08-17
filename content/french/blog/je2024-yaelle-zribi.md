@@ -39,6 +39,15 @@ Le corpus est constitué de deux types de documents : des vidéos sous format MP
 
 ![Figure 1 : contenu d'un fichier SRT](/images/blog/je2024/yaelle-zribi/fig1.png)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure 1</summary>
+
+Extrait d'un fichier de sous-titres SRT. Chaque bloc porte un numéro, un intervalle de
+temps et la ligne transcrite — soit du texte parlé, soit une indication entre crochets
+comme « [cheering and applause] », soit une réplique chantée encadrée de notes de musique.
+
+</details>
+
 Un premier volet de cette étude, dédié au placement des rires, cherche à comprendre dans quelle mesure la dynamique des thèmes et le placement des rires répondent à des motifs du genre du stand-up.
 
 Yaelle Zribi repère les transitions thématiques avec du *Topic Modelling*, appliqué sur les fichiers SRT. En parallèle de cette démarche, une analyse des documents audiovisuels, avec la librairie *Py audio analysis* sur Python, permet de repérer les moments de rires et d'étudier ainsi le placement des rires par rapport aux transitions thématiques.
@@ -55,10 +64,31 @@ La première chaîne de traitement analyse les fichiers SRT, à l'aide de la lib
 
 ![Figure 2 : Sentiment Analysis textuel](/images/blog/je2024/yaelle-zribi/fig2.png)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure 2</summary>
+
+Graphique en courbes intitulé « Évolution des Émotions », portant les segments du
+spectacle en abscisse (de 0 à environ 145) et la fréquence émotionnelle en ordonnée
+(de 0 à 1). Dix courbes de couleurs différentes suivent chacune une émotion : peur,
+colère, anticipation, confiance, surprise, positif, négatif, tristesse, dégoût et joie.
+
+</details>
+
 La deuxième chaîne de traitement utilise *OpenFace*, une bibliothèque open-source d'analyse d'expressions faciales développée par la Carnegie Mellon University et le Brandon Amos' research group, qui utilise des techniques de vision par ordinateur et d'apprentissage automatique pour détecter et analyser les visages dans les documents visuels.
 
 Yaelle Zribi a constitué un sous-corpus de captures d'images extraites à intervalles définis à partir d'enregistrements vidéo. *OpenFace* analyse ces images en décomposant l'expression faciale en *action units*, c'est-à-dire des mouvements musculaires spécifiques du visage. Les émotions principales sont déterminées en fonction de la configuration de ces *action units*.
 
 ![Figure 3 : Sentiment Analysis visuel](/images/blog/je2024/yaelle-zribi/fig3.png)
+
+<details class="figure-desc">
+<summary>Description détaillée de la figure 3</summary>
+
+Trois éléments côte à côte : une capture d'écran du spectacle où le visage de
+l'humoriste est couvert d'un maillage de détection, puis un diagramme en barres
+horizontales donnant l'intensité de chaque unité d'action faciale (AU01 à AU43), puis
+un second diagramme en barres donnant les scores par émotion — colère, dégoût, peur,
+joie, tristesse, surprise, neutre. La joie y est nettement dominante.
+
+</details>
 
 Pour étudier le jeu corporel des acteurs, Yaelle Zribi utilise également la détection de poses grâce au modèle de détection d'objets en temps réel *YOLOv8*. L'objectif de cette étape est de créer un dictionnaire de poses par une classification non-supervisée. Cependant, deux obstacles majeurs se présentent : les biais imposés par le montage et le manque de référentiel pour la détection de poses. Si le premier reste plus difficile à contourner, un travail statistique élaboré peut compenser l'absence de classifieur de poses.

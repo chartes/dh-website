@@ -32,14 +32,52 @@ Les méthodes utilisées par Yaelle Zribi combinent les méthodes propres aux é
 
 ![Figure 1 : une partie des sujets fréquents identifiés par Yaelle Zribi à la suite du *Topic Modelling*](/images/blog/je2025/yaelle-zribi/fig1.png)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure 1</summary>
+
+Tableau à deux colonnes associant à chaque numéro de thème une interprétation en un ou
+deux mots. Le thème −1 regroupe les segments ambigus, le 0 les expressions familières,
+puis viennent notamment l'approbation, le langage cru, les salutations, le raisonnement,
+la méta-comédie, l'alcool, les statistiques, la nourriture, la masculinité, la
+parentalité, le mariage, le passage du temps, la pandémie, les lieux urbains, les
+animaux, le genre, les compliments, la famille, l'affection, les traumatismes, les
+apparences et les admirations — vingt-sept thèmes en tout, numérotés de −1 à 25.
+
+</details>
+
 Yaelle Zribi a également identifié les moments de rire en déterminant le nombre de segments contenant des rires pour chaque élément étudié du corpus (spectacles de stand-up).
 
 ![Figure 2 : répartition des segments contenant des émotions de rire parmi les éléments du corpus](/images/blog/je2025/yaelle-zribi/fig2.png)
+
+<details class="figure-desc">
+<summary>Description détaillée de la figure 2</summary>
+
+Diagramme en barres verticales intitulé « Nombre de segments classés comme rires (par
+minute) par spectacle », portant en ordonnée les segments de rire par minute (de 0 à un
+peu plus de 40) et en abscisse la liste des spectacles du corpus, identifiés par le nom
+de l'humoriste, le titre et l'année. Les barres sont classées par ordre décroissant :
+elles vont d'environ 40 pour le premier spectacle à moins de 5 pour les derniers, sans
+rupture nette. Le corpus compte plus de cent spectacles ; les titres individuels sont
+lisibles sur l'image mais trop nombreux pour être repris ici.
+
+</details>
 
 En interprétant les données présentées, Yaelle Zribi se pose la question suivante : les meilleurs humoristes font-ils rire davantage ? Ses résultats démontrent que ce n'est pas toujours le cas. En comparant les deux extrêmes, la chercheuse conclut que le nombre de rires reflète davantage le style personnel et la manière de se produire du comédien qu'il ne constitue un indicateur universel du « succès » d'une performance. Ainsi, un niveau élevé de rire peut être associé, par exemple, à une présentation plus expressive et « énergique », tandis que des réactions moins fréquentes du public peuvent être liées à une forme de stand-up plus introspective ou mélancolique.
 
 Une autre méthode utilisée par Yaelle Zribi repose sur l'étude du corps des humoristes de stand-up. Cette méthode vise à étudier de près non seulement les gestes et les mouvements, mais également le positionnement des artistes sur scène. Pour ce faire, elle a d'abord procédé à la détection des personnes sur l'ensemble du corpus. Les données obtenues représentent 500 000 images. Ensuite, elle a extrait un sous-ensemble de 80 000 images afin de tester plus précisément les postures frontales des artistes. Sur ces images, elle a appliqué une détection de silhouettes et a observé les différentes manières dont les humoristes occupent l'espace scénique. Cela lui a permis de construire une sorte de dictionnaire des postures corporelles, dans le but de catégoriser les types de présence scénique (statique, mobile, ouverte, fermée, etc.) et d'analyser leur rôle dans la construction du style comique.
 
 ![Figure 3 : étude du corps — méthode innovante d'analyse des postures scéniques](/images/blog/je2025/yaelle-zribi/fig3.png)
+
+<details class="figure-desc">
+<summary>Description détaillée de la figure 3</summary>
+
+Capture d'écran montrant les trois outils employés côte à côte pour l'analyse des
+postures. À gauche, un tableur contenant les coordonnées relevées ; au centre, une image
+du spectacle où le corps de l'humoriste est recouvert d'un squelette de détection
+étiqueté « person 0.92 » ; à droite, un tableau de coordonnées nommant les points
+anatomiques (nez, œil, oreille, épaule, coude, poignet, gauche et droite), puis un
+graphique de ces points reportés dans un plan.
+
+</details>
 
 Pour conclure, l'étude menée par Yaelle Zribi permet de faire des progrès importants vers une formalisation de la compréhension de la comédie stand-up, même si la « formule magique » d'un spectacle réussi n'a pas encore été trouvée. La comédie stand-up s'est révélée être un sujet pertinent d'analyse à l'aide des méthodes de « visionnage distant » (*distant viewing*), ainsi qu'un phénomène culturel significatif, suscitant l'intérêt tant d'un point de vue épistémologique qu'artistique. La prochaine étape logique de la recherche consiste à améliorer le pipeline analytique, notamment en renforçant sa stabilité et son efficacité.

@@ -355,6 +355,9 @@ summary:focus-visible,
 // taille que le texte qui les précède, seule la couleur les distingue —
 // ils sont soulignés pour rester conformes à 10.6 sur fond foncé.
 .copyright-links {
+  margin-top: 0.35rem;
+  font-size: 0.92rem;
+
   a {
     color: #b1bfd0; // 5,49:1 sur #00445e
     text-decoration: underline;
@@ -574,4 +577,63 @@ figcaption,
   .section-title h2 {
     white-space: normal !important;
   }
+}
+
+
+// ---------------------------------------------------------------------
+// 14. RGAA 1.6 / 1.7 — descriptions détaillées des figures
+//     Une figure complexe (graphique, carte, réseau, chaîne de traitement,
+//     tableau en image) demande, en plus de son alternative courte, une
+//     description restituant les données qu'elle porte. Le motif retenu est
+//     un <details> adjacent à l'image : la description est dans le flux,
+//     donc bien « adjacente » au sens du référentiel, mais replié par défaut
+//     pour ne pas alourdir la lecture. <details>/<summary> sont des éléments
+//     natifs — pas d'ARIA à maintenir, opérables au clavier d'origine.
+// ---------------------------------------------------------------------
+.figure-desc {
+  margin: -0.75rem 0 1.5rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: $text-color;
+
+  > summary {
+    cursor: pointer;
+    color: $secondary-color; // #00445e — 10,56:1 sur blanc
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 0.35rem 0;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+
+    &:focus-visible {
+      outline: 3px solid #bc052d;
+      outline-offset: 2px;
+    }
+  }
+
+  &[open] > summary {
+    margin-bottom: 0.5rem;
+  }
+
+  > p,
+  > ul,
+  > ol {
+    border-left: 3px solid rgba($secondary-color, 0.35);
+    background: rgba($secondary-color, 0.03);
+    padding: 0.75rem 1rem;
+    margin: 0 0 0.6rem;
+  }
+
+  > ul,
+  > ol {
+    padding-left: 2.2rem;
+  }
+}
+
+// Un tableau de données peut figurer dans une description détaillée : c'est même
+// la forme attendue quand la figure est elle-même un tableau (RGAA 1.8).
+// Il conserve alors la mise en forme des tableaux du contenu courant.
+.figure-desc > table {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
 }

@@ -45,9 +45,9 @@ top_header = false
 #   "non conforme"          — moins de 50 %, ou aucun audit en cours de validité
 # À mettre à jour en même temps que content/french/accessibilite/_index.md.
 [params.accessibility]
-level = "partiellement conforme"
-audit_date = "2026-08-16"
-contact = "etudes@chartes.psl.eu"
+level = "totalement conforme"
+audit_date = "2026-08-17"
+contact = "communication@chartes.psl.eu"
 
 buildFuture = true
 

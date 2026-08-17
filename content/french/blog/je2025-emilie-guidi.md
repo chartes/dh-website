@@ -25,9 +25,27 @@ Les courbes de profil de diversité pour analyser la représentation des textes 
 
 ![Fig. 1 — Courbes de profil de diversité](/images/blog/je2025/emilie-guidi/fig1.jpg)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure 1</summary>
+
+Capture d'une diapositive « First method : Results » réunissant un tableau de richesse
+textuelle estimée selon six estimateurs (Chao1, iChao1, Jackknife, ACE, Egghe & Proot,
+Minsample) et deux petits graphiques de profil de diversité. Les graduations de ces
+deux graphiques ne sont pas lisibles à la résolution de l'image.
+
+</details>
+
 La courbe d'extrapolation suggérait que 7 465 manuscrits étaient encore manquants pour une couverture complète.
 
 ![Fig. 2 — Courbe d'extrapolation et manuscrits manquants estimés](/images/blog/je2025/emilie-guidi/fig2.jpg)
+
+<details class="figure-desc">
+<summary>Description détaillée de la figure 2</summary>
+
+Capture d'une diapositive « Results : Birth-Death Poisson » juxtaposant cinq
+histogrammes de simulation, portant « Value » en abscisse et « Count » en ordonnée.
+
+</details>
 
 Les premiers résultats avec le modèle de Yule ont été non concluants. En effet, ce modèle, conçu pour des traditions médiévales (XIIe-XVe siècles) où création et copie sont simultanées, ne s'adapte pas bien à la période étudiée (textes écrits du IIIe au Ve siècle de notre ère, copie prolongée). Cela a conduit à une explosion de la population en raison d'une période trop longue.
 

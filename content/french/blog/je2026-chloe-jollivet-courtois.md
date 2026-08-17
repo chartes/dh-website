@@ -34,13 +34,47 @@ Il s'agissait ensuite de croiser les données des émissions de télévision ave
 
 ![Évolution mensuelle du nombre d'émissions traitant de l'immigration, par chaîne](/images/blog/je2026/chloe-jollivet-courtois/img-000.jpg)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure</summary>
+
+Graphique en courbes portant les mois de 2013 à 2017 en abscisse et le nombre moyen
+d'émissions d'information traitant de l'immigration par mois en ordonnée (de 0 à plus de
+250). Une courbe par chaîne : France 2, BFM TV, Arte, France 3, TF1, M6 et I-Télé puis
+CNews. Toutes suivent le même profil, avec un pic marqué fin 2015 — France 2 y atteint
+environ 205 — puis deux pics moindres en 2016. M6 reste la plus basse sur toute la
+période.
+
+</details>
+
 Ces deux mesures (*framing* + *arousal*) ont ensuite été intégrées à un modèle de régression linéaire pour déterminer si l'exposition à un certain type d'émissions au cadrage particulier peut faire basculer l'opinion des individus de modérée à extrême.
 
 Au total, 2660 émissions ont été classées anti-immigration, soit 21,1 % des émissions, 4764 ont été classées neutre soit 37,8 % et 51 780 des émissions ont été classées pro-immigration soit 41,1 %. Pour ce qui est de l'*arousal*, il est équivalent pour les émissions anti et pro immigration (0,53) et de 0,50 pour les émissions neutres.
 
 ![Distribution des scores d'arousal prédits sur les transcriptions](/images/blog/je2026/chloe-jollivet-courtois/img-001.jpg)
 
+<details class="figure-desc">
+<summary>Description détaillée de la figure</summary>
+
+Histogramme accompagné de sa courbe de densité (estimation par noyau), portant le score
+d'arousal en abscisse (de 0 à 1) et la densité en ordonnée (de 0 à un peu plus de 10).
+La distribution est étroite et symétrique, centrée sur environ 0,51, et pratiquement
+nulle en dehors de l'intervalle 0,4-0,65.
+
+</details>
+
 ![Scatter plot des scores de valence versus arousal pour toutes les transcriptions](/images/blog/je2026/chloe-jollivet-courtois/img-002.jpg)
+
+<details class="figure-desc">
+<summary>Description détaillée de la figure</summary>
+
+Nuage de points portant la valence en abscisse (d'environ 0,15 à 0,72) et l'arousal en
+ordonnée (d'environ 0,2 à 0,72), chaque point correspondant à une transcription. La
+couleur des points reprend le score d'arousal, du violet foncé au jaune clair, selon
+l'échelle placée à droite. Une courbe polynomiale de degré 2, en rouge tireté, traverse
+le nuage en décroissant puis en s'aplatissant. Un encadré indique un coefficient de
+corrélation de Pearson de −0,619.
+
+</details>
 
 Chloé Jollivet-Courtois entend poursuivre l'analyse des résultats obtenus en annotant les données et en les classant dans les catégories anti-immigration, neutre ou pro-immigration. Il reste également à implémenter le modèle économétrique permettant de capturer le passage d'une opinion modérée à une opinion plus extrême. Enfin, une comparaison de l'impact du cadrage de l'immigration et l'impact de la couverture de l'immigration (à quel point les médias parlent d'immigration), mesurée dans Schneider-Strawczynski et Jérôme Valette (2025), sera effectuée.
 
