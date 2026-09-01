@@ -35,16 +35,18 @@ home_logos:
   groups:
     - label: "Établissements"
       items:
-        - alt: "École nationale des chartes – PSL"
+        # `alt` sert d'alternative à l'image et de nom accessible du lien (RGAA 1.1 / 6.1) :
+        # il annonce qu'il s'agit d'un logo et nomme l'établissement, sigles développés.
+        - alt: "Logo de l’École nationale des chartes – PSL"
           src: "images/Logo-chartes+PSL-coul_0.png"
           url: "https://www.chartes.psl.eu/"
-        - alt: "École normale supérieure – PSL"
+        - alt: "Logo de l’École normale supérieure – PSL"
           src: "images/logo_ens_psl_en_png.png"
           url: "https://www.ens.psl.eu/"
-        - alt: "École pratique des hautes études – PSL"
+        - alt: "Logo de l’École pratique des hautes études – PSL"
           src: "images/logo-ephe-psl.png"
           url: "https://www.ephe.psl.eu/"
-        - alt: "EHESS"
+        - alt: "Logo de l’École des hautes études en sciences sociales"
           src: "images/Logo_EHESS_2021.svg.png"
           url: "https://www.ehess.fr/"
 
@@ -59,5 +61,9 @@ home_logos:
     #     - alt: "European Research Council"
     #       src: "images/logos/erc.png"
     #       url: "https://erc.europa.eu/"
+
+# Mention affichée en très petit en bas de la page d'accueil.
+# Supprimer la clé pour masquer le bloc.
+pedago_note: "Ce site s'inscrit dans un cadre pédagogique : il est alimenté par les étudiants du master Humanités numériques et regroupe les informations officielles du master et de son écosystème de recherche. Les contenus publiés sont validés par le responsable pédagogique du master."
 
 ---

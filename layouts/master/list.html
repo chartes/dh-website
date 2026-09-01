@@ -29,10 +29,12 @@
         {{ .Content }}
         <div class="partenaires-logos">
           <span class="partenaires-logos__label">En partenariat avec</span>
-          {{ partial "image.html" (dict "Src" "images/Logo-chartes+PSL-coul_0.png" "Alt" "École nationale des chartes – PSL" "Class" "partenaires-logos__img") }}
-          {{ partial "image.html" (dict "Src" "images/logo_ens_psl_en_png.png" "Alt" "École normale supérieure – PSL" "Class" "partenaires-logos__img") }}
-          {{ partial "image.html" (dict "Src" "images/logo-ephe-psl.png" "Alt" "École pratique des hautes études – PSL" "Class" "partenaires-logos__img") }}
-          {{ partial "image.html" (dict "Src" "images/Logo_EHESS_2021.svg.png" "Alt" "EHESS" "Class" "partenaires-logos__img") }}
+          {{/* RGAA 1.1 — logos porteurs d'information : l'alternative annonce qu'il
+               s'agit d'un logo et nomme l'établissement, sigles développés. */}}
+          {{ partial "image.html" (dict "Src" "images/Logo-chartes+PSL-coul_0.png" "Alt" "Logo de l’École nationale des chartes – PSL" "Class" "partenaires-logos__img") }}
+          {{ partial "image.html" (dict "Src" "images/logo_ens_psl_en_png.png" "Alt" "Logo de l’École normale supérieure – PSL" "Class" "partenaires-logos__img") }}
+          {{ partial "image.html" (dict "Src" "images/logo-ephe-psl.png" "Alt" "Logo de l’École pratique des hautes études – PSL" "Class" "partenaires-logos__img") }}
+          {{ partial "image.html" (dict "Src" "images/Logo_EHESS_2021.svg.png" "Alt" "Logo de l’École des hautes études en sciences sociales" "Class" "partenaires-logos__img") }}
         </div>
       </div>
       <div class="col-lg-4 offset-lg-1">
@@ -526,7 +528,7 @@
         {{/* Le lien n'a que l'image pour contenu : son alternative doit décrire la
              destination, pas le fichier — RGAA 6.1 / 1.1 */}}
         <a href="{{ .url }}" target="_blank" rel="noopener" class="junior-logo-link">
-          {{ partial "image.html" (dict "Src" .logo "Alt" "Site de la junior-entreprise du master" "Class" "junior-logo") }}<span class="sr-only"> (nouvelle fenêtre)</span>
+          {{ partial "image.html" (dict "Src" .logo "Alt" "Logo de Cartadata, la junior-entreprise de l’École nationale des chartes – PSL" "Class" "junior-logo") }}<span class="sr-only"> (nouvelle fenêtre)</span>
         </a>
         {{ else }}
         <div class="junior-logo-placeholder"><i class="ti-id-badge" aria-hidden="true"></i></div>
@@ -726,6 +728,7 @@
     <p class="mb-5 text-muted">Les étudiants du master participent à compétitions internationales (ou <i lang="en">shared tasks</i> en TAL et vision par ordinateur, dans le cadre de la validation de cours ou d'intiatives personnelles, avec quelques succès.</p>
     <div class="row">
       {{ range . }}
+      {{ $comp := . }}
       <div class="col-md-6 mb-4 d-flex">
         <article class="competition-card">
           <div class="competition-card__header">
@@ -745,9 +748,12 @@
             </div>
             {{ end }}
             {{ with .repo_url }}
+            {{/* RGAA 6.1 — l'intitulé doit décrire la destination réelle : toutes les
+                 compétitions ne renvoient pas vers un dépôt de code (site de la
+                 compétition, actes…). `link_label` / `link_icon` permettent de l'ajuster. */}}
             <div class="competition-card__footer">
               <a href="{{ . }}" target="_blank" rel="noopener" class="competition-card__link">
-                <i class="ti-github" aria-hidden="true"></i> Code et résultats →<span class="sr-only"> (nouvelle fenêtre)</span>
+                <i class="{{ $comp.link_icon | default "ti-github" }}" aria-hidden="true"></i> {{ $comp.link_label | default "Code et résultats" }} →<span class="sr-only"> (nouvelle fenêtre)</span>
               </a>
             </div>
             {{ end }}

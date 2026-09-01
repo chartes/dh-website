@@ -179,4 +179,15 @@
 </section>
 {{ end }}
 
+<!-- mention du cadre pédagogique du site -->
+{{ with .Params.pedago_note }}
+{{/* RGAA 10.4 — texte volontairement discret mais exprimé en unité relative :
+     il reste lisible à 200 % de zoom et ne descend pas sous le seuil de contraste. */}}
+<aside class="home-pedago-note" aria-label="À propos de ce site">
+  <div class="container">
+    <p>{{ . | markdownify }}</p>
+  </div>
+</aside>
+{{ end }}
+
 {{ end }}

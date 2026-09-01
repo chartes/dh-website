@@ -67,10 +67,12 @@
       <div class="footer-partners__row">
         <span class="footer-partners__label">Master en partenariat avec</span>
         <div class="footer-partners__logos">
-          {{ partial "image.html" (dict "Src" "images/Logo-chartes+PSL-coul_0.png" "Alt" "École nationale des chartes – PSL" "Class" "footer-partners__img") }}
-          {{ partial "image.html" (dict "Src" "images/logo_ens_psl_en_png.png" "Alt" "École normale supérieure – PSL" "Class" "footer-partners__img") }}
-          {{ partial "image.html" (dict "Src" "images/logo-ephe-psl.png" "Alt" "École pratique des hautes études – PSL" "Class" "footer-partners__img") }}
-          {{ partial "image.html" (dict "Src" "images/Logo_EHESS_2021.svg.png" "Alt" "École des hautes études en sciences sociales" "Class" "footer-partners__img") }}
+          {{/* RGAA 1.1 — logos porteurs d'information (identification des établissements
+               partenaires) : l'alternative annonce qu'il s'agit d'un logo et le nomme. */}}
+          {{ partial "image.html" (dict "Src" "images/Logo-chartes+PSL-coul_0.png" "Alt" "Logo de l’École nationale des chartes – PSL" "Class" "footer-partners__img") }}
+          {{ partial "image.html" (dict "Src" "images/logo_ens_psl_en_png.png" "Alt" "Logo de l’École normale supérieure – PSL" "Class" "footer-partners__img") }}
+          {{ partial "image.html" (dict "Src" "images/logo-ephe-psl.png" "Alt" "Logo de l’École pratique des hautes études – PSL" "Class" "footer-partners__img") }}
+          {{ partial "image.html" (dict "Src" "images/Logo_EHESS_2021.svg.png" "Alt" "Logo de l’École des hautes études en sciences sociales" "Class" "footer-partners__img") }}
         </div>
       </div>
     </div>

@@ -46,7 +46,7 @@ parcours:
     referent: "Florian Cafiero"
     content: "Corpus contemporains variés issus du web, des médias, des archives numériques. Modélisation, analyse de réseaux et apprentissage automatique appliqués aux données sociales."
   - name: "Études littéraires"
-    referent: "Jean Barré"
+    referent: "Alexandre Lionnet-Rollin"
     content: "Vastes corpus littéraires explorés à l'aide du TAL et de la fouille de texte. Approche computationnelle des styles, thématiques et influences."
   - name: "Histoire moderne et contemporaine"
     referent: "Marie Puren"
@@ -422,15 +422,25 @@ competitions:
   - year: "2023"
     colocated: "ICDAR 2023"
     name: "Detection and recognition of Greek Papyri letters"
-    students: ["Noé Leroy", "Carolina Macedo", "Violette Saïag", "Chahan Vidal-Gorène", Malamatenia Vlachou Efstathiou"]
+    students: ["Noé Leroy", "Carolina Macedo", "Violette Saïag", "Chahan Vidal-Gorène", "Malamatenia Vlachou Efstathiou"]
     rank: "3"
     repo_url: "https://link.springer.com/chapter/10.1007/978-3-031-41679-8_29"
+    link_label: "Article publié"
+    link_icon: "ti-book"
   - year: "2026"
     colocated: "LREC 2026"
     name: "EvaHAN @ Language Technologies for Historical and Ancient Languages"
     students: ["Denise Atzori", "Marie Bizais-Lillig", "Mathias Garnier", "Maxime Létoffé", "Charles Planque", "Tianjie Yin", "Chahan Vidal-Gorène"]
     rank: "3"
     repo_url: "https://github.com/Bizais-Lillig/enchanteam"
+  - year: "2026"
+    colocated: "ICDAR 2026"
+    name: "FalsID — Identification de mains et de faussaires dans les manuscrits historiques"
+    students: ["Damien Conceicao", "Juliette Grenier", "Chloé Jollivet-Courtois", "Côme Parrinello", "Martin Houllier", "Noémie Bujon"]
+    rank: "2"
+    repo_url: "https://icdar26-falsid.sciencesconf.org"
+    link_label: "Site de la compétition"
+    link_icon: "ti-link"
 
 documents:
   - name: "Plaquette du master"

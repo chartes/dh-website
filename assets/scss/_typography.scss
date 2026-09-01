@@ -2091,6 +2091,25 @@ table.programme-table {
   }
 }
 
+/* — Mention du cadre pédagogique, pied de la page d'accueil — */
+/* Volontairement discret, mais : taille en rem (zoom 200 % — RGAA 10.4) et
+   $text-color-light sur blanc = 5,33:1, au-dessus du seuil de 4,5:1 (RGAA 3.2). */
+.home-pedago-note {
+  background: #fff;
+  padding: 0 0 1.75rem;
+
+  p {
+    max-width: 760px;
+    margin: 0 auto;
+    padding-top: 1.25rem;
+    border-top: 1px solid #e8e8e8;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: $text-color-light;
+    text-align: center;
+  }
+}
+
 /* — Junior entreprise (section sur la home/master) — */
 .junior-section {
   .section-title {

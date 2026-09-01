@@ -20,6 +20,10 @@ Cette déclaration d’accessibilité s’applique au site
 Ce site est **totalement conforme** avec le référentiel général d’amélioration de
 l’accessibilité (**RGAA**), version 4.1.2.
 
+Cet état de conformité est **déclaratif** et repose sur une auto-évaluation :
+voir la section [Portée et limites de cette auto-évaluation](#portée-et-limites-de-cette-auto-évaluation)
+ci-dessous.
+
 ## Résultats des tests
 
 L’audit de conformité réalisé le **17 août 2026** révèle que
@@ -27,6 +31,32 @@ L’audit de conformité réalisé le **17 août 2026** révèle que
 
 Il s’agit d’une **auto-évaluation**, conduite à l’aide de la méthode technique du
 RGAA 4.1.2.
+
+### Portée et limites de cette auto-évaluation
+
+Cette déclaration a valeur de **déclaration provisoire** : le taux de conformité
+annoncé résulte d’une auto-évaluation interne et **appelle à être précisé et
+confirmé par un audit d’accessibilité réalisé par un organisme externe et
+indépendant**. Certains critères du RGAA ne sont pas automatisables et reposent
+sur un jugement d’expert (pertinence des alternatives textuelles, cohérence des
+titres et des intitulés de liens, restitution par les technologies d’assistance
+réelles) : leur évaluation par un tiers est susceptible de faire apparaître des
+non-conformités qui ne sont pas listées ci-dessous. La présente déclaration sera
+mise à jour à l’issue de cet audit externe.
+
+### Recours à des agents d’intelligence artificielle
+
+La mise en conformité du site et la rédaction de cette déclaration ont été
+réalisées avec l’assistance de **deux agents d’intelligence artificielle** :
+un agent chargé du développement du site (gabarits Hugo, HTML, SCSS) et un agent
+spécialisé dans l’audit d’accessibilité (RGAA 4.1.2 / WCAG 2.1 niveau AA /
+EN 301 549), chargé du relevé des non-conformités critère par critère et de la
+vérification après correction.
+
+Les corrections produites ont été **relues et validées par l’équipe pédagogique
+du master**. Ce recours à l’IA est mentionné par transparence : il ne se
+substitue pas à un audit humain externe, et constitue une raison supplémentaire
+de faire confirmer ces résultats par un organisme indépendant.
 
 ## Contenus non accessibles
 
@@ -52,7 +82,9 @@ Néant.
 
 ## Établissement de cette déclaration d’accessibilité
 
-Cette déclaration a été établie le **17 août 2026**.
+Cette déclaration a été établie le **17 août 2026** et mise à jour le
+**1er septembre 2026** (précision de la portée de l’auto-évaluation et mention du
+recours à des agents d’intelligence artificielle).
 
 ### Technologies utilisées pour la réalisation du site
 
