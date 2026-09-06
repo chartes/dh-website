@@ -12,6 +12,6 @@ external_url: "https://www.chartes.psl.eu/projets-pour-la-semaine-de-hackathons-
 type: "post"
 ---
 
-Du 3 au 7 février 2026, le master Humanités numériques a co-organisé une semaine de hackathons avec quinze institutions de recherche et patrimoniales : Versailles, INA, INHA, Sciences Po, BnF, Archives départementales du Vaucluse, GDR Silex…
+Du 3 au 7 janvier 2026, le master Humanités numériques a co-organisé une semaine de hackathons avec quinze institutions de recherche et patrimoniales : Versailles, INA, INHA, Sciences Po, BnF, Archives départementales du Vaucluse, GDR Silex…
 
 Quinze équipes d'étudiants M1 et M2 ont livré du code, des modèles et des jeux de données, désormais accessibles depuis la page **Développements** du site.
