@@ -444,17 +444,17 @@ competitions:
 
 documents:
   - name: "Plaquette du master"
-    size: "PDF – 489 Ko"
-    url: "#"
+    size: "PDF"
+    url: "https://www.chartes.psl.eu/sites/default/files/public/media/document/2024-03/fiche-master-psl-humanites-num_2024.pdf"
   - name: "Règlement des études 2026/2027"
-    size: "PDF – 140 Ko"
-    url: "#"
+    size: "PDF"
+    url: "https://www.chartes.psl.eu/sites/default/files/public/media/document/2026-07/reglement-des-etudes-du-master-hn-2026-2027.pdf"
   - name: "Maquette et syllabus 2026/2027"
-    size: "PDF – 246 Ko"
-    url: "#"
-  - name: "Résultats d'admission session 2025"
-    size: "PDF – 291 Ko"
-    url: "#"
+    size: "PDF"
+    url: "https://www.chartes.psl.eu/sites/default/files/public/media/document/2026-07/2026-2027_masterhn_syllabus.pdf"
+  - name: "Résultats d'admission session 2026"
+    size: "PDF"
+    url: "https://www.chartes.psl.eu/gazette-chartiste/actualites/resultats-dadmission-aux-masters-hn-et-tnah-2026-2027"
 ---
 
 Le master « Humanités numériques » est un master Recherche délivré par l'Université PSL. Il forme à l'exploitation et à l'analyse des données des sciences humaines, sociales et des disciplines des humanités. La formation s'adresse à des étudiants titulaires d'une licence ou d'un master qui souhaitent développer une double compétence thématique en humanités, dans la discipline de leur choix (histoire, philologie, lettres, sociologie, etc.), et en datascience (IA, ML, méthodes quantitatives et statistiques).
