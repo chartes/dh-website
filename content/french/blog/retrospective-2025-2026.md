@@ -13,7 +13,7 @@ Déjà la reprise&nbsp;: cette année, une pré-pré-rentrée s'ajoute à la pr�
 
 ### Une année marquée par deux grands rendez-vous…
 
-Nous avons ouvert l'année 2026 par une semaine de hackathons avec les étudiants de M1 et de M2. Une semaine intensive, sans répit (mais avec de quoi reprendre des forces), pour venir à bout de quinze projets proposés par le Centre de recherche du château de Versailles, la Bibliothèque nationale de France, l'Institut national d'histoire de l'art, l'Institut national de l'audiovisuel, Sciences Po, l'EHESS, l'EPFL, Biblissima+, le Cellf (CNRS), BiblioBase, les archives départementales du Vaucluse, l'ERC LostMa, le DIM PAMIR et le GDR SILEX.
+Après un premier semestre de rodage et de formation, nous avons ouvert l'année 2026 par une semaine de hackathons avec les étudiants de M1 et de M2. Une semaine intensive, sans répit (mais avec de quoi reprendre des forces), pour venir à bout de quinze projets proposés par le Centre de recherche du château de Versailles, la Bibliothèque nationale de France, l'Institut national d'histoire de l'art, l'Institut national de l'audiovisuel, Sciences Po, l'EHESS, l'EPFL, Biblissima+, le Cellf (CNRS), BiblioBase, les archives départementales du Vaucluse, l'ERC LostMa, le DIM PAMIR et le GDR SILEX.
 
 L'occasion, pour les étudiants (et pour quelques enseignants venus en soutien), de se faire la main sur des données très variées (enluminures, fonds archéologiques, données en réseaux, professions de foi politiques, manuscrits en vieux norrois, émissions politiques) et de développer des solutions techniques pour les exploiter, avec ou sans apprentissage automatique. Avec seulement deux règles&nbsp;: (i)&nbsp;tous les coups sont permis, et (ii)&nbsp;si tu ne sais pas faire, apprends et fais-le.
 
@@ -55,7 +55,7 @@ Les résultats ont fait l'objet d'une publication et d'une présentation lors de
 
 ### Une participation à de nombreuses conférences…
 
-Le master HN est une formation à la recherche, par la recherche. Ce n'est donc pas une surprise si nos étudiants sont encouragés à tenter le coup des conférences, en France comme à l'international. Et si l'on peut les y envoyer, c'est encore mieux. Avec le concours de la Fondation de l'École via le mécénat, du CultureLab de PSL et du soutien direct de l'École, plusieurs étudiants ont joué le jeu et ont pu se confronter à l'état de l'art, présenter leurs travaux et échanger avec les chercheurs de leur discipline.
+Le master HN est une formation à la recherche, par la recherche. Ce n'est donc pas une surprise si nos étudiants sont encouragés à tenter le coup des conférences, en France comme à l'international. Et si l'on peut les y envoyer, c'est encore mieux. Avec le concours de la Fondation de l'École via le mécénat, de la Fondation Dassault, du CultureLab de PSL et du soutien direct de l'École, plusieurs étudiants ont joué le jeu et ont pu se confronter à l'état de l'art, présenter leurs travaux et échanger avec les chercheurs de leur discipline.
 
 <ul class="retro-agenda">
 <li><span class="retro-agenda__date">Décembre 2025</span> — Albina Toumarkine (HN+) et quelques autres anciens du master, <em lang="en">Beyond Accuracy: Investigating Vision Model Perception on 19th-Century Decorative Arts</em>, à <a href="https://2025.computational-humanities-research.org">CHR 2025</a>.</li>
@@ -90,3 +90,5 @@ Cap maintenant sur la prochaine journée d'étude du master et sur les futurs ha
 Les mémoires de 2025-2026 sont progressivement mis en ligne sur DUMAS (pour les notes supérieures à 16)&nbsp;: n'hésitez pas à aller y jeter un œil pour découvrir leurs travaux&nbsp;!
 
 <p class="retro-actions"><a class="retro-btn" href="/master/"><i class="ti-agenda" aria-hidden="true"></i> Voir la maquette du master</a> <a class="retro-btn" href="https://dumas.ccsd.cnrs.fr/MEM-ENC/search/index/?q=%2A&amp;dumas_degreeReference_s=347" target="_blank" rel="noopener"><i class="ti-book" aria-hidden="true"></i> Les mémoires sur DUMAS<span class="sr-only"> (nouvelle fenêtre)</span></a></p>
+
+Rien de tout cela ne serait toutefois possible sans l'investissement de la communauté administrative de l'École et du corps enseignant du master, tant via leurs cours que l'écosystème de recherche qu'ils créent, et je les remercie.
