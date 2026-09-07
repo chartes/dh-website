@@ -1,4 +1,9 @@
-baseURL = "https://chartes.github.io/dh-website/"
+# ⚠ Ce domaine est celui réellement servi. Il n'affecte pas les liens internes
+# (`relativeURLs = true` les rend tous relatifs, le site continue donc de
+# fonctionner sous n'importe quel préfixe), mais il conditionne les URL
+# ABSOLUES exigées par les robots des réseaux sociaux : `og:image`, `og:url`
+# et `rel="canonical"` (cf. layouts/partials/head.html).
+baseURL = "https://hn.chartes.psl.eu/"
 canonifyURLs = true
 relativeURLs = true
 locale = "fr-fr"
@@ -23,6 +28,22 @@ logo = "images/logo-enc-psl-blanc.png"
 # Meta data
 description = "Le site web du master DH de l'École nationale des chartes"
 author = "École nationale des chartes-PSL" #
+# Aperçu par défaut lors du partage sur les réseaux sociaux (og:image).
+# Surchargeable page par page avec `og_image` / `og_image_alt` dans le
+# frontmatter, ou à défaut par le champ `image` du billet.
+# Format attendu par les grandes cartes : 1200 × 630 (ratio 1,91:1).
+# Origine absolue du site, pour les seules URL que les robots des réseaux
+# sociaux exigent absolues : og:url, og:image et rel="canonical".
+# ⚠ Doit rester identique à `baseURL` ci-dessus. Cette duplication est
+# imposée par `relativeURLs = true` : sous cette option, `.Permalink`,
+# `absURL` et `site.BaseURL` renvoient tous du relatif, et il n'existe aucun
+# moyen de relire la valeur brute de `baseURL` depuis un gabarit.
+# (L'alternative serait `relativeURLs = false`, qui rendrait absolus les
+# liens internes des 142 pages — le site ne serait alors plus servable sous
+# un autre préfixe que celui-ci.)
+site_url = "https://hn.chartes.psl.eu"
+og_image = "images/og/default.jpg"
+og_image_alt = "Bannière du master Humanités numériques de l'École nationale des chartes – PSL"
 # contact info
 address = "#"
 mobile = "#"

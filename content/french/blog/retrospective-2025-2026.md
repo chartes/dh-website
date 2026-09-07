@@ -5,11 +5,20 @@ draft: false
 description: "Bilan de l'année 2025-2026 du master Humanités numériques : une semaine de hackathons, une journée d'étude adossée à Humanistica, trois compétitions internationales, une dizaine de communications en conférence et deux écoles d'été."
 category: "bilan"
 author_name: "Chahan Vidal-Gorène"
+# Vignette de la carte sur /blog/ (cf. layouts/_default/list.html).
+image: "images/journee-etude/je-2026.jpeg"
+# Aperçu du partage sur les réseaux sociaux : recadrage 1200 × 630 de la même
+# photo (cf. layouts/partials/head.html). `og_image_alt` est restitué par les
+# lecteurs d'écran des clients sociaux.
+og_image: "images/og/retrospective-2025-2026.jpg"
+og_image_alt: "Les étudiants et les enseignants du master Humanités numériques réunis devant les posters, à la journée d'étude du 19 mai 2026"
 type: "post"
 ---
 
 <p class="actu-chapeau">
 Déjà la reprise&nbsp;: cette année, une pré-pré-rentrée s'ajoute à la pré-rentrée habituelle du master HN, elle-même précédant la rentrée officielle de l'École nationale des chartes – PSL. Tout ça pour ne pas se dire qu'on débute le 7 septembre. Pendant que les primo-entrants suivent une semaine intensive de mise à niveau en programmation Python et en mathématiques (le master monte encore en compétences), prenons le temps d'un petit retour sur l'année 2025-2026, qui s'achève ces prochains jours avec les dernières soutenances de mémoire. Une année de pérenisation et de mise en œuvre de plusieurs réformes pédagogiques (notamment sur l'enseignement de la vision par ordinateur, la 3D, l'audio et les LLM), d'évolution administrative (professionalisation, incitation à la recherche et ouverture à l'apprentissage) et un public nouveau, déjà rodé en partie à la programmation. Une année qui a aussi vu deux étudiantes de Pise s'engager chez nous dans le cadre du double-diplôme master HN-Université de Pise.</p>
+
+![Les étudiants de la promotion 2025-2026 du master Humanités numériques et leurs enseignants, réunis devant les posters à l'issue de la session du 19 mai 2026, salle Quicherat](/images/journee-etude/je-2026.jpeg)
 
 ### Une année marquée par deux grands rendez-vous…
 

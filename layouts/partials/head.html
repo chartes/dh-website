@@ -40,6 +40,67 @@
   {{ with site.Params.author }}
   <meta name="author" content="{{ . }}">{{ end }}
 
+  {{ "<!-- Open Graph / Twitter Card : aperçu lors du partage sur les réseaux sociaux -->" | safeHTML }}
+  {{/* Ces balises n'existaient pas : un lien du site collé sur LinkedIn, X, Bluesky,
+       Slack, WhatsApp ou Mastodon n'affichait qu'une URL nue, sans titre ni image.
+
+       ⚠ `og:image`, `og:url` et `rel="canonical"` doivent être ABSOLUES : les robots
+       des réseaux sociaux ne résolvent pas les chemins relatifs. Or `.Permalink`
+       et `absURL` ne peuvent PAS servir ici : sous `relativeURLs = true`, ils
+       renvoient eux-mêmes du relatif (`.Permalink` → « /blog/x/ », et le
+       post-traitement des href finit en « ../../blog/x/ »). Seule une URL
+       intégrale, avec son schéma, traverse la réécriture intacte — d'où
+       `params.site_url`, qui doit rester identique à `baseURL`.
+       Les liens internes du site, eux, restent relatifs : rien ne change pour eux.
+
+       Image : `og_image` du frontmatter, sinon le champ `image` du billet, sinon
+       celle du site (params.og_image). Les fichiers de static/images/og/ sont
+       recadrés en 1200 × 630, ratio attendu par les grandes cartes. On ne déclare
+       pas og:image:width/height : le repli sur `image` peut viser une photo de
+       n'importe quel format, et annoncer de fausses dimensions dégrade le rendu. */}}
+  {{- $ogTitle := cond .IsHome (printf "%s — %s" site.Title $titre) $titre -}}
+  {{- $ogDesc := .Params.description | default site.Params.description -}}
+  {{- $ogImage := .Params.og_image | default .Params.image | default site.Params.og_image -}}
+  {{/* L'alternative ne suit que l'image qu'elle décrit : celle de la page si elle
+       est déclarée, celle du site si c'est l'image du site qui est servie. Sur un
+       billet qui n'a qu'un champ `image` (une photo quelconque), on n'émet RIEN :
+       une alternative fausse est pire qu'une alternative absente. */}}
+  {{- $ogImageAlt := "" -}}
+  {{- if .Params.og_image_alt -}}
+    {{- $ogImageAlt = .Params.og_image_alt -}}
+  {{- else if and (not .Params.og_image) (not .Params.image) -}}
+    {{- $ogImageAlt = site.Params.og_image_alt -}}
+  {{- end -}}
+  {{- $ogArticle := in (slice "post" "event" "actualites") .Type -}}
+  {{- $siteURL := strings.TrimSuffix "/" site.Params.site_url -}}
+  {{- $ogURL := printf "%s%s" $siteURL .RelPermalink -}}
+  {{- with $ogImage }}{{ $ogImage = printf "%s/%s" $siteURL (strings.TrimPrefix "/" .) }}{{ end -}}
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="{{ cond $ogArticle "article" "website" }}">
+  <meta property="og:title" content="{{ $ogTitle }}">
+  <meta property="og:description" content="{{ $ogDesc }}">
+  <meta property="og:url" content="{{ $ogURL }}">
+  {{ with $ogImage }}
+  <meta property="og:image" content="{{ . }}">
+  {{/* Restitué par les lecteurs d'écran des clients sociaux, qui n'ont pas accès
+       à l'attribut alt de la page (équivalent du RGAA 1.1 hors du site). */}}
+  {{ with $ogImageAlt }}<meta property="og:image:alt" content="{{ . }}">{{ end }}
+  {{ end }}
+  {{ if and $ogArticle (not .Date.IsZero) }}
+  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+  {{ end }}
+  {{ with .Params.author_name }}
+  <meta property="article:author" content="{{ . }}">{{ end }}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $ogTitle }}">
+  <meta name="twitter:description" content="{{ $ogDesc }}">
+  {{ with $ogImage }}
+  <meta name="twitter:image" content="{{ . }}">{{ end }}
+
+  {{ "<!-- URL canonique : le site est atteignable sous plusieurs préfixes -->" | safeHTML }}
+  <link rel="canonical" href="{{ $ogURL }}">
+
   <!-- theme meta -->
   <meta name="theme-name" content="educenter-hugo" />
 
