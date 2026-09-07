@@ -55,7 +55,7 @@ Les résultats ont fait l'objet d'une publication et d'une présentation lors de
 
 ### Une participation à de nombreuses conférences…
 
-Le master HN est une formation à la recherche, par la recherche. Ce n'est donc pas une surprise si nos étudiants sont encouragés à tenter le coup des conférences, en France comme à l'international. Et si l'on peut les y envoyer, c'est encore mieux. Avec le concours de la Fondation de l'École via le mécénat, de la Fondation Dassault, du CultureLab de PSL et du soutien direct de l'École, plusieurs étudiants ont joué le jeu et ont pu se confronter à l'état de l'art, présenter leurs travaux et échanger avec les chercheurs de leur discipline.
+Le master HN est une formation à la recherche, par la recherche. Ce n'est donc pas une surprise si nos étudiants sont encouragés à tenter le coup des conférences, en France comme à l'international. Et si l'on peut les y envoyer, c'est encore mieux. Avec le concours de la Fondation de l'École via le mécénat, de la Fondation Dassault Systèmes, du CultureLab de PSL et du soutien direct de l'École, plusieurs étudiants ont joué le jeu et ont pu se confronter à l'état de l'art, présenter leurs travaux et échanger avec les chercheurs de leur discipline.
 
 <ul class="retro-agenda">
 <li><span class="retro-agenda__date">Décembre 2025</span> — Albina Toumarkine (HN+) et quelques autres anciens du master, <em lang="en">Beyond Accuracy: Investigating Vision Model Perception on 19th-Century Decorative Arts</em>, à <a href="https://2025.computational-humanities-research.org">CHR 2025</a>.</li>
