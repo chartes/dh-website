@@ -315,7 +315,7 @@ programme_m2:
         ects: "2"
         items:
           - "Séminaire, cours, PSL week…"
-          - "Audio processing and computer vision for 3D (en)"
+          - "Audio processing and computer vision for 3D (en) [avec le soutien de la Fondation Dassault Systèmes]"
   - semestre: "Semestre 4 — Mémoire et soutenance"
     heures: ""
     ects: "20 ECTS"
