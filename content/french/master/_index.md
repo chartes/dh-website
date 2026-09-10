@@ -451,7 +451,7 @@ documents:
     url: "https://www.chartes.psl.eu/sites/default/files/public/media/document/2026-07/reglement-des-etudes-du-master-hn-2026-2027.pdf"
   - name: "Maquette et syllabus 2026/2027"
     size: "PDF"
-    url: "https://www.chartes.psl.eu/sites/default/files/public/media/document/2026-07/2026-2027_masterhn_syllabus.pdf"
+    url: "https://www.chartes.psl.eu/sites/default/files/public/media/document/2026-09/maquette-et-syllabus-du-master-hn-2026-2027.pdf"
   - name: "Résultats d'admission session 2026"
     size: "PDF"
     url: "https://www.chartes.psl.eu/gazette-chartiste/actualites/resultats-dadmission-aux-masters-hn-et-tnah-2026-2027"
