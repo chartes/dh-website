@@ -8,7 +8,7 @@ category: "Enseignants-chercheurs"
 master_teacher: true
 type: "teacher"
 weight: 105
-institution: "EPITA — Laboratoire de recherche de l’EPITA (LRE)"
+institution: "EPITA · Centre Jean-Mabillon, École nationale des chartes – PSL"
 disciplines:
   - "Intelligence artificielle pour les SHS"
   - "Sciences sociales computationnelles"
@@ -86,8 +86,10 @@ memoires:
     codirecteur: "David Chavalarias"
 ---
 
-Florian Cafiero est maître de conférences en intelligence artificielle pour les sciences humaines et sociales au Laboratoire de recherche de l’EPITA (LRE) et chercheur associé au Centre Jean-Mabillon de l’École nationale des chartes – PSL. Il est co-PI de [CultureLab](https://www.culturelab.psl.eu/), programme de recherche de l’Université PSL consacré aux humanités et sciences sociales computationnelles, aux dynamiques culturelles et aux nouvelles méthodes d’analyse des corpus et du patrimoine.
+Florian Cafiero est maître de conférences en intelligence artificielle pour les sciences humaines et sociales au Laboratoire de recherche de l’EPITA (LRE) et [chercheur associé au Centre Jean-Mabillon de l’École nationale des chartes – PSL](https://www.chartes.psl.eu/annuaire/florian-cafiero). Il est co-PI de [CultureLab](https://www.culturelab.psl.eu/), programme de recherche de l’Université PSL consacré aux humanités et sciences sociales computationnelles, aux dynamiques culturelles et aux nouvelles méthodes d’analyse des corpus et du patrimoine.
 
-Il est également professeur invité au [Center for Digital Humanities and Multilateralism (CDHM)](https://www.graduateinstitute.ch/cdhm), laboratoire du Geneva Graduate Institute (GGI) et des Nations Unies à Genève. Il y développe notamment des recherches sur l’application de l’intelligence artificielle aux archives des organisations internationales et participe au projet *Minutes of Multilateralism*, consacré à l’exploration numérique des archives de la Société des Nations et des Nations Unies.
+Il a notamment été chercheur invité à Columbia University (NYC) et à l'Université Aalto (Helsinki), et invité à enseigner à l'Université de Genève ou à l'Università Federico II (Naples). Il est en 2026 professeur invité au [Center for Digital Humanities and Multilateralism (CDHM)](https://www.graduateinstitute.ch/cdhm), laboratoire du Geneva Graduate Institute et des Nations Unies à Genève.
 
-Ses recherches se situent au croisement de l’intelligence artificielle, des humanités numériques et des sciences sociales computationnelles. Elles portent notamment sur l’analyse des formes linguistiques, stylistiques et discursives, l’attribution d’auteur, le traitement automatique de corpus historiques et les méthodes d’IA pour l’exploration de grandes collections documentaires. Docteur en sociologie de Sciences Po, il est ancien élève de l’ENS Paris-Saclay et diplômé de l’École nationale des chartes.
+Depuis 2019, il collabore au conseil scientifique de l’Éducation nationale, en tant que membre du groupe de travail « Développer l’esprit critique » puis s’associe aux travaux du groupe de travail « Équité et réduction des inégalités scolaires ». Il a par ailleurs fait partie de la commission « complotisme et dérives sectaires » de la Mission interministérielle de vigilance et de lutte contre les dérives sectaires (MIVILUDES) et été co-rapporteur sur le racisme en ligne auprès de la Commission nationale consultative des droits de l'homme (CNCDH).
+
+Docteur de l’Institut d’Etudes Politiques de Paris, il est ancien élève de l’Ecole Normale Supérieure Paris-Saclay et diplômé de l’École nationale des chartes.

@@ -8,7 +8,7 @@ category: "Enseignants-chercheurs"
 master_teacher: true
 type: "teacher"
 weight: 106
-institution: "EPITA — Laboratoire de recherche de l’EPITA (LRE)"
+institution: "EPITA · Centre Jean-Mabillon, École nationale des chartes – PSL"
 disciplines:
   - "Histoire contemporaine"
   - "Humanités numériques"
