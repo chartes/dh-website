@@ -17,7 +17,6 @@ disciplines:
   - "Codicologie et paléographie"
 cours:
   - "M2 - Philologie computationnelle"
-  - "M1 - Méthodes quantitatives en sciences humaines et sociales"
 memoires:
   - annee: 2025
     niveau: "M2"

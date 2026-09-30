@@ -1,6 +1,7 @@
 ---
 title: "Marie Puren"
 idhal: "marie-puren"
+scholar_id: "PTy_b5AAAAAJ"
 website: "https://mpuren.github.io/"
 image: "images/team-pic/marie-puren.png"
 course: "Enseignante-chercheuse en histoire et humanités numériques (EPITA)"
@@ -16,8 +17,7 @@ disciplines:
   - "Analyse de corpus historiques"
   - "IA pour les SHS"
 cours:
-  - "M1 - Méthodes quantitatives en sciences humaines et sociales"
-  - "M1 - Atelier d’initiation à la recherche"
+  - "M1 - Méthodes quantitatives en SHS"
 memoires:
   - annee: 2025
     niveau: "M2"

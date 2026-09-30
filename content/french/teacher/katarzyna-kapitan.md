@@ -16,6 +16,8 @@ disciplines:
   - "Édition scientifique numérique"
   - "Transmission des textes médiévaux"
   - "Analyse computationnelle des cultures écrites"
+cours:
+  - "M2 - Analyse de réseaux"
 ---
 
 Katarzyna Anna Kapitan est titulaire depuis 2024 de la chaire de professeur junior en « Analyse computationnelle des cultures écrites de l’espace occidental » (Moyen Âge – premier XXe siècle) à l’École nationale des chartes – PSL et est rattachée au Centre Jean-Mabillon pour ses recherches. Spécialiste des manuscrits et des humanités numériques, elle travaille principalement sur la littérature et la culture vieux norroises et islandaises.

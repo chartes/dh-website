@@ -15,11 +15,14 @@ disciplines:
   - "HTR / OCR"
   - "Langues anciennes"
 cours:
-  - "M1-M2 - Algorithmique et programmation — Python avancé"
-  - "M2 - Fondamentaux de mathématiques et Python pour DataScience"
-  - "M2 - Paléographie computationnelle (en)"
-  - "M1 - Outils pour la rédaction du mémoire"
-  - "M1 - Méthdologie et mémoire"
+  - "M1-M2 - Python avancé"
+  - "M1 - Introduction à Python"
+  - "M1 - Acquisition et annotation des données"
+  - "M1 - Méthodologie de la recherche en SHS computationnelles"
+  - "M1 - API LLM et VLM"
+  - "M2 - Paléographie computationnelle"
+  - "M1 - Fondamentaux de l’informatique — Git"
+  - "M1 - Outils pour la rédaction du mémoire — LaTeX"
 memoires:
   - annee: 2026
     niveau: "M2"

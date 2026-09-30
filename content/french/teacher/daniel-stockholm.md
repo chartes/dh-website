@@ -17,7 +17,8 @@ disciplines:
   - "Bioimagerie"
   - "Programmation scientifique"
 cours:
-  - "M1 - Traitement automatique de l’image"
+  - "M1 - Apprentissage machine"
+  - "M1-M2 - Traitement automatique de l’image"
 ---
 
 Daniel Stockholm est maître de conférences à l’École pratique des hautes études – PSL, en section Sciences de la Vie et de la Terre, et membre du Centre de Recherche Saint-Antoine (UMR_S 938). Spécialiste de bioimagerie et d’analyse d’image, il développe et enseigne des méthodes de traitement automatique de l’image, d’analyse multidimensionnelle et d’apprentissage automatique.

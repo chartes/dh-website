@@ -16,6 +16,8 @@ disciplines:
   - "Extraction d’information"
   - "Web sémantique"
   - "Visualisation de données"
+cours:
+  - "M2 - Humanités numériques spatialisées"
 ---
 
 Carmen Brando est ingénieure de recherche en humanités numériques à l’École des hautes études en sciences sociales (EHESS) et membre du Centre de recherches historiques (CRH). Docteure en informatique, elle développe et mobilise des méthodes numériques pour les sciences humaines et sociales, à l’intersection du traitement automatique des langues, de l’extraction d’information, du Web sémantique, de la géomatique et de la visualisation de données.

@@ -15,6 +15,8 @@ disciplines:
   - "Analyse computationnelle de la littérature"
   - "Traitement automatique des langues"
   - "Vision par ordinateur"
+cours:
+  - "M1 - Introduction à Python"
 ---
 
 Alexandre Lionnet-Rollin est doctorant contractuel à l’École pratique des hautes études – PSL et rattaché au Centre Jean-Mabillon de l’École nationale des chartes – PSL dans le cadre de CultureLab. Sa thèse est codirigée par Daniel Stockholm (EPHE – PSL) et Florian Cafiero (EPITA / Centre Jean-Mabillon). Il effectue actuellement un séjour de recherche à University College London (UCL), à l’invitation de Simon Carrignon.

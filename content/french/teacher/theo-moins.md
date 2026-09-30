@@ -7,4 +7,6 @@ category: "Ingénieurs"
 master_teacher: true
 type: "teacher"
 weight: 513
+cours:
+  - "M2 - Fondamentaux de mathématiques et Python pour DataScience"
 ---

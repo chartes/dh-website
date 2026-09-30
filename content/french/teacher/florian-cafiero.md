@@ -1,7 +1,8 @@
 ---
 title: "Florian Cafiero"
 idhal: "florian-cafiero"
-website: "https://cv.hal.science/florian-cafiero"
+scholar_id: "LmUCuI8AAAAJ"
+website: "https://sites.google.com/view/florian-cafiero"
 image: "images/team-pic/florian-cafiero.jpg"
 course: "Maître de conférences en intelligence artificielle pour les SHS (EPITA)"
 category: "Enseignants-chercheurs"
@@ -16,8 +17,8 @@ disciplines:
   - "Stylométrie et attribution d’auteur"
   - "Recherche d’information"
 cours:
-  - "M1 - Méthodes quantitatives en sciences humaines et sociales"
-  - "M1 - Computational Literary Studies"
+  - "M1 - Méthodes quantitatives en SHS"
+  - "M1 - LLM & computational literary studies"
   - "M2 - Philologie computationnelle"
 memoires:
   - annee: 2026
