@@ -2,12 +2,12 @@
 title: "Alexandre Lionnet-Rollin"
 idhal: ""
 image: "images/team-pic/alexandre-lionnet.png"
-course: "Doctorant contractuel (EPHE – PSL / CultureLab)"
+course: "Doctorant contractuel (EPHE – PSL)"
 category: "Doctorants"
 master_teacher: true
 type: "teacher"
 weight: 402
-institution: "École pratique des hautes études – PSL · Centre Jean-Mabillon, École nationale des chartes – PSL · CultureLab"
+institution: "École pratique des hautes études – PSL · Centre Jean-Mabillon, École nationale des chartes – PSL"
 disciplines:
   - "Humanités numériques et computationnelles"
   - "Littérature numérique"

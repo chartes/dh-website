@@ -8,7 +8,7 @@ category: "Enseignants-chercheurs"
 master_teacher: true
 type: "teacher"
 weight: 203
-institution: "École pratique des hautes études – PSL · AOROC (UMR 8546)"
+institution: "École pratique des hautes études – PSL · AOROC"
 disciplines:
   - "Humanités numériques et computationnelles"
   - "Paléographie computationnelle"
