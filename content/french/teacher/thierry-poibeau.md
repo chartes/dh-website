@@ -16,7 +16,7 @@ disciplines:
   - "Grands modèles de langue"
   - "Analyse computationnelle de la littérature"
 cours:
-  - "M1 - Traitement automatique des langues"
+  - "M2 - Traitement automatique de la langue et analyse sémantique"
 ---
 
 Thierry Poibeau est directeur de recherche au CNRS au laboratoire LATTICE (Langues, Textes, Traitements informatiques et Cognition), à l’ENS – PSL. Titulaire d’une chaire PRAIRIE-PSAI en traitement automatique des langues et humanités numériques, il est également *Affiliated Lecturer* au Department of Theoretical and Applied Linguistics de l’Université de Cambridge et associé à Cambridge Digital Humanities.

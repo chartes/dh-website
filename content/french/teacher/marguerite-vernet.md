@@ -7,4 +7,6 @@ category: "Enseignants du master HN"
 master_teacher: true
 type: "teacher"
 weight: 205
+cours:
+  - "M1 - Structuration XML et XML/TEI"
 ---

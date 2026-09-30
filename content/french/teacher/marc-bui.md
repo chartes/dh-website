@@ -17,7 +17,7 @@ disciplines:
   - "Algorithmique distribuée"
   - "Modélisation des systèmes complexes"
 cours:
-  - "M1 - Introduction à la programmation en Python"
+  - "M1 - Fondamentaux de l’informatique — introduction au bash"
 ---
 
 Marc Bui est directeur d’études cumulant à l’École pratique des hautes études – PSL et professeur des universités en informatique. Membre du laboratoire Archéologie et Philologie d’Orient et d’Occident (AOROC, UMR 8546 CNRS-ENS-EPHE), il co-responsable le pôle Humanités numériques du laboratoire. Ses recherches portent sur l’algorithmique distribuée, la modélisation des systèmes complexes et, plus particulièrement aujourd’hui, sur les humanités numériques et computationnelles.

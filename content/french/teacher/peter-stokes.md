@@ -17,7 +17,6 @@ disciplines:
   - "Reconnaissance automatique des écritures"
   - "Édition et modélisation numériques"
 cours:
-  - "M1 - Introduction aux humanités numériques"
   - "M2 - Paléographie computationnelle"
 ---
 
