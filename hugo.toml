@@ -10,6 +10,10 @@ locale = "fr-fr"
 defaultContentLanguage = "fr"
 defaultContentLanguageInSubdir = false
 title = "Digital humanities @ Chartes"
+# Publie les actualités datées du jour de l'évènement à venir (conférence la
+# semaine prochaine…). ⚠ Doit rester AVANT la première table [..] : placée plus
+# bas, la clé devient un paramètre de cette table et Hugo l'ignore.
+buildFuture = true
 theme = "educenter-hugo"
 disableLanguages = ["en"]
 
@@ -69,8 +73,6 @@ top_header = false
 level = "totalement conforme"
 audit_date = "2026-08-17"
 contact = "communication@chartes.psl.eu"
-
-buildFuture = true
 
 ############################# Build ##############################
 [build]
