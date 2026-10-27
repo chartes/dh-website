@@ -6,39 +6,45 @@ url = "master/"
 weight = 1
 
 [[main]]
+name = "communauté/"
+weight = 2
+
+[[main]]
 name = "Équipe enseignante"
 url = "equipe/"
-weight = 2
+parent = "communauté/"
+weight = 1
 
 [[main]]
 name = "Alumni"
 url = "alumni/"
-weight = 3
+parent = "communauté/"
+weight = 2
 
 [[main]]
 name = "Recherche"
 url = "projets/"
-weight = 4
+weight = 3
 
 [[main]]
 name = "Développements"
 url = "developpements/"
-weight = 5
+weight = 4
 
 [[main]]
 name = "Publications"
 url = "publications/"
-weight = 6
+weight = 5
 
 [[main]]
 name = "Évènements"
 url = "evenements/"
-weight = 7
+weight = 6
 
 [[main]]
 name = "Actualités"
 url = "actualites/"
-weight = 8
+weight = 7
 
 
 # footer menu
