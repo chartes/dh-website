@@ -26,8 +26,8 @@
     {{ with $enCours }}
     <div class="alumni-section">
       <h2 class="projects-section-title">Masterants</h2>
-      {{/* Tri croissant : M2 avant M1. */}}
-      {{ range (sort . "annee" "asc") }}
+      {{/* Même ordre que les alumni : la promotion la plus récente (M1) d'abord. */}}
+      {{ range . }}
       {{ $niveau := cond (eq (sub .annee $derniereSortie) 1) "M2" "M1" }}
       {{ partial "alumni-promo.html" (dict "promo" . "titre" (printf "%s — promotion %d" $niveau .annee)) }}
       {{ end }}

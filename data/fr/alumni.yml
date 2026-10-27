@@ -105,6 +105,7 @@ promotions:
       - nom: "Lozinguez"
         prenom: "Thibault"
         discipline: "Philosophie, histoire"
+        github: "https://github.com/thibaultlozinguez"
       - nom: "Moinzadeh"
         prenom: "Irandokht"
         discipline: "Littérature"
