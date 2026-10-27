@@ -1,67 +1,77 @@
-{{/* Page Alumni.
+{{/* Page Alumni, en trois parties : masterants (promotions en cours), alumni
+     (promotions sorties) et témoignages audio.
 
-     Les données vivent dans data/fr/alumni.yml (une entrée par promotion,
-     désignée par son année de sortie du master) : ajouter une personne ou une
-     promotion ne demande pas de toucher à ce gabarit. Tout champ autre que
-     `nom` et `prenom` est facultatif et n'est affiché que s'il est renseigné.
-     Les liens externes (mémoire, GitHub, LinkedIn) restent disponibles ; le nom
-     renvoie à une fiche interne uniquement si elle est publiée. */}}
+     Les personnes vivent dans data/fr/alumni.yml (une entrée par promotion,
+     désignée par son année de sortie du master) et les témoignages dans
+     data/fr/temoignages.yml : ajouter une personne, une promotion ou un
+     témoignage ne demande pas de toucher à ce gabarit. Les liens externes
+     (mémoire, GitHub, LinkedIn) restent disponibles ; le nom renvoie à une
+     fiche interne uniquement si elle est publiée (partials/alumni-promo.html).
+
+     Une promotion passe de « Masterants » à « Alumni » à la rentrée (1er
+     septembre) de son année de sortie : la promotion 2027 est en M2 jusqu'au
+     31 août 2027. Le classement est calculé à chaque déploiement du site. */}}
 {{ define "main" }}
 
 {{ $data := index site.Data site.Language.Lang }}
 {{ $promotions := sort $data.alumni.promotions "annee" "desc" }}
+{{ $derniereSortie := now.Year }}
+{{ if lt (int now.Month) 9 }}{{ $derniereSortie = sub now.Year 1 }}{{ end }}
+{{ $enCours := where $promotions "annee" "gt" $derniereSortie }}
+{{ $sorties := where $promotions "annee" "le" $derniereSortie }}
 
 <section class="section">
   <div class="container">
 
-    {{ with .Params.intro }}
-    <div class="row mb-4">
-      <div class="col-lg-10 mx-auto actualites-intro"><p>{{ . | markdownify }}</p></div>
+    {{ with $enCours }}
+    <div class="alumni-section">
+      <h2 class="projects-section-title">Masterants</h2>
+      {{/* Tri croissant : M2 avant M1. */}}
+      {{ range (sort . "annee" "asc") }}
+      {{ $niveau := cond (eq (sub .annee $derniereSortie) 1) "M2" "M1" }}
+      {{ partial "alumni-promo.html" (dict "promo" . "titre" (printf "%s — promotion %d" $niveau .annee)) }}
+      {{ end }}
     </div>
     {{ end }}
 
-    {{ range $promotions }}
-    {{ $annee := .annee }}
-    <div class="actus-year-block">
-      {{/* RGAA 9.1 : le <h1> de la page est déjà émis par la bannière (partials/page-header.html). */}}
-      <h2 class="actus-year">Promotion {{ $annee }}</h2>
-      {{/* RGAA 9.3 : grille de fiches = liste. */}}
+    {{ with $sorties }}
+    <div class="alumni-section">
+      <h2 class="projects-section-title">Alumni</h2>
+      {{ range . }}
+      {{ partial "alumni-promo.html" (dict "promo" . "titre" (printf "Promotion %d" .annee)) }}
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <div class="alumni-section">
+      <h2 class="projects-section-title">Témoignages</h2>
+      {{ with $data.temoignages.temoignages }}
+      {{/* RGAA 9.3 : liste de témoignages. */}}
       <ul class="row list-unstyled mb-0">
-        {{ range .alumni }}
-        {{ $nom := printf "%s %s" .prenom .nom }}
-        <li class="col-xl-3 col-lg-4 col-sm-6 mb-4 d-flex">
-          <article class="alumni-card">
-            <span class="alumni-card__promo">HN {{ $annee }}</span>
-            <h3 class="alumni-card__name">{{ partial "person-name.html" $nom }}</h3>
-            {{ with .discipline }}<p class="alumni-card__discipline">{{ . }}</p>{{ end }}
-
-            {{ if .memoire }}
-            {{/* RGAA 8.7 : titre de mémoire dans une autre langue que le français. */}}
-            {{ $titre := .memoire }}
-            {{ with .memoire_lang }}{{ $titre = printf `<span lang="%s">%s</span>` . (htmlEscape $titre) | safeHTML }}{{ end }}
-            <p class="alumni-card__memoire">
-              <span class="alumni-card__label">Mémoire</span>
-              {{ with .memoire_lien }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $titre }}<span class="sr-only"> (nouvelle fenêtre)</span></a>{{ else }}{{ $titre }}{{ end }}
-            </p>
-            {{ end }}
-
-            {{ if or .github .linkedin }}
-            <ul class="alumni-card__links list-unstyled mb-0">
-              {{/* RGAA 6.1 / 13.2 : intitulé explicite hors contexte, ouverture signalée. */}}
-              {{ with .github }}
-              <li><a href="{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-github" aria-hidden="true"></i> GitHub<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
-              {{ end }}
-              {{ with .linkedin }}
-              <li><a href="{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-linkedin" aria-hidden="true"></i> LinkedIn<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
-              {{ end }}
-            </ul>
-            {{ end }}
+        {{ range . }}
+        {{/* RGAA 4.1 : un contenu audio seul doit avoir une transcription textuelle. */}}
+        {{ if not .transcription }}{{ errorf "data/%s/temoignages.yml : transcription manquante pour « %s » (RGAA 4.1)" site.Language.Lang .titre }}{{ end }}
+        <li class="col-lg-6 mb-4 d-flex">
+          <article class="temoignage-card">
+            <h3 class="temoignage-card__titre">{{ .titre }}</h3>
+            <p class="temoignage-card__meta">{{ .personne }}{{ with .promo }} · HN {{ . }}{{ end }}{{ with .duree }} · {{ . }}{{ end }}</p>
+            {{ with .resume }}<p class="temoignage-card__resume">{{ . }}</p>{{ end }}
+            {{/* RGAA 4.11 : lecteur natif, contrôlable au clavier. preload="none" : rien n'est téléchargé avant lecture. */}}
+            <audio class="temoignage-card__audio" controls preload="none" src="{{ .audio | relURL }}">
+              <a href="{{ .audio | relURL }}">Télécharger le témoignage « {{ .titre }} »</a>
+            </audio>
+            <details class="temoignage-card__transcription">
+              <summary>Transcription</summary>
+              {{ .transcription | markdownify }}
+            </details>
           </article>
         </li>
         {{ end }}
       </ul>
+      {{ else }}
+      <p class="alumni-empty">Premiers témoignages à venir.</p>
+      {{ end }}
     </div>
-    {{ end }}
 
   </div>
 </section>
