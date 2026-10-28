@@ -1,0 +1,7 @@
+{{- $name := printf "%s" . -}}
+{{- $url := partialCached "person-url.html" $name $name -}}
+{{- if $url -}}
+<a href="{{ $url }}" class="person-name-link">{{ $name }}</a>
+{{- else -}}
+{{ $name }}
+{{- end -}}

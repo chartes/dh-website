@@ -37,7 +37,7 @@ url = "publications/"
 weight = 5
 
 [[main]]
-name = "Évènements"
+name = "Événements"
 url = "evenements/"
 weight = 6
 
@@ -78,7 +78,7 @@ name = "Publications"
 url = "publications/"
 
 [[footer]]
-name = "Évènements"
+name = "Événements"
 url = "evenements/"
 
 [[footer]]

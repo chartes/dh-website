@@ -10,7 +10,7 @@ locale = "fr-fr"
 defaultContentLanguage = "fr"
 defaultContentLanguageInSubdir = false
 title = "Digital humanities @ Chartes"
-# Publie les actualités datées du jour de l'évènement à venir (conférence la
+# Publie les actualités datées du jour de l'événement à venir (conférence la
 # semaine prochaine…). ⚠ Doit rester AVANT la première table [..] : placée plus
 # bas, la clé devient un paramètre de cette table et Hugo l'ignore.
 buildFuture = true

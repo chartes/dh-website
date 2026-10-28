@@ -83,7 +83,7 @@
               {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .title | default "À compléter" }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
               {{ else }}{{ .title | default "À compléter" }}{{ end }}
             </h3>
-            {{ with .team }}<p class="hackathon-card__team">{{ . }}</p>{{ end }}
+            {{ with .team }}<p class="hackathon-card__team">{{ partial "linked-persons-text.html" . }}</p>{{ end }}
             {{ if .url }}
             <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__cta">
               <i class="ti-external-link" aria-hidden="true"></i> Ouvrir l'application<span class="sr-only"> « {{ .title | default "À compléter" }} »</span><span class="sr-only"> (nouvelle fenêtre)</span>
@@ -126,7 +126,7 @@
             <h3 class="hackathon-card__title">
               <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
             </h3>
-            {{ with .team }}<p class="hackathon-card__team">{{ . }}</p>{{ end }}
+            {{ with .team }}<p class="hackathon-card__team">{{ partial "linked-persons-text.html" . }}</p>{{ end }}
             <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__cta">
               <i class="ti-github" aria-hidden="true"></i> Voir le code<span class="sr-only"> de « {{ .title }} »</span><span class="sr-only"> (nouvelle fenêtre)</span>
             </a>

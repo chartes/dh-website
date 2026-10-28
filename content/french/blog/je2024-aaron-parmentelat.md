@@ -35,7 +35,7 @@ sur la bordure est et à l'ouest.
 
 ## Méthodologie
 
-Les données proviennent des annuaires des propriétaires de Paris. Pour 1898, les données ont été nettoyées par Carmen Brando et Frédérique Mélanie-Becquet, transformant les listes de noms en listes d'adresses.
+Les données proviennent des annuaires des propriétaires de Paris. Pour 1898, les données ont été nettoyées par <a href="/equipe/carmen-brando/" class="person-name-link">Carmen Brando</a> et Frédérique Mélanie-Becquet, transformant les listes de noms en listes d'adresses.
 
 Face aux limitations de Transkribus, un nouveau processus de traitement a été développé, combinant traitement d'images, annotation manuelle et reconnaissance de texte manuscrit (HTR). Les étapes incluent :
 

@@ -2732,6 +2732,15 @@ $pc-bilan       : #3f5d8c;                 // bleu ardoise — bilan d’année
   }
 }
 
+/* ── Liens internes vers les fiches des membres ────────────── */
+a.person-name-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  &:hover, &:focus-visible { color: $primary-color; text-decoration: underline; }
+}
+
 /* ── Participation card (actualités) ───────────────────────── */
 .participation-card {
   border-radius: 8px;
@@ -2992,7 +3001,7 @@ $pc-bilan       : #3f5d8c;                 // bleu ardoise — bilan d’année
   }
 }
 
-/* ── Évènements : journée d'étude + hackathons ──────────────── */
+/* ── Événements : journée d'étude + hackathons ──────────────── */
 .je-intro {
   font-size: 1.05rem;
   line-height: 1.65;

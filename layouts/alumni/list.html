@@ -4,7 +4,8 @@
      désignée par son année de sortie du master) : ajouter une personne ou une
      promotion ne demande pas de toucher à ce gabarit. Tout champ autre que
      `nom` et `prenom` est facultatif et n'est affiché que s'il est renseigné.
-     Seuls les liens externes (mémoire, GitHub, LinkedIn) sont cliquables. */}}
+     Les liens externes (mémoire, GitHub, LinkedIn) restent disponibles ; le nom
+     renvoie à une fiche interne uniquement si elle est publiée. */}}
 {{ define "main" }}
 
 {{ $data := index site.Data site.Language.Lang }}
@@ -31,7 +32,7 @@
         <li class="col-xl-3 col-lg-4 col-sm-6 mb-4 d-flex">
           <article class="alumni-card">
             <span class="alumni-card__promo">HN {{ $annee }}</span>
-            <h3 class="alumni-card__name">{{ $nom }}</h3>
+            <h3 class="alumni-card__name">{{ partial "person-name.html" $nom }}</h3>
             {{ with .discipline }}<p class="alumni-card__discipline">{{ . }}</p>{{ end }}
 
             {{ if .memoire }}

@@ -1,0 +1,13 @@
+{{- /* URL de la fiche publiée d'une personne ; jamais de lien vers un brouillon. */ -}}
+{{- $name := lower (trim (printf "%s" .) " ") -}}
+{{- $lookup := $name -}}
+{{- if eq $lookup "alexandre lionnet" -}}{{- $lookup = "alexandre lionnet-rollin" -}}{{- end -}}
+{{- if eq $lookup "marie anna puren" -}}{{- $lookup = "marie puren" -}}{{- end -}}
+{{- if eq $lookup "katarzyna anna kapitan" -}}{{- $lookup = "katarzyna kapitan" -}}{{- end -}}
+{{- $url := "" -}}
+{{- range (where site.RegularPages "Type" "teacher") -}}
+  {{- if eq (lower (trim .Title " ")) $lookup -}}
+    {{- $url = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+{{- return $url -}}

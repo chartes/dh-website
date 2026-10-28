@@ -1,5 +1,5 @@
 ---
-title: "Symposium in Computer Vision and the Humanities"
+title: "University of Oxford — Symposium in Computer Vision and the Humanities"
 title_lang: "en"
 date: 2025-11-17
 category: "Conférence"
@@ -9,6 +9,8 @@ participants:
   - name: "Alexandre Lionnet"
     role: "Enseignant"
   - name: "Chahan Vidal-Gorène"
+    role: "Enseignant"
+  - name: "Daniel Stockholm"
     role: "Enseignant"
   - name: "Florian Cafiero"
     role: "Enseignant"

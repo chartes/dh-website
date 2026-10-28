@@ -15,7 +15,7 @@ type: "post"
 <p class="actu-chapeau">
 Compte-rendu par <strong>Chiara Tedesco (M1)</strong> du poster de <strong>Quanwen Long (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 19 mai 2026 (Computational Cultural Science Workshop).</p>
 
-Dans le cadre de l'édition 2026 du colloque Humanistica, qui s'est tenue à Paris, le Grand Programme de Recherche CultureLab de l'université PSL a organisé un évènement satellite, le *Computational Cultural Science Workshop*, accueilli à l'École nationale des chartes – PSL. Celui-ci s'est déroulé les 18 et 19 mai 2026 dans les locaux de l'École. Conçu comme un véritable colloque à part entière, il a réuni une *keynote lecture*, des communications longues, des *lightning talks*, ainsi que des sessions de présentation de posters.
+Dans le cadre de l'édition 2026 du colloque Humanistica, qui s'est tenue à Paris, le Grand Programme de Recherche CultureLab de l'université PSL a organisé un événement satellite, le *Computational Cultural Science Workshop*, accueilli à l'École nationale des chartes – PSL. Celui-ci s'est déroulé les 18 et 19 mai 2026 dans les locaux de l'École. Conçu comme un véritable colloque à part entière, il a réuni une *keynote lecture*, des communications longues, des *lightning talks*, ainsi que des sessions de présentation de posters.
 
 La session posters du mardi 19 mai après-midi, qui s'est tenue dans la salle Quicherat, était dédiée aux travaux des étudiants de deuxième année du master « Humanités numériques » de l'établissement. Les étudiants y ont présenté, sous forme de poster, les résultats des recherches menées dans le cadre de leurs mémoires de master. C'est dans ce cadre que s'inscrit le poster commenté ici.
 

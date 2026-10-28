@@ -50,7 +50,7 @@
             <li><span class="label">Établissements</span><span class="value">{{ .etablissements }}</span></li>
             <li><span class="label">Programme gradué PSL</span><span class="value">{{ .programme_gradue }}</span></li>
             <li><span class="label">Alternance</span><span class="value">{{ .apprentissage }}</span></li>
-            <li><span class="label">Responsable</span><span class="value">{{ .responsable }}</span></li>
+            <li><span class="label">Responsable</span><span class="value">{{ partial "person-name.html" .responsable }}</span></li>
             {{/* Même protection contre le moissonnage que sur la page Accessibilité :
                  l'adresse ne doit pas figurer d'un seul tenant dans le HTML servi.
                  Cf. partials/mailto-protege.html. */}}
@@ -102,7 +102,7 @@
       <div class="parcours-card{{ if .custom }} parcours-card--custom{{ end }}">
         <h3 class="parcours-card__name">{{ .name }}</h3>
         <p class="parcours-card__content">{{ .content }}</p>
-        <p class="parcours-card__referent"><i class="ti-user" aria-hidden="true"></i> {{ .referent }}</p>
+        <p class="parcours-card__referent"><i class="ti-user" aria-hidden="true"></i> {{ partial "person-name.html" .referent }}</p>
       </div>
       {{ end }}
     </div>
@@ -744,7 +744,7 @@
             <h3 class="competition-card__name">{{ .name | default "Nom de la compétition" }}</h3>
             {{ with .students }}
             <div class="competition-card__students">
-              {{ range . }}<span class="competition-card__student">{{ . }}</span>{{ end }}
+              {{ range . }}<span class="competition-card__student">{{ partial "person-name.html" . }}</span>{{ end }}
             </div>
             {{ end }}
             {{ with .repo_url }}
@@ -850,7 +850,7 @@
               {{ range . }}
               {{ $rk := .role | lower | replaceRE "[^a-z0-9]" "" }}
               <span class="participation-card__chip participation-card__chip--{{ $rk }}">
-                {{ .name }}<em class="participation-card__chip-role">{{ .role }}</em>
+                {{ partial "person-name.html" .name }}<em class="participation-card__chip-role">{{ .role }}</em>
               </span>
               {{ end }}
             </div>

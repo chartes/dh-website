@@ -96,7 +96,7 @@
               {{ range . }}
               {{ $rk := .role | lower | replaceRE "[^a-z0-9]" "" }}
               <li class="participation-card__chip participation-card__chip--{{ $rk }}">
-                {{ .name }}<em class="participation-card__chip-role">{{ .role }}</em>
+                {{ partial "person-name.html" .name }}<em class="participation-card__chip-role">{{ .role }}</em>
               </li>
               {{ end }}
             </ul>
