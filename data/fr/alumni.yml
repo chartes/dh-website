@@ -2,6 +2,7 @@
 # Page : content/french/alumni/_index.md — gabarit : layouts/alumni/list.html.
 # Seuls `nom` et `prenom` sont obligatoires ; un champ absent n'est simplement pas affiché.
 # `memoire_lang` : langue du titre du mémoire s'il n'est pas en français (RGAA 8.7).
+# `idhal` : identifiant HAL (lien vers cv.hal.science), seulement si la page CV HAL existe.
 promotions:
 
   - annee: 2028
@@ -87,6 +88,7 @@ promotions:
         discipline: "Sinologie"
         github: "https://github.com/Bizais-Lillig"
         linkedin: "https://www.linkedin.com/in/marie-bizais-lillig-121605312"
+        idhal: "marie-bizais"
       - nom: "du Cauzé de Nazelle"
         prenom: "Marisol"
         discipline: "Sociologie, sciences politiques, affaires publiques"
@@ -97,6 +99,7 @@ promotions:
         discipline: "Histoire des mathématiques"
         github: "https://github.com/MathiasGarnier"
         linkedin: "https://www.linkedin.com/in/mathias-garnier-5b4829b6"
+        idhal: "mathias-garnier"
       - nom: "Létoffé"
         prenom: "Maxime"
         discipline: "Histoire, archéologie"
@@ -106,6 +109,7 @@ promotions:
         prenom: "Thibault"
         discipline: "Philosophie, histoire"
         github: "https://github.com/thibaultlozinguez"
+        idhal: "thibault-lozinguez"
       - nom: "Moinzadeh"
         prenom: "Irandokht"
         discipline: "Littérature"
@@ -116,6 +120,7 @@ promotions:
         discipline: "Littérature"
         github: "https://github.com/Phineaax"
         linkedin: "https://www.linkedin.com/in/charles-planque-0495b221b"
+        idhal: "charles-planque"
       - nom: "Raffray"
         prenom: "Thaïs"
         discipline: "Histoire de l'art"
@@ -255,6 +260,7 @@ promotions:
         memoire_lang: "en"
         github: "https://github.com/Kepler1908"
         linkedin: "https://www.linkedin.com/in/donghan-bian-994946224"
+        idhal: "donghan-bian"
       - nom: "Gaglione"
         prenom: "Eglantine"
         github: "https://github.com/ASchopenhauer"

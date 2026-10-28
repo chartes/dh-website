@@ -24,7 +24,7 @@
         </p>
         {{ end }}
 
-        {{ if or .github .linkedin }}
+        {{ if or .github .linkedin .idhal }}
         <ul class="alumni-card__links list-unstyled mb-0">
           {{/* RGAA 6.1 / 13.2 : intitulé explicite hors contexte, ouverture signalée. */}}
           {{ with .github }}
@@ -32,6 +32,9 @@
           {{ end }}
           {{ with .linkedin }}
           <li><a href="{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-linkedin" aria-hidden="true"></i> LinkedIn<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
+          {{ end }}
+          {{ with .idhal }}
+          <li><a href="https://cv.hal.science/{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-link" aria-hidden="true"></i> HAL<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
           {{ end }}
         </ul>
         {{ end }}
