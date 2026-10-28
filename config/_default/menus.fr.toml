@@ -6,19 +6,19 @@ url = "master/"
 weight = 1
 
 [[main]]
-name = "communauté/"
+name = "Communauté"
 weight = 2
 
 [[main]]
 name = "Équipe enseignante"
 url = "equipe/"
-parent = "communauté/"
+parent = "Communauté"
 weight = 1
 
 [[main]]
 name = "Alumni"
 url = "alumni/"
-parent = "communauté/"
+parent = "Communauté"
 weight = 2
 
 [[main]]
