@@ -17,7 +17,7 @@ Compte-rendu par <strong>Maxime Létoffé (M1)</strong> du poster de <strong>Dam
 
 La session de poster CultureLab de 2026 nous a permis d'assister à une présentation du travail de Damien Conceição. Il interroge la manière dont le cadre législatif d'un pays façonne le traitement médiatique de la prostitution, à travers un vaste corpus de presse francophone.
 
-Intitulé « Does the Legislative Framework Shape Media Coverage of Prostitution? Evidence from a Francophone Press Corpus », ce poster s'inscrit dans le cadre du master d'humanités numériques de l'École nationale des chartes – PSL, sous la direction de Florian Cafiero (ENC–PSL) et d'Alexis Lévrier (Université de Reims Champagne-Ardenne).
+Intitulé « Does the Legislative Framework Shape Media Coverage of Prostitution? Evidence from a Francophone Press Corpus », ce poster s'inscrit dans le cadre du master d'humanités numériques de l'École nationale des chartes – PSL, sous la direction de <a href="/equipe/florian-cafiero/" class="person-name-link">Florian Cafiero</a> (ENC–PSL) et d'Alexis Lévrier (Université de Reims Champagne-Ardenne).
 
 Damien Conceição rappelle tout d'abord qu'il n'existe pas un mais plusieurs régimes juridiques du travail du sexe, et ces régimes engagent des conceptions divergentes des élites dirigeantes de ce qu'est la prostitution : délit, nuisance, exploitation ou activité économique. L'étude en retient quatre grandes configurations, qu'elle incarne par des pays témoins :
 

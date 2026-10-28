@@ -13,7 +13,7 @@ type: "post"
 ---
 
 <p class="actu-chapeau">
-Compte-rendu par <strong>Marisol de Nazelle (M1)</strong> du poster de <strong>Maria Kirbasova (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 19 mai 2026 (Computational Cultural Science Workshop, École nationale des chartes, 18–19 mai 2026). Mémoire codirigé par Françoise Daucé (EHESS, CERCEC) et Thierry Poibeau (CNRS, LATTICE).</p>
+Compte-rendu par <strong>Marisol de Nazelle (M1)</strong> du poster de <strong>Maria Kirbasova (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 19 mai 2026 (Computational Cultural Science Workshop, École nationale des chartes, 18–19 mai 2026). Mémoire codirigé par Françoise Daucé (EHESS, CERCEC) et <a href="/equipe/thierry-poibeau/" class="person-name-link">Thierry Poibeau</a> (CNRS, LATTICE).</p>
 
 Si *LinkedIn* avait existé depuis 1847 et que Taras Chevtchenko[^1] avait pu passer par la session de posters CultureLab du 19 mai 2026[^2], nul doute que le poster de Maria Kirbasova aurait attiré son attention. Prolongeons l'hallucination collective. Son post aurait commencé ainsi :
 

@@ -13,9 +13,9 @@ participants:
 paper_links:
   - label: "Article EMNLP"
     url: "https://aclanthology.org/2026.emnlp-main.2660/"
-  - label: "Article BlackboxNLP"
-    url: "https://aclanthology.org/2026.blackboxnlp-1.47/"
   - label: "Article Findings — ORDER"
     url: "https://aclanthology.org/2026.findings-emnlp.2026/"
+  - label: "Article BlackboxNLP"
+    url: "https://aclanthology.org/2026.blackboxnlp-1.47/"
 ---
 Deux articles avec F. Cafiero sur l’attribution d’auteur : « HALvest-Contrastive » (Main, interaction tardive) et « Where Does Authorship Signal Emerge? » (BlackboxNLP). M. Puren et A. Pellet : « ORDER » (Findings).

@@ -113,7 +113,7 @@ audit afin de mesurer les contrastes réels, fonds composites compris.
 - [Écosystème de recherche](/projets/)
 - [Développements](/developpements/)
 - [Publications](/publications/)
-- [Évènements](/evenements/)
+- [Événements](/evenements/)
 - [Actualités](/actualites/) et un billet
 - Les comptes rendus des journées d’étude, y compris les treize pages qui portent des
   figures (cartes, graphiques, schémas de chaîne de traitement, tableaux de données)

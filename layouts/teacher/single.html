@@ -92,8 +92,8 @@
                 {{ with $niveau }}
                 <span class="memoire-item__level memoire-item__level--{{ . | lower }}">{{ . }}</span>
                 {{ end }}
-                {{ with .etudiant }}<span class="memoire-item__student">— {{ . }}</span>{{ end }}
-                {{ with .codirecteur }}<span class="memoire-item__codir">co-direction&nbsp;: {{ . }}</span>{{ end }}
+                {{ with .etudiant }}<span class="memoire-item__student">— {{ partial "person-name.html" . }}</span>{{ end }}
+                {{ with .codirecteur }}<span class="memoire-item__codir">co-direction&nbsp;: {{ partial "linked-persons-text.html" . }}</span>{{ end }}
               </div>
             </li>
             {{ end }}

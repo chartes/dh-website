@@ -206,7 +206,9 @@
                   {{ else }}{{ if $lang }}<span lang="{{ $lang }}">{{ $title }}</span>{{ else }}{{ $title }}{{ end }}{{ end }}
                 </p>
                 {{ with .authFullName_s }}
-                <p class="publication-item__authors">{{ delimit . ", " ", et " }}</p>
+                {{ $authorsList := . }}
+                {{ $lastAuthor := sub (len $authorsList) 1 }}
+                <p class="publication-item__authors">{{ range $i, $author := $authorsList }}{{ if $i }}{{ if eq $i $lastAuthor }} et {{ else }}, {{ end }}{{ end }}{{ partial "person-name.html" $author }}{{ end }}</p>
                 {{ end }}
                 <p class="publication-item__meta">
                   {{ with .journalTitle_s }}<em{{ with $lang }} lang="{{ . }}"{{ end }}>{{ . }}</em>{{ end }}

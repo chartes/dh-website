@@ -21,15 +21,15 @@
           {{ with .Params.location }}<p class="actu-single__location"><i class="ti-location-pin" aria-hidden="true"></i> {{ . }}</p>{{ end }}
           {{/* Signature du billet.
                RGAA 1.2 : icône décorative, l'information est portée par le texte.
-               RGAA 9.1 / 12.6 : simple paragraphe, pas de lien — aucune page « auteur »
-               n'existe sur le site. La clé est volontairement nommée `author_name` et
+               RGAA 9.1 / 12.6 : lien vers une fiche existante si disponible ; aucune
+               page « auteur » artificielle n'est créée. La clé est volontairement nommée `author_name` et
                non `author` : `.Params.Author` réactiverait le lien <a href="author/…">
                émis par _default/list.html et _default/post.html, qui pointe vers une
                section inexistante (motif corrigé en RGAA 6.2). */}}
           {{ with .Params.author_name }}
           <p class="actu-single__author">
             <i class="ti-user" aria-hidden="true"></i>
-            <span class="sr-only">Auteur : </span>{{ . }}{{ with $.Params.author_role }}<span class="actu-single__author-role">{{ . }}</span>{{ end }}
+            <span class="sr-only">Auteur : </span>{{ partial "person-name.html" . }}{{ with $.Params.author_role }}<span class="actu-single__author-role">{{ . }}</span>{{ end }}
           </p>
           {{ end }}
         </header>

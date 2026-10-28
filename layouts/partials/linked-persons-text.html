@@ -1,0 +1,8 @@
+{{- /* Texte simple : seuls les noms ayant une fiche publiée deviennent des liens. */ -}}
+{{- $html := htmlEscape (printf "%s" .) -}}
+{{- range (where site.RegularPages "Type" "teacher") -}}
+  {{- $name := htmlEscape .Title -}}
+  {{- $link := printf `<a href="%s" class="person-name-link">%s</a>` .RelPermalink $name -}}
+  {{- $html = replace $html $name $link -}}
+{{- end -}}
+{{- return ($html | safeHTML) -}}

@@ -14,7 +14,7 @@ type: "post"
 ---
 
 <p class="actu-chapeau">
-Compte-rendu par <strong>Damien Conceicao (M1)</strong> du lightning-talk de <strong>Charlie Lezin (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque <em>Bridging Computational Humanities and Computational Social Sciences</em> organisé par AISSAI — Marie Puren et Florian Cafiero — et l&rsquo;ENC — Chahan Vidal-Gorène).</p>
+Compte-rendu par <strong>Damien Conceicao (M1)</strong> du lightning-talk de <strong>Charlie Lezin (M2)</strong> présenté lors de la journée d&rsquo;étude du master, 27 juin 2025 (séminaire de recherche 2024-2025, associé au colloque <em>Bridging Computational Humanities and Computational Social Sciences</em> organisé par AISSAI — <a href="/equipe/marie-puren/" class="person-name-link">Marie Puren</a> et <a href="/equipe/florian-cafiero/" class="person-name-link">Florian Cafiero</a> — et l&rsquo;ENC — <a href="/equipe/chahan-vidal-gorene/" class="person-name-link">Chahan Vidal-Gorène</a>).</p>
 
 Dans son mémoire « *Analyzing Electoral Manifesto Discourse: The Case of Legislative Elections in Two French Départements, 1958–1986* », Charlie se propose d'étudier le discours des candidats dans les professions de foi avec un focus sur le degré de personnalisation du discours.
 

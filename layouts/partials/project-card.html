@@ -32,9 +32,9 @@
       {{ with $dates }}<li><i class="ti-calendar" aria-hidden="true"></i> {{ . }}</li>{{ end }}
       {{ with .Params.porteur }}
         {{ if reflect.IsSlice . }}
-          <li><i class="ti-user" aria-hidden="true"></i> {{ delimit . ", " " & " }}</li>
+          <li><i class="ti-user" aria-hidden="true"></i> {{ range $i, $name := . }}{{ if $i }} &amp; {{ end }}{{ partial "person-name.html" $name }}{{ end }}</li>
         {{ else }}
-          <li><i class="ti-user" aria-hidden="true"></i> {{ . }}</li>
+          <li><i class="ti-user" aria-hidden="true"></i> {{ partial "person-name.html" . }}</li>
         {{ end }}
       {{ end }}
     </ul>

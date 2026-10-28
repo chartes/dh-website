@@ -1,5 +1,5 @@
 ---
-title: "Évènements du master"
+title: "Événements du master"
 url: "/evenements/"
 aliases:
   - "/journee-etude/"
@@ -7,7 +7,7 @@ draft: false
 bg_image: "images/backgrounds/page-title.jpg"
 description: ""
 
-intro: "Le master Humanités numériques organise deux évènements annuels structurants pour la formation : une journée d'étude scientifique adossée à une conférence internationale, et une semaine intensive de hackathons en partenariat avec des institutions de recherche et patrimoniales."
+intro: "Le master Humanités numériques organise deux événements annuels structurants pour la formation : une journée d'étude scientifique adossée à une conférence internationale, et une semaine intensive de hackathons en partenariat avec des institutions de recherche et patrimoniales."
 
 journee_etude:
   title: "Journée d'étude"
