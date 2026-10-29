@@ -32,3 +32,8 @@ Ce fichier reprend la liste d'imports du thème à l'identique et ajoute
 @import 'templates/otherspage';
 
 @import 'a11y';
+
+// Override theme so the school name is properly displayed in the footer
+.copyright p {
+  text-transform: none;
+}
