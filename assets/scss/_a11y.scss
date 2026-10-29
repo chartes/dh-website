@@ -194,6 +194,7 @@ summary:focus-visible,
   // (#a7cbd9 passait tout juste, à 4,519 pour un seuil de 4,5 : trop peu de marge
   //  pour survivre à un futur ajustement de la teinte du pied de page.)
   color: #b0d2df !important;
+  text-transform: none; // le thème impose `text-transform: uppercase` sur ce bloc
 }
 
 // 4.c — Chapeau du hero sur photo. Le voile .overlay::before (bleu, 80 %)
