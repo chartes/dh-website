@@ -1,0 +1,21 @@
+# Témoignages audio (podcasts) d'étudiants et d'anciens, section « Témoignages » de la page Alumni.
+# Gabarit : layouts/alumni/list.html. Liste vide = message « Premiers témoignages à venir ».
+#
+# Champs : `titre`, `personne`, `audio` et `transcription` obligatoires ; `promo`, `duree`, `resume` facultatifs.
+# `audio` : fichier déposé dans static/audio/temoignages/ (ex. "audio/temoignages/fichier.m4a")
+# ou URL d'un fichier hébergé ailleurs. Pour garder le dépôt léger, encoder la voix en mono à bas
+# débit, ~5 Mo pour 15 min : `ffmpeg -i original.wav -ac 1 -c:a aac -b:a 48k fichier.m4a`
+# (AAC .m4a lisible par tous les navigateurs ; à défaut MP3 mono 64 kbit/s, ~7 Mo pour 15 min).
+# `transcription` : texte (Markdown) de l'enregistrement, relu et nettoyé des tics de l'oral,
+# obligatoire pour l'accessibilité (RGAA 4.1) — le site refuse de se construire si elle manque.
+#
+# Exemple :
+#  - titre: "Thaïs nous raconte son stage à Aix-Marseille Université pour le Festival d'art lyrique"
+#    personne: "Thaïs Raffray"
+#    promo: 2027
+#    duree: "15 min"
+#    resume: "Une phrase de présentation."
+#    audio: "audio/temoignages/raffray-stage-aix.m4a"
+#    transcription: |
+#      Texte intégral de l'enregistrement…
+temoignages: []

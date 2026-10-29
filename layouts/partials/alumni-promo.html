@@ -1,0 +1,45 @@
+{{/* Une promotion de la page Alumni : titre (h3) + grille de fiches.
+     Paramètres : `promo` (entrée de data/fr/alumni.yml) et `titre`. */}}
+{{ $annee := .promo.annee }}
+<div class="actus-year-block">
+  {{/* RGAA 9.1 : h1 = bannière, h2 = section (masterants / alumni), h3 = promotion, h4 = personne. */}}
+  <h3 class="actus-year">{{ .titre }}</h3>
+  {{/* RGAA 9.3 : grille de fiches = liste. */}}
+  <ul class="row list-unstyled mb-0">
+    {{ range .promo.alumni }}
+    {{ $nom := printf "%s %s" .prenom .nom }}
+    <li class="col-xl-3 col-lg-4 col-sm-6 mb-4 d-flex">
+      <article class="alumni-card">
+        <span class="alumni-card__promo">HN {{ $annee }}</span>
+        <h4 class="alumni-card__name">{{ partial "person-name.html" $nom }}</h4>
+        {{ with .discipline }}<p class="alumni-card__discipline">{{ . }}</p>{{ end }}
+
+        {{ if .memoire }}
+        {{/* RGAA 8.7 : titre de mémoire dans une autre langue que le français. */}}
+        {{ $titre := .memoire }}
+        {{ with .memoire_lang }}{{ $titre = printf `<span lang="%s">%s</span>` . (htmlEscape $titre) | safeHTML }}{{ end }}
+        <p class="alumni-card__memoire">
+          <span class="alumni-card__label">Mémoire</span>
+          {{ with .memoire_lien }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $titre }}<span class="sr-only"> (nouvelle fenêtre)</span></a>{{ else }}{{ $titre }}{{ end }}
+        </p>
+        {{ end }}
+
+        {{ if or .github .linkedin .idhal }}
+        <ul class="alumni-card__links list-unstyled mb-0">
+          {{/* RGAA 6.1 / 13.2 : intitulé explicite hors contexte, ouverture signalée. */}}
+          {{ with .github }}
+          <li><a href="{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-github" aria-hidden="true"></i> GitHub<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
+          {{ end }}
+          {{ with .linkedin }}
+          <li><a href="{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-linkedin" aria-hidden="true"></i> LinkedIn<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
+          {{ end }}
+          {{ with .idhal }}
+          <li><a href="https://cv.hal.science/{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-link" aria-hidden="true"></i> HAL<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </article>
+    </li>
+    {{ end }}
+  </ul>
+</div>

@@ -3798,3 +3798,63 @@ a.person-name-link {
     }
   }
 }
+
+/* Parties de la page Alumni : masterants, alumni, témoignages. */
+.alumni-section {
+  margin-bottom: 3rem;
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.alumni-empty {
+  color: $text-color;
+  font-style: italic;
+}
+
+/* Témoignages audio : même habillage que les fiches alumni, sans le format carré. */
+.temoignage-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+  border-top: 4px solid $secondary-color;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.09);
+
+  &__titre {
+    font-family: $secondary-font;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $text-color-dark;
+    margin: 0 0 0.3rem;
+    line-height: 1.3;
+  }
+
+  &__meta {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $secondary-color;
+    margin: 0 0 0.6rem;
+  }
+
+  &__resume {
+    font-size: 0.9rem;
+    margin: 0 0 0.8rem;
+  }
+
+  &__audio {
+    width: 100%;
+    margin: auto 0 0.6rem;
+  }
+
+  &__transcription {
+    font-size: 0.85rem;
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: $secondary-color;
+    }
+  }
+}
