@@ -1,0 +1,12 @@
+{{- /*
+  Adresse électronique non moissonnable, depuis un contenu Markdown.
+
+  Appel :  {{< courriel "prenom.nom@chartes.psl.eu" >}}
+
+  Simple relais vers layouts/partials/mailto-protege.html, qui documente le
+  mécanisme : l'adresse n'apparaît jamais d'un seul tenant dans le HTML servi,
+  mais reste lisible, énoncée normalement par un lecteur d'écran, copiable et
+  présente sans JavaScript. Ne pas l'écrire en clair dans le Markdown, ni en
+  entités numériques : `hugo --minify` les décode.
+*/ -}}
+{{- partial "mailto-protege.html" (dict "adresse" (.Get 0)) -}}

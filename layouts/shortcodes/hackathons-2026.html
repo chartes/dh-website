@@ -1,0 +1,58 @@
+{{- /*
+  Sélection de projets des hackathons 2026, rendue avec les cartes de la page
+  Développements (`.hackathon-card`) — même composant, même données.
+
+  Appel :  {{< hackathons-2026 selection="Icelandic, Vaucluse, Archelec, avortement" >}}
+
+  Les projets sont lus dans le frontmatter de content/french/developpements/_index.md
+  (clé `hackathons_2026`) : rien n'est recopié dans le billet. Chaque mot de
+  `selection` retient le PREMIER projet dont le titre le contient, dans l'ordre
+  donné. Un mot qui ne trouve rien est ignoré (vérifier le rendu).
+
+  RGAA 9.3 — grille de cartes = liste. RGAA 9.1 — le billet structure ses
+  sections en <h3> : les titres de cartes passent en <h4>.
+  RGAA 6.1 — l'image est le seul contenu de son lien : son alternative nomme le
+  projet, comme sur la page Développements.
+*/ -}}
+{{- $source := site.GetPage "/developpements" -}}
+{{- $projets := $source.Params.hackathons_2026 -}}
+{{- $retenus := slice -}}
+{{- range split (.Get "selection") "," -}}
+  {{- $mot := trim . " " -}}
+  {{- $trouve := false -}}
+  {{- range $projets -}}
+    {{- if and (not $trouve) (in .title $mot) -}}
+      {{- $trouve = true -}}
+      {{- $retenus = $retenus | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- with $retenus }}
+<ul class="hackathon-grid row list-unstyled">
+  {{- range . }}
+  <li class="col-sm-6 d-flex">
+    <article class="hackathon-card">
+      <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__media">
+        {{- if .image }}
+        <img src="{{ .image }}" alt="{{ .title }}" class="hackathon-card__img" loading="lazy">
+        {{- else }}
+        <span class="hackathon-card__placeholder"><i class="ti-github" aria-hidden="true"></i></span>
+        <span class="sr-only">{{ .title }}</span>
+        {{- end }}
+        <span class="sr-only"> (nouvelle fenêtre)</span>
+      </a>
+      <div class="hackathon-card__body">
+        {{ with .partner }}<p class="hackathon-card__partner">{{ . }}</p>{{ end }}
+        <h4 class="hackathon-card__title">
+          <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}<span class="sr-only"> (nouvelle fenêtre)</span></a>
+        </h4>
+        {{ with .team }}<p class="hackathon-card__team">{{ partial "linked-persons-text.html" . }}</p>{{ end }}
+        <a href="{{ .url }}" target="_blank" rel="noopener" class="hackathon-card__cta">
+          <i class="ti-github" aria-hidden="true"></i> Voir le code<span class="sr-only"> de « {{ .title }} » (nouvelle fenêtre)</span>
+        </a>
+      </div>
+    </article>
+  </li>
+  {{- end }}
+</ul>
+{{- end -}}

@@ -3681,7 +3681,7 @@ a.person-name-link {
   /* Communications de l'année : liste à puces ordinaire, seule la date reçoit
      un traitement typographique. */
   .retro-agenda {
-    padding-left: 1.2rem;
+    padding-left: 0;
     margin: 1.35rem 0 1.75rem;
 
     li {
@@ -3857,4 +3857,104 @@ a.person-name-link {
       color: $secondary-color;
     }
   }
+}
+
+/* — Billet long : compléments (appel à propositions hackathons 2027) — */
+.actu-single__content {
+
+  /* Le thème pose `.content * { margin-bottom: 20px }` (_common.scss). Dans un
+     bouton en inline-flex, l'icône est un élément flexible : cette marge la
+     décalait et grandissait le bouton. */
+  .retro-btn * { margin-bottom: 0; }
+
+  /* `_a11y.scss` souligne les liens du texte courant (RGAA 10.6) avec
+     `.content p > a:not(.btn)`, de sélectivité (0,2,2). Un bouton n'en a pas
+     besoin, son cadre suffit à l'identifier : (0,3,0) pour passer devant. */
+  .retro-actions .retro-btn { text-decoration: none; }
+
+  /* Variante pleine, réservée à l'action principale d'une page (un seul par
+     écran). Blanc sur $primary-color = 6,55:1 ; survol assombri = 8,0:1. */
+  .retro-btn--plein {
+    color: #fff;
+    background: $primary-color;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: darken($primary-color, 8%);
+      border-color: darken($primary-color, 8%);
+    }
+  }
+
+  /* Visuel en regard des informations pratiques : flottant à droite à partir de
+     992 px, centré au-dessus du texte en dessous. `display: flow-root` contient
+     le flottant sans élément de nettoyage — les <h3> du billet sont en
+     inline-block et ne réagiraient pas à un `clear`. */
+  .retro-une {
+    display: flow-root;
+    margin: 1.75rem 0 1rem;
+  }
+
+  .retro-affiche {
+    display: block;
+    width: 100%;
+    max-width: 20rem;
+    height: auto;
+    margin: 0 auto 1.5rem;
+
+    /* Les mixins du thème sont en max-width (desktop-first) : media query
+       explicite pour « à partir de 992 px ». */
+    @media (min-width: 992px) {
+      float: right;
+      max-width: 17rem;
+      margin: 0 0 1.25rem 2rem;
+    }
+  }
+
+  /* Cartes `.hackathon-card` de la page Développements, insérées dans le corps
+     du billet : on neutralise ce que `.content` et `.actu-single__content`
+     imposent aux <p>, <img> et <h4> du texte courant, pour retrouver
+     exactement le rendu de la page d'origine. */
+  .hackathon-grid {
+    /* -15px : rendre à `.row` ses marges négatives, que ce raccourci écraserait. */
+    margin: 1.5rem -15px 0.5rem;
+
+    * { margin-bottom: 0; }
+
+    /* `.content ul li` (thème) ajoute un retrait de 20 px et un chevron
+       themify en ::before : on rend au <li> le gouttière de colonne Bootstrap. */
+    > li {
+      padding-left: 15px;
+      margin-bottom: 1.5rem;
+
+      &::before { content: none; }
+    }
+
+    /* Le <li> est en flex (cartes de même hauteur sur une ligne) : sans largeur
+       explicite, la carte se réduirait à la largeur de son contenu une fois
+       les cartes empilées en mobile. */
+    .hackathon-card { width: 100%; }
+  }
+
+  .hackathon-card__img {
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .hackathon-card__partner { margin: 0 0 0.45rem; }
+  .hackathon-card__team    { margin: 0 0 0.85rem; }
+
+  .hackathon-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: $secondary-color;
+    margin: 0 0 0.6rem;
+
+    a { text-decoration: none; }
+  }
+
+  .hackathon-card__cta { text-decoration: none; }
 }

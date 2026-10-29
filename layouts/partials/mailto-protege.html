@@ -44,6 +44,8 @@
   {{- end -}}
 {{- end -}}
 <span{{ with $class }} class="{{ . }}"{{ end }} data-courriel id="{{ $id }}">{{ range $fragments }}<span>{{ . }}</span>{{ end }}</span>
+{{- /* Pas de blanc entre l'adresse et le script : il serait rendu comme une
+       espace avant la ponctuation qui suit (« …psl.eu ) »). */ -}}
 <script>
   (function () {
     var el = document.getElementById({{ $id }});
