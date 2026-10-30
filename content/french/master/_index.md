@@ -42,7 +42,7 @@ info:
   frais_init: "254 € + CVEC 105 €"
 
 parcours:
-  - name: "Sciences humaines et sociales"
+  - name: "Sciences sociales computationnelles"
     referent: "Florian Cafiero"
     content: "Corpus contemporains variés issus du web, des médias, des archives numériques. Modélisation, analyse de réseaux et apprentissage automatique appliqués aux données sociales."
   - name: "Études littéraires"
