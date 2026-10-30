@@ -2754,6 +2754,8 @@ a.person-name-link {
 
   &--formation   { border-top-color: $pc-formation; }
   &--hackathon   { border-top-color: $pc-hackathon; }
+  // Unifier en bleu les noms des participantes et participants des datathons/hackathons.
+  &--hackathon .participation-card__chip { color: $secondary-color; }
   &--papier      { border-top-color: $pc-papier; }
   &--competition { border-top-color: $pc-competition; }
 
