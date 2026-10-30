@@ -2832,7 +2832,7 @@ a.person-name-link {
 
     &--m1 { color: $pc-papier; }
     &--m2 { color: $pc-conference; }
-    &--enseignant { color: $secondary-color; }
+    &--enseignant, &--enseignante { color: $secondary-color; }
   }
 
   &__chip-role {
