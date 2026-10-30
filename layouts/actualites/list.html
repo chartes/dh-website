@@ -59,6 +59,7 @@
         {{ $catKey := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[àâ]" "a" | replaceRE "[^a-z0-9-]" "" }}
 
         {{ if .Params.participants }}
+      {{ $cardSummaryLimit := int (.Params.card_summary_limit | default 220) }}
         {{/* Card participation */}}
         <div class="col-md-6 mb-4 d-flex actus-item" data-category="{{ $catKey }}">
           <article class="participation-card participation-card--{{ $catKey }}">
@@ -88,7 +89,7 @@
                 {{ end }}
               </div>
               {{ end }}
-              {{ with .Content }}<p class="participation-card__summary">{{ . | plainify | truncate 220 }}</p>{{ end }}
+              {{ with .Content }}<p class="participation-card__summary">{{ . | plainify | truncate $cardSummaryLimit }}</p>{{ end }}
               {{ with .Params.paper_links }}
               <p class="participation-card__summary">
                 {{ range $i, $link := . }}

@@ -68,6 +68,7 @@
       {{ range $latest }}
 
       {{ if .Params.participants }}
+      {{ $cardSummaryLimit := int (.Params.card_summary_limit | default 220) }}
       {{ $category := .Params.category | default "Conférence" }}
       {{ $catKey   := $category | lower | replaceRE "[éêè]" "e" | replaceRE "[^a-z]" "" }}
       <li class="col-md-6 mb-4 d-flex">
@@ -101,7 +102,7 @@
               {{ end }}
             </ul>
             {{ end }}
-            {{ with .Content }}<p class="participation-card__summary">{{ . | plainify | truncate 220 }}</p>{{ end }}
+            {{ with .Content }}<p class="participation-card__summary">{{ . | plainify | truncate $cardSummaryLimit }}</p>{{ end }}
           </div>
         </article>
       </li>
