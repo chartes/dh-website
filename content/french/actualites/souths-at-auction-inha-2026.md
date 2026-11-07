@@ -10,6 +10,6 @@ participants:
   - name: "Albina Toumarkine"
     role: "Alumna, ENS-PSL"
   - name: "Léa Saint-Raymond"
-    role: "Enseignant"
+    role: "Enseignante"
 ---
 Présentation de Souths At Auction, outil de recherche de provenance sur plus de 17 000 lots « primitifs » et « précolombiens » vendus aux enchères à Paris entre 1919 et 1945.

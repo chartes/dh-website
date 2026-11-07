@@ -15,6 +15,6 @@ participants:
   - name: "Florian Cafiero"
     role: "Enseignant"
   - name: "Marie Puren"
-    role: "Enseignant"
+    role: "Enseignante"
 ---
 Trois interventions sur la vision par ordinateur : ordre de lecture dans les archives, distant viewing et modèles génératifs pour l’étude des manuscrits.

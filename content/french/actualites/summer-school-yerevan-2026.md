@@ -17,7 +17,7 @@ participants:
   - name: "Vincent Jolivet"
     role: "Enseignant"
   - name: "Marie Puren"
-    role: "Enseignant"
+    role: "Enseignante"
   - name: "Chahan Vidal-Gorène"
     role: "Enseignant"
 ---

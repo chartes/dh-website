@@ -10,7 +10,7 @@ participants:
   - name: "Florian Cafiero"
     role: "Enseignant"
   - name: "Marie Puren"
-    role: "Enseignant"
+    role: "Enseignante"
   - name: "Thierry Poibeau"
     role: "Enseignant"
 ---
