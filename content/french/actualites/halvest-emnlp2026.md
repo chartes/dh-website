@@ -10,6 +10,8 @@ participants:
     role: "Enseignant"
   - name: "Marie Puren"
     role: "Enseignant"
+  - name: "Thierry Poibeau"
+    role: "Enseignant"
 paper_links:
   - label: "Article EMNLP"
     url: "https://aclanthology.org/2026.emnlp-main.2660/"
@@ -17,5 +19,9 @@ paper_links:
     url: "https://aclanthology.org/2026.findings-emnlp.2026/"
   - label: "Article BlackboxNLP"
     url: "https://aclanthology.org/2026.blackboxnlp-1.47/"
+  - label: "Findings — Markovian Generation Chains"
+    url: "https://aclanthology.org/2026.findings-emnlp.2188/"
+  - label: "BlackboxNLP — Political Abstraction"
+    url: "https://aclanthology.org/2026.blackboxnlp-1.43/"
 ---
-Deux articles avec F. Cafiero sur l’attribution d’auteur : « HALvest-Contrastive » (Main, interaction tardive) et « Where Does Authorship Signal Emerge? » (BlackboxNLP). M. Puren et A. Pellet : « ORDER » (Findings).
+Cinq articles avec F. Cafiero (« HALvest-Contrastive », main conference ; attribution d’auteur, BlackboxNLP), M. Puren (« ORDER », Findings), T. Poibeau (générations itératives des LLM, Findings ; abstraction politique, BlackboxNLP).

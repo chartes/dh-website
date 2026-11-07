@@ -3,11 +3,11 @@ title: "ACM International Conference on Information and Knowledge Management (CI
 date: 2026-11-07
 date_end: "2026-11-11"
 category: "Conférence"
-lieu: "Rome, Italie"
+lieu: "La Sapienza, Rome"
 external_url: "https://hal.science/hal-05630930"
 participants:
   - name: "Donghan Bian"
-    role: "Alumnus"
+    role: "Alumnus, ENC-PSL/EPITA"
   - name: "Marie Puren"
     role: "Enseignant"
   - name: "Florian Cafiero"
