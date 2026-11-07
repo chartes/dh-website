@@ -8,7 +8,7 @@ participants:
     - name: 'Lazar van Berchem'
       role: 'M1'
     - name: 'Léa Saint-Raymond'
-      role: 'Enseignant'
+      role: 'Enseignante'
 ---
 
 Conférence sur les collectionneuses de monnaies et médailles en France et à l’étranger de 1862 à 1937, mêlant approches quantitatives et qualitatives.

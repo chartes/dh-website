@@ -15,7 +15,7 @@ participants:
   - name: "Émilie Guidi"
     role: "Alumna"
   - name: "Katarzyna Kapitan"
-    role: "Enseignant"
+    role: "Enseignante"
   - name: "Carolina Macedo"
     role: "Alumna"
   - name: "Chahan Vidal-Gorène"

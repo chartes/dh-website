@@ -9,7 +9,7 @@ participants:
   - name: "Donghan Bian"
     role: "Alumnus, ENC-PSL/EPITA"
   - name: "Marie Puren"
-    role: "Enseignant"
+    role: "Enseignante"
   - name: "Florian Cafiero"
     role: "Enseignant"
 ---
