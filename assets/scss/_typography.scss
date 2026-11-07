@@ -2864,6 +2864,21 @@ a.person-name-link {
 
     p { margin: 0; }
     p + p { margin-top: 0.5rem; }
+
+    &--rich {
+      p { font-size: inherit; line-height: inherit; }
+      a {
+        color: $secondary-color;
+        font-weight: 700;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.14em;
+        &:hover, &:focus-visible {
+          color: $primary-color;
+          text-decoration-thickness: 2px;
+        }
+      }
+    }
   }
 }
 

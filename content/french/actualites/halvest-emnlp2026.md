@@ -5,6 +5,7 @@ date_end: "2026-10-29"
 category: "Conférence"
 lieu: "Budapest, Hongrie"
 external_url: "https://2026.emnlp.org/"
+inline_links: true
 participants:
   - name: "Florian Cafiero"
     role: "Enseignant"
@@ -12,16 +13,5 @@ participants:
     role: "Enseignant"
   - name: "Thierry Poibeau"
     role: "Enseignant"
-paper_links:
-  - label: "Article EMNLP"
-    url: "https://aclanthology.org/2026.emnlp-main.2660/"
-  - label: "Article Findings — ORDER"
-    url: "https://aclanthology.org/2026.findings-emnlp.2026/"
-  - label: "Article BlackboxNLP"
-    url: "https://aclanthology.org/2026.blackboxnlp-1.47/"
-  - label: "Findings — Markovian Generation Chains"
-    url: "https://aclanthology.org/2026.findings-emnlp.2188/"
-  - label: "BlackboxNLP — Political Abstraction"
-    url: "https://aclanthology.org/2026.blackboxnlp-1.43/"
 ---
-Cinq articles avec F. Cafiero (« HALvest-Contrastive », main conference ; attribution d’auteur, BlackboxNLP), M. Puren (« ORDER », Findings), T. Poibeau (générations itératives des LLM, Findings ; abstraction politique, BlackboxNLP).
+Cinq articles avec F. Cafiero ([« HALvest-Contrastive »](https://aclanthology.org/2026.emnlp-main.2660/), main conference ; [« Signal d’auteur »](https://aclanthology.org/2026.blackboxnlp-1.47/), BlackboxNLP), M. Puren ([« ORDER »](https://aclanthology.org/2026.findings-emnlp.2026/), Findings) et T. Poibeau ([« Chaînes de génération »](https://aclanthology.org/2026.findings-emnlp.2188/), Findings ; [« Abstraction politique »](https://aclanthology.org/2026.blackboxnlp-1.43/), BlackboxNLP).

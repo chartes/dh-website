@@ -89,7 +89,13 @@
                 {{ end }}
               </div>
               {{ end }}
-              {{ with .Content }}<p class="participation-card__summary">{{ . | plainify | truncate $cardSummaryLimit }}</p>{{ end }}
+              {{/* Certains encadrés contiennent des liens dans leur résumé : éviter plainify/truncate,
+                 qui supprimeraient les liens ou tronqueraient une balise HTML. */}}
+              {{ if .Params.inline_links }}
+                {{ with .Content }}<div class="participation-card__summary participation-card__summary--rich">{{ . }}</div>{{ end }}
+              {{ else }}
+                {{ with .Content }}<p class="participation-card__summary">{{ . | plainify | truncate $cardSummaryLimit }}</p>{{ end }}
+              {{ end }}
               {{ with .Params.paper_links }}
               <p class="participation-card__summary">
                 {{ range $i, $link := . }}
