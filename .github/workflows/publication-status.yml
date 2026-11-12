@@ -1,0 +1,37 @@
+name: Snapshot HAL publication statuses
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - name: Test snapshot scripts
+        run: ruby test/scripts_test.rb
+      - name: Add new HAL snapshots
+        run: ruby scripts/snapshot_status.rb
+      - name: Open a pull request for new snapshots
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/publication-status
+          delete-branch: true
+          commit-message: "Ajoute les nouveaux statuts de publications HAL"
+          title: "Actualise les statuts des publications HAL"
+          body: |
+            Mise à jour automatisée de `data/publication_status.json`.
+            Les entrées existantes ne sont jamais modifiées ; seules les nouvelles notices HAL sont ajoutées.
