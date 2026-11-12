@@ -1,11 +1,12 @@
 (function () {
   var form = document.getElementById('publication-profile-filter');
+  var toggle = document.getElementById('pf-toggle');
   var items = Array.prototype.slice.call(document.querySelectorAll('.pub'));
   var search = document.querySelector('.publications-search');
   var years = Array.prototype.slice.call(document.querySelectorAll('.pub-year'));
   var empty = document.querySelector('.publications-empty');
   var status = document.getElementById('publications-status');
-  if (!form || !items.length) return;
+  if (!form || !toggle || !items.length) return;
 
   var master = document.getElementById('pf-all');
   var controls = Array.prototype.slice.call(form.querySelectorAll('input[name="profile"]'));
@@ -58,9 +59,15 @@
     }
   }
 
-  form.hidden = false;
+  toggle.hidden = false;
   synchronizeControls();
   render(false);
+
+  toggle.addEventListener('click', function () {
+    var expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    form.hidden = expanded;
+  });
 
   master.addEventListener('change', function () {
     controls.forEach(function (control) { control.checked = master.checked; });

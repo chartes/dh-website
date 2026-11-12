@@ -143,9 +143,12 @@
             <input type="search" class="publications-search"
                    placeholder="Rechercher dans les titres, auteurs, mots-clés, revues…"
                    aria-label="Recherche dans les publications">
+            <button class="btn btn-outline-primary publications-filter-toggle" id="pf-toggle"
+                    type="button" aria-expanded="false" aria-controls="publication-profile-filter" hidden>
+              Filtrer
+            </button>
             <form class="publications-profile-filter" id="publication-profile-filter" hidden>
-              <fieldset aria-describedby="pf-error">
-                <legend>Filtrer les publications selon le profil des auteurs</legend>
+              <fieldset aria-label="Profils d’auteurs" aria-describedby="pf-error">
                 <div class="publications-profile-options">
                   <label><input type="checkbox" id="pf-all" checked> Toutes les publications</label>
                   <label><input type="checkbox" name="profile" value="professor" checked> Équipe</label>
