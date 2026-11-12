@@ -1226,6 +1226,10 @@ table.programme-table {
 
 .publications-filter-toggle {
   display: block;
+  width: fit-content;
+  margin-left: auto;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.85rem;
 }
 
 .publications-profile-filter {
