@@ -157,7 +157,7 @@ module PublicationStatus
     unless value.empty?
       begin
         return [Date.iso8601(value[0, 10]), false]
-      rescue Date::Error
+      rescue ArgumentError
         # Fall back to the HAL publication year below.
       end
     end

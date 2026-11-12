@@ -25,6 +25,17 @@ class PublicationStatusTest < Minitest::Test
     assert_equal %w[alumni professor], registry.statuses(person, Date.new(2026, 9, 1))
   end
 
+  def test_falls_back_to_january_first_when_hal_date_is_missing_or_invalid
+    date, fallback = PublicationStatus.publication_date(
+      "producedDate_s" => "date-invalide",
+      "producedDateY_i" => 2025
+    )
+
+    assert_equal Date.new(2025, 1, 1), date
+    assert fallback
+    assert_equal [nil, true], PublicationStatus.publication_date({})
+  end
+
   def test_snapshot_addition_is_idempotent_and_does_not_replace_existing_entry
     registry = PublicationStatus::Registry.new(
       "noemie-lucas" => {
