@@ -354,7 +354,7 @@
 
   async function startHandScroll() {
     toggle.disabled = true;
-    setStatus('Chargement de la détection de main...');
+    setStatus('Chargement...');
 
     try {
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
