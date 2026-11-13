@@ -133,6 +133,10 @@
   var video = document.querySelector('[data-hand-scroll-video]');
   var status = document.querySelector('[data-hand-scroll-status]');
   var cursor = document.querySelector('[data-hand-scroll-cursor]');
+  var reopen = document.querySelector('[data-hand-scroll-reopen]');
+  var close = document.querySelector('[data-hand-scroll-close]');
+  var help = document.querySelector('[data-hand-scroll-help]');
+  var helpClose = document.querySelector('[data-hand-scroll-help-close]');
   var stream;
   var handLandmarker;
   var animationFrame;
@@ -142,10 +146,16 @@
   var pinchTarget;
   var pinchClicked = false;
   var lastClickAt = 0;
-  var cameraPreferenceKey = 'dh-website-hand-scroll-enabled';
+  var panelPreferenceKey = 'dh-website-hand-scroll-panel-open';
 
-  if (!panel || !toggle || !video || !status || !cursor) {
+  if (!panel || !toggle || !video || !status || !cursor || !reopen || !close || !help || !helpClose) {
     return;
+  }
+
+  function setCollapsed(collapsed) {
+    panel.dataset.collapsed = collapsed ? 'true' : 'false';
+    reopen.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    localStorage.setItem(panelPreferenceKey, collapsed ? 'false' : 'true');
   }
 
   function setStatus(message) {
@@ -161,7 +171,11 @@
     return Promise.race([promise, timeout]);
   }
 
-  function stopHandScroll(clearPreference) {
+  if (localStorage.getItem(panelPreferenceKey) === 'true') {
+    setCollapsed(false);
+  }
+
+  function stopHandScroll() {
     if (animationFrame) {
       window.cancelAnimationFrame(animationFrame);
     }
@@ -179,12 +193,10 @@
     cursor.classList.remove('is-pinching');
     cursor.style.display = 'none';
     panel.dataset.active = 'false';
+    setCollapsed(true);
     toggle.textContent = 'Activer la caméra';
     toggle.disabled = false;
     setStatus('La caméra est désactivée.');
-    if (clearPreference) {
-      localStorage.removeItem(cameraPreferenceKey);
-    }
   }
 
   function distance(first, second) {
@@ -297,7 +309,7 @@
       ].filter(Boolean).length;
       var thumbAngle = angleBetween(indexTip, hand[0], thumbTip);
       var indexGesture = '';
-      if (indexExtended && thumbExtended && curledFingers >= 2 && thumbAngle >= 45 && thumbAngle <= 90) {
+      if (indexExtended && thumbExtended && curledFingers >= 2 && thumbAngle >= 20) {
         if (indexTip.y < indexPip.y - 0.05) {
           indexGesture = 'up';
         } else if (indexTip.y > indexPip.y + 0.05) {
@@ -306,6 +318,7 @@
       }
 
       if (indexGesture) {
+        cursor.style.display = 'none';
         if (indexGesture !== lastIndexGesture || now - lastScrollAt > 700) {
           window.scrollBy({
             top: indexGesture === 'up' ? -180 : 180,
@@ -319,6 +332,9 @@
           'Index vers le bas : défilement vers le bas.');
       } else {
         lastIndexGesture = undefined;
+        if (indexTip) {
+          cursor.style.display = 'block';
+        }
         setStatus(indexTip ? 'Index détecté.' : 'Aucune main détectée.');
       }
     } else {
@@ -361,15 +377,14 @@
       video.srcObject = stream;
       await video.play();
       panel.dataset.active = 'true';
+      setCollapsed(false);
       toggle.textContent = 'Désactiver la caméra';
       toggle.disabled = false;
-      localStorage.setItem(cameraPreferenceKey, 'true');
       setStatus('Aucune main détectée.');
       animationFrame = window.requestAnimationFrame(trackHand);
     } catch (error) {
       console.error('Hand scroll could not start:', error);
-      stopHandScroll(false);
-      localStorage.removeItem(cameraPreferenceKey);
+      stopHandScroll();
       if (error.name === 'NotAllowedError') {
         setStatus('Accès à la caméra refusé.');
       } else if (error.message === 'media-pipe-module-timeout') {
@@ -386,15 +401,31 @@
     }
   }
 
+  function openHelp() {
+    help.hidden = false;
+    helpClose.focus();
+  }
+
+  function closeHelpAndStart() {
+    help.hidden = true;
+    startHandScroll();
+  }
+
   toggle.addEventListener('click', function () {
     if (stream) {
-      stopHandScroll(true);
+      stopHandScroll();
     } else {
-      startHandScroll();
+      openHelp();
     }
   });
 
-  if (localStorage.getItem(cameraPreferenceKey) === 'true') {
-    startHandScroll();
-  }
+  reopen.addEventListener('click', function () {
+    setCollapsed(false);
+  });
+
+  close.addEventListener('click', function () {
+    setCollapsed(true);
+  });
+
+  helpClose.addEventListener('click', closeHelpAndStart);
 })();
