@@ -249,20 +249,18 @@
     }
     trailContext.lineCap = 'round';
     trailContext.lineJoin = 'round';
-    trailContext.beginPath();
-    trailContext.moveTo(trailPoints[0].x, trailPoints[0].y);
-    for (var index = 1; index < trailPoints.length - 1; index += 1) {
-      var current = trailPoints[index];
-      var next = trailPoints[index + 1];
-      var midpointX = (current.x + next.x) / 2;
-      var midpointY = (current.y + next.y) / 2;
-      trailContext.quadraticCurveTo(current.x, current.y, midpointX, midpointY);
-    }
-    var lastPoint = trailPoints[trailPoints.length - 1];
-    trailContext.lineTo(lastPoint.x, lastPoint.y);
-    trailContext.strokeStyle = isPinching ? 'rgba(21, 148, 71, 0.95)' : 'rgba(155, 231, 180, 0.78)';
-    trailContext.lineWidth = isPinching ? 6 : 4;
-    trailContext.stroke();
+    trailPoints.slice(1).forEach(function (point, index) {
+      var previous = trailPoints[index];
+      var progress = (index + 1) / (trailPoints.length - 1);
+      trailContext.beginPath();
+      trailContext.moveTo(previous.x, previous.y);
+      trailContext.lineTo(point.x, point.y);
+      trailContext.strokeStyle = isPinching ?
+        'rgba(21, 148, 71, ' + (0.25 + progress * 0.7) + ')' :
+        'rgba(155, 231, 180, ' + (0.12 + progress * 0.66) + ')';
+      trailContext.lineWidth = isPinching ? 1.5 + progress * 5 : 1 + progress * 3;
+      trailContext.stroke();
+    });
   }
 
   function addTrailPoint(x, y) {
@@ -281,8 +279,8 @@
     } else {
       trailPoints.push({ x: x, y: y });
     }
-    if (trailPoints.length > 72) {
-      trailPoints.splice(0, trailPoints.length - 72);
+    if (trailPoints.length > 36) {
+      trailPoints.splice(0, trailPoints.length - 36);
     }
   }
 
