@@ -136,8 +136,8 @@
   var stream;
   var handLandmarker;
   var animationFrame;
-  var previousIndexY;
   var lastScrollAt = 0;
+  var lastIndexGesture;
 
   if (!panel || !toggle || !video || !status || !cursor) {
     return;
@@ -167,12 +167,31 @@
     }
     stream = null;
     video.srcObject = null;
-    previousIndexY = undefined;
+    lastIndexGesture = undefined;
     cursor.style.display = 'none';
     panel.dataset.active = 'false';
     toggle.textContent = 'Activer la caméra';
     toggle.disabled = false;
     setStatus('La caméra est désactivée.');
+  }
+
+  function distance(first, second) {
+    return Math.hypot(first.x - second.x, first.y - second.y, first.z - second.z);
+  }
+
+  function isFingerCurled(landmarks, tipIndex, pipIndex) {
+    var wrist = landmarks[0];
+    return distance(landmarks[tipIndex], wrist) < distance(landmarks[pipIndex], wrist) * 1.05;
+  }
+
+  function angleBetween(first, second, third) {
+    var firstVector = { x: first.x - second.x, y: first.y - second.y, z: first.z - second.z };
+    var secondVector = { x: third.x - second.x, y: third.y - second.y, z: third.z - second.z };
+    var dotProduct = firstVector.x * secondVector.x + firstVector.y * secondVector.y + firstVector.z * secondVector.z;
+    var firstLength = distance(first, second);
+    var secondLength = distance(third, second);
+    var cosine = dotProduct / (firstLength * secondLength);
+    return Math.acos(Math.max(-1, Math.min(1, cosine))) * 180 / Math.PI;
   }
 
   function trackHand(timestamp) {
@@ -184,6 +203,10 @@
     var result = handLandmarker.detectForVideo(video, timestamp);
     var hand = result.landmarks && result.landmarks[0];
     var indexTip = hand && hand[8];
+    var indexPip = hand && hand[6];
+    var thumbTip = hand && hand[4];
+    var thumbIp = hand && hand[3];
+    var thumbMcp = hand && hand[2];
 
     if (indexTip) {
       var cursorX = (1 - indexTip.x) * window.innerWidth;
@@ -191,21 +214,48 @@
       cursor.style.left = cursorX + 'px';
       cursor.style.top = cursorY + 'px';
       cursor.style.display = 'block';
-      if (previousIndexY !== undefined) {
-        var movement = previousIndexY - indexTip.y;
-        var now = performance.now();
-        if (Math.abs(movement) > 0.025 && now - lastScrollAt > 180) {
-          var scrollAmount = Math.max(-100, Math.min(100, movement * 1400));
-          window.scrollBy({ top: scrollAmount, behavior: 'smooth' });
-          lastScrollAt = now;
+    } else {
+      cursor.style.display = 'none';
+    }
+
+    if (indexTip && indexPip && thumbTip && thumbIp && thumbMcp) {
+      var indexExtended = distance(indexTip, hand[0]) > distance(indexPip, hand[0]) * 1.1;
+      var thumbExtended = distance(thumbTip, hand[0]) > distance(thumbIp, hand[0]) * 1.15;
+      var curledFingers = [
+        isFingerCurled(hand, 12, 10),
+        isFingerCurled(hand, 16, 14),
+        isFingerCurled(hand, 20, 18)
+      ].filter(Boolean).length;
+      var thumbAngle = angleBetween(indexTip, hand[0], thumbTip);
+      var indexGesture = '';
+      if (indexExtended && thumbExtended && curledFingers >= 2 && thumbAngle >= 45 && thumbAngle <= 90) {
+        if (indexTip.y < indexPip.y - 0.05) {
+          indexGesture = 'up';
+        } else if (indexTip.y > indexPip.y + 0.05) {
+          indexGesture = 'down';
         }
       }
-      previousIndexY = indexTip.y;
-      setStatus('Index détecté : monte ou descends le doigt pour faire défiler.');
+
+      if (indexGesture) {
+        var now = performance.now();
+        if (indexGesture !== lastIndexGesture || now - lastScrollAt > 700) {
+          window.scrollBy({
+            top: indexGesture === 'up' ? -180 : 180,
+            behavior: 'smooth'
+          });
+          lastScrollAt = now;
+        }
+        lastIndexGesture = indexGesture;
+        setStatus(indexGesture === 'up' ?
+          'Index vers le haut : défilement vers le haut.' :
+          'Index vers le bas : défilement vers le bas.');
+      } else {
+        lastIndexGesture = undefined;
+        setStatus(indexTip ? 'Index détecté.' : 'Aucune main détectée.');
+      }
     } else {
-      previousIndexY = undefined;
-      cursor.style.display = 'none';
-      setStatus('Aucune main détectée.');
+      lastIndexGesture = undefined;
+      setStatus(indexTip ? 'Index détecté.' : 'Aucune main détectée.');
     }
 
     animationFrame = window.requestAnimationFrame(trackHand);
