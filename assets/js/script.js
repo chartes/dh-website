@@ -132,13 +132,14 @@
   var toggle = document.querySelector('[data-hand-scroll-toggle]');
   var video = document.querySelector('[data-hand-scroll-video]');
   var status = document.querySelector('[data-hand-scroll-status]');
+  var cursor = document.querySelector('[data-hand-scroll-cursor]');
   var stream;
   var handLandmarker;
   var animationFrame;
   var previousIndexY;
   var lastScrollAt = 0;
 
-  if (!panel || !toggle || !video || !status) {
+  if (!panel || !toggle || !video || !status || !cursor) {
     return;
   }
 
@@ -167,6 +168,7 @@
     stream = null;
     video.srcObject = null;
     previousIndexY = undefined;
+    cursor.style.display = 'none';
     panel.dataset.active = 'false';
     toggle.textContent = 'Activer la caméra';
     toggle.disabled = false;
@@ -184,6 +186,11 @@
     var indexTip = hand && hand[8];
 
     if (indexTip) {
+      var cursorX = (1 - indexTip.x) * window.innerWidth;
+      var cursorY = indexTip.y * window.innerHeight;
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+      cursor.style.display = 'block';
       if (previousIndexY !== undefined) {
         var movement = previousIndexY - indexTip.y;
         var now = performance.now();
@@ -197,6 +204,7 @@
       setStatus('Index détecté : monte ou descends le doigt pour faire défiler.');
     } else {
       previousIndexY = undefined;
+      cursor.style.display = 'none';
       setStatus('Aucune main détectée.');
     }
 
