@@ -393,14 +393,14 @@
         }
         lastIndexGesture = indexGesture;
         setStatus(indexGesture === 'up' ?
-          'Index vers le haut : défilement vers le haut.' :
-          'Index vers le bas : défilement vers le bas.');
+          '👆 Défilement vers le haut.' :
+          '👇 Défilement vers le bas.');
       } else {
         lastIndexGesture = undefined;
         if (indexTip) {
           cursor.style.display = 'block';
         }
-        setStatus(indexTip ? 'Index détecté.' : 'Aucune main détectée.');
+        setStatus(indexTip ? 'Fais 👆, 👇 ou 🤏' : 'Aucune main détectée.');
       }
     } else {
       lastIndexGesture = undefined;
