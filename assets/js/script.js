@@ -137,6 +137,7 @@
   var close = document.querySelector('[data-hand-scroll-close]');
   var help = document.querySelector('[data-hand-scroll-help]');
   var helpClose = document.querySelector('[data-hand-scroll-help-close]');
+  var helpOpen = document.querySelector('[data-hand-scroll-help-open]');
   var stream;
   var handLandmarker;
   var animationFrame;
@@ -147,8 +148,11 @@
   var pinchClicked = false;
   var lastClickAt = 0;
   var panelPreferenceKey = 'dh-website-hand-scroll-panel-open';
+  var cameraPreferenceKey = 'dh-website-hand-scroll-camera-enabled';
+  var helpSeenKey = 'dh-website-hand-scroll-help-seen';
+  var startAfterHelp = false;
 
-  if (!panel || !toggle || !video || !status || !cursor || !reopen || !close || !help || !helpClose) {
+  if (!panel || !toggle || !video || !status || !cursor || !reopen || !close || !help || !helpClose || !helpOpen) {
     return;
   }
 
@@ -175,7 +179,7 @@
     setCollapsed(false);
   }
 
-  function stopHandScroll() {
+  function stopHandScroll(clearPreference) {
     if (animationFrame) {
       window.cancelAnimationFrame(animationFrame);
     }
@@ -197,6 +201,9 @@
     toggle.textContent = 'Activer la caméra';
     toggle.disabled = false;
     setStatus('La caméra est désactivée.');
+    if (clearPreference) {
+      localStorage.removeItem(cameraPreferenceKey);
+    }
   }
 
   function distance(first, second) {
@@ -380,11 +387,13 @@
       setCollapsed(false);
       toggle.textContent = 'Désactiver la caméra';
       toggle.disabled = false;
+      localStorage.setItem(cameraPreferenceKey, 'true');
       setStatus('Aucune main détectée.');
       animationFrame = window.requestAnimationFrame(trackHand);
     } catch (error) {
       console.error('Hand scroll could not start:', error);
-      stopHandScroll();
+      stopHandScroll(false);
+      localStorage.removeItem(cameraPreferenceKey);
       if (error.name === 'NotAllowedError') {
         setStatus('Accès à la caméra refusé.');
       } else if (error.message === 'media-pipe-module-timeout') {
@@ -401,21 +410,30 @@
     }
   }
 
-  function openHelp() {
+  function openHelp(startCameraAfterClose) {
+    startAfterHelp = startCameraAfterClose;
     help.hidden = false;
     helpClose.focus();
   }
 
-  function closeHelpAndStart() {
+  function closeHelp() {
     help.hidden = true;
-    startHandScroll();
+    if (startAfterHelp) {
+      startAfterHelp = false;
+      startHandScroll();
+    }
   }
 
   toggle.addEventListener('click', function () {
     if (stream) {
-      stopHandScroll();
+      stopHandScroll(true);
     } else {
-      openHelp();
+      if (sessionStorage.getItem(helpSeenKey) === 'true') {
+        startHandScroll();
+      } else {
+        sessionStorage.setItem(helpSeenKey, 'true');
+        openHelp(true);
+      }
     }
   });
 
@@ -427,5 +445,12 @@
     setCollapsed(true);
   });
 
-  helpClose.addEventListener('click', closeHelpAndStart);
+  helpClose.addEventListener('click', closeHelp);
+  helpOpen.addEventListener('click', function () {
+    openHelp(false);
+  });
+
+  if (localStorage.getItem(cameraPreferenceKey) === 'true') {
+    startHandScroll();
+  }
 })();
