@@ -138,6 +138,10 @@
   var animationFrame;
   var lastScrollAt = 0;
   var lastIndexGesture;
+  var pinchStartedAt;
+  var pinchTarget;
+  var pinchClicked = false;
+  var lastClickAt = 0;
 
   if (!panel || !toggle || !video || !status || !cursor) {
     return;
@@ -168,6 +172,10 @@
     stream = null;
     video.srcObject = null;
     lastIndexGesture = undefined;
+    pinchStartedAt = undefined;
+    pinchTarget = undefined;
+    pinchClicked = false;
+    cursor.classList.remove('is-pinching');
     cursor.style.display = 'none';
     panel.dataset.active = 'false';
     toggle.textContent = 'Activer la caméra';
@@ -194,6 +202,48 @@
     return Math.acos(Math.max(-1, Math.min(1, cosine))) * 180 / Math.PI;
   }
 
+  function getInteractiveTarget(x, y) {
+    var element = document.elementFromPoint(x, y);
+    return element && element.closest('a, button, input, select, textarea, [role="button"], [tabindex]:not([tabindex="-1"])');
+  }
+
+  function updatePinch(indexTip, thumbTip, cursorX, cursorY, now) {
+    var pinchDistance = distance(indexTip, thumbTip);
+    var isPinching = pinchDistance < 0.06;
+
+    if (!isPinching) {
+      pinchStartedAt = undefined;
+      pinchTarget = undefined;
+      pinchClicked = false;
+      cursor.classList.remove('is-pinching');
+      return false;
+    }
+
+    var target = getInteractiveTarget(cursorX, cursorY);
+    cursor.classList.add('is-pinching');
+    if (!target) {
+      setStatus('Pincement détecté : aucun élément interactif ici.');
+      return true;
+    }
+    if (target !== pinchTarget) {
+      pinchTarget = target;
+      pinchStartedAt = now;
+      pinchClicked = false;
+    }
+    if (!pinchStartedAt) {
+      pinchStartedAt = now;
+    }
+    if (!pinchClicked && now - pinchStartedAt >= 300 && now - lastClickAt >= 700) {
+      target.click();
+      pinchClicked = true;
+      lastClickAt = now;
+      setStatus('Clic déclenché. Relâche puis pince à nouveau pour cliquer.');
+    } else if (!pinchClicked) {
+      setStatus('Maintiens le pincement pour cliquer.');
+    }
+    return true;
+  }
+
   function trackHand(timestamp) {
     if (!handLandmarker || video.readyState < 2) {
       animationFrame = window.requestAnimationFrame(trackHand);
@@ -218,7 +268,22 @@
       cursor.style.display = 'none';
     }
 
-    if (indexTip && indexPip && thumbTip && thumbIp && thumbMcp) {
+    var now = performance.now();
+    var pinchActive = indexTip && thumbTip && updatePinch(
+      indexTip,
+      thumbTip,
+      (1 - indexTip.x) * window.innerWidth,
+      indexTip.y * window.innerHeight,
+      now
+    );
+    if (!indexTip || !thumbTip) {
+      pinchStartedAt = undefined;
+      pinchTarget = undefined;
+      pinchClicked = false;
+      cursor.classList.remove('is-pinching');
+    }
+
+    if (!pinchActive && indexTip && indexPip && thumbTip && thumbIp && thumbMcp) {
       var indexExtended = distance(indexTip, hand[0]) > distance(indexPip, hand[0]) * 1.1;
       var thumbExtended = distance(thumbTip, hand[0]) > distance(thumbIp, hand[0]) * 1.15;
       var curledFingers = [
@@ -237,7 +302,6 @@
       }
 
       if (indexGesture) {
-        var now = performance.now();
         if (indexGesture !== lastIndexGesture || now - lastScrollAt > 700) {
           window.scrollBy({
             top: indexGesture === 'up' ? -180 : 180,

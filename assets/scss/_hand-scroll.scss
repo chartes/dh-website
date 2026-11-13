@@ -60,4 +60,9 @@
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.35);
   pointer-events: none;
   transform: translate(-50%, -50%);
+
+  &.is-pinching {
+    background: #27ae60;
+    transform: translate(-50%, -50%) scale(1.35);
+  }
 }
