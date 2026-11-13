@@ -142,6 +142,7 @@
   var pinchTarget;
   var pinchClicked = false;
   var lastClickAt = 0;
+  var cameraPreferenceKey = 'dh-website-hand-scroll-enabled';
 
   if (!panel || !toggle || !video || !status || !cursor) {
     return;
@@ -160,7 +161,7 @@
     return Promise.race([promise, timeout]);
   }
 
-  function stopHandScroll() {
+  function stopHandScroll(clearPreference) {
     if (animationFrame) {
       window.cancelAnimationFrame(animationFrame);
     }
@@ -181,6 +182,9 @@
     toggle.textContent = 'Activer la caméra';
     toggle.disabled = false;
     setStatus('La caméra est désactivée.');
+    if (clearPreference) {
+      localStorage.removeItem(cameraPreferenceKey);
+    }
   }
 
   function distance(first, second) {
@@ -359,11 +363,13 @@
       panel.dataset.active = 'true';
       toggle.textContent = 'Désactiver la caméra';
       toggle.disabled = false;
+      localStorage.setItem(cameraPreferenceKey, 'true');
       setStatus('Aucune main détectée.');
       animationFrame = window.requestAnimationFrame(trackHand);
     } catch (error) {
       console.error('Hand scroll could not start:', error);
-      stopHandScroll();
+      stopHandScroll(false);
+      localStorage.removeItem(cameraPreferenceKey);
       if (error.name === 'NotAllowedError') {
         setStatus('Accès à la caméra refusé.');
       } else if (error.message === 'media-pipe-module-timeout') {
@@ -382,9 +388,13 @@
 
   toggle.addEventListener('click', function () {
     if (stream) {
-      stopHandScroll();
+      stopHandScroll(true);
     } else {
       startHandScroll();
     }
   });
+
+  if (localStorage.getItem(cameraPreferenceKey) === 'true') {
+    startHandScroll();
+  }
 })();
