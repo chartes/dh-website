@@ -13,6 +13,51 @@
 <body>
 	{{- partial "preloader.html" . -}}
 	<a class="skip-link" href="#contenu">Aller au contenu principal</a>
+	<section class="hand-scroll" data-hand-scroll data-collapsed="true" aria-labelledby="hand-scroll-title">
+		<button type="button" class="hand-scroll__close" data-hand-scroll-close aria-label="Réduire le contrôle caméra" title="Réduire le contrôle caméra">
+			<span aria-hidden="true">×</span>
+		</button>
+		<button type="button" class="hand-scroll__reopen" data-hand-scroll-reopen aria-expanded="false" aria-controls="hand-scroll-title" aria-label="Afficher le contrôle caméra" title="Afficher le contrôle caméra">
+			<span aria-hidden="true">‹</span>
+		</button>
+		<h2 id="hand-scroll-title">Défilement avec la main <button type="button" class="hand-scroll__help-link" data-hand-scroll-help-open>Aide ↗</button></h2>
+		<p data-hand-scroll-status>La caméra est désactivée.</p>
+		<button type="button" data-hand-scroll-toggle>Activer la caméra</button>
+		<div class="hand-scroll__preview">
+			<video data-hand-scroll-video autoplay muted playsinline aria-label="Aperçu de la caméra pour le suivi de la main"></video>
+		</div>
+	</section>
+	<canvas class="hand-scroll__trail" data-hand-scroll-trail aria-hidden="true"></canvas>
+	<div class="hand-scroll__cursor" data-hand-scroll-cursor aria-hidden="true"></div>
+	<div class="hand-scroll-help" data-hand-scroll-help hidden role="dialog" aria-modal="true" aria-labelledby="hand-scroll-help-title">
+		<div class="hand-scroll-help__panel">
+			<button type="button" class="hand-scroll-help__close" data-hand-scroll-help-close aria-label="Fermer les instructions" title="Fermer les instructions">×</button>
+			<h2 id="hand-scroll-help-title">Comment utiliser le contrôle avec la main</h2>
+			<div class="hand-scroll-help__items">
+				<article>
+					<img src="{{ `images/hand_scroll/scroll_up.png` | relURL }}" alt="Index pointé vers le haut et pouce écarté">
+					<p>Pour scroller vers le haut, lève ton index et écarte ton pouce.</p>
+				</article>
+				<article>
+					<img src="{{ `images/hand_scroll/scroll_down.png` | relURL }}" alt="Index pointé vers le bas et pouce écarté">
+					<p>Pour scroller vers le bas, baisse ton index et écarte ton pouce.</p>
+				</article>
+				<article>
+					<img src="{{ `images/hand_scroll/pinch_finger.png` | relURL }}" alt="Pouce et index rapprochés pour pincer">
+					<p>Pour cliquer, garde  tes doigts pincés. Assure-toi que ta main soit de profil et tes doigts visibles.</p>
+				</article>
+			</div>
+			<p class="hand-scroll-help__credits">
+				Illustrations :
+				<a href="https://www.vecteezy.com/free-vector/hand-pointing-up" target="_blank" rel="noopener">
+					Hand Pointing Up Vectors by Vecteezy
+				</a>
+			</p>
+			<p class="hand-scroll-help__privacy">
+				Aucune image n’est enregistrée ni envoyée par ce site.
+			</p>
+		</div>
+	</div>
 	{{- partial "header.html" . -}}
 	<main id="contenu" tabindex="-1">
 		{{ if not .IsHome }}
