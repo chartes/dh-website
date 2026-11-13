@@ -13,6 +13,14 @@
 <body>
 	{{- partial "preloader.html" . -}}
 	<a class="skip-link" href="#contenu">Aller au contenu principal</a>
+	<section class="hand-scroll" data-hand-scroll aria-labelledby="hand-scroll-title">
+		<h2 id="hand-scroll-title">Défilement avec la main</h2>
+		<p data-hand-scroll-status>La caméra est désactivée.</p>
+		<button type="button" data-hand-scroll-toggle>Activer la caméra</button>
+		<div class="hand-scroll__preview">
+			<video data-hand-scroll-video autoplay muted playsinline aria-label="Aperçu de la caméra pour le suivi de la main"></video>
+		</div>
+	</section>
 	{{- partial "header.html" . -}}
 	<main id="contenu" tabindex="-1">
 		{{ if not .IsHome }}

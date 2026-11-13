@@ -33,6 +33,8 @@ Ce fichier reprend la liste d'imports du thème à l'identique et ajoute
 
 @import 'a11y';
 
+@import 'hand-scroll';
+
 // Override themes so elements are not uppercased by default
 .copyright p {
   text-transform: none;

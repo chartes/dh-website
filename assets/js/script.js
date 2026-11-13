@@ -122,3 +122,147 @@
   });
 
 })(jQuery);
+
+// Hand scroll
+
+(function () {
+  'use strict';
+
+  var panel = document.querySelector('[data-hand-scroll]');
+  var toggle = document.querySelector('[data-hand-scroll-toggle]');
+  var video = document.querySelector('[data-hand-scroll-video]');
+  var status = document.querySelector('[data-hand-scroll-status]');
+  var stream;
+  var handLandmarker;
+  var animationFrame;
+  var previousIndexY;
+  var lastScrollAt = 0;
+
+  if (!panel || !toggle || !video || !status) {
+    return;
+  }
+
+  function setStatus(message) {
+    status.textContent = message;
+  }
+
+  function withTimeout(promise, message, delay) {
+    var timeout = new Promise(function (_, reject) {
+      window.setTimeout(function () {
+        reject(new Error(message));
+      }, delay);
+    });
+    return Promise.race([promise, timeout]);
+  }
+
+  function stopHandScroll() {
+    if (animationFrame) {
+      window.cancelAnimationFrame(animationFrame);
+    }
+    if (stream) {
+      stream.getTracks().forEach(function (track) {
+        track.stop();
+      });
+    }
+    stream = null;
+    video.srcObject = null;
+    previousIndexY = undefined;
+    panel.dataset.active = 'false';
+    toggle.textContent = 'Activer la caméra';
+    toggle.disabled = false;
+    setStatus('La caméra est désactivée.');
+  }
+
+  function trackHand(timestamp) {
+    if (!handLandmarker || video.readyState < 2) {
+      animationFrame = window.requestAnimationFrame(trackHand);
+      return;
+    }
+
+    var result = handLandmarker.detectForVideo(video, timestamp);
+    var hand = result.landmarks && result.landmarks[0];
+    var indexTip = hand && hand[8];
+
+    if (indexTip) {
+      if (previousIndexY !== undefined) {
+        var movement = previousIndexY - indexTip.y;
+        var now = performance.now();
+        if (Math.abs(movement) > 0.025 && now - lastScrollAt > 180) {
+          var scrollAmount = Math.max(-100, Math.min(100, movement * 1400));
+          window.scrollBy({ top: scrollAmount, behavior: 'smooth' });
+          lastScrollAt = now;
+        }
+      }
+      previousIndexY = indexTip.y;
+      setStatus('Index détecté : monte ou descends le doigt pour faire défiler.');
+    } else {
+      previousIndexY = undefined;
+      setStatus('Aucune main détectée.');
+    }
+
+    animationFrame = window.requestAnimationFrame(trackHand);
+  }
+
+  async function startHandScroll() {
+    toggle.disabled = true;
+    setStatus('Chargement de la détection de main...');
+
+    try {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        throw new Error('camera-unavailable');
+      }
+
+      var visionModule = await withTimeout(
+        import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/vision_bundle.mjs'),
+        'media-pipe-module-timeout',
+        15000
+      );
+      var vision = await withTimeout(visionModule.FilesetResolver.forVisionTasks(
+        'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm'
+      ), 'media-pipe-wasm-timeout', 15000);
+      handLandmarker = await withTimeout(visionModule.HandLandmarker.createFromOptions(vision, {
+        baseOptions: {
+          modelAssetPath: 'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task',
+          delegate: 'GPU'
+        },
+        runningMode: 'VIDEO',
+        numHands: 1
+      }), 'media-pipe-model-timeout', 15000);
+      stream = await withTimeout(navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'user', width: { ideal: 640 }, height: { ideal: 480 } },
+        audio: false
+      }), 'camera-timeout', 15000);
+      video.srcObject = stream;
+      await video.play();
+      panel.dataset.active = 'true';
+      toggle.textContent = 'Désactiver la caméra';
+      toggle.disabled = false;
+      setStatus('Aucune main détectée.');
+      animationFrame = window.requestAnimationFrame(trackHand);
+    } catch (error) {
+      console.error('Hand scroll could not start:', error);
+      stopHandScroll();
+      if (error.name === 'NotAllowedError') {
+        setStatus('Accès à la caméra refusé.');
+      } else if (error.message === 'media-pipe-module-timeout') {
+        setStatus('Le chargement de MediaPipe a expiré. Vérifie ta connexion ou les bloqueurs de contenu.');
+      } else if (error.message === 'media-pipe-wasm-timeout') {
+        setStatus('Le module MediaPipe est bloqué par le navigateur.');
+      } else if (error.message === 'media-pipe-model-timeout') {
+        setStatus('Le modèle MediaPipe est bloqué par le navigateur.');
+      } else if (error.message === 'camera-timeout') {
+        setStatus('La caméra n’a pas répondu à temps.');
+      } else {
+        setStatus('La détection de main est indisponible.');
+      }
+    }
+  }
+
+  toggle.addEventListener('click', function () {
+    if (stream) {
+      stopHandScroll();
+    } else {
+      startHandScroll();
+    }
+  });
+})();

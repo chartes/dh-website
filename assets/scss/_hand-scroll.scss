@@ -1,0 +1,47 @@
+.hand-scroll {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1030;
+  width: calc(100vw - 2rem);
+  max-width: 18rem;
+  padding: 1rem;
+  color: #fff;
+  background: #17324d;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+
+  h2 {
+    margin: 0 0 0.5rem;
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  p {
+    margin-bottom: 0.75rem;
+    color: #fff;
+    font-size: 0.875rem;
+  }
+
+  button {
+    padding: 0.5rem 0.75rem;
+    color: #17324d;
+    background: #fff;
+    border: 0;
+    cursor: pointer;
+  }
+
+  &__preview {
+    position: relative;
+    display: none;
+    margin-top: 0.75rem;
+  }
+
+  video {
+    width: 100%;
+    transform: scaleX(-1);
+  }
+
+  &[data-active='true'] .hand-scroll__preview {
+    display: block;
+  }
+}
