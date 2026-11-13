@@ -133,6 +133,9 @@
   var video = document.querySelector('[data-hand-scroll-video]');
   var status = document.querySelector('[data-hand-scroll-status]');
   var cursor = document.querySelector('[data-hand-scroll-cursor]');
+  var trail = document.querySelector('[data-hand-scroll-trail]');
+  var trailContext = trail && trail.getContext('2d');
+  var trailPoints = [];
   var reopen = document.querySelector('[data-hand-scroll-reopen]');
   var close = document.querySelector('[data-hand-scroll-close]');
   var help = document.querySelector('[data-hand-scroll-help]');
@@ -152,7 +155,7 @@
   var helpSeenKey = 'dh-website-hand-scroll-help-seen';
   var startAfterHelp = false;
 
-  if (!panel || !toggle || !video || !status || !cursor || !reopen || !close || !help || !helpClose || !helpOpen) {
+  if (!panel || !toggle || !video || !status || !cursor || !trail || !trailContext || !reopen || !close || !help || !helpClose || !helpOpen) {
     return;
   }
 
@@ -196,6 +199,8 @@
     pinchClicked = false;
     cursor.classList.remove('is-pinching');
     cursor.style.display = 'none';
+    trailPoints = [];
+    trailContext.clearRect(0, 0, trail.width, trail.height);
     panel.dataset.active = 'false';
     setCollapsed(true);
     toggle.textContent = 'Activer la caméra';
@@ -228,6 +233,57 @@
   function getInteractiveTarget(x, y) {
     var element = document.elementFromPoint(x, y);
     return element && element.closest('a, button, input, select, textarea, [role="button"], [tabindex]:not([tabindex="-1"])');
+  }
+
+  function resizeTrail() {
+    var scale = window.devicePixelRatio || 1;
+    trail.width = window.innerWidth * scale;
+    trail.height = window.innerHeight * scale;
+    trailContext.setTransform(scale, 0, 0, scale, 0, 0);
+  }
+
+  function drawTrail(isPinching) {
+    trailContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    if (trailPoints.length < 2) {
+      return;
+    }
+    trailContext.lineCap = 'round';
+    trailContext.lineJoin = 'round';
+    trailContext.beginPath();
+    trailContext.moveTo(trailPoints[0].x, trailPoints[0].y);
+    for (var index = 1; index < trailPoints.length - 1; index += 1) {
+      var current = trailPoints[index];
+      var next = trailPoints[index + 1];
+      var midpointX = (current.x + next.x) / 2;
+      var midpointY = (current.y + next.y) / 2;
+      trailContext.quadraticCurveTo(current.x, current.y, midpointX, midpointY);
+    }
+    var lastPoint = trailPoints[trailPoints.length - 1];
+    trailContext.lineTo(lastPoint.x, lastPoint.y);
+    trailContext.strokeStyle = isPinching ? 'rgba(21, 148, 71, 0.95)' : 'rgba(155, 231, 180, 0.78)';
+    trailContext.lineWidth = isPinching ? 6 : 4;
+    trailContext.stroke();
+  }
+
+  function addTrailPoint(x, y) {
+    var previous = trailPoints[trailPoints.length - 1];
+    if (previous) {
+      var deltaX = x - previous.x;
+      var deltaY = y - previous.y;
+      var distanceBetweenPoints = Math.hypot(deltaX, deltaY);
+      var interpolationSteps = Math.min(8, Math.max(1, Math.ceil(distanceBetweenPoints / 12)));
+      for (var step = 1; step <= interpolationSteps; step += 1) {
+        trailPoints.push({
+          x: previous.x + deltaX * step / interpolationSteps,
+          y: previous.y + deltaY * step / interpolationSteps
+        });
+      }
+    } else {
+      trailPoints.push({ x: x, y: y });
+    }
+    if (trailPoints.length > 72) {
+      trailPoints.splice(0, trailPoints.length - 72);
+    }
   }
 
   function updatePinch(indexTip, thumbTip, cursorX, cursorY, now) {
@@ -287,8 +343,10 @@
       cursor.style.left = cursorX + 'px';
       cursor.style.top = cursorY + 'px';
       cursor.style.display = 'block';
+      addTrailPoint(cursorX, cursorY);
     } else {
       cursor.style.display = 'none';
+      trailPoints = [];
     }
 
     var now = performance.now();
@@ -299,6 +357,7 @@
       indexTip.y * window.innerHeight,
       now
     );
+    drawTrail(Boolean(pinchActive));
     if (!indexTip || !thumbTip) {
       pinchStartedAt = undefined;
       pinchTarget = undefined;
@@ -326,6 +385,7 @@
 
       if (indexGesture) {
         cursor.style.display = 'none';
+        trailContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
         if (indexGesture !== lastIndexGesture || now - lastScrollAt > 700) {
           window.scrollBy({
             top: indexGesture === 'up' ? -180 : 180,
@@ -436,6 +496,9 @@
       }
     }
   });
+
+  resizeTrail();
+  window.addEventListener('resize', resizeTrail);
 
   reopen.addEventListener('click', function () {
     setCollapsed(false);

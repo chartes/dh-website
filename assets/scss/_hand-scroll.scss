@@ -113,19 +113,29 @@
   left: 0;
   z-index: 2000;
   display: none;
-  width: 1.25rem;
-  height: 1.25rem;
-  background: #ff4f5e;
-  border: 3px solid #fff;
+  width: 0.65rem;
+  height: 0.65rem;
+  background: #9be7b4;
+  border: 2px solid #fff;
   border-radius: 50%;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.35), 0 0 0.75rem rgba(155, 231, 180, 0.8);
   pointer-events: none;
   transform: translate(-50%, -50%);
 
   &.is-pinching {
-    background: #27ae60;
+    background: #159447;
+    box-shadow: 0 0 0 2px rgba(21, 148, 71, 0.45), 0 0 1rem rgba(21, 148, 71, 0.95);
     transform: translate(-50%, -50%) scale(1.35);
   }
+}
+
+.hand-scroll__trail {
+  position: fixed;
+  inset: 0;
+  z-index: 1999;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
 }
 
 .hand-scroll-help[hidden] {
