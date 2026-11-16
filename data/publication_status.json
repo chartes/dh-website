@@ -13159,6 +13159,41 @@
 
     ]
   },
+  "hal-02953765": {
+    "authors": [
+      {
+        "name": "Alain Devos",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Pierre Taborelli",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Sébastien Laratte",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alexandre Wauthier",
+        "person": "alexandre-wauthier",
+        "status": [
+          "student"
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
   "hal-02954429": {
     "authors": [
       {
@@ -15427,6 +15462,55 @@
 
     ]
   },
+  "hal-03355683": {
+    "authors": [
+      {
+        "name": "Anna Scius Bertrand",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Simon Gabay",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Ljudmila Petkovic",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Caroline Corbières",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-03372736": {
     "authors": [
       {
@@ -15488,6 +15572,118 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-03380805": {
+    "authors": [
+      {
+        "name": "Alexandre Bartz",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Laurent Romary",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Philippe Gambette",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Rachel Bawden",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Pedro Ortiz Suarez",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Simon Gabay",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03380807": {
+    "authors": [
+      {
+        "name": "Hugo Scheithauer",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alix Chagué",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Simon Gabay",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Laurent Romary",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Claire Jahan",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-03382765": {
@@ -16118,6 +16314,41 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-03527287": {
+    "authors": [
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Ariane Pinche",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Claire Jahan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Simon Gabay",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-03538195": {
@@ -16909,6 +17140,27 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-03707931": {
+    "authors": [
+      {
+        "name": "Cécile-Marie Martin",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alexandre Wauthier",
+        "person": "alexandre-wauthier",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-03708138": {
@@ -18038,6 +18290,34 @@
 
     ]
   },
+  "hal-03828353": {
+    "authors": [
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Malamatenia Vlachou-Efstathiou",
+        "person": "malamatenia-vlachou-efstathiou",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Alix Chagué",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
   "hal-03834346": {
     "authors": [
       {
@@ -18661,6 +18941,76 @@
 
     ]
   },
+  "hal-03910753": {
+    "authors": [
+      {
+        "name": "Colin Baldet",
+        "person": "colin-baldet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03910772": {
+    "authors": [
+      {
+        "name": "Colin Baldet",
+        "person": "colin-baldet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03910780": {
+    "authors": [
+      {
+        "name": "Colin Baldet",
+        "person": "colin-baldet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03910791": {
+    "authors": [
+      {
+        "name": "Colin Baldet",
+        "person": "colin-baldet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03910797": {
+    "authors": [
+      {
+        "name": "Colin Baldet",
+        "person": "colin-baldet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-03916914": {
     "authors": [
       {
@@ -18792,6 +19142,69 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-03935007": {
+    "authors": [
+      {
+        "name": "Cécile-Marie Martin",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alexandre Wauthier",
+        "person": "alexandre-wauthier",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03935460": {
+    "authors": [
+      {
+        "name": "Cécile-Marie Martin",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alexandre Wauthier",
+        "person": "alexandre-wauthier",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03935471": {
+    "authors": [
+      {
+        "name": "Cécile-Marie Martin",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alexandre Wauthier",
+        "person": "alexandre-wauthier",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-03936009": {
@@ -20080,6 +20493,90 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04079728": {
+    "authors": [
+      {
+        "name": "Colin Baldet",
+        "person": "colin-baldet",
+        "status": [
+          "student"
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
+  "hal-04079730": {
+    "authors": [
+      {
+        "name": "Colin Baldet",
+        "person": "colin-baldet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04079732": {
+    "authors": [
+      {
+        "name": "Colin Baldet",
+        "person": "colin-baldet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04080108": {
+    "authors": [
+      {
+        "name": "Colin Baldet",
+        "person": "colin-baldet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04080123": {
+    "authors": [
+      {
+        "name": "Colin Baldet",
+        "person": "colin-baldet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04082092": {
+    "authors": [
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04086940": {
@@ -21846,6 +22343,55 @@
 
     ]
   },
+  "hal-04513725": {
+    "authors": [
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Hugo Scheithauer",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Sarah Bénière",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Laurent Romary",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04531710": {
     "authors": [
       {
@@ -21921,6 +22467,132 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04557457": {
+    "authors": [
+      {
+        "name": "Simon Gabay",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Pauline Jacsont",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Elina Leblanc",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Marie Jeannot-Tirole",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Sonia Solfrini",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Sophie Dolto",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Floriane Goy",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Carmen Carrasco Luján",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Maddalena Zaglio",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Myriam Perregaux",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Rachel Bawden",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Rasul Dent",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Oriane Nédey",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alix Chagué",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04558160": {
@@ -22033,6 +22705,27 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04591043": {
+    "authors": [
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Malamatenia Vlachou-Efstathiou",
+        "person": "malamatenia-vlachou-efstathiou",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04606835": {
@@ -22462,6 +23155,48 @@
 
     ]
   },
+  "hal-04736370": {
+    "authors": [
+      {
+        "name": "Rasul Dent",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Pedro Ortiz Suarez",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04742097": {
     "authors": [
       {
@@ -22658,6 +23393,41 @@
 
     ]
   },
+  "hal-04754028": {
+    "authors": [
+      {
+        "name": "Sarah Bénière",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Hugo Scheithauer",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Laurent Romary",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04759126": {
     "authors": [
       {
@@ -22719,6 +23489,41 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04766901": {
+    "authors": [
+      {
+        "name": "Malamatenia Vlachou-Efstathiou",
+        "person": "malamatenia-vlachou-efstathiou",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Ioannis Siglidis",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Dominique Stutzmann",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Mathieu Aubry",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04771945": {
@@ -24702,6 +25507,27 @@
 
     ]
   },
+  "hal-05173463": {
+    "authors": [
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Matthias Gille Levenson",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05174330": {
     "authors": [
       {
@@ -24889,6 +25715,132 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-05232691": {
+    "authors": [
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Sarah Bénière",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05249807": {
+    "authors": [
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Rachel Bawden",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Rasul Dent",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Oriane Nédey",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05252327": {
+    "authors": [
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Sarah Bénière",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05281779": {
@@ -25099,6 +26051,48 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05299220": {
+    "authors": [
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Simon Gabay",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Malamatenia Vlachou-Efstathiou",
+        "person": "malamatenia-vlachou-efstathiou",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Ariane Pinche",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05304744": {
@@ -25332,6 +26326,111 @@
 
     ]
   },
+  "hal-05330342": {
+    "authors": [
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Slim Ouni",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Sam Bigeard",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Rasul Dent",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Rachel Bawden",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Emmanuel Vincent",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Oriane Nédey",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Malek Yaich",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Panagiotis Tsolakis",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Vincent Colotte",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Mostafa Sadeghi",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05338153": {
     "authors": [
       {
@@ -25428,6 +26527,41 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05365624": {
+    "authors": [
+      {
+        "name": "Maxime Guénette",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Marianne Reboul",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Mathilde Verstraete",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Malamatenia Vlachou-Efstathiou",
+        "person": "malamatenia-vlachou-efstathiou",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05367622": {
@@ -25725,6 +26859,118 @@
 
     ]
   },
+  "hal-05390100": {
+    "authors": [
+      {
+        "name": "Matthias Gille Levenson",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Olivier Brisville-Fertin",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Monica Castillo Lluch",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "María Díez Yáñez",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Thomas Faye",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Simon Gabay",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Mallorie Labrousse",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Marta López Izquierdo",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Clara Pascual-Argente",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Ariane Pinche",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Irene Salvo García",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "María Belén Villar Díaz",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Félix Le Guen",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Kelian Desnoues",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05396546": {
     "authors": [
       {
@@ -25795,6 +27041,48 @@
       "professor"
     ]
   },
+  "hal-05407710": {
+    "authors": [
+      {
+        "name": "Oriane Nédey",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Rachel Bawden",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05410264": {
     "authors": [
       {
@@ -25842,6 +27130,48 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05413035": {
+    "authors": [
+      {
+        "name": "Oriane Nédey",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Juliette Janès",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Rachel Bawden",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05415592": {
@@ -25892,6 +27222,34 @@
     "statuses": [
       "alumni",
       "professor"
+    ]
+  },
+  "hal-05421651": {
+    "authors": [
+      {
+        "name": "Alexandre Wauthier",
+        "person": "alexandre-wauthier",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Baptiste Billaud",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Cynthia Pedroja",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05421670": {
@@ -27408,6 +28766,34 @@
       "professor"
     ]
   },
+  "hal-05584240": {
+    "authors": [
+      {
+        "name": "Matthias Gille Levenson",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Carolina Macedo",
+        "person": "carolina-macedo",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05588164": {
     "authors": [
       {
@@ -27471,6 +28857,27 @@
     "statuses": [
       "alumni",
       "professor"
+    ]
+  },
+  "hal-05599910": {
+    "authors": [
+      {
+        "name": "Alexandre Wauthier",
+        "person": "alexandre-wauthier",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Marie Flesch",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05600991": {
@@ -27605,6 +29012,34 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05613897": {
+    "authors": [
+      {
+        "name": "Charles Planque",
+        "person": "charles-planque",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Marie-Jeanne Lesot",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Grégory Smits",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
     ]
   },
   "hal-05620448": {
@@ -27947,6 +29382,97 @@
       "professor"
     ]
   },
+  "hal-05631227": {
+    "authors": [
+      {
+        "name": "Régis Witz",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Guillaume Porte",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Elsa Van Kote",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Mohammed Benkhalid",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Marie Bizais",
+        "person": "marie-bizais-lillig",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Elisa Michelet",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Arthur Brody",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Clément Plancq",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Titouan Brisset-Sabouraud",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Bruno Morandière",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Elsa Ligner",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Vincent Jullion",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
   "hal-05631247": {
     "authors": [
       {
@@ -28096,6 +29622,209 @@
       "professor"
     ]
   },
+  "hal-05635732": {
+    "authors": [
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Rachel Bawden",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Rasul Dent",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Oriane Nédey",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05635765": {
+    "authors": [
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Sarah Bénière",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Simon Gabay",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05636682": {
+    "authors": [
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Juliette Janès",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Sven Ködel",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05638101": {
+    "authors": [
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Sarah Bénière",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benjamin Kiessling",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Éric Astier",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Simon Gabay",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05638524": {
     "authors": [
       {
@@ -28153,6 +29882,69 @@
       "professor"
     ]
   },
+  "hal-05639206": {
+    "authors": [
+      {
+        "name": "Marie Bizais-Lillig",
+        "person": "marie-bizais-lillig",
+        "status": [
+          "student"
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
+  "hal-05639241": {
+    "authors": [
+      {
+        "name": "Sipana Tchakerian",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Chiara Tedesco",
+        "person": "chiara-tedesco",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Denise Atzori",
+        "person": "denise-atzori",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Thaïs Raffray",
+        "person": "thais-raffray",
+        "status": [
+          "student"
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
+  "hal-05639267": {
+    "authors": [
+      {
+        "name": "Léa Maronet",
+        "person": "lea-maronet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05639507": {
     "authors": [
       {
@@ -28173,6 +29965,83 @@
     "statuses": [
       "professor",
       "student"
+    ]
+  },
+  "hal-05655638": {
+    "authors": [
+      {
+        "name": "Antoine Silvestre De Sacy",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Adam Faci",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Léa Maronet",
+        "person": "lea-maronet",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Stéphane Pouyllau",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05655868": {
+    "authors": [
+      {
+        "name": "Léa Maronet",
+        "person": "lea-maronet",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Adam Faci",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05655872": {
+    "authors": [
+      {
+        "name": "Adam Faci",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Léa Maronet",
+        "person": "lea-maronet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05662166": {
@@ -28215,6 +30084,41 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05673644": {
+    "authors": [
+      {
+        "name": "Alexandre Wauthier",
+        "person": "alexandre-wauthier",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Baptiste Billaud",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Cynthia Pedroja",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Baudoin Davoury",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05674427": {
@@ -28464,6 +30368,202 @@
       "professor"
     ]
   },
+  "hal-05706461": {
+    "authors": [
+      {
+        "name": "Alice Truc",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Léa Maronet",
+        "person": "lea-maronet",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Adam Faci",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Marion Charpier",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Julien Schuh",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Christopher Kermorvant",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05706471": {
+    "authors": [
+      {
+        "name": "Léa Maronet",
+        "person": "lea-maronet",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Adam Faci",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05715459": {
+    "authors": [
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Simon Gabay",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05730405": {
+    "authors": [
+      {
+        "name": "Stéphane Pouyllau",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Adam Faci",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Léa Maronet",
+        "person": "lea-maronet",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Alice Breton",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Antoine Silvestre De Sacy",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Émile Provendier",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05732106": {
+    "authors": [
+      {
+        "name": "Nicolas Angleraud",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Juliette Janes",
+        "person": "juliette-janes",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Antonia Karamolegkou",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Maïna Laurent",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Benoît Sagot",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Thibault Clérice",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05739003": {
     "authors": [
       {
@@ -28518,6 +30618,27 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05742614": {
+    "authors": [
+      {
+        "name": "Adam Faci",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Léa Maronet",
+        "person": "lea-maronet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05744493": {
@@ -28603,6 +30724,104 @@
     "statuses": [
       "alumni",
       "professor"
+    ]
+  },
+  "hal-05748401": {
+    "authors": [
+      {
+        "name": "Julie Lenoir",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Léa Maronet",
+        "person": "lea-maronet",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Alyx Taounza-Jeminet",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Vincent Desmet",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Salomé Ferber",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Circée Gedeon-Gonçalvès",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Garance Heloir",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Mélite Hestault",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Ismène Lemaire",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Le Thuy Tien Nguyen",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Anaëlle Pourteau",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Eloïse Ripert Fabre",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Cyprien Valora",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05756466": {
@@ -29214,6 +31433,20 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05828329": {
+    "authors": [
+      {
+        "name": "Léa Maronet",
+        "person": "lea-maronet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05837184": {
@@ -31638,6 +33871,20 @@
 
     ]
   },
+  "halshs-05409426": {
+    "authors": [
+      {
+        "name": "Marie Bizais-Lillig",
+        "person": "marie-bizais-lillig",
+        "status": [
+          "student"
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
   "ineris-00971932": {
     "authors": [
       {
@@ -33010,6 +35257,20 @@
 
     ]
   },
+  "tel-04464939": {
+    "authors": [
+      {
+        "name": "Lucence Ing",
+        "person": "lucence-ing",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "tel-04469538": {
     "authors": [
       {
@@ -33036,6 +35297,34 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "tel-04682444": {
+    "authors": [
+      {
+        "name": "Mylène Maignant",
+        "person": "mylene-maignant",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "tel-04902586": {
+    "authors": [
+      {
+        "name": "Colin Baldet",
+        "person": "colin-baldet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   }
 }
