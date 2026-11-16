@@ -29356,6 +29356,48 @@
 
     ]
   },
+  "hal-05864097": {
+    "authors": [
+      {
+        "name": "Lucas Terriel",
+        "person": "lucas-terriel",
+        "status": [
+          "professor"
+        ]
+      },
+      {
+        "name": "Vincent Jolivet",
+        "person": "vincent-jolivet",
+        "status": [
+          "professor"
+        ]
+      },
+      {
+        "name": "Jean-Victor Boby",
+        "person": "jean-victor-boby",
+        "status": [
+          "professor"
+        ]
+      },
+      {
+        "name": "Philippe Pons",
+        "person": "philippe-pons",
+        "status": [
+          "professor"
+        ]
+      },
+      {
+        "name": "Mostajo, Charlie",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "professor"
+    ]
+  },
   "halshs-00078451": {
     "authors": [
       {
