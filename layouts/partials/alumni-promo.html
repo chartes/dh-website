@@ -24,7 +24,12 @@
         </p>
         {{ end }}
 
-        {{ if or .github .linkedin .idhal }}
+        {{/* Lien HAL : recherche des notices de la personne, par idHAL ou, à défaut, par
+             identifiant de personne HAL (`hal_id`). Fonctionne même sans CV HAL publié. */}}
+        {{ $hal := "" }}
+        {{ with .idhal }}{{ $hal = printf "https://hal.science/search/index/?q=*&authIdHal_s=%s" . }}
+        {{ else with .hal_id }}{{ $hal = printf "https://hal.science/search/index/?q=*&authIdPerson_i=%v" (index (cond (reflect.IsSlice .) . (slice .)) 0) }}{{ end }}
+        {{ if or .github .linkedin $hal }}
         <ul class="alumni-card__links list-unstyled mb-0">
           {{/* RGAA 6.1 / 13.2 : intitulé explicite hors contexte, ouverture signalée. */}}
           {{ with .github }}
@@ -33,8 +38,8 @@
           {{ with .linkedin }}
           <li><a href="{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-linkedin" aria-hidden="true"></i> LinkedIn<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
           {{ end }}
-          {{ with .idhal }}
-          <li><a href="https://cv.hal.science/{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-link" aria-hidden="true"></i> HAL<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
+          {{ with $hal }}
+          <li><a href="{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-link" aria-hidden="true"></i> HAL<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
           {{ end }}
         </ul>
         {{ end }}

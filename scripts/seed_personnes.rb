@@ -52,6 +52,7 @@ module SeedPersonnes
         id = person ? person["id"] : slug(name)
         add_person(people, id, canonical, alumnus["idhal"], name)
         person = people.fetch(id)
+        person["hal_id"] = Array(alumnus["hal_id"]).map { |value| Integer(value) } if alumnus["hal_id"]
         add_role(person, "student", student_from, alumni_from)
         add_role(person, "alumni", alumni_from)
       end
@@ -74,12 +75,14 @@ module SeedPersonnes
         current["aliases"] = (Array(current["aliases"]) + Array(person["aliases"])).uniq.sort
         current["roles"] = (Array(current["roles"]) + Array(person["roles"])).uniq
         current["idhal"] ||= person["idhal"]
+        current["hal_id"] ||= person["hal_id"] if person["hal_id"]
       else
         current = person
         result[id] = current
       end
       current["id"] = id
       current.delete("idhal") if current["idhal"].to_s.empty?
+      current.delete("hal_id") if Array(current["hal_id"]).empty?
       current["roles"] = Array(current["roles"]).uniq.sort_by { |role| [role["from"], role["status"], role["to"].to_s] }
     end
     result.keys.sort.each_with_object({}) { |id, map| map[id] = result[id] }
