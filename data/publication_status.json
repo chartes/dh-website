@@ -19053,6 +19053,41 @@
 
     ]
   },
+  "hal-03925083": {
+    "authors": [
+      {
+        "name": "Yagmur Ozturk",
+        "person": "yagmur-ozturk",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Najet Hadj Mohamed",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Adam Lion-Bouton",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Agata Savary",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
   "hal-03930487": {
     "authors": [
       {
@@ -20929,6 +20964,62 @@
 
     ]
   },
+  "hal-04108218": {
+    "authors": [
+      {
+        "name": "Paul Kervegan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Charlotte Duvette",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Loïc Jeanson",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Colin Prudhomme",
+        "person": "colin-prudhomme",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Justine Gain",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Esther Dasilva",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Louise Baranger",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
   "hal-04121762": {
     "authors": [
       {
@@ -21727,6 +21818,48 @@
 
     ]
   },
+  "hal-04323257": {
+    "authors": [
+      {
+        "name": "Agata Savary",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Yagmur Ozturk",
+        "person": "yagmur-ozturk",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Adam Lion-Bouton",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
+  "hal-04329218": {
+    "authors": [
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04343340": {
     "authors": [
       {
@@ -21781,6 +21914,34 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04346693": {
+    "authors": [
+      {
+        "name": "Yagmur Ozturk",
+        "person": "yagmur-ozturk",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Cyril Labbé",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "François Portet",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04346939": {
@@ -22805,6 +22966,20 @@
       "student"
     ]
   },
+  "hal-04611253": {
+    "authors": [
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04638174": {
     "authors": [
       {
@@ -23820,6 +23995,41 @@
 
     ]
   },
+  "hal-04791200": {
+    "authors": [
+      {
+        "name": "Yagmur Ozturk",
+        "person": "yagmur-ozturk",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Frédérique Bordignon",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Cyril Labbé",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "François Portet",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04816434": {
     "authors": [
       {
@@ -24413,6 +24623,41 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04983716": {
+    "authors": [
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04983759": {
+    "authors": [
+      {
+        "name": "Jean-Paul Pellegrinetti",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04984105": {
@@ -25066,6 +25311,76 @@
       "professor"
     ]
   },
+  "hal-05128385": {
+    "authors": [
+      {
+        "name": "Motasem Alrahabi",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Arthur Amalvy",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Vincent Labatut",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Perrine Maurel",
+        "person": "perrine-maurel",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05128746": {
+    "authors": [
+      {
+        "name": "Perrine Maurel",
+        "person": "perrine-maurel",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Arthur Amalvy",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Vincent Labatut",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Motasem Alrahabi",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05129826": {
     "authors": [
       {
@@ -25274,6 +25589,20 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-05148902": {
+    "authors": [
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05163931": {
@@ -26053,6 +26382,69 @@
       "professor"
     ]
   },
+  "hal-05287252": {
+    "authors": [
+      {
+        "name": "Qinyue Liu",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Yagmur Ozturk",
+        "person": "yagmur-ozturk",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Cyril Labbé",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05287256": {
+    "authors": [
+      {
+        "name": "Yagmur Ozturk",
+        "person": "yagmur-ozturk",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Frédérique Bordignon",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Cyril Labbé",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "François Portet",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05299220": {
     "authors": [
       {
@@ -26506,6 +26898,48 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05358001": {
+    "authors": [
+      {
+        "name": "Qinyue Liu",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Yagmur Ozturk",
+        "person": "yagmur-ozturk",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Tiziri Terkmani",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "François Portet",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Cyril Labbé",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05365551": {
@@ -27687,6 +28121,20 @@
 
     ]
   },
+  "hal-05454867": {
+    "authors": [
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05460105": {
     "authors": [
       {
@@ -28141,6 +28589,41 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-05495312": {
+    "authors": [
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "student"
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
+  "hal-05495346": {
+    "authors": [
+      {
+        "name": "Deborah Paci",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "student"
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
     ]
   },
   "hal-05509883": {
@@ -29967,6 +30450,97 @@
       "student"
     ]
   },
+  "hal-05652967": {
+    "authors": [
+      {
+        "name": "Anna Abalkina",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Marie Kunešová",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Yagmur Ozturk",
+        "person": "yagmur-ozturk",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Solal Pirelli",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05652992": {
+    "authors": [
+      {
+        "name": "Yagmur Ozturk",
+        "person": "yagmur-ozturk",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Solal Pirelli",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Reese A K Richardson",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05653528": {
+    "authors": [
+      {
+        "name": "Yagmur Ozturk",
+        "person": "yagmur-ozturk",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Solal Pirelli",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Reese A K Richardson",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05655638": {
     "authors": [
       {
@@ -30452,6 +31026,20 @@
         "person": null,
         "status": [
 
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05730385": {
+    "authors": [
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "alumni"
         ]
       }
     ],
@@ -31244,6 +31832,41 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05799178": {
+    "authors": [
+      {
+        "name": "Anna Abalkina",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Marie Kunešová",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Yagmur Ozturk",
+        "person": "yagmur-ozturk",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Solal Pirelli",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05827443": {

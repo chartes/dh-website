@@ -285,6 +285,8 @@ colin-prudhomme:
     to: '2023-09-01'
   - status: alumni
     from: '2023-09-01'
+  hal_id:
+  - 1257431
 come-parrinello:
   id: come-parrinello
   name: Côme Parrinello
@@ -1135,6 +1137,8 @@ perrine-maurel:
     to: '2023-09-01'
   - status: alumni
     from: '2023-09-01'
+  hal_id:
+  - 1434543
 peter-stokes:
   id: peter-stokes
   name: Peter Stokes
@@ -1143,6 +1147,18 @@ peter-stokes:
   - status: professor
     from: '2025-09-01'
   idhal: peter-stokes
+philippe-chaumet-riffaud:
+  id: philippe-chaumet-riffaud
+  name: Philippe Chaumet-Riffaud
+  aliases: []
+  roles:
+  - status: student
+    from: '2025-09-01'
+    to: '2027-09-01'
+  - status: alumni
+    from: '2027-09-01'
+  hal_id:
+  - 1555821
 philippe-pons:
   id: philippe-pons
   name: Philippe Pons
@@ -1326,16 +1342,18 @@ vincent-jolivet:
   - status: professor
     from: '2025-09-01'
   idhal: vjolivet
-vincent-sarbach:
-  id: vincent-sarbach
-  name: Vincent Sarbach
-  aliases: []
+vincent-sarbach-pulicani:
+  id: vincent-sarbach-pulicani
+  name: Vincent Sarbach-Pulicani
+  aliases:
+  - Vincent Sarbach
   roles:
   - status: student
     from: '2021-09-01'
     to: '2023-09-01'
   - status: alumni
     from: '2023-09-01'
+  idhal: vincent-sarbach-pulicani
 xinmin-hu:
   id: xinmin-hu
   name: Xinmin Hu
@@ -1366,6 +1384,7 @@ yagmur-ozturk:
     to: '2023-09-01'
   - status: alumni
     from: '2023-09-01'
+  idhal: yagmurozturk
 ye-liu:
   id: ye-liu
   name: Ye Liu
