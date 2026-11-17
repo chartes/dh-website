@@ -6,7 +6,8 @@ require "yaml"
 
 module PublicationStatus
   HAL_ENDPOINT = "https://api.archives-ouvertes.fr/search/".freeze
-  HAL_FIELDS = "halId_s,authFullName_s,authIdHal_s,producedDate_s,producedDateY_i".freeze
+  HAL_FIELDS = "halId_s,authFullName_s,authIdHal_s,authFullNameIdHal_fs,authFullNamePersonIDIDHal_fs,producedDate_s,producedDateY_i".freeze
+  FACET_SEPARATOR = "_FacetSep_".freeze
   STATUSES = %w[alumni professor student].freeze
 
   def self.load_yaml(path)
@@ -45,7 +46,39 @@ module PublicationStatus
     end.compact
   end
 
-  def self.hal_query(teachers)
+  # Étudiants et alumni du registre repérés dans HAL (hors équipe, déjà interrogée sans
+  # restriction) par leur idHAL ou, à défaut, leur identifiant de personne HAL (`hal_id`).
+  # Pas de recherche par nom seul (homonymes). Leurs notices ne sont retenues qu'à partir
+  # de leur entrée dans le master, et sans les mémoires (déjà présentés sur la page alumni).
+  def self.member_profiles(registry_data)
+    registry_data.values.map do |person|
+      roles = Array(person["roles"])
+      next if roles.any? { |role| role["status"] == "professor" }
+
+      starts = roles.select { |role| role["status"] == "student" }.map { |role| role["from"].to_s }
+      member = { "id" => person["id"], "from" => starts.min }
+      if !person["idhal"].to_s.strip.empty?
+        member["idhal"] = person["idhal"].to_s.strip
+      elsif person["hal_id"]
+        member["hal_id"] = Array(person["hal_id"]).map { |value| Integer(value) }
+      else
+        next
+      end
+      member unless starts.empty?
+    end.compact.sort_by { |member| member["id"] }
+  end
+
+  def self.member_clause(member)
+    from = Date.iso8601(member["from"]).strftime("%Y-%m-%dT00:00:00Z")
+    author = if member["idhal"]
+               %(authIdHal_s:"#{escape_solr(member['idhal'])}")
+             else
+               "authIdPerson_i:(#{member['hal_id'].join(' OR ')})"
+             end
+    "(#{author} AND producedDate_tdate:[#{from} TO *] NOT docType_s:MEM)"
+  end
+
+  def self.hal_query(teachers, members = [])
     ids = teachers.map do |person|
       person["idhal"] unless person["idhal"].empty?
     end.compact
@@ -57,6 +90,7 @@ module PublicationStatus
     clauses << "authFullName_t:(#{names.map { |name| %("#{escape_solr(name)}") }.join(' OR ')})" unless names.empty?
     raise "Aucun profil d’équipe master_teacher trouvé" if clauses.empty?
 
+    clauses.concat(members.map { |member| member_clause(member) })
     clauses.join(" OR ")
   end
 
@@ -64,9 +98,9 @@ module PublicationStatus
     value.gsub("\\", "\\\\\\").gsub('"', '\\"')
   end
 
-  def self.fetch_hal_documents(teachers)
+  def self.fetch_hal_documents(teachers, members = [])
     query = URI.encode_www_form(
-      "q" => hal_query(teachers),
+      "q" => hal_query(teachers, members),
       "fl" => HAL_FIELDS,
       "sort" => "producedDate_s desc",
       "rows" => "2000",
@@ -105,10 +139,12 @@ module PublicationStatus
       @by_idhal = Hash.new { |hash, key| hash[key] = [] }
       @by_name = Hash.new { |hash, key| hash[key] = [] }
       @by_alias = Hash.new { |hash, key| hash[key] = [] }
+      @by_hal_id = Hash.new { |hash, key| hash[key] = [] }
 
       @people.each do |person|
         idhal = person["idhal"].to_s.strip.downcase
         @by_idhal[idhal] << person unless idhal.empty?
+        Array(person["hal_id"]).each { |hal_id| @by_hal_id[Integer(hal_id)] << person }
         @by_name[PublicationStatus.normalize_name(person["name"])] << person
         Array(person["aliases"]).each do |name|
           @by_alias[PublicationStatus.normalize_name(name)] << person
@@ -116,9 +152,10 @@ module PublicationStatus
       end
     end
 
-    def match(name, idhal)
+    def match(name, idhal, hal_id = 0)
       identifier = idhal.to_s.strip.downcase
       return unique(@by_idhal[identifier]) unless identifier.empty? || @by_idhal[identifier].empty?
+      return unique(@by_hal_id[hal_id.to_i]) unless hal_id.to_i.zero? || @by_hal_id[hal_id.to_i].empty?
 
       key = PublicationStatus.normalize_name(name)
       named = unique(@by_name[key])
@@ -170,13 +207,34 @@ module PublicationStatus
     [nil, true]
   end
 
+  # `authIdHal_s` ne liste que les auteurs qui ont un idHAL : il n'est pas aligné sur
+  # `authFullName_s`. `authFullNameIdHal_fs` (« Nom_FacetSep_idhal », idHAL vide sinon)
+  # l'est ; sans lui, on ne se fie à `authIdHal_s` que si les deux listes ont la même taille.
+  def self.author_idhals(document, count)
+    pairs = Array(document["authFullNameIdHal_fs"])
+    return pairs.map { |pair| pair.split(FACET_SEPARATOR, 2)[1].to_s } if pairs.length == count
+
+    ids = Array(document["authIdHal_s"])
+    ids.length == count ? ids : Array.new(count, "")
+  end
+
+  # Identifiant de personne HAL de chaque auteur (0 si l'auteur n'a pas de compte),
+  # lu dans `authFullNamePersonIDIDHal_fs` (« Nom_FacetSep_id_FacetSep_idhal »).
+  def self.author_person_ids(document, count)
+    triples = Array(document["authFullNamePersonIDIDHal_fs"])
+    return Array.new(count, 0) unless triples.length == count
+
+    triples.map { |triple| triple.split(FACET_SEPARATOR)[1].to_i }
+  end
+
   def self.snapshot_entry(document, registry)
     reference_date, fallback = publication_date(document)
     names = Array(document["authFullName_s"])
-    ids = Array(document["authIdHal_s"])
+    ids = author_idhals(document, names.length)
+    person_ids = author_person_ids(document, names.length)
     unknown = []
     authors = names.each_with_index.map do |name, index|
-      person = registry.match(name, ids[index])
+      person = registry.match(name, ids[index], person_ids[index])
       unknown << name unless person
       {
         "name" => name,

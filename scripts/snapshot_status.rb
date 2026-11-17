@@ -15,7 +15,8 @@ if $PROGRAM_NAME == __FILE__
   registry_data = PublicationStatus.load_yaml(registry_path)
   existing = File.exist?(snapshot_path) ? JSON.parse(File.read(snapshot_path)) : {}
   teachers = PublicationStatus.teacher_profiles(root)
-  documents = PublicationStatus.fetch_hal_documents(teachers)
+  members = PublicationStatus.member_profiles(registry_data)
+  documents = PublicationStatus.fetch_hal_documents(teachers, members)
   registry = PublicationStatus::Registry.new(registry_data)
   result, metrics = PublicationStatus.add_missing_snapshots(existing, documents, registry)
 

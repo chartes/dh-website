@@ -1,6 +1,36 @@
 # Personnes et périodes de rôle utilisées pour figer les statuts HAL.
 # Régénérer/compléter avec ruby scripts/seed_personnes.rb, puis relire les dates et alias.
 ---
+aaron-parmentelat:
+  id: aaron-parmentelat
+  name: Aaron Parmentelat
+  aliases: []
+  roles:
+  - status: student
+    from: '2022-09-01'
+    to: '2024-09-01'
+  - status: alumni
+    from: '2024-09-01'
+adrien-escoda:
+  id: adrien-escoda
+  name: Adrien Escoda
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
+adrien-jeanrenaud:
+  id: adrien-jeanrenaud
+  name: Adrien Jeanrenaud
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
 adrien-liossatos:
   id: adrien-liossatos
   name: Adrien Liossatos
@@ -11,6 +41,26 @@ adrien-liossatos:
     to: '2028-09-01'
   - status: alumni
     from: '2028-09-01'
+adrien-tannhof:
+  id: adrien-tannhof
+  name: Adrien Tannhof
+  aliases: []
+  roles:
+  - status: student
+    from: '2016-09-01'
+    to: '2018-09-01'
+  - status: alumni
+    from: '2018-09-01'
+alberto-romele:
+  id: alberto-romele
+  name: Alberto Romele
+  aliases: []
+  roles:
+  - status: student
+    from: '2019-09-01'
+    to: '2021-09-01'
+  - status: alumni
+    from: '2021-09-01'
 albina-toumarkine:
   id: albina-toumarkine
   name: Albina Toumarkine
@@ -34,6 +84,39 @@ alexandre-lionnet:
     from: '2025-09-01'
   - status: professor
     from: '2025-09-01'
+  hal_id:
+  - 1617159
+alexandre-wauthier:
+  id: alexandre-wauthier
+  name: Alexandre Wauthier
+  aliases: []
+  roles:
+  - status: student
+    from: '2017-09-01'
+    to: '2019-09-01'
+  - status: alumni
+    from: '2019-09-01'
+  idhal: alexandre-wauthier
+alice-dionnet:
+  id: alice-dionnet
+  name: Alice Dionnet
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
+anahide-kasparian:
+  id: anahide-kasparian
+  name: Anahide Kasparian
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
 anna-bouffier:
   id: anna-bouffier
   name: Anna Bouffier
@@ -52,6 +135,46 @@ annick-vignes:
   - status: professor
     from: '2025-09-01'
   idhal: annick-vignes
+axel-le-roy:
+  id: axel-le-roy
+  name: Axel Le Roy
+  aliases: []
+  roles:
+  - status: student
+    from: '2017-09-01'
+    to: '2019-09-01'
+  - status: alumni
+    from: '2019-09-01'
+azia-keever:
+  id: azia-keever
+  name: Azia Keever
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
+camille-bui:
+  id: camille-bui
+  name: Camille Bui
+  aliases: []
+  roles:
+  - status: student
+    from: '2017-09-01'
+    to: '2019-09-01'
+  - status: alumni
+    from: '2019-09-01'
+camille-cazaux:
+  id: camille-cazaux
+  name: Camille Cazaux
+  aliases: []
+  roles:
+  - status: student
+    from: '2020-09-01'
+    to: '2022-09-01'
+  - status: alumni
+    from: '2022-09-01'
 carmen-brando:
   id: carmen-brando
   name: Carmen Brando
@@ -60,6 +183,17 @@ carmen-brando:
   - status: professor
     from: '2025-09-01'
   idhal: carmen-brando
+carolina-macedo:
+  id: carolina-macedo
+  name: Carolina Macedo
+  aliases: []
+  roles:
+  - status: student
+    from: '2022-09-01'
+    to: '2024-09-01'
+  - status: alumni
+    from: '2024-09-01'
+  idhal: carolina-macedo
 chahan-vidal-gorene:
   id: chahan-vidal-gorene
   name: Chahan Vidal-Gorène
@@ -89,6 +223,17 @@ charlie-lezin:
     to: '2025-09-01'
   - status: alumni
     from: '2025-09-01'
+charlotte-berthier:
+  id: charlotte-berthier
+  name: Charlotte Berthier
+  aliases: []
+  roles:
+  - status: student
+    from: '2022-09-01'
+    to: '2024-09-01'
+  - status: alumni
+    from: '2024-09-01'
+  idhal: charlotte-berthier
 chiara-tedesco:
   id: chiara-tedesco
   name: Chiara Tedesco
@@ -109,6 +254,39 @@ chloe-jollivet-courtois:
     to: '2026-09-01'
   - status: alumni
     from: '2026-09-01'
+christine-leroy:
+  id: christine-leroy
+  name: Christine Leroy
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
+colin-baldet:
+  id: colin-baldet
+  name: Colin Baldet
+  aliases: []
+  roles:
+  - status: student
+    from: '2016-09-01'
+    to: '2018-09-01'
+  - status: alumni
+    from: '2018-09-01'
+  idhal: colin-baldet
+colin-prudhomme:
+  id: colin-prudhomme
+  name: Colin Prudhomme
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
+  hal_id:
+  - 1257431
 come-parrinello:
   id: come-parrinello
   name: Côme Parrinello
@@ -147,6 +325,27 @@ denise-atzori:
     to: '2026-09-01'
   - status: alumni
     from: '2026-09-01'
+  idhal: deniseatzori
+diana-ospina:
+  id: diana-ospina
+  name: Diana Ospina
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
+dominique-taffin:
+  id: dominique-taffin
+  name: Dominique Taffin
+  aliases: []
+  roles:
+  - status: student
+    from: '2017-09-01'
+    to: '2019-09-01'
+  - status: alumni
+    from: '2019-09-01'
 donghan-bian:
   id: donghan-bian
   name: Donghan Bian
@@ -164,10 +363,20 @@ eglantine-gaglione:
   aliases: []
   roles:
   - status: student
-    from: '2023-09-01'
-    to: '2025-09-01'
+    from: '2024-09-01'
+    to: '2026-09-01'
   - status: alumni
-    from: '2025-09-01'
+    from: '2026-09-01'
+ekaterina-iakovleva:
+  id: ekaterina-iakovleva
+  name: Ekaterina Iakovleva
+  aliases: []
+  roles:
+  - status: student
+    from: '2022-09-01'
+    to: '2024-09-01'
+  - status: alumni
+    from: '2024-09-01'
 eleonore-hasler:
   id: eleonore-hasler
   name: Éléonore Hasler
@@ -208,6 +417,36 @@ emilie-guidi:
     to: '2025-09-01'
   - status: alumni
     from: '2025-09-01'
+emilien-arnaud:
+  id: emilien-arnaud
+  name: Emilien Arnaud
+  aliases: []
+  roles:
+  - status: student
+    from: '2020-09-01'
+    to: '2022-09-01'
+  - status: alumni
+    from: '2022-09-01'
+etienne-ferrandi:
+  id: etienne-ferrandi
+  name: Etienne Ferrandi
+  aliases: []
+  roles:
+  - status: student
+    from: '2020-09-01'
+    to: '2022-09-01'
+  - status: alumni
+    from: '2022-09-01'
+fengyi-chen:
+  id: fengyi-chen
+  name: Fengyi Chen
+  aliases: []
+  roles:
+  - status: student
+    from: '2022-09-01'
+    to: '2024-09-01'
+  - status: alumni
+    from: '2024-09-01'
 florian-cafiero:
   id: florian-cafiero
   name: Florian Cafiero
@@ -236,6 +475,37 @@ francesco-paolo-savatteri:
     to: '2025-09-01'
   - status: alumni
     from: '2025-09-01'
+  idhal: savatteri-francesco-paolo
+francisco-espino:
+  id: francisco-espino
+  name: Francisco Espino
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
+francois-pichenot:
+  id: francois-pichenot
+  name: François Pichenot
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
+gabriella-elgarrista:
+  id: gabriella-elgarrista
+  name: Gabriella Elgarrista
+  aliases: []
+  roles:
+  - status: student
+    from: '2017-09-01'
+    to: '2019-09-01'
+  - status: alumni
+    from: '2019-09-01'
 gaetan-drouet:
   id: gaetan-drouet
   name: Gaëtan Drouet
@@ -256,6 +526,16 @@ garance-sohm-le-gal:
     to: '2028-09-01'
   - status: alumni
     from: '2028-09-01'
+gonzalo-freijedo-aduna:
+  id: gonzalo-freijedo-aduna
+  name: Gonzalo Freijedo Aduna
+  aliases: []
+  roles:
+  - status: student
+    from: '2022-09-01'
+    to: '2024-09-01'
+  - status: alumni
+    from: '2024-09-01'
 helene-rieber:
   id: helene-rieber
   name: Hélène Rieber
@@ -266,6 +546,26 @@ helene-rieber:
     to: '2028-09-01'
   - status: alumni
     from: '2028-09-01'
+hippolyte-souvay:
+  id: hippolyte-souvay
+  name: Hippolyte Souvay
+  aliases: []
+  roles:
+  - status: student
+    from: '2020-09-01'
+    to: '2022-09-01'
+  - status: alumni
+    from: '2022-09-01'
+ingrid-guimaraes-de-lucena:
+  id: ingrid-guimaraes-de-lucena
+  name: Ingrid Guimarães de Lucena
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
 irandokht-moinzadeh:
   id: irandokht-moinzadeh
   name: Irandokht Moinzadeh
@@ -289,6 +589,11 @@ jean-barre:
   name: Jean Barré
   aliases: []
   roles:
+  - status: student
+    from: '2020-09-01'
+    to: '2022-09-01'
+  - status: alumni
+    from: '2022-09-01'
   - status: professor
     from: '2025-09-01'
   idhal: jean-barre
@@ -327,6 +632,17 @@ juliette-grenier:
     to: '2026-09-01'
   - status: alumni
     from: '2026-09-01'
+juliette-janes:
+  id: juliette-janes
+  name: Juliette Janès
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
+  idhal: juliette-janes
 katarzyna-kapitan:
   id: katarzyna-kapitan
   name: Katarzyna Kapitan
@@ -335,6 +651,16 @@ katarzyna-kapitan:
   roles:
   - status: professor
     from: '2025-09-01'
+krister-kruusmaa:
+  id: krister-kruusmaa
+  name: Krister Kruusmaa
+  aliases: []
+  roles:
+  - status: student
+    from: '2020-09-01'
+    to: '2022-09-01'
+  - status: alumni
+    from: '2022-09-01'
 lazar-van-berchem:
   id: lazar-van-berchem
   name: Lazar van Berchem
@@ -345,6 +671,87 @@ lazar-van-berchem:
     to: '2028-09-01'
   - status: alumni
     from: '2028-09-01'
+lea-maronet:
+  id: lea-maronet
+  name: Léa Maronet
+  aliases: []
+  roles:
+  - status: student
+    from: '2020-09-01'
+    to: '2022-09-01'
+  - status: alumni
+    from: '2022-09-01'
+  idhal: lea-maronet
+lea-roth:
+  id: lea-roth
+  name: Léa Roth
+  aliases: []
+  roles:
+  - status: student
+    from: '2017-09-01'
+    to: '2019-09-01'
+  - status: alumni
+    from: '2019-09-01'
+leo-dray:
+  id: leo-dray
+  name: Léo Dray
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
+lily-grumbach:
+  id: lily-grumbach
+  name: Lily Grumbach
+  aliases: []
+  roles:
+  - status: student
+    from: '2019-09-01'
+    to: '2021-09-01'
+  - status: alumni
+    from: '2021-09-01'
+lise-bernard:
+  id: lise-bernard
+  name: Lise Bernard
+  aliases: []
+  roles:
+  - status: student
+    from: '2022-09-01'
+    to: '2024-09-01'
+  - status: alumni
+    from: '2024-09-01'
+louis-fiacre-franchet-d-esperey:
+  id: louis-fiacre-franchet-d-esperey
+  name: Louis-Fiacre Franchet d'Espérey
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
+luc-nakache:
+  id: luc-nakache
+  name: Luc Nakache
+  aliases: []
+  roles:
+  - status: student
+    from: '2017-09-01'
+    to: '2019-09-01'
+  - status: alumni
+    from: '2019-09-01'
+lucas-faugere:
+  id: lucas-faugere
+  name: Lucas Faugère
+  aliases: []
+  roles:
+  - status: student
+    from: '2016-09-01'
+    to: '2018-09-01'
+  - status: alumni
+    from: '2018-09-01'
 lucas-terriel:
   id: lucas-terriel
   name: Lucas Terriel
@@ -353,6 +760,17 @@ lucas-terriel:
   - status: professor
     from: '2025-09-01'
   idhal: lucas-terriel
+lucence-ing:
+  id: lucence-ing
+  name: Lucence Ing
+  aliases: []
+  roles:
+  - status: student
+    from: '2016-09-01'
+    to: '2018-09-01'
+  - status: alumni
+    from: '2018-09-01'
+  idhal: lucence-ing
 mael-cocula:
   id: mael-cocula
   name: Maël Cocula
@@ -373,6 +791,37 @@ maeline-perez:
     to: '2028-09-01'
   - status: alumni
     from: '2028-09-01'
+magalie-vetter:
+  id: magalie-vetter
+  name: Magalie Vetter
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
+malamatenia-vlachou-efstathiou:
+  id: malamatenia-vlachou-efstathiou
+  name: Malamatenia Vlachou-Efstathiou
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
+  idhal: malamatenia-vlachou-efstathiou
+mamy-rakotondravohitra:
+  id: mamy-rakotondravohitra
+  name: Mamy Rakotondravohitra
+  aliases: []
+  roles:
+  - status: student
+    from: '2017-09-01'
+    to: '2019-09-01'
+  - status: alumni
+    from: '2019-09-01'
 manon-remot:
   id: manon-remot
   name: Manon Remot
@@ -391,11 +840,26 @@ marc-bui:
   - status: professor
     from: '2025-09-01'
   idhal: marc-bui
+margot-pascual:
+  id: margot-pascual
+  name: Margot Pascual
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
 marguerite-vernet:
   id: marguerite-vernet
   name: Marguerite Vernet
   aliases: []
   roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
   - status: professor
     from: '2025-09-01'
 maria-kirbasova:
@@ -408,6 +872,16 @@ maria-kirbasova:
     to: '2026-09-01'
   - status: alumni
     from: '2026-09-01'
+maria-silva-cordero-mendez:
+  id: maria-silva-cordero-mendez
+  name: Maria Silva Cordero Mendez
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
 marie-bizais-lillig:
   id: marie-bizais-lillig
   name: Marie Bizais-Lillig
@@ -428,6 +902,16 @@ marie-puren:
   - status: professor
     from: '2025-09-01'
   idhal: marie-puren
+marina-giardinetti:
+  id: marina-giardinetti
+  name: Marina Giardinetti
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
 marion-carnot:
   id: marion-carnot
   name: Marion Carnot
@@ -448,6 +932,16 @@ marisol-du-cauze-de-nazelle:
     to: '2027-09-01'
   - status: alumni
     from: '2027-09-01'
+marthe-vertongen:
+  id: marthe-vertongen
+  name: Marthe Vertongen
+  aliases: []
+  roles:
+  - status: student
+    from: '2019-09-01'
+    to: '2021-09-01'
+  - status: alumni
+    from: '2021-09-01'
 martin-houlier:
   id: martin-houlier
   name: Martin Houlier
@@ -489,6 +983,7 @@ mathieu-riviere:
     to: '2027-09-01'
   - status: alumni
     from: '2027-09-01'
+  idhal: mathieu-riviere-2003
 maxime-letoffe:
   id: maxime-letoffe
   name: Maxime Létoffé
@@ -499,6 +994,59 @@ maxime-letoffe:
     to: '2027-09-01'
   - status: alumni
     from: '2027-09-01'
+maylis-ribette:
+  id: maylis-ribette
+  name: Maylis Ribette
+  aliases: []
+  roles:
+  - status: student
+    from: '2016-09-01'
+    to: '2018-09-01'
+  - status: alumni
+    from: '2018-09-01'
+michael-colla:
+  id: michael-colla
+  name: Michael Colla
+  aliases: []
+  roles:
+  - status: student
+    from: '2020-09-01'
+    to: '2022-09-01'
+  - status: alumni
+    from: '2022-09-01'
+michel-capot:
+  id: michel-capot
+  name: Michel Capot
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
+moira-rosabrunetto:
+  id: moira-rosabrunetto
+  name: Moira Rosabrunetto
+  aliases: []
+  roles:
+  - status: student
+    from: '2019-09-01'
+    to: '2021-09-01'
+  - status: alumni
+    from: '2021-09-01'
+mylene-maignant:
+  id: mylene-maignant
+  name: Mylène Maignant
+  aliases: []
+  roles:
+  - status: student
+    from: '2016-09-01'
+    to: '2018-09-01'
+  - status: alumni
+    from: '2018-09-01'
+  hal_id:
+  - 1120997
+  - 1410854
 nana-maglakelidze:
   id: nana-maglakelidze
   name: Nana Maglakelidze
@@ -519,6 +1067,16 @@ nicolas-bestauros-alvarez:
     to: '2028-09-01'
   - status: alumni
     from: '2028-09-01'
+noe-leroy:
+  id: noe-leroy
+  name: Noé Leroy
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
 nycia-pradel-fernandes:
   id: nycia-pradel-fernandes
   name: Nycia Pradel-Fernandes
@@ -529,6 +1087,16 @@ nycia-pradel-fernandes:
     to: '2028-09-01'
   - status: alumni
     from: '2028-09-01'
+oceane-amette:
+  id: oceane-amette
+  name: Océane Amette
+  aliases: []
+  roles:
+  - status: student
+    from: '2017-09-01'
+    to: '2019-09-01'
+  - status: alumni
+    from: '2019-09-01'
 ombeline-ferraris:
   id: ombeline-ferraris
   name: Ombeline Ferraris
@@ -539,6 +1107,38 @@ ombeline-ferraris:
     to: '2028-09-01'
   - status: alumni
     from: '2028-09-01'
+pauline-frejat:
+  id: pauline-frejat
+  name: Pauline Frejat
+  aliases: []
+  roles:
+  - status: student
+    from: '2016-09-01'
+    to: '2018-09-01'
+  - status: alumni
+    from: '2018-09-01'
+pauline-leveque-guibert:
+  id: pauline-leveque-guibert
+  name: Pauline Leveque-Guibert
+  aliases: []
+  roles:
+  - status: student
+    from: '2016-09-01'
+    to: '2018-09-01'
+  - status: alumni
+    from: '2018-09-01'
+perrine-maurel:
+  id: perrine-maurel
+  name: Perrine Maurel
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
+  hal_id:
+  - 1434543
 peter-stokes:
   id: peter-stokes
   name: Peter Stokes
@@ -547,6 +1147,18 @@ peter-stokes:
   - status: professor
     from: '2025-09-01'
   idhal: peter-stokes
+philippe-chaumet-riffaud:
+  id: philippe-chaumet-riffaud
+  name: Philippe Chaumet-Riffaud
+  aliases: []
+  roles:
+  - status: student
+    from: '2025-09-01'
+    to: '2027-09-01'
+  - status: alumni
+    from: '2027-09-01'
+  hal_id:
+  - 1555821
 philippe-pons:
   id: philippe-pons
   name: Philippe Pons
@@ -584,6 +1196,16 @@ radjaa-benabdallah:
     to: '2026-09-01'
   - status: alumni
     from: '2026-09-01'
+romain-verny:
+  id: romain-verny
+  name: Romain Verny
+  aliases: []
+  roles:
+  - status: student
+    from: '2020-09-01'
+    to: '2022-09-01'
+  - status: alumni
+    from: '2022-09-01'
 romy-raccat:
   id: romy-raccat
   name: Romy Raccat
@@ -614,6 +1236,26 @@ susanna-de-luca:
     to: '2026-09-01'
   - status: alumni
     from: '2026-09-01'
+tanguy-ruault:
+  id: tanguy-ruault
+  name: Tanguy Ruault
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
+tao-liang:
+  id: tao-liang
+  name: Tao Liang
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
 thais-raffray:
   id: thais-raffray
   name: Thaïs Raffray
@@ -624,6 +1266,8 @@ thais-raffray:
     to: '2027-09-01'
   - status: alumni
     from: '2027-09-01'
+  hal_id:
+  - 1684517
 theo-moins:
   id: theo-moins
   name: Théo Moins
@@ -631,6 +1275,16 @@ theo-moins:
   roles:
   - status: professor
     from: '2025-09-01'
+theophile-miailhe:
+  id: theophile-miailhe
+  name: Théophile Miailhe
+  aliases: []
+  roles:
+  - status: student
+    from: '2022-09-01'
+    to: '2024-09-01'
+  - status: alumni
+    from: '2024-09-01'
 thibault-lozinguez:
   id: thibault-lozinguez
   name: Thibault Lozinguez
@@ -670,6 +1324,16 @@ tom-wainstain:
     to: '2027-09-01'
   - status: alumni
     from: '2027-09-01'
+vincent-giovannangeli:
+  id: vincent-giovannangeli
+  name: Vincent Giovannangeli
+  aliases: []
+  roles:
+  - status: student
+    from: '2020-09-01'
+    to: '2022-09-01'
+  - status: alumni
+    from: '2022-09-01'
 vincent-jolivet:
   id: vincent-jolivet
   name: Vincent Jolivet
@@ -678,6 +1342,28 @@ vincent-jolivet:
   - status: professor
     from: '2025-09-01'
   idhal: vjolivet
+vincent-sarbach-pulicani:
+  id: vincent-sarbach-pulicani
+  name: Vincent Sarbach-Pulicani
+  aliases:
+  - Vincent Sarbach
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
+  idhal: vincent-sarbach-pulicani
+xinmin-hu:
+  id: xinmin-hu
+  name: Xinmin Hu
+  aliases: []
+  roles:
+  - status: student
+    from: '2019-09-01'
+    to: '2021-09-01'
+  - status: alumni
+    from: '2021-09-01'
 yaelle-zribi:
   id: yaelle-zribi
   name: Yaelle Zribi
@@ -688,6 +1374,17 @@ yaelle-zribi:
     to: '2025-09-01'
   - status: alumni
     from: '2025-09-01'
+yagmur-ozturk:
+  id: yagmur-ozturk
+  name: Yagmur Ozturk
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'
+  idhal: yagmurozturk
 ye-liu:
   id: ye-liu
   name: Ye Liu
@@ -698,3 +1395,13 @@ ye-liu:
     to: '2026-09-01'
   - status: alumni
     from: '2026-09-01'
+zoe-l-eveque:
+  id: zoe-l-eveque
+  name: Zoé L'Eveque
+  aliases: []
+  roles:
+  - status: student
+    from: '2021-09-01'
+    to: '2023-09-01'
+  - status: alumni
+    from: '2023-09-01'

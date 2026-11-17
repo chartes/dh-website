@@ -3,7 +3,8 @@
 {{/* ── Construction de la requête HAL ──
      - Pour chaque membre de l'équipe avec un `idhal` renseigné : requête sur authIdHal_s (sans bruit).
      - Pour les autres : fallback sur authFullName_t (avec risque d'homonymes).
-     Les deux clauses sont combinées en OR. */}}
+     - Étudiants et alumni avec `idhal` : voir plus bas.
+     Les clauses sont combinées en OR. */}}
 {{ $teachers := where site.RegularPages "Type" "teacher" }}
 {{ $teachers = where $teachers "Params.master_teacher" true }}
 {{ $ids := slice }}
@@ -22,6 +23,32 @@
 {{ if $names }}
   {{ $clauses = $clauses | append (printf "authFullName_t:(%s)" (delimit $names " OR ")) }}
 {{ end }}
+
+{{/* ── Étudiants et alumni (data/personnes.yml) repérés dans HAL, hors équipe : idHAL ou,
+     à défaut, identifiant de personne HAL (`hal_id`) ; pas de recherche par nom seul
+     (homonymes). Notices postérieures à l'entrée dans le master, sans les mémoires (déjà
+     sur la page alumni). Même logique que PublicationStatus.member_clause
+     (scripts/publication_status.rb). */}}
+{{ range $id, $person := hugo.Data.personnes }}
+  {{ $isTeacher := false }}
+  {{ $from := "" }}
+  {{ range $person.roles }}
+    {{ if eq .status "professor" }}{{ $isTeacher = true }}{{ end }}
+    {{ if and (eq .status "student") (or (eq $from "") (lt .from $from)) }}{{ $from = .from }}{{ end }}
+  {{ end }}
+  {{ $author := "" }}
+  {{ with $person.idhal }}
+    {{ $author = printf "authIdHal_s:\"%s\"" . }}
+  {{ else with $person.hal_id }}
+    {{ $halIds := . }}
+    {{ if not (reflect.IsSlice $halIds) }}{{ $halIds = slice $halIds }}{{ end }}
+    {{ $author = printf "authIdPerson_i:(%s)" (delimit $halIds " OR ") }}
+  {{ end }}
+  {{ if and $author (not $isTeacher) (ne $from "") }}
+    {{ $clauses = $clauses | append (printf "(%s AND producedDate_tdate:[%sT00:00:00Z TO *] NOT docType_s:MEM)" $author $from) }}
+  {{ end }}
+{{ end }}
+
 {{ $q := delimit $clauses " OR " }}
 
 {{/* `language_s` (RGAA 8.7) : tableau de codes ISO 639-1 renvoyé par HAL
