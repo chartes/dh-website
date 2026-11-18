@@ -13,4 +13,4 @@ participants:
   - name: "Florian Cafiero"
     role: "Enseignant"
 ---
-Présentation de « TRACE », un système de recherche documentaire agentique pour les archives historiques.
+Présentation de [« TRACE »](https://dl.acm.org/doi/10.1145/3799682.3840134), un système de recherche documentaire agentique pour les archives historiques.

@@ -7,14 +7,20 @@
 {{ $items := $posts | union $events | union $participations }}
 {{ $items = $items.ByDate.Reverse }}
 
-{{/* Collecte des catégories présentes pour les chips de filtre. */}}
+{{/* Une catégorie peut avoir des variantes de casse (Hackathon/hackathon).
+     Dédupliquer sur la même clé normalisée que celle utilisée pour le filtrage. */}}
 {{ $categories := slice }}
+{{ $categoryLabels := newScratch }}
 {{ range $items }}
   {{ $cat := .Params.category }}
   {{ if not $cat }}
     {{ if eq .Type "event" }}{{ $cat = "conférence" }}{{ else }}{{ $cat = "publication" }}{{ end }}
   {{ end }}
-  {{ $categories = $categories | append $cat }}
+  {{ $key := $cat | lower | replaceRE "[éêè]" "e" | replaceRE "[àâ]" "a" | replaceRE "[^a-z0-9-]" "" }}
+  {{ if not ($categoryLabels.Get $key) }}
+    {{ $categoryLabels.Set $key ($cat | humanize) }}
+  {{ end }}
+  {{ $categories = $categories | append $key }}
 {{ end }}
 {{ $categories = $categories | uniq | sort }}
 
@@ -36,8 +42,7 @@
     <div class="actus-filters" role="group" aria-label="Filtrer par catégorie">
       <button type="button" class="actus-filter is-active" data-filter="all" aria-pressed="true">Toutes</button>
       {{ range $categories }}
-      {{ $key := . | lower | replaceRE "[éêè]" "e" | replaceRE "[àâ]" "a" | replaceRE "[^a-z0-9-]" "" }}
-      <button type="button" class="actus-filter" data-filter="{{ $key }}" aria-pressed="false">{{ . | humanize }}</button>
+      <button type="button" class="actus-filter" data-filter="{{ . }}" aria-pressed="false">{{ $categoryLabels.Get . }}</button>
       {{ end }}
     </div>
     {{ end }}

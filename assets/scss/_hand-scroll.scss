@@ -1,0 +1,243 @@
+.hand-scroll {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1030;
+  width: calc(100vw - 2rem);
+  max-width: 18rem;
+  padding: 1rem;
+  color: #fff;
+  background: #17324d;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+
+  &__close {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.35rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    color: #fff;
+    background: transparent;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  &__reopen {
+    display: none;
+  }
+
+  h2 {
+    margin: 0 0 0.5rem;
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  button.hand-scroll__help-link {
+    padding: 0;
+    color: #c9d2d8;
+    background: transparent;
+    border: 0;
+    font-size: 0.8rem;
+    text-decoration: underline;
+  }
+
+  p {
+    margin-bottom: 0.75rem;
+    color: #fff;
+    font-size: 0.875rem;
+  }
+
+  button {
+    padding: 0.5rem 0.75rem;
+    color: #17324d;
+    background: #fff;
+    border: 0;
+    cursor: pointer;
+  }
+
+  button.hand-scroll__close {
+    padding: 0;
+    color: #a7b0b8;
+    background: transparent;
+    border: 0;
+  }
+
+  &__preview {
+    position: relative;
+    display: none;
+    margin-top: 0.75rem;
+  }
+
+  video {
+    width: 100%;
+    transform: scaleX(-1);
+  }
+
+  &[data-active='true'] .hand-scroll__preview {
+    display: block;
+  }
+
+  &[data-collapsed='true'] {
+    right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    box-sizing: border-box;
+
+    > :not(.hand-scroll__reopen):not(.hand-scroll__close) {
+      display: none;
+    }
+
+    .hand-scroll__close {
+      display: none;
+    }
+
+    .hand-scroll__reopen {
+      display: block;
+      width: 2.5rem;
+      height: 2.5rem;
+      min-height: 0;
+      padding: 0;
+      color: #a7b0b8;
+      background: transparent;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+.hand-scroll__cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: none;
+  width: 0.65rem;
+  height: 0.65rem;
+  background: #9be7b4;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.35), 0 0 0.75rem rgba(155, 231, 180, 0.8);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+
+  &.is-pinching {
+    background: #159447;
+    box-shadow: 0 0 0 2px rgba(21, 148, 71, 0.45), 0 0 1rem rgba(21, 148, 71, 0.95);
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+}
+
+.hand-scroll__trail {
+  position: fixed;
+  inset: 0;
+  z-index: 1999;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.hand-scroll-help[hidden] {
+  display: none;
+}
+
+.hand-scroll-help {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(15, 29, 42, 0.62);
+}
+
+.hand-scroll-help__panel {
+  position: relative;
+  width: 100%;
+  max-width: 42rem;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 2rem;
+  color: #17324d;
+  background: #f7f8f6;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25);
+}
+
+.hand-scroll-help__panel h2 {
+  margin: 0 2rem 1.5rem 0;
+  color: #17324d;
+  font-size: 1.35rem;
+  text-align: center;
+}
+
+.hand-scroll-help__close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.75rem;
+  padding: 0;
+  color: #747d84;
+  background: transparent;
+  border: 0;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.hand-scroll-help__items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.hand-scroll-help__items article {
+  text-align: center;
+}
+
+.hand-scroll-help__items img {
+  display: block;
+  width: 100%;
+  height: 8rem;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+
+.hand-scroll-help__items p {
+  margin: 0;
+  color: #17324d;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.hand-scroll-help__credits {
+  margin: 1.5rem 0 0;
+  color: #747d84;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.hand-scroll-help__credits a {
+  color: inherit;
+}
+
+.hand-scroll-help__privacy {
+  margin: 1rem 0 0;
+  color: #53616b;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .hand-scroll-help__panel {
+    padding: 1.5rem 1rem;
+  }
+
+  .hand-scroll-help__items {
+    grid-template-columns: 1fr;
+  }
+
+  .hand-scroll-help__items img {
+    height: 6rem;
+  }
+}

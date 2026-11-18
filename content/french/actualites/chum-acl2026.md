@@ -7,10 +7,8 @@ pin_master: true
 external_url: "https://chumweb.org/"
 participants:
   - name: "Yaelle Zribi"
-    role: "M2"
+    role: "Alumna, Columbia University"
   - name: "Florian Cafiero"
-    role: "Enseignant"
-  - name: "Vincent Lépinay"
     role: "Enseignant"
   - name: "Chahan Vidal-Gorène"
     role: "Enseignant"

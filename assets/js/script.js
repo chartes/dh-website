@@ -122,3 +122,396 @@
   });
 
 })(jQuery);
+
+// Hand scroll
+
+(function () {
+  'use strict';
+
+  var panel = document.querySelector('[data-hand-scroll]');
+  var toggle = document.querySelector('[data-hand-scroll-toggle]');
+  var video = document.querySelector('[data-hand-scroll-video]');
+  var status = document.querySelector('[data-hand-scroll-status]');
+  var cursor = document.querySelector('[data-hand-scroll-cursor]');
+  var trail = document.querySelector('[data-hand-scroll-trail]');
+  var trailContext = trail && trail.getContext('2d');
+  var trailPoints = [];
+  var reopen = document.querySelector('[data-hand-scroll-reopen]');
+  var close = document.querySelector('[data-hand-scroll-close]');
+  var help = document.querySelector('[data-hand-scroll-help]');
+  var helpClose = document.querySelector('[data-hand-scroll-help-close]');
+  var helpOpen = document.querySelector('[data-hand-scroll-help-open]');
+  var stream;
+  var handLandmarker;
+  var animationFrame;
+  var lastScrollAt = 0;
+  var lastIndexGesture;
+  var pinchStartedAt;
+  var pinchTarget;
+  var pinchClicked = false;
+  var lastClickAt = 0;
+  var panelPreferenceKey = 'dh-website-hand-scroll-panel-open';
+  var cameraPreferenceKey = 'dh-website-hand-scroll-camera-enabled';
+  var helpSeenKey = 'dh-website-hand-scroll-help-seen';
+  var startAfterHelp = false;
+
+  if (!panel || !toggle || !video || !status || !cursor || !trail || !trailContext || !reopen || !close || !help || !helpClose || !helpOpen) {
+    return;
+  }
+
+  function setCollapsed(collapsed) {
+    panel.dataset.collapsed = collapsed ? 'true' : 'false';
+    reopen.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    localStorage.setItem(panelPreferenceKey, collapsed ? 'false' : 'true');
+  }
+
+  function setStatus(message) {
+    status.textContent = message;
+  }
+
+  function withTimeout(promise, message, delay) {
+    var timeout = new Promise(function (_, reject) {
+      window.setTimeout(function () {
+        reject(new Error(message));
+      }, delay);
+    });
+    return Promise.race([promise, timeout]);
+  }
+
+  if (localStorage.getItem(panelPreferenceKey) === 'true') {
+    setCollapsed(false);
+  }
+
+  function stopHandScroll(clearPreference) {
+    if (animationFrame) {
+      window.cancelAnimationFrame(animationFrame);
+    }
+    if (stream) {
+      stream.getTracks().forEach(function (track) {
+        track.stop();
+      });
+    }
+    stream = null;
+    video.srcObject = null;
+    lastIndexGesture = undefined;
+    pinchStartedAt = undefined;
+    pinchTarget = undefined;
+    pinchClicked = false;
+    cursor.classList.remove('is-pinching');
+    cursor.style.display = 'none';
+    trailPoints = [];
+    trailContext.clearRect(0, 0, trail.width, trail.height);
+    panel.dataset.active = 'false';
+    setCollapsed(true);
+    toggle.textContent = 'Activer la caméra';
+    toggle.disabled = false;
+    setStatus('La caméra est désactivée.');
+    if (clearPreference) {
+      localStorage.removeItem(cameraPreferenceKey);
+    }
+  }
+
+  function distance(first, second) {
+    return Math.hypot(first.x - second.x, first.y - second.y, first.z - second.z);
+  }
+
+  function isFingerCurled(landmarks, tipIndex, pipIndex) {
+    var wrist = landmarks[0];
+    return distance(landmarks[tipIndex], wrist) < distance(landmarks[pipIndex], wrist) * 1.05;
+  }
+
+  function angleBetween(first, second, third) {
+    var firstVector = { x: first.x - second.x, y: first.y - second.y, z: first.z - second.z };
+    var secondVector = { x: third.x - second.x, y: third.y - second.y, z: third.z - second.z };
+    var dotProduct = firstVector.x * secondVector.x + firstVector.y * secondVector.y + firstVector.z * secondVector.z;
+    var firstLength = distance(first, second);
+    var secondLength = distance(third, second);
+    var cosine = dotProduct / (firstLength * secondLength);
+    return Math.acos(Math.max(-1, Math.min(1, cosine))) * 180 / Math.PI;
+  }
+
+  function getInteractiveTarget(x, y) {
+    var element = document.elementFromPoint(x, y);
+    return element && element.closest('a, button, input, select, textarea, [role="button"], [tabindex]:not([tabindex="-1"])');
+  }
+
+  function resizeTrail() {
+    var scale = window.devicePixelRatio || 1;
+    trail.width = window.innerWidth * scale;
+    trail.height = window.innerHeight * scale;
+    trailContext.setTransform(scale, 0, 0, scale, 0, 0);
+  }
+
+  function drawTrail(isPinching) {
+    trailContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    if (trailPoints.length < 2) {
+      return;
+    }
+    trailContext.lineCap = 'round';
+    trailContext.lineJoin = 'round';
+    trailPoints.slice(1).forEach(function (point, index) {
+      var previous = trailPoints[index];
+      var progress = (index + 1) / (trailPoints.length - 1);
+      trailContext.beginPath();
+      trailContext.moveTo(previous.x, previous.y);
+      trailContext.lineTo(point.x, point.y);
+      trailContext.strokeStyle = isPinching ?
+        'rgba(21, 148, 71, ' + (0.25 + progress * 0.7) + ')' :
+        'rgba(155, 231, 180, ' + (0.12 + progress * 0.66) + ')';
+      trailContext.lineWidth = isPinching ? 1.5 + progress * 5 : 1 + progress * 3;
+      trailContext.stroke();
+    });
+  }
+
+  function addTrailPoint(x, y) {
+    var previous = trailPoints[trailPoints.length - 1];
+    if (previous) {
+      var deltaX = x - previous.x;
+      var deltaY = y - previous.y;
+      var distanceBetweenPoints = Math.hypot(deltaX, deltaY);
+      var interpolationSteps = Math.min(8, Math.max(1, Math.ceil(distanceBetweenPoints / 12)));
+      for (var step = 1; step <= interpolationSteps; step += 1) {
+        trailPoints.push({
+          x: previous.x + deltaX * step / interpolationSteps,
+          y: previous.y + deltaY * step / interpolationSteps
+        });
+      }
+    } else {
+      trailPoints.push({ x: x, y: y });
+    }
+    if (trailPoints.length > 36) {
+      trailPoints.splice(0, trailPoints.length - 36);
+    }
+  }
+
+  function updatePinch(indexTip, thumbTip, cursorX, cursorY, now) {
+    var pinchDistance = distance(indexTip, thumbTip);
+    var isPinching = pinchDistance < 0.06;
+
+    if (!isPinching) {
+      pinchStartedAt = undefined;
+      pinchTarget = undefined;
+      pinchClicked = false;
+      cursor.classList.remove('is-pinching');
+      return false;
+    }
+
+    var target = getInteractiveTarget(cursorX, cursorY);
+    cursor.classList.add('is-pinching');
+    if (!target) {
+      setStatus('Pincement détecté : aucun élément interactif ici.');
+      return true;
+    }
+    if (target !== pinchTarget) {
+      pinchTarget = target;
+      pinchStartedAt = now;
+      pinchClicked = false;
+    }
+    if (!pinchStartedAt) {
+      pinchStartedAt = now;
+    }
+    if (!pinchClicked && now - pinchStartedAt >= 300 && now - lastClickAt >= 700) {
+      target.click();
+      pinchClicked = true;
+      lastClickAt = now;
+      setStatus('Clic déclenché. Relâche puis pince à nouveau pour cliquer.');
+    } else if (!pinchClicked) {
+      setStatus('Maintiens le pincement pour cliquer.');
+    }
+    return true;
+  }
+
+  function trackHand(timestamp) {
+    if (!handLandmarker || video.readyState < 2) {
+      animationFrame = window.requestAnimationFrame(trackHand);
+      return;
+    }
+
+    var result = handLandmarker.detectForVideo(video, timestamp);
+    var hand = result.landmarks && result.landmarks[0];
+    var indexTip = hand && hand[8];
+    var indexPip = hand && hand[6];
+    var thumbTip = hand && hand[4];
+    var thumbIp = hand && hand[3];
+    var thumbMcp = hand && hand[2];
+
+    if (indexTip) {
+      var cursorX = (1 - indexTip.x) * window.innerWidth;
+      var cursorY = indexTip.y * window.innerHeight;
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+      cursor.style.display = 'block';
+      addTrailPoint(cursorX, cursorY);
+    } else {
+      cursor.style.display = 'none';
+      trailPoints = [];
+    }
+
+    var now = performance.now();
+    var pinchActive = indexTip && thumbTip && updatePinch(
+      indexTip,
+      thumbTip,
+      (1 - indexTip.x) * window.innerWidth,
+      indexTip.y * window.innerHeight,
+      now
+    );
+    drawTrail(Boolean(pinchActive));
+    if (!indexTip || !thumbTip) {
+      pinchStartedAt = undefined;
+      pinchTarget = undefined;
+      pinchClicked = false;
+      cursor.classList.remove('is-pinching');
+    }
+
+    if (!pinchActive && indexTip && indexPip && thumbTip && thumbIp && thumbMcp) {
+      var indexExtended = distance(indexTip, hand[0]) > distance(indexPip, hand[0]) * 1.1;
+      var thumbExtended = distance(thumbTip, hand[0]) > distance(thumbIp, hand[0]) * 1.15;
+      var curledFingers = [
+        isFingerCurled(hand, 12, 10),
+        isFingerCurled(hand, 16, 14),
+        isFingerCurled(hand, 20, 18)
+      ].filter(Boolean).length;
+      var thumbAngle = angleBetween(indexTip, hand[0], thumbTip);
+      var indexGesture = '';
+      if (indexExtended && thumbExtended && curledFingers >= 2 && thumbAngle >= 20) {
+        if (indexTip.y < indexPip.y - 0.05) {
+          indexGesture = 'up';
+        } else if (indexTip.y > indexPip.y + 0.05) {
+          indexGesture = 'down';
+        }
+      }
+
+      if (indexGesture) {
+        cursor.style.display = 'none';
+        trailContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        if (indexGesture !== lastIndexGesture || now - lastScrollAt > 700) {
+          window.scrollBy({
+            top: indexGesture === 'up' ? -180 : 180,
+            behavior: 'smooth'
+          });
+          lastScrollAt = now;
+        }
+        lastIndexGesture = indexGesture;
+        setStatus(indexGesture === 'up' ?
+          '👆 Défilement vers le haut.' :
+          '👇 Défilement vers le bas.');
+      } else {
+        lastIndexGesture = undefined;
+        if (indexTip) {
+          cursor.style.display = 'block';
+        }
+        setStatus(indexTip ? 'Fais 👆, 👇 ou 🤏' : 'Aucune main détectée.');
+      }
+    } else {
+      lastIndexGesture = undefined;
+      setStatus(indexTip ? 'Index détecté.' : 'Aucune main détectée.');
+    }
+
+    animationFrame = window.requestAnimationFrame(trackHand);
+  }
+
+  async function startHandScroll() {
+    toggle.disabled = true;
+    setStatus('Chargement...');
+
+    try {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        throw new Error('camera-unavailable');
+      }
+
+      var visionModule = await withTimeout(
+        import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/vision_bundle.mjs'),
+        'media-pipe-module-timeout',
+        15000
+      );
+      var vision = await withTimeout(visionModule.FilesetResolver.forVisionTasks(
+        'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm'
+      ), 'media-pipe-wasm-timeout', 15000);
+      handLandmarker = await withTimeout(visionModule.HandLandmarker.createFromOptions(vision, {
+        baseOptions: {
+          modelAssetPath: 'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task',
+          delegate: 'GPU'
+        },
+        runningMode: 'VIDEO',
+        numHands: 1
+      }), 'media-pipe-model-timeout', 15000);
+      stream = await withTimeout(navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'user', width: { ideal: 640 }, height: { ideal: 480 } },
+        audio: false
+      }), 'camera-timeout', 15000);
+      video.srcObject = stream;
+      await video.play();
+      panel.dataset.active = 'true';
+      setCollapsed(false);
+      toggle.textContent = 'Désactiver la caméra';
+      toggle.disabled = false;
+      localStorage.setItem(cameraPreferenceKey, 'true');
+      setStatus('Aucune main détectée.');
+      animationFrame = window.requestAnimationFrame(trackHand);
+    } catch (error) {
+      console.error('Hand scroll could not start:', error);
+      stopHandScroll(false);
+      localStorage.removeItem(cameraPreferenceKey);
+      if (error.name === 'NotAllowedError') {
+        setStatus('Accès à la caméra refusé.');
+      } else if (error.message === 'media-pipe-module-timeout') {
+        setStatus('Le chargement de MediaPipe a expiré. Vérifie ta connexion ou les bloqueurs de contenu.');
+      } else if (error.message === 'media-pipe-wasm-timeout') {
+        setStatus('Le module MediaPipe est bloqué par le navigateur.');
+      } else if (error.message === 'media-pipe-model-timeout') {
+        setStatus('Le modèle MediaPipe est bloqué par le navigateur.');
+      } else if (error.message === 'camera-timeout') {
+        setStatus('La caméra n’a pas répondu à temps.');
+      } else {
+        setStatus('La détection de main est indisponible.');
+      }
+    }
+  }
+
+  function openHelp(startCameraAfterClose) {
+    startAfterHelp = startCameraAfterClose;
+    help.hidden = false;
+    helpClose.focus();
+  }
+
+  function closeHelp() {
+    help.hidden = true;
+    if (startAfterHelp) {
+      startAfterHelp = false;
+      startHandScroll();
+    }
+  }
+
+  toggle.addEventListener('click', function () {
+    if (stream) {
+      stopHandScroll(true);
+    } else {
+      if (sessionStorage.getItem(helpSeenKey) === 'true') {
+        startHandScroll();
+      } else {
+        sessionStorage.setItem(helpSeenKey, 'true');
+        openHelp(true);
+      }
+    }
+  });
+
+  resizeTrail();
+  window.addEventListener('resize', resizeTrail);
+
+  reopen.addEventListener('click', function () {
+    setCollapsed(false);
+  });
+
+  close.addEventListener('click', function () {
+    setCollapsed(true);
+  });
+
+  helpClose.addEventListener('click', closeHelp);
+  helpOpen.addEventListener('click', function () {
+    openHelp(false);
+  });
+
+  if (localStorage.getItem(cameraPreferenceKey) === 'true') {
+    startHandScroll();
+  }
+})();

@@ -1224,6 +1224,51 @@ table.programme-table {
   border-bottom: 1px solid $border-color;
 }
 
+.publications-filter-toggle {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.85rem;
+}
+
+.publications-profile-filter {
+  margin-top: 0.75rem;
+
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .publications-profile-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    align-items: flex-start;
+    cursor: pointer;
+    display: inline-flex;
+    gap: 0.45rem;
+  }
+
+  input[type="checkbox"] {
+    accent-color: $primary-color;
+    flex: 0 0 auto;
+    margin-top: 0.25rem;
+  }
+}
+
+.publications-filter-error {
+  border-left: 3px solid $primary-color;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  padding-left: 0.75rem;
+}
+
 .publications-search {
   display: block;
   width: 100%;
