@@ -43,7 +43,12 @@ memoires:
     niveau: "M2"
     titre: "Déjouer les silences"
     etudiant: "Violette Saïag"
-    codirecteur: "Régis Schlagdenhauffen"
+    codirecteur: "Florian Cafiero, Régis Schlagdenhauffen"
+  - annee: 2022
+    niveau: "M1"
+    titre: "Représentations de la féminité dans la littérature lesbienne du Paris fin de siècle"
+    etudiant: "Violette Saïag"
+    codirecteur: "Florian Cafiero, Régis Schlagdenhauffen"
   - annee: 2020
     niveau: "M2"
     titre: "Romans d’aventures et RPG : proximité narrative et apport interactif"
