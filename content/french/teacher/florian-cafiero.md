@@ -21,6 +21,30 @@ cours:
   - "M1 - LLM & computational literary studies"
   - "M2 - Philologie computationnelle"
 memoires:
+  - annee: 2027
+    niveau: "M2"
+    titre: "Titre à déterminer — mémoire prévu pour 2027"
+    etudiant: "Maël Cocula"
+  - annee: 2027
+    niveau: "M2"
+    titre: "Titre à déterminer — mémoire prévu pour 2027"
+    etudiant: "Marisol du Cauzé de Nazelle"
+  - annee: 2027
+    niveau: "M2"
+    titre: "Titre à déterminer — mémoire prévu pour 2027"
+    etudiant: "Manon Remot"
+  - annee: 2027
+    niveau: "M1"
+    titre: "Titre à déterminer — mémoire prévu pour 2027"
+    etudiant: "Nicolas Bestauros Alvarez"
+  - annee: 2027
+    niveau: "M1"
+    titre: "Titre à déterminer — mémoire prévu pour 2027"
+    etudiant: "Romy Raccat"
+  - annee: 2027
+    niveau: "M1"
+    titre: "Titre à déterminer — mémoire prévu pour 2027"
+    etudiant: "Tom Wainstain"
   - annee: 2026
     niveau: "M2"
     titre: "The Persuasive Power of Media Framing on Television: Modeling the Impact of Immigration Framing on Public Opinion (2013–2017)"
@@ -44,7 +68,7 @@ memoires:
   - annee: 2026
     niveau: "M1"
     titre: "Polluants éternels, autorités divergentes. La mobilisation de l’incertitude scientifique sur les PFAS dans les débats parlementaires français et américains"
-    etudiant: "Marisol du Cauze de Nazelle"
+    etudiant: "Marisol du Cauzé de Nazelle"
   - annee: 2026
     niveau: "M1"
     titre: "Le Caesar Act et ses effets sur l’économie syrienne : sanctions, effondrement formel et essor du trafic de captagon"
@@ -81,10 +105,20 @@ memoires:
     etudiant: "Francesca Hemery"
     codirecteur: "Thierry Poibeau (CNRS / LATTICE, ENS – PSL)"
   - annee: 2023
+    niveau: "M2"
+    titre: "Déjouer les silences"
+    etudiant: "Violette Saïag"
+    codirecteur: "Marie Puren (EPITA / Centre Jean-Mabillon, École nationale des chartes – PSL), Régis Schlagdenhauffen (EHESS)"
+  - annee: 2023
     niveau: "M1"
     titre: "Twitter : ID et idées"
     etudiant: "Reda Tamtam"
     codirecteur: "Mehdi Arfaoui (CNIL / EHESS-CEMS)"
+  - annee: 2022
+    niveau: "M1"
+    titre: "Représentations de la féminité dans la littérature lesbienne du Paris fin de siècle"
+    etudiant: "Violette Saïag"
+    codirecteur: "Marie Puren (EPITA / Centre Jean-Mabillon, École nationale des chartes – PSL), Régis Schlagdenhauffen (EHESS)"
   - annee: 2022
     niveau: "M2"
     titre: "Dynamiques et diffusion de discours de haine dans la sphère réactionnaire française sur YouTube au moment de l’élection présidentielle de 2022 : approches par l’analyse de réseau et l’apprentissage profond"
