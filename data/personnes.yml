@@ -61,6 +61,8 @@ alberto-romele:
     to: '2021-09-01'
   - status: alumni
     from: '2021-09-01'
+  hal_id:
+  - 980549
 albina-toumarkine:
   id: albina-toumarkine
   name: Albina Toumarkine
@@ -556,6 +558,8 @@ hippolyte-souvay:
     to: '2022-09-01'
   - status: alumni
     from: '2022-09-01'
+  hal_id:
+  - 1276570
 ingrid-guimaraes-de-lucena:
   id: ingrid-guimaraes-de-lucena
   name: Ingrid Guimarães de Lucena

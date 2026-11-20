@@ -16953,6 +16953,27 @@
 
     ]
   },
+  "hal-03676927": {
+    "authors": [
+      {
+        "name": "Dario Rodighiero",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "student"
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
   "hal-03681465": {
     "authors": [
       {
@@ -21636,6 +21657,27 @@
 
     ]
   },
+  "hal-04254223": {
+    "authors": [
+      {
+        "name": "Alix Chagué",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Hippolyte Souvay",
+        "person": "hippolyte-souvay",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04279087": {
     "authors": [
       {
@@ -22420,6 +22462,69 @@
 
     ]
   },
+  "hal-04463237": {
+    "authors": [
+      {
+        "name": "François-David Sebbah",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04463696": {
+    "authors": [
+      {
+        "name": "François-David Sebbah",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04463713": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "François-David Sebbah",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04468354": {
     "authors": [
       {
@@ -22614,6 +22719,34 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04538365": {
+    "authors": [
+      {
+        "name": "Franck Damour",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Stanislas Deprez",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
     ]
   },
   "hal-04552723": {
@@ -24623,6 +24756,27 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04980668": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Marta Severo",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04983716": {
@@ -26655,6 +26809,62 @@
 
     ]
   },
+  "hal-05321086": {
+    "authors": [
+      {
+        "name": "Irene De Togni",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Fabrizio Defilippi",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Séverine Millot-Dumazert",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Marta Severo",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Luis Torres-Yepez",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Jennifer Verney-Dahan",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
   "hal-05324501": {
     "authors": [
       {
@@ -28647,6 +28857,34 @@
       "professor"
     ]
   },
+  "hal-05523643": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Clément Bert-Erboul",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Julien Mésangeau",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05531280": {
     "authors": [
       {
@@ -28680,6 +28918,83 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-05535577": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05538072": {
+    "authors": [
+      {
+        "name": "Wessel Reijers",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Mark Coeckelbergh",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
+  "hal-05538087": {
+    "authors": [
+      {
+        "name": "José Higuera Rubio",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Dario Rodighiero",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Celeste Pedro",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05544910": {
@@ -28787,6 +29102,384 @@
       "professor"
     ]
   },
+  "hal-05554753": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05554761": {
+    "authors": [
+      {
+        "name": "François-David Sebbah",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05554769": {
+    "authors": [
+      {
+        "name": "François-David Sebbah",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05554774": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Marta Severo",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05554776": {
+    "authors": [
+      {
+        "name": "Paolo Furia",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05554789": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Marta Severo",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561707": {
+    "authors": [
+      {
+        "name": "Wulf Loh",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Sascha Gruss",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Stephan Frisch",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Steffen Walter",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561709": {
+    "authors": [
+      {
+        "name": "Michał Wieczorek",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561710": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561711": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561713": {
+    "authors": [
+      {
+        "name": "Nicola Liberati",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Stéphanie Gauttier",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561714": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Clément Bert-Erboul",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Julien Mésangeau",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561718": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561720": {
+    "authors": [
+      {
+        "name": "Davide Picca",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Antonin Schnyder",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561721": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561722": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561723": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561725": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05561726": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05561771": {
     "authors": [
       {
@@ -28820,6 +29513,41 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05565564": {
+    "authors": [
+      {
+        "name": "Fanny Georges",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Carsten Wilhelm",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Béatrice Arruabarrena",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05570158": {
@@ -30828,6 +31556,27 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05677472": {
+    "authors": [
+      {
+        "name": "Alberto Romele",
+        "person": "alberto-romele",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Fabrizio Defilippi",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05691366": {
