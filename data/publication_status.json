@@ -15819,6 +15819,97 @@
 
     ]
   },
+  "hal-03434548": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "student"
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
+  "hal-03434556": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03434567": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "student"
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
+  "hal-03434576": {
+    "authors": [
+      {
+        "name": "N.T. Binh",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Jean-Paul Figasso",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03434588": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Lucie Szechter",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-03457866": {
     "authors": [
       {
@@ -16286,6 +16377,34 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-03520914": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03520922": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-03526254": {
@@ -17161,6 +17280,34 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-03701473": {
+    "authors": [
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Motasem Alrahabi",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Glenn Roe",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-03707931": {
@@ -18248,6 +18395,34 @@
 
     ]
   },
+  "hal-03813716": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03813724": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-03827995": {
     "authors": [
       {
@@ -18682,6 +18857,20 @@
 
     ]
   },
+  "hal-03874117": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-03874725": {
     "authors": [
       {
@@ -18869,6 +19058,41 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-03899922": {
+    "authors": [
+      {
+        "name": "Emilien Arnaud",
+        "person": "emilien-arnaud",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Eva Fontana",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Guillaume Mazeau",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Pauline Peretz",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
     ]
   },
   "hal-03902418": {
@@ -19072,6 +19296,90 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-03924252": {
+    "authors": [
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Gérard Chouin",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Adisa Ogunfolakan",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03924272": {
+    "authors": [
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-03924349": {
+    "authors": [
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "student"
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
+    ]
+  },
+  "hal-03924379": {
+    "authors": [
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "student"
+        ]
+      },
+      {
+        "name": "Gérard Chouin",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Adisa Ogunfolakan",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "student"
     ]
   },
   "hal-03925083": {
@@ -19837,6 +20145,20 @@
 
     ]
   },
+  "hal-03998759": {
+    "authors": [
+      {
+        "name": "Elena Ghiringhelli",
+        "person": "elena-ghiringhelli",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04010445": {
     "authors": [
       {
@@ -19954,6 +20276,20 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04018878": {
+    "authors": [
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04021989": {
@@ -21041,6 +21377,90 @@
       "student"
     ]
   },
+  "hal-04115929": {
+    "authors": [
+      {
+        "name": "Gérard L. F. Chouin",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Adisa Ogunfolakan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Cécile Chapelain de Seréville-Niel",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Amanda Logan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Emuobosa Orijemie",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Geoffroy de Saulieu",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "David Sebag",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Eric Verrechia",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Luca Trombino",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Carole Acquaviva",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04121762": {
     "authors": [
       {
@@ -21130,6 +21550,20 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04133342": {
+    "authors": [
+      {
+        "name": "Adrien Jeanrenaud",
+        "person": "adrien-jeanrenaud",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04145594": {
@@ -21699,6 +22133,20 @@
 
     ]
   },
+  "hal-04288840": {
+    "authors": [
+      {
+        "name": "Alice Dionnet",
+        "person": "alice-dionnet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04295284": {
     "authors": [
       {
@@ -22112,6 +22560,62 @@
 
     ]
   },
+  "hal-04356636": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04356658": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04356668": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04356705": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04360377": {
     "authors": [
       {
@@ -22159,6 +22663,20 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04360431": {
+    "authors": [
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04362426": {
@@ -23113,6 +23631,41 @@
       "alumni"
     ]
   },
+  "hal-04637846": {
+    "authors": [
+      {
+        "name": "Marina Giardinetti",
+        "person": "marina-giardinetti",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Daniel Foliard",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Julien Schuh",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Mohamed-Salim Aissi",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-04638174": {
     "authors": [
       {
@@ -23188,6 +23741,48 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04691142": {
+    "authors": [
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04691145": {
+    "authors": [
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04691147": {
+    "authors": [
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04707440": {
@@ -23860,6 +24455,69 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-04775708": {
+    "authors": [
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Eliette Soulier",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04775723": {
+    "authors": [
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-04775768": {
+    "authors": [
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Eliette Soulier",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Catherine Jami",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-04784161": {
@@ -24940,6 +25598,48 @@
 
     ]
   },
+  "hal-05048074": {
+    "authors": [
+      {
+        "name": "Mohamed Salim Aissi",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Marina Giardinetti",
+        "person": "marina-giardinetti",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Isabelle Bloch",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Julien Schuh",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Daniel Foliard",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05059049": {
     "authors": [
       {
@@ -25211,6 +25911,20 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-05096151": {
+    "authors": [
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05100143": {
@@ -27664,6 +28378,20 @@
       "professor"
     ]
   },
+  "hal-05398446": {
+    "authors": [
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05406444": {
     "authors": [
       {
@@ -27839,6 +28567,90 @@
 
     ]
   },
+  "hal-05419057": {
+    "authors": [
+      {
+        "name": "Thomas Vernet",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05419078": {
+    "authors": [
+      {
+        "name": "Laurence Diebold",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Gérard L. F. Chouin",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Amanda Logan",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05419088": {
+    "authors": [
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Gérard L. F. Chouin",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Chloé Capel",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05419833": {
     "authors": [
       {
@@ -27992,6 +28804,27 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "hal-05426088": {
+    "authors": [
+      {
+        "name": "Edith Cannet",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05426094": {
@@ -28836,6 +29669,97 @@
       "student"
     ]
   },
+  "hal-05507062": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05507067": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Sarah Leperchey",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05507079": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05507081": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05507095": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05507101": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05509883": {
     "authors": [
       {
@@ -28987,6 +29911,27 @@
       },
       {
         "name": "Celeste Pedro",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05541778": {
+    "authors": [
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Carole Acquaviva",
         "person": null,
         "status": [
 
@@ -30068,6 +31013,27 @@
     "statuses": [
       "alumni",
       "professor"
+    ]
+  },
+  "hal-05591050": {
+    "authors": [
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Gérard Chouin",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "hal-05599910": {
@@ -31761,6 +32727,20 @@
       "alumni"
     ]
   },
+  "hal-05713864": {
+    "authors": [
+      {
+        "name": "Camille Bui",
+        "person": "camille-bui",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "hal-05715459": {
     "authors": [
       {
@@ -33001,6 +33981,83 @@
     ],
     "statuses": [
       "professor"
+    ]
+  },
+  "hal-05871611": {
+    "authors": [
+      {
+        "name": "Chahan Vidal-Gorène",
+        "person": "chahan-vidal-gorene",
+        "status": [
+          "professor"
+        ]
+      },
+      {
+        "name": "Arpine Avetisyan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Edita Matevosyan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Seda Kirakosyan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Victoria Khurshudyan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Pollet Samvelian",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "professor"
+    ]
+  },
+  "hal-05875471": {
+    "authors": [
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05875485": {
+    "authors": [
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "halshs-00078451": {
@@ -34571,6 +35628,27 @@
 
     ]
   },
+  "halshs-03212071": {
+    "authors": [
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      },
+      {
+        "name": "Christian Jacob",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "halshs-03260086": {
     "authors": [
       {
@@ -34725,6 +35803,62 @@
 
     ]
   },
+  "halshs-03484047": {
+    "authors": [
+      {
+        "name": "Alice Dionnet",
+        "person": "alice-dionnet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "halshs-03484061": {
+    "authors": [
+      {
+        "name": "Alice Dionnet",
+        "person": "alice-dionnet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "halshs-03484081": {
+    "authors": [
+      {
+        "name": "Alice Dionnet",
+        "person": "alice-dionnet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "halshs-03484087": {
+    "authors": [
+      {
+        "name": "Alice Dionnet",
+        "person": "alice-dionnet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "halshs-03494973": {
     "authors": [
       {
@@ -34842,6 +35976,20 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "halshs-03961033": {
+    "authors": [
+      {
+        "name": "Alice Dionnet",
+        "person": "alice-dionnet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "halshs-04004539": {
@@ -35031,6 +36179,34 @@
     ],
     "statuses": [
 
+    ]
+  },
+  "halshs-04689512": {
+    "authors": [
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "halshs-04689597": {
+    "authors": [
+      {
+        "name": "Axel Le Roy",
+        "person": "axel-le-roy",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
     ]
   },
   "halshs-04821820": {
@@ -36629,6 +37805,20 @@
 
     ]
   },
+  "tel-03934785": {
+    "authors": [
+      {
+        "name": "Tao Liang",
+        "person": "tao-liang",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "tel-04464939": {
     "authors": [
       {
@@ -36690,6 +37880,34 @@
       {
         "name": "Colin Baldet",
         "person": "colin-baldet",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "tel-05019439": {
+    "authors": [
+      {
+        "name": "Elena Ghiringhelli",
+        "person": "elena-ghiringhelli",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "tel-05419133": {
+    "authors": [
+      {
+        "name": "Léa Roth",
+        "person": "lea-roth",
         "status": [
           "alumni"
         ]
