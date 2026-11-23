@@ -27,10 +27,10 @@ adrien-jeanrenaud:
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
   hal_id:
   - 1263170
 adrien-liossatos:
@@ -527,10 +527,11 @@ francois-pichenot:
     to: '2020-09-01'
   - status: alumni
     from: '2020-09-01'
-gabriella-elgarrista:
-  id: gabriella-elgarrista
-  name: Gabriella Elgarrista
-  aliases: []
+gabriela-elgarrista:
+  id: gabriela-elgarrista
+  name: Gabriela Elgarrista
+  aliases:
+  - Gabriella Elgarrista
   roles:
   - status: student
     from: '2017-09-01'
@@ -673,10 +674,10 @@ juliette-janes:
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
   idhal: juliette-janes
 katarzyna-kapitan:
   id: katarzyna-kapitan
@@ -734,10 +735,10 @@ leo-dray:
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
 lily-grumbach:
   id: lily-grumbach
   name: Lily Grumbach
@@ -892,10 +893,10 @@ marguerite-vernet:
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
   - status: professor
     from: '2025-09-01'
 maria-kirbasova:
@@ -1058,10 +1059,10 @@ michel-capot:
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
 moira-rosabrunetto:
   id: moira-rosabrunetto
   name: Moira Rosabrunetto
@@ -1290,10 +1291,10 @@ tanguy-ruault:
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
 tao-liang:
   id: tao-liang
   name: Tao Liang
