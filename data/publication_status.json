@@ -32254,6 +32254,83 @@
       "professor"
     ]
   },
+  "hal-05871611": {
+    "authors": [
+      {
+        "name": "Chahan Vidal-Gorène",
+        "person": "chahan-vidal-gorene",
+        "status": [
+          "professor"
+        ]
+      },
+      {
+        "name": "Arpine Avetisyan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Edita Matevosyan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Seda Kirakosyan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Victoria Khurshudyan",
+        "person": null,
+        "status": [
+
+        ]
+      },
+      {
+        "name": "Pollet Samvelian",
+        "person": null,
+        "status": [
+
+        ]
+      }
+    ],
+    "statuses": [
+      "professor"
+    ]
+  },
+  "hal-05875471": {
+    "authors": [
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
+  "hal-05875485": {
+    "authors": [
+      {
+        "name": "Vincent Sarbach-Pulicani",
+        "person": "vincent-sarbach-pulicani",
+        "status": [
+          "alumni"
+        ]
+      }
+    ],
+    "statuses": [
+      "alumni"
+    ]
+  },
   "halshs-00078451": {
     "authors": [
       {
