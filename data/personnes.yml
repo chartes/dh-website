@@ -11,16 +11,6 @@ aaron-parmentelat:
     to: '2024-09-01'
   - status: alumni
     from: '2024-09-01'
-adrien-escoda:
-  id: adrien-escoda
-  name: Adrien Escoda
-  aliases: []
-  roles:
-  - status: student
-    from: '2021-09-01'
-    to: '2023-09-01'
-  - status: alumni
-    from: '2023-09-01'
 adrien-jeanrenaud:
   id: adrien-jeanrenaud
   name: Adrien Jeanrenaud
@@ -112,16 +102,6 @@ alice-dionnet:
   - status: alumni
     from: '2020-09-01'
   idhal: alice-dionnet
-anahide-kasparian:
-  id: anahide-kasparian
-  name: Anahide Kasparian
-  aliases: []
-  roles:
-  - status: student
-    from: '2021-09-01'
-    to: '2023-09-01'
-  - status: alumni
-    from: '2023-09-01'
 anna-bouffier:
   id: anna-bouffier
   name: Anna Bouffier
@@ -161,16 +141,6 @@ axel-le-roy:
   - status: alumni
     from: '2019-09-01'
   idhal: axel-le-roy
-azia-keever:
-  id: azia-keever
-  name: Azia Keever
-  aliases: []
-  roles:
-  - status: student
-    from: '2021-09-01'
-    to: '2023-09-01'
-  - status: alumni
-    from: '2023-09-01'
 camille-bui:
   id: camille-bui
   name: Camille Bui
@@ -592,16 +562,6 @@ hippolyte-souvay:
     from: '2022-09-01'
   hal_id:
   - 1276570
-ingrid-guimaraes-de-lucena:
-  id: ingrid-guimaraes-de-lucena
-  name: Ingrid Guimarães de Lucena
-  aliases: []
-  roles:
-  - status: student
-    from: '2021-09-01'
-    to: '2023-09-01'
-  - status: alumni
-    from: '2023-09-01'
 irandokht-moinzadeh:
   id: irandokht-moinzadeh
   name: Irandokht Moinzadeh
@@ -1275,16 +1235,6 @@ steven-andre:
     to: '2028-09-01'
   - status: alumni
     from: '2028-09-01'
-susanna-de-luca:
-  id: susanna-de-luca
-  name: Susanna De Luca
-  aliases: []
-  roles:
-  - status: student
-    from: '2024-09-01'
-    to: '2026-09-01'
-  - status: alumni
-    from: '2026-09-01'
 tanguy-ruault:
   id: tanguy-ruault
   name: Tanguy Ruault
@@ -1425,17 +1375,6 @@ yaelle-zribi:
     to: '2025-09-01'
   - status: alumni
     from: '2025-09-01'
-yagmur-ozturk:
-  id: yagmur-ozturk
-  name: Yagmur Ozturk
-  aliases: []
-  roles:
-  - status: student
-    from: '2021-09-01'
-    to: '2023-09-01'
-  - status: alumni
-    from: '2023-09-01'
-  idhal: yagmurozturk
 ye-liu:
   id: ye-liu
   name: Ye Liu
