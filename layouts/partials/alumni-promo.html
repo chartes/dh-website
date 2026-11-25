@@ -29,7 +29,7 @@
         {{ $hal := "" }}
         {{ with .idhal }}{{ $hal = printf "https://hal.science/search/index/?q=*&authIdHal_s=%s" . }}
         {{ else with .hal_id }}{{ $hal = printf "https://hal.science/search/index/?q=*&authIdPerson_i=%v" (index (cond (reflect.IsSlice .) . (slice .)) 0) }}{{ end }}
-        {{ if or .github .linkedin $hal }}
+        {{ if or .github .linkedin $hal .orcid .scholar_id .academia }}
         <ul class="alumni-card__links list-unstyled mb-0">
           {{/* RGAA 6.1 / 13.2 : intitulé explicite hors contexte, ouverture signalée. */}}
           {{ with .github }}
@@ -40,6 +40,16 @@
           {{ end }}
           {{ with $hal }}
           <li><a href="{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-link" aria-hidden="true"></i> HAL<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
+          {{ end }}
+          {{ with .orcid }}
+          <li><a href="https://orcid.org/{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-id-badge" aria-hidden="true"></i> ORCID<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
+          {{ end }}
+          {{/* Même icône que sur les fiches des enseignants (layouts/teacher/single.html). */}}
+          {{ with .scholar_id }}
+          <li><a href="https://scholar.google.com/citations?user={{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-bookmark-alt" aria-hidden="true"></i> Google Scholar<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
+          {{ end }}
+          {{ with .academia }}
+          <li><a href="{{ . }}" target="_blank" rel="noopener" class="alumni-card__link"><i class="ti-world" aria-hidden="true"></i> Academia<span class="sr-only"> de {{ $nom }} (nouvelle fenêtre)</span></a></li>
           {{ end }}
         </ul>
         {{ end }}

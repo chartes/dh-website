@@ -27,10 +27,12 @@ adrien-jeanrenaud:
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
+  hal_id:
+  - 1263170
 adrien-liossatos:
   id: adrien-liossatos
   name: Adrien Liossatos
@@ -61,6 +63,8 @@ alberto-romele:
     to: '2021-09-01'
   - status: alumni
     from: '2021-09-01'
+  hal_id:
+  - 980549
 albina-toumarkine:
   id: albina-toumarkine
   name: Albina Toumarkine
@@ -107,6 +111,7 @@ alice-dionnet:
     to: '2020-09-01'
   - status: alumni
     from: '2020-09-01'
+  idhal: alice-dionnet
 anahide-kasparian:
   id: anahide-kasparian
   name: Anahide Kasparian
@@ -135,6 +140,16 @@ annick-vignes:
   - status: professor
     from: '2025-09-01'
   idhal: annick-vignes
+antoine-silvestre-de-sacy:
+  id: antoine-silvestre-de-sacy
+  name: Antoine Silvestre de Sacy
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
 axel-le-roy:
   id: axel-le-roy
   name: Axel Le Roy
@@ -145,6 +160,7 @@ axel-le-roy:
     to: '2019-09-01'
   - status: alumni
     from: '2019-09-01'
+  idhal: axel-le-roy
 azia-keever:
   id: azia-keever
   name: Azia Keever
@@ -165,6 +181,7 @@ camille-bui:
     to: '2019-09-01'
   - status: alumni
     from: '2019-09-01'
+  idhal: camille-bui
 camille-cazaux:
   id: camille-cazaux
   name: Camille Cazaux
@@ -377,6 +394,18 @@ ekaterina-iakovleva:
     to: '2024-09-01'
   - status: alumni
     from: '2024-09-01'
+elena-ghiringhelli:
+  id: elena-ghiringhelli
+  name: Elena Ghiringhelli
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
+  hal_id:
+  - 1528081
 eleonore-hasler:
   id: eleonore-hasler
   name: Éléonore Hasler
@@ -427,6 +456,8 @@ emilien-arnaud:
     to: '2022-09-01'
   - status: alumni
     from: '2022-09-01'
+  hal_id:
+  - 1543106
 etienne-ferrandi:
   id: etienne-ferrandi
   name: Etienne Ferrandi
@@ -496,16 +527,19 @@ francois-pichenot:
     to: '2020-09-01'
   - status: alumni
     from: '2020-09-01'
-gabriella-elgarrista:
-  id: gabriella-elgarrista
-  name: Gabriella Elgarrista
-  aliases: []
+gabriela-elgarrista:
+  id: gabriela-elgarrista
+  name: Gabriela Elgarrista
+  aliases:
+  - Gabriella Elgarrista
   roles:
   - status: student
     from: '2017-09-01'
     to: '2019-09-01'
   - status: alumni
     from: '2019-09-01'
+  hal_id:
+  - 1232805
 gaetan-drouet:
   id: gaetan-drouet
   name: Gaëtan Drouet
@@ -556,6 +590,8 @@ hippolyte-souvay:
     to: '2022-09-01'
   - status: alumni
     from: '2022-09-01'
+  hal_id:
+  - 1276570
 ingrid-guimaraes-de-lucena:
   id: ingrid-guimaraes-de-lucena
   name: Ingrid Guimarães de Lucena
@@ -638,10 +674,10 @@ juliette-janes:
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
   idhal: juliette-janes
 katarzyna-kapitan:
   id: katarzyna-kapitan
@@ -692,16 +728,17 @@ lea-roth:
     to: '2019-09-01'
   - status: alumni
     from: '2019-09-01'
+  idhal: lea-roth
 leo-dray:
   id: leo-dray
   name: Léo Dray
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
 lily-grumbach:
   id: lily-grumbach
   name: Lily Grumbach
@@ -856,10 +893,10 @@ marguerite-vernet:
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
   - status: professor
     from: '2025-09-01'
 maria-kirbasova:
@@ -912,6 +949,8 @@ marina-giardinetti:
     to: '2020-09-01'
   - status: alumni
     from: '2020-09-01'
+  hal_id:
+  - 1398408
 marion-carnot:
   id: marion-carnot
   name: Marion Carnot
@@ -1020,10 +1059,10 @@ michel-capot:
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
 moira-rosabrunetto:
   id: moira-rosabrunetto
   name: Moira Rosabrunetto
@@ -1107,6 +1146,16 @@ ombeline-ferraris:
     to: '2028-09-01'
   - status: alumni
     from: '2028-09-01'
+oriane-maseda:
+  id: oriane-maseda
+  name: Oriane Maseda
+  aliases: []
+  roles:
+  - status: student
+    from: '2018-09-01'
+    to: '2020-09-01'
+  - status: alumni
+    from: '2020-09-01'
 pauline-frejat:
   id: pauline-frejat
   name: Pauline Frejat
@@ -1242,10 +1291,10 @@ tanguy-ruault:
   aliases: []
   roles:
   - status: student
-    from: '2018-09-01'
-    to: '2020-09-01'
+    from: '2019-09-01'
+    to: '2021-09-01'
   - status: alumni
-    from: '2020-09-01'
+    from: '2021-09-01'
 tao-liang:
   id: tao-liang
   name: Tao Liang
@@ -1256,6 +1305,8 @@ tao-liang:
     to: '2020-09-01'
   - status: alumni
     from: '2020-09-01'
+  hal_id:
+  - 1214189
 thais-raffray:
   id: thais-raffray
   name: Thaïs Raffray
